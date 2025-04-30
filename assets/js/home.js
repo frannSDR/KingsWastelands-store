@@ -249,7 +249,7 @@ subscriptionForm.addEventListener('submit', function(event) {
     emailInput.style.border = '2px solid #ff4444';
     setTimeout(() => {
       emailInput.style.border = 'none';
-    }, 2000);
+    }, 2000); 
   }
 });
 

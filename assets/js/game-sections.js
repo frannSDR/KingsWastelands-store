@@ -75,11 +75,8 @@ dropdownItems.forEach(item => {
 function applyFilter(filterType, direction) {
     console.log(`Aplicando filtro: ${filterType}, dirección: ${direction}`);
     
-    // aqui ira tu codigo para filtrar los juegos
-    // Por ejemplo:
-    // sortGames(yourGamesArray, filterType, direction);
-    
-    // También puedes emitir un evento personalizado si prefieres
+    // aca va a ir el codigo para filtrar los juegos una vez que tengamos la db
+
     const filterEvent = new CustomEvent('gamefilter', {
         detail: {
             filter: filterType,

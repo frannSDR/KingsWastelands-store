@@ -16,7 +16,7 @@ loginBtn.addEventListener('click', () => {
   container.classList.remove('active');
 });
 
-// logica para alternar a la seccion de login desde el icono
+//** logica para alternar a la seccion de login desde el icono
 
 // ocultamos el contenedor de login
 loginContainer.style.opacity = '0';

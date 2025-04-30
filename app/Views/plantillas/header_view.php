@@ -35,12 +35,12 @@
         <li><a href="<?php echo base_url('ofertas') ?>">Ofertas</a></li>
         <li><a href="<?php echo base_url('nosotros') ?>">Quienes somos</a></li>
 
-        <!-- opciones que solo aparecen en el menu hamburguesa -->
+        <!-- opciones que solo aparecen en el menu hamburguesa(responsive) -->
         <li class="mobile-only"><a href="#" class="mobile-cart">Carrito de compras <i class="bi bi-cart"></i><span class="mobile-cart-count"></span></a></li>
       </ul>
     </nav>
 
-    <!-- Contenedor para los elementos de la derecha (derecha) -->
+    <!-- Contenedor para los elementos de la derecha -->
     <div class="right-header">
       <div class="header-action">
         <a id="cart-icon" class="cart_icon desktop-only" href="#"><i class="bi bi-cart"></i></a>
