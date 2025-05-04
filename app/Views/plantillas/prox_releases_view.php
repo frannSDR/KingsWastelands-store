@@ -1,5 +1,5 @@
 <!-- titulo de proximos lanzamientos -->
-<div class="trending-title"><a href="#">Proximos Lanzamientos <i class="fa-solid fa-chevron-right fa-2xs"></i></a></div>
+<div class="trending-title2"><a href="#">Proximos Lanzamientos <i class="fa-solid fa-chevron-right fa-2xs"></i></a></div>
 
 <!-- seccion de proximos lanzamientos -->
 <div class="games-container">

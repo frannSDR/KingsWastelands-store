@@ -23,7 +23,7 @@
             <!-- seccion de productos -->
             <section class="cart-products">
                 <div class="cart-header2">
-                    <h2>Productos (<span class="items-count">0</span>)</h2>
+                    <h2>Productos ( <span class="items-count">0</span> )</h2>
                 </div>
 
                 <div class="cart-items-list">
@@ -31,7 +31,7 @@
                     <div class="empty-cart-message2">
                         <i class="bi bi-cart-x"></i>
                         <p>Tu carrito está vacío</p>
-                        <a href="<?php echo base_url('/') ?>" class="continue-shopping2">Seguir comprando</a>
+                        <a class="continue-shopping2">Seguir comprando</a>
                     </div>
                 </div>
             </section>

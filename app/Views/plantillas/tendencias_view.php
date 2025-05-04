@@ -1,5 +1,5 @@
 <!-- menu de las tarjetas -->
-<div class="trending-title"><a href="#">Tendencias <i class="fa-solid fa-chevron-right fa-2xs"></i></a></div>
+<div class="trending-title2"><a href="#">Tendencias <i class="fa-solid fa-chevron-right fa-2xs"></i></a></div>
 
 <!-- contenedores de los juegos -->
 <div class="games-container">
@@ -23,8 +23,8 @@
             </div>
         </div>
         <div class="game-info">
-            <div class="game-title">Kingdom Come Deliverance II</div>
-            <div class="game-price">$13.03</div>
+            <div class="game-title2"><a href="<?php echo base_url('game_section2') ?>">The Elder Scrolls IV: Oblivion Remastered</a></div>
+            <div class="game-price">$41.992</div>
         </div>
     </div>
     <div class="game-card">

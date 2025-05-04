@@ -1,5 +1,5 @@
 <!-- titulo de ofertas semanales -->
-<div class="trending-title"><a href="#">Ofertas de la semana <i class="fa-solid fa-chevron-right fa-2xs"></i></a></div>
+<div class="trending-title2"><a href="#">Ofertas de la semana <i class="fa-solid fa-chevron-right fa-2xs"></i></a></div>
 
 <!-- seccion de ofertas semanales -->
 <div class="games-container">
@@ -109,7 +109,7 @@
         </div>
     </div>
     <div class="game-card">
-        <div class="media-contaienr">
+        <div class="media-container">
             <div class="discount-badge">75%</div>
             <img src="https://i.ibb.co/60dL2TVJ/mabb.jpg" alt="The Outer Worlds 2" class="game-image">
             <div class="game-trailer">

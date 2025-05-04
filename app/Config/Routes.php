@@ -31,6 +31,8 @@ $routes->get('/terminos', 'Home::terminos');
 
 $routes->get('/game_section', 'Home::game_section');
 
+$routes->get('/game_section2', 'Home::game_section2');
+
 $routes->get('/cart', 'Home::cart');
 
 $routes->get('/pago', 'Home::pago');

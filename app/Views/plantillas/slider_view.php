@@ -20,7 +20,7 @@
         <img src="https://i.ibb.co/WWkLwVVq/elden.jpg" alt="Elden Ring" border="0">
         <div class="slide-content">
           <h1>Elden Ring</h1>
-          <p>Álzate, Sinluz, y que la gracia te guíe para abrazar el poder del Círculo de Elden y encumbrarte como señor del Círculo en las Tierras Intermedias.</p>
+          <p>Recorre las interminables tierras intermedias en busca de nuevas aventuras.</p>
           <button>$39.99</button>
         </div>
       </div>
@@ -36,7 +36,7 @@
         <img src="https://i.ibb.co/w9DCKY0/acshadows.jpg" alt="Assassins Creed: Shadows" border="0">
         <div class="slide-content">
           <h1>Assassins Creed: Shadows</h1>
-          <p>Vive las historias entrelazadas de Naoe, una experta Assassin shinobi de la provincia de Iga, y Yasuke, el poderoso samurai africano de las leyendas históricas.</p>
+          <p>Vive las historias entrelazadas de Naoe y Yasuke.</p>
           <button>$79.99</button>
         </div>
       </div>
