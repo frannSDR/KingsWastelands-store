@@ -23,22 +23,22 @@
 
         <!-- seccion de registro -->
         <div class="form-box register">
-            <form action="">
+            <form action="<?= base_url('registro') ?>" method="POST">
                 <h1>Registro</h1>
                 <div class="input-box">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" name="email" placeholder="Email" required>
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Nombre de usuario" required>
+                    <input type="text" name="nombre" placeholder="Nombre de usuario" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" name="contraseña" placeholder="Contraseña" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Repetir contraseña" required>
+                    <input type="password" name="repetir" placeholder="Repetir contraseña" required>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <button type="submit" class="btn">Registrarse</button>

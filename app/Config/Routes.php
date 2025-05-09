@@ -38,3 +38,5 @@ $routes->get('/cart', 'Home::cart');
 $routes->get('/pago', 'Home::pago');
 
 $routes->get('/confirmacion', 'Home::confirmacion');
+
+$routes->get('/registro', 'Home::registro');
