@@ -39,4 +39,10 @@ $routes->get('/pago', 'Home::pago');
 
 $routes->get('/confirmacion', 'Home::confirmacion');
 
-$routes->get('/registro', 'Home::registro');
+$routes->get('/login', 'Home::login');
+
+$routes->get('/register', 'Home::register');
+
+$routes->get('/recuperar', 'Home::recuperar');
+
+$routes->get('/nueva-pass', 'Home::new_pass');

@@ -1,0 +1,170 @@
+:root {
+  --color-principal: #7B68EE; /* color principal */
+  --color-secundario: #303030; /* color secundario */
+  --background-color: #1E1E1E; /* fondo */
+  --texto: #FFFFFF; /* texto */
+  --texto-secundario: #CCCCCC; /* texto secundario */
+  --gris-claro: #333333; /* algunos bordes */
+  --hover-color: #9281FF; /* Color al pasar el mouse */
+  --error-color: #FF4444;
+  --success-color: #00C851;
+}
+
+/*! ------------------ SECCION DE REGLAS ------------------ */
+
+.legal-section {
+  background-color: #181818;
+  color: #e2e8f0;
+  padding: 2rem 1rem;
+  line-height: 1.6;
+  margin: 70px auto 20px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  border-radius: 15px;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #2d3748;
+  padding-bottom: 1.5rem;
+}
+
+.legal-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  background: #fff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.last-update {
+  margin-top: 1rem;
+}
+
+.update-badge {
+  background-color: #0a0a0a;
+  color: #94a3b8;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid #2d3748;
+}
+
+.legal-intro {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #6d28d9;
+}
+
+.legal-card {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.legal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.legal-card h2 {
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #6d28d9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legal-card p {
+  margin-bottom: 0.5rem;
+  color: var(--texto-secundario);
+}
+
+.legal-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.legal-list li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.list-marker {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.legal-link {
+  color: #6d28d9;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+  color: #8b5cf6;
+  text-decoration: underline;
+}
+
+.contact-card {
+  border: 1px solid #6d28d9;
+}
+
+.contact-info {
+  margin-top: 1rem;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+.icon-document { color: #6d28d9; }
+.icon-game { color: #f59e0b; }
+.icon-shield { color: #10b981; }
+.icon-cart { color: #3b82f6; }
+.icon-truck { color: #f97316; }
+.icon-warranty { color: #ec4899; }
+.icon-refund { color: #14b8a6; }
+.icon-update { color: #f43f5e; }
+.icon-law { color: #8b5cf6; }
+.icon-contact { color: #6366f1; }
+.icon-email { color: #3b82f6; }
+.icon-phone { color: #10b981; }
+
+@media (max-width: 768px) {
+  .legal-header h1 {
+      font-size: 1.8rem;
+  }
+  
+  .legal-card {
+      padding: 1.2rem;
+  }
+}

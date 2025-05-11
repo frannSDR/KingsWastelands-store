@@ -6,8 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= $titulo ?? '' ?></title>
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/lightbox.css" rel="stylesheet" />
-  <link href="assets/css/miestilo.css" rel="stylesheet" />
+  <link href="assets/css/components/lightbox.css" rel="stylesheet" />
+  <link href="assets/css/components/home.css" rel="stylesheet" />
+  <link href="assets/css/components/header.css" rel="stylesheet" />
+  <link href="assets/css/components/login-register.css" rel="stylesheet" />
+  <link href="assets/css/components/cart.css" rel="stylesheet" />
+  <link href="assets/css/components/comercializacion.css" rel="stylesheet" />
+  <link href="assets/css/components/footer.css" rel="stylesheet" />
+  <link href="assets/css/components/games.css" rel="stylesheet" />
+  <link href="assets/css/components/game-section.css" rel="stylesheet" />
+  <link href="assets/css/components/quienes-somos.css" rel="stylesheet" />
+  <link href="assets/css/components/reglas-terminos.css" rel="stylesheet" />
+  <link href="assets/css/components/contacto.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/9984108ce5.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -34,6 +44,8 @@
         <li><a href="<?php echo base_url('populares') ?>">Populares</a></li>
         <li><a href="<?php echo base_url('ofertas') ?>">Ofertas</a></li>
         <li><a href="<?php echo base_url('nosotros') ?>">Quienes somos</a></li>
+        <li><a href="<?php echo base_url('login') ?>">Iniciar Sesion</a></li>
+        <li><a href="<?php echo base_url('register') ?>">Registrarse</a></li>
 
         <!-- opciones que solo aparecen en el menu hamburguesa(responsive) -->
         <li class="mobile-only"><a href="#" class="mobile-cart">Carrito de compras <i class="bi bi-cart"></i><span class="mobile-cart-count"></span></a></li>
@@ -45,7 +57,6 @@
       <div class="header-action">
         <a id="cart-icon" class="cart_icon desktop-only" href="#"><i class="bi bi-cart"></i></a>
         <span class="cart-item-count desktop-only"></span>
-        <a class="login_icon" href="#"><i class="bi bi-person-circle"></i></a>
       </div>
 
       <!-- menu hamburguesa responsive -->

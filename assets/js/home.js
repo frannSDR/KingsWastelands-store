@@ -262,3 +262,37 @@ modal.addEventListener('click', function(event) {
     hideModal();
   }
 });
+
+//!------------- Particulas de fondo --------------//
+
+// Crear partículas
+function createParticles() {
+  const container = document.getElementById('particles');
+  const particleCount = Math.floor(window.innerWidth / 10);
+  
+  for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle1');
+      
+      // Tamaño aleatorio entre 1px y 3px
+      const size = Math.random() * 2 + 1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      // Posición aleatoria
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      
+      // Opacidad aleatoria
+      particle.style.opacity = Math.random() * 0.5 + 0.1;
+      
+      // Duración de animación aleatoria
+      const duration = Math.random() * 20 + 10;
+      const delay = Math.random() * -20;
+      particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+      
+      container.appendChild(particle);
+  }
+}
+
+createParticles();
