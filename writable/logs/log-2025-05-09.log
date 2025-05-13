@@ -1,0 +1,11 @@
+CRITICAL - 2025-05-09 18:46:57 --> ErrorException: Undefined variable $router
+[Method: GET, Route: /]
+in APPPATH\Config\Routes.php on line 42.
+ 1 APPPATH\Config\Routes.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $router', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Config\\Routes.php', 42)
+ 2 SYSTEMPATH\Router\RouteCollection.php(339): require('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Config\\Routes.php')
+ 3 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

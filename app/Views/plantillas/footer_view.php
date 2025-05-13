@@ -67,6 +67,7 @@
 <script src="assets/js/game-sections.js"></script>
 <script src="assets/js/cart.js"></script>
 <script src="assets/js/login-register.js"></script>
+<script src="assets/js/new-pass.js"></script>
 </body>
 
 </html>

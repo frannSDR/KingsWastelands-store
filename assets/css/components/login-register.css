@@ -1,0 +1,557 @@
+:root {
+  --color-principal: #7B68EE; /* color principal */
+  --color-secundario: #303030; /* color secundario */
+  --background-color: #1E1E1E; /* fondo */
+  --texto: #FFFFFF; /* texto */
+  --texto-secundario: #CCCCCC; /* texto secundario */
+  --gris-claro: #333333; /* algunos bordes */
+  --hover-color: #9281FF; /* Color al pasar el mouse */
+  --error-color: #FF4444;
+  --success-color: #00C851;
+}
+
+/*! ------------ PAGINAS DE LOGIN Y REGISTER -----------*/
+
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #121212;
+    padding: 20px;
+    color: #E0E0E0;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(123, 104, 238, 0.1) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #1E1E1E;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.auth-form-container {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-hero {
+    background: linear-gradient(135deg, #2D2D2D 0%, #121212 100%);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #E0E0E0;
+    background: linear-gradient(to right, var(--color-principal), #9F7AEA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #888;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.auth-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #E0E0E0;
+    position: relative;
+    text-align: center;
+}
+
+.auth-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-principal);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    background: #2D2D2D;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    font-size: 16px;
+    color: #E0E0E0;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.3);
+}
+
+.input-box input::placeholder {
+    color: #888;
+    font-weight: 400;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--color-principal);
+}
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px;
+    accent-color: var(--color-principal);
+}
+
+.forgot-link {
+    font-size: 14.5px;
+    color: var(--color-principal);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-link:hover {
+    color: #6A5ACD;
+    text-decoration: underline;
+}
+
+.auth-btn {
+    background-color: var(--color-principal);
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #E0E0E0;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(123, 104, 238, 0.4);
+}
+
+.auth-btn:hover {
+    background-color: #6A5ACD;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 104, 238, 0.6);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.terms input {
+    margin-right: 8px;
+    accent-color: var(--color-principal);
+}
+
+.terms a {
+    color: var(--color-principal);
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.auth-switch a {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.auth-switch a:hover {
+    color: #6A5ACD;
+    text-decoration: underline;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Efectos de partículas (opcional) */
+.particle {
+    position: absolute;
+    background: rgba(123, 104, 238, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+    
+    .auth-hero {
+        display: none;
+    }
+    
+    .auth-form-container {
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .auth-form-container {
+        padding: 40px 25px;
+    }
+    
+    .auth-title {
+        font-size: 2rem;
+    }
+    
+    .input-box input {
+        padding: 12px 45px 12px 15px;
+    }
+    
+    .auth-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .forgot-link {
+        margin-top: 10px;
+    }
+}
+
+/* Efecto de carga para los botones */
+.auth-btn.loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+.auth-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mensajes de error/éxito */
+.auth-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.auth-message.error {
+    background-color: rgba(255, 68, 68, 0.2);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+.auth-message.success {
+    background-color: rgba(0, 200, 81, 0.2);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+/*! ------------- RECUPERACION DE PASS -----------------*/
+
+/* Estilos específicos para recuperación de contraseña */
+.recovery-page .auth-container {
+    max-width: 900px;
+}
+
+.recovery-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.recovery-logo i {
+    font-size: 60px;
+    color: var(--color-principal);
+    background: rgba(123, 104, 238, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border: 2px solid var(--color-principal);
+}
+
+.recovery-subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Paso 2 - Nueva contraseña */
+.recovery-steps {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.recovery-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #2D2D2D;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 10px;
+    position: relative;
+}
+
+.recovery-step.active {
+    background: var(--color-principal);
+    color: white;
+}
+
+.recovery-step::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: #2D2D2D;
+    right: -20px;
+}
+
+.recovery-step:last-child::before {
+    display: none;
+}
+
+/* Responsive específico para recuperación */
+@media (max-width: 768px) {
+    .recovery-page .auth-form-container {
+        padding: 40px 30px;
+    }
+    
+    .recovery-logo i {
+        font-size: 50px;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .recovery-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/*! ------------- NUEVA PASSWORD ------------ */  
+
+/* Estilos para el indicador de fortaleza de contraseña */
+.password-strength {
+    margin-bottom: 25px;
+}
+
+.strength-meter {
+    width: 100%;
+    height: 6px;
+    background: #2D2D2D;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.strength-level {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.strength-level.weak {
+    background: var(--error-color);
+}
+
+.strength-level.medium {
+    background: #FFC107;
+}
+
+.strength-level.strong {
+    background: #28A745;
+}
+
+.strength-level.very-strong {
+    background: var(--color-principal);
+}
+
+.strength-text {
+    font-size: 0.85rem;
+    text-align: right;
+    font-weight: 500;
+}
+
+.strength-text.weak {
+    color: var(--error-color);
+}
+
+.strength-text.medium {
+    color: #FFC107;
+}
+
+.strength-text.strong {
+    color: #28A745;
+}
+
+.strength-text.very-strong {
+    color: var(--color-principal);
+}
+
+.password-requirements {
+    background: rgba(45, 45, 45, 0.5);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.password-requirements p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.password-requirements ul {
+    list-style: none;
+    padding-left: 5px;
+    margin: 0;
+}
+
+.password-requirements li {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.password-requirements li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: inherit;
+}

@@ -1,57 +1,102 @@
-//! --------- login/register --------- //
+// Efecto de partículas
+function createParticles() {
+    const section = document.querySelector('.auth-section');
+    const particleCount = window.innerWidth < 768 ? 20 : 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Tamaño aleatorio entre 2px y 6px
+        const size = Math.random() * 4 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Posición aleatoria
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Opacidad aleatoria
+        particle.style.opacity = Math.random() * 0.5 + 0.1;
+        
+        // Animación flotante
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * -20;
+        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        
+        section.appendChild(particle);
+    }
+}
 
-const container = document.querySelector('.container-l');
-const registerBtn = document.querySelector('.register-btn');
-const loginBtn = document.querySelector('.login-btn');
-const loginIcon = document.querySelector('.login_icon'); 
-const loginContainer = document.querySelector('.login-container');
+// Validación de formularios
+function setupFormValidation() {
+    const forms = document.querySelectorAll('.auth-form');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            // Simular carga (en un caso real sería una petición AJAX)
+            submitBtn.classList.add('loading');
+            
+            // Validación adicional para registro
+            if (form.closest('.register-page')) {
+                const password = this.querySelector('input[name="contraseña"]');
+                const confirmPassword = this.querySelector('input[name="confirmar_contraseña"]');
+                
+                if (password.value !== confirmPassword.value) {
+                    e.preventDefault();
+                    submitBtn.classList.remove('loading');
+                    showMessage('Las contraseñas no coinciden', 'error');
+                    return;
+                }
+                
+                if (password.value.length < 6) {
+                    e.preventDefault();
+                    submitBtn.classList.remove('loading');
+                    showMessage('La contraseña debe tener al menos 6 caracteres', 'error');
+                    return;
+                }
+            }
+            
+            // Aquí iría la lógica real de envío del formulario
+            // setTimeout solo para simulación
+            setTimeout(() => {
+                submitBtn.classList.remove('loading');
+                // showMessage('Operación exitosa', 'success');
+            }, 2000);
+        });
+    });
+}
 
-// logica para alternar a la seccion de registro
-registerBtn.addEventListener('click', () => {
-  container.classList.add('active');
-});
+// Mostrar mensajes de error/éxito
+function showMessage(text, type) {
+    // Eliminar mensajes existentes
+    const existingMessages = document.querySelectorAll('.auth-message');
+    existingMessages.forEach(msg => msg.remove());
+    
+    const form = document.querySelector('.auth-form');
+    const message = document.createElement('div');
+    message.className = `auth-message ${type}`;
+    message.textContent = text;
+    
+    form.insertBefore(message, form.firstChild);
+}
 
-// logica para alternar a la seccion de login
-loginBtn.addEventListener('click', () => {
-  container.classList.remove('active');
-});
-
-//** logica para alternar a la seccion de login desde el icono
-
-// ocultamos el contenedor de login
-loginContainer.style.opacity = '0';
-// completamente transparente
-loginContainer.style.display = 'none';
-
-// click en el icono de usuario para mostrar el login
-loginIcon.addEventListener('click', function(e) {
-  e.preventDefault();
-  
-  // opacidad en 0, completamente transparente
-  loginContainer.style.opacity = '0';
-  // cambiamos display a flex
-  loginContainer.style.display = 'flex';
-
-  // forzamos un reflow para que el navegador procese los cambios antes de la animacion
-  void loginContainer.offsetWidth;
-
-  // ahora añadimos la clase para la animación
-  loginContainer.classList.add('visible');
-});
-
-// al hacer click fuera del formulario se cierra
-loginContainer.addEventListener('click', function(e) {
-  // si el click fue en el contenedor pero no en el formulario
-  if (e.target === loginContainer) {
-    // primero agregamos la clase para la animacion de salida
-    loginContainer.classList.remove('visible');
-    loginContainer.classList.add('hiding');
-
-
-    // esperamos a que termine la animacion antes de ocultar completamente
-    setTimeout(() => {
-      loginContainer.style.display = 'none';
-      loginContainer.classList.remove('hiding');
-    }, 300); // este tiempo coincide con la duracion de la animacion
-  }
+// Inicialización
+document.addEventListener('DOMContentLoaded', function() {
+    createParticles();
+    setupFormValidation();
+    
+    // Efecto de enfoque en los inputs
+    const inputs = document.querySelectorAll('.input-box input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.querySelector('i').style.color = 'var(--hover-color)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.querySelector('i').style.color = 'var(--color-principal)';
+        });
+    });
 });

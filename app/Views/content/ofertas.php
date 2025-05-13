@@ -1,7 +1,10 @@
+<div class="particles" id="particles"></div>
 <div class="section-container">
-    <div class="trending-title">
-        <p href="#"><i class="fa-solid fa-chevron-right fa-xs"></i> Ofertas</p>
+    <div class="trending-title " style="margin-top: 30px;">
+        <p href="#">Ofertas</p>
     </div>
+
+    <!-- contenedores de los juegos -->
     <div class="games-container">
         <div class="game-card">
             <div class="media-container">
