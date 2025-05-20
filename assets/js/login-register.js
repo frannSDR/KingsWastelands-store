@@ -59,7 +59,6 @@ function setupFormValidation() {
                 }
             }
             
-            // Aquí iría la lógica real de envío del formulario
             // setTimeout solo para simulación
             setTimeout(() => {
                 submitBtn.classList.remove('loading');

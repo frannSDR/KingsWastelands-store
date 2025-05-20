@@ -12,10 +12,11 @@ class JuegosModel extends Model
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = [
         'title',
+        'price',
         'release_date',
         'about',
         'synopsis',
@@ -33,11 +34,10 @@ class JuegosModel extends Model
     protected bool $updateOnlyChanged = true;
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -75,5 +75,20 @@ class JuegosModel extends Model
     public function keys()
     {
         return $this->hasMany(KeyModel::class, 'game_id', 'game_id');
+    }
+
+    public function getJuegosPorCategoria($categoriaSlug, $perPage = null)
+    {
+        $builder = $this->select('juegos.game_id, juegos.title, juegos.price, juegos.card_image_url, juegos.youtube_trailer_id')
+            ->join('juego_categorias', 'juego_categorias.game_id = juegos.game_id')
+            ->join('categorias', 'categorias.category_id = juego_categorias.category_id')
+            ->where('categorias.slug', $categoriaSlug)
+            ->orderBy('juegos.created_at', 'DESC');
+
+        if ($perPage) {
+            return $builder->paginate($perPage);
+        }
+
+        return $builder->findAll();
     }
 }

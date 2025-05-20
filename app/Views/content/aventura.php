@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <!-- titulo de la categoria -->
+    <!-- boton para filtrar -->
     <div class="filter-container">
         <button id="filterButton" class="filter-button">
             <div class="filter-label">
@@ -15,7 +15,17 @@
                     <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
                 </svg>
                 Filtrar
-                <span id="selectedFilterText" class="selected-filter">Alfabético</span>
+                <span id="selectedFilterText" class="selected-filter">
+                    <?=
+                    match ($currentFilter ?? 'rating') {
+                        'alphabetic' => 'Alfabético',
+                        'release' => 'Fecha de salida',
+                        'rating' => 'Calificación',
+                        'price' => 'Precio',
+                        default => 'Calificación'
+                    }
+                    ?>
+                </span>
             </div>
             <svg class="arrow-icon" id="arrowIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 10l5 5 5-5z" />
@@ -45,23 +55,6 @@
                         <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
                     </svg>
                     <span>Fecha de salida</span>
-                </div>
-                <div class="direction">
-                    <svg class="asc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
-                    </svg>
-                    <svg class="desc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="dropdown-item" data-filter="popularity" data-direction="asc">
-                <div class="label">
-                    <svg class="sort-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z" />
-                    </svg>
-                    <span>Popularidad</span>
                 </div>
                 <div class="direction">
                     <svg class="asc-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -111,127 +104,72 @@
 
     <!-- contenedor de los videojuegos -->
     <div class="games-container">
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/VYP5WQpH/rdr2.jpg" alt="Monster Hunter: Wilds" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2HOClc6Svg4?si=iVN60aCs1A9I_tQc&amp;start=10&amp;controls=0&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <?php foreach ($juegos as $juego): ?>
+            <div class="game-card">
+                <div class="media-container">
+                    <img src="<?= $juego['card_image_url'] ?>" alt="<?= esc($juego['title']) ?>" class="game-image">
+                    <?php if (!empty($juego['youtube_trailer_id'])): ?>
+                        <div class="game-trailer">
+                            <iframe
+                                src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Red Dead Redemption 2</div>
-                <div class="game-price">$59.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/QvvD5cC7/gow.png" alt="Kingdom Come: Deliverance II" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ym3W7_-7-rU?si=eNrF-6mGpSl7NazW&amp;start=10&amp;controls=0&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="game-info">
+                    <div class="game-title"><?= esc($juego['title']) ?></div>
+                    <div class="game-price">$<?= number_format($juego['price'], 2) ?></div>
                 </div>
+                <a href="<?= base_url('juego/' . $juego['game_id']) ?>" class="stretched-link"></a>
             </div>
-            <div class="game-info">
-                <div class="game-title">God of War (2018)</div>
-                <div class="game-price">$13.03</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/KcmZTJFc/horizon.jpg" alt="Assassin's Creed Shadows" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5SNo8h-KfAU?si=5MP8FqHCWwFUEvp6&amp;start=10&amp;controls=0&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Horizon Zero Dawn</div>
-                <div class="game-price">$54.65</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/QFYWHWhQ/death.jpg" alt="Terraria" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ktw2k3m7Qko?si=OwP-tPpkfcBfuiJF&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Death Stranding Director's Cut</div>
-                <div class="game-price">$5.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/7JDgYpHr/apti.jpg" alt="REPO" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ngZoq1RApqk?si=0x5BQ9ARSbLHW_lm&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">A Plague Tale: Innocence</div>
-                <div class="game-price">$11.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/67bPVrn6/witcher.jpg" alt="Schedule I" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/w6bE11FrSFM?si=nAQdVe-7BVMbSZwa&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">The Witcher 3: Wild Hunt</div>
-                <div class="game-price">$15.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">-23%</div>
-                <img src="https://i.ibb.co/cKCz30JQ/lis.png" alt="Path of Exile II" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/8X2kIfS6fb8?si=vSIwS4U0fAF2dHqq&amp;start=10&amp;controls=0&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Life is Strange</div>
-                <div class="game-price">$45.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/QvTrTMPb/firewatch.jpg" alt="Stardew Valley" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/WYRePGtK074?si=hT1LC6wRToLqTZme&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Firewatch</div>
-                <div class="game-price">$14.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <img src="https://i.ibb.co/rGLdrB6S/outerwilds.png" alt="EA FC 25" class="game-image">
-                <div class="game-trailer">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YKRhE5hcG_E?si=BWqqm8NXEstUvzPq&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Outer Wilds</div>
-                <div class="game-price">$34.99</div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
-
-    <!-- botones de paginacion -->
+    <!-- Paginación funcional -->
     <div class="pagination">
-        <button class="pagination-button active">1</button>
-        <button class="pagination-button">2</button>
-        <span class="pagination-ellipsis">...</span>
-        <button class="pagination-button">13</button>
-        <button class="pagination-button">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-        </button>
+        <?php if ($currentPage > 1): ?>
+            <a href="?page=<?= $currentPage - 1 ?>" style="text-decoration: none;" class="pagination-button">
+                <i class="fa-solid fa-chevron-left fa-xs"></i>
+            </a>
+        <?php endif; ?>
+
+        <?php
+        // Mostrar números de página
+        $start = max(1, $currentPage - 2);
+        $end = min($totalPages, $currentPage + 2);
+
+        if ($start > 1): ?>
+            <button class="pagination-button <?= 1 == $currentPage ? 'active' : '' ?>">
+                <a href="?page=1">1</a>
+            </button>
+            <?php if ($start > 2): ?>
+                <span class="pagination-ellipsis">...</span>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <?php for ($i = $start; $i <= $end; $i++): ?>
+            <button class="pagination-button <?= $i == $currentPage ? 'active' : '' ?>">
+                <a href="?page=<?= $i ?>"><?= $i ?></a>
+            </button>
+        <?php endfor; ?>
+
+        <?php if ($end < $totalPages): ?>
+            <?php if ($end < $totalPages - 1): ?>
+                <span class="pagination-ellipsis">...</span>
+            <?php endif; ?>
+            <button class="pagination-button <?= $totalPages == $currentPage ? 'active' : '' ?>">
+                <a href="?page=<?= $totalPages ?>"><?= $totalPages ?></a>
+            </button>
+        <?php endif; ?>
+
+        <?php if ($currentPage < $totalPages): ?>
+            <a href="?page=<?= $currentPage + 1 ?>" style="text-decoration: none;" class="pagination-button">
+                <i class="fa-solid fa-chevron-right fa-xs"></i>
+            </a>
+        <?php endif; ?>
     </div>
 </div>

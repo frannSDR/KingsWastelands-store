@@ -12,7 +12,7 @@ class CategoriaModel extends Model
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = [
         'name_cat',
@@ -51,5 +51,21 @@ class CategoriaModel extends Model
     public function games()
     {
         return $this->hasMany(JuegoCategoriaModel::class, 'category_id', 'category_id');
+    }
+
+    /**
+     * Obtener todas las categorías
+     */
+    public function getAllCategorias()
+    {
+        return $this->findAll();
+    }
+
+    /**
+     * Obtener categoría por slug
+     */
+    public function getCategoriaBySlug($slug)
+    {
+        return $this->where('slug', $slug)->first();
     }
 }

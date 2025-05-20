@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class JuegoCategoriaModel extends Model
 {
-    protected $table      = 'juegos_categorias';
+    protected $table      = 'juego_categorias';
     protected $primaryKey = 'game_id';
 
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = [
         'game_id',

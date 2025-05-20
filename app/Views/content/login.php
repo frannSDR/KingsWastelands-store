@@ -1,11 +1,18 @@
 <section class="auth-section login-page">
     <div class="auth-container">
         <div class="auth-form-container">
-            <form action="procesar_login.php" method="POST" class="auth-form">
+            <form action="<?php echo base_url('procesar_login') ?>" method="POST" class="auth-form">
+                <?= csrf_field() ?>
                 <h1 class="auth-title">Inicio de Sesión</h1>
 
+                <?php if (isset($validation)): ?>
+                    <div class="alert alert-danger">
+                        <?= $validation->listErrors() ?>
+                    </div>
+                <?php endif; ?>
+
                 <div class="input-box">
-                    <input type="text" name="usuario" placeholder="Usuario" required>
+                    <input type="text" name="usuario" placeholder="Nombre de Usuario" required value="<?= old('usuario') ?>">
                     <i class='bx bxs-user'></i>
                 </div>
 

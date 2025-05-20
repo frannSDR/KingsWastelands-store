@@ -1,108 +1,72 @@
 //! ----------- filtro para los juegos ----------- //
-
 const filterButton = document.getElementById('filterButton');
 const filterDropdown = document.getElementById('filterDropdown');
 const arrowIcon = document.getElementById('arrowIcon');
 const dropdownItems = document.querySelectorAll('.dropdown-item');
 const selectedFilterText = document.getElementById('selectedFilterText');
 
-// estado del filtro actual
-let currentFilter = null;
-let currentDirection = 'asc';
+// Estado del filtro actual (obtenido de la URL o valores por defecto)
+const urlParams = new URLSearchParams(window.location.search);
+let currentFilter = urlParams.get('filter') || 'rating';
+let currentDirection = urlParams.get('direction') || 'desc';
+
 const filterNames = {
     'alphabetic': 'Alfabético',
     'release': 'Fecha',
-    'popularity': 'Popularidad',
     'rating': 'Calificación',
     'price': 'Precio'
 };
 
-// mostrar/ocultar dropdown al hacer clic en el boton
-filterButton.addEventListener('click', () => {
-    filterDropdown.classList.toggle('show');
-    arrowIcon.classList.toggle('rotate');
-    filterButton.classList.toggle('active');
-});
+// Mostrar filtro actual en el botón
+selectedFilterText.textContent = filterNames[currentFilter];
+selectedFilterText.classList.add('visible');
 
-// cerrar dropdown si se hace clic fuera
-window.addEventListener('click', (event) => {
-    if (!event.target.closest('.filter-container')) {
-        filterDropdown.classList.remove('show');
-        arrowIcon.classList.remove('rotate');
-        filterButton.classList.remove('active');
+// Marcar item activo en el dropdown
+dropdownItems.forEach(item => {
+    if (item.getAttribute('data-filter') === currentFilter) {
+        item.classList.add('active');
+        item.setAttribute('data-direction', currentDirection);
+        
+        // Mostrar icono de dirección correcto
+        const directionIcons = item.querySelectorAll('.asc-icon, .desc-icon');
+        directionIcons.forEach(icon => icon.style.display = 'none');
+        item.querySelector(`.${currentDirection}-icon`).style.display = 'block';
     }
 });
 
-// manejar seleccion de opciones de filtro
+// Mostrar/ocultar dropdown
+filterButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    filterDropdown.classList.toggle('show');
+    arrowIcon.classList.toggle('rotate');
+});
+
+// Cerrar dropdown al hacer clic fuera
+document.addEventListener('click', () => {
+    filterDropdown.classList.remove('show');
+    arrowIcon.classList.remove('rotate');
+});
+
+// Manejar selección de filtros
 dropdownItems.forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+        e.stopPropagation();
         const filterType = item.getAttribute('data-filter');
         
-        // si ya esta seleccionado el mismo filtro, cambiar direccion
+        // Determinar nueva dirección
+        let newDirection;
         if (currentFilter === filterType) {
-            currentDirection = currentDirection === 'asc' ? 'desc' : 'asc';
-            item.setAttribute('data-direction', currentDirection);
+            newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
         } else {
-            // quitar active de todos los items
-            dropdownItems.forEach(dropItem => {
-                dropItem.classList.remove('active');
-            });
-            
-            // activar el elemento actual
-            item.classList.add('active');
-            item.setAttribute('data-direction', 'asc');
-            currentFilter = filterType;
-            currentDirection = 'asc';
+            newDirection = 'desc'; // Nueva dirección por defecto
         }
-        
-        // actualizar texto del filtro seleccionado en el boton
-        selectedFilterText.textContent = filterNames[filterType];
-        selectedFilterText.classList.add('visible');
-        
-        // aplicar el filtro
-        applyFilter(filterType, currentDirection);
-        
-        // cerrar dropdown despues de seleccionar
-        setTimeout(() => {
-            filterDropdown.classList.remove('show');
-            arrowIcon.classList.remove('rotate');
-            filterButton.classList.remove('active');
-        }, 300);
+
+        // Actualizar URL con los nuevos parámetros
+        const url = new URL(window.location);
+        url.searchParams.set('filter', filterType);
+        url.searchParams.set('direction', newDirection);
+        window.location.href = url.toString();
     });
-});
-
-// funcion para aplicar el filtro 
-function applyFilter(filterType, direction) {
-    console.log(`Aplicando filtro: ${filterType}, dirección: ${direction}`);
-    
-    // aca va a ir el codigo para filtrar los juegos una vez que tengamos la db
-
-    const filterEvent = new CustomEvent('gamefilter', {
-        detail: {
-            filter: filterType,
-            direction: direction
-        }
-    });
-    document.dispatchEvent(filterEvent);
-}
-
-// agregado de efectos al dropdown
-dropdownItems.forEach((item, index) => {
-    item.style.opacity = "0";
-    item.style.transform = "translateX(-10px)";
-    
-    // animacion de entrada escalonada
-    setTimeout(() => {
-        item.style.transition = "all 0.3s ease";
-        item.style.opacity = "1";
-        item.style.transform = "translateX(0)";
-    }, 50 * (index + 1));
-});
-
-// Escuchar el evento personalizado (opcional)
-document.addEventListener('gamefilter', (e) => {
-    const { filter, direction } = e.detail;
-    // aqui iria el codigo par manejar el filtrado
 });
 
 //! ----------- ajustes de lightbox2 ------------ //

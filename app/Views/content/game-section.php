@@ -1,11 +1,11 @@
 <!-- banner del juego -->
-<div class="game-banner">
+<div class="game-banner" style="background-image: url('<?= $juego['banner_image_url'] ?>');">
     <div class="banner-overlay"></div>
     <div class="banner-content">
-        <h1>The Elder Scrolls IV: Oblivion Remastered</h1>
+        <h1><?= esc($juego['title']) ?></h1>
         <div class="banner-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-value">4.8/5</span>
+            <span class="stars"><?= str_repeat('★', floor($juego['rating'] / 2)) . str_repeat('☆', 5 - floor($juego['rating'] / 2)) ?></span>
+            <span class="rating-value"><?= number_format($juego['rating'] / 2, 1) ?>/5</span>
         </div>
     </div>
 </div>
@@ -15,7 +15,7 @@
     <div class="contenido-principal">
         <div class="game-header">
             <div class="game-cover">
-                <img src="https://i.ibb.co/VcnH2VR2/oblivion.png" alt="Portada del juego" class="cover-image">
+                <img src="<?= $juego['cover_image_url'] ?>" alt="Portada de <?= esc($juego['title']) ?>" class="cover-image">
                 <div class="platform-tags">
                     <span class="platform-tag">Steam</span>
                     <span class="platform-tag">GOG</span>
@@ -23,12 +23,16 @@
             </div>
             <div class="game-details">
                 <div class="game-meta">
-                    <span class="meta-item"><i class="bi bi-calendar"></i> 21 abril 2025</span>
-                    <span class="meta-item"><i class="bi bi-people"></i> Bethesda Game Studios</span>
-                    <span class="meta-item"><i class="bi bi-tags"></i> RPG, Mundo Abierto</span>
+                    <span class="meta-item"><i class="bi bi-calendar"></i> <?= date('d M Y', strtotime($juego['release_date'])) ?></span>
+                    <span class="meta-item"><i class="bi bi-people"></i> <?= esc($juego['developer']) ?></span>
+                    <span class="meta-item"><i class="bi bi-tags"></i>
+                        <?php foreach ($categorias as $categoria): ?>
+                            <a href="/<?= $categoria['slug'] ?>"><?= $categoria['name_cat'] ?></a><?= !end($categorias) ? ', ' : '' ?>
+                        <?php endforeach; ?>
+                    </span>
                 </div>
                 <div class="game-description">
-                    <p>Moderniza el Juego del Año de 2006 con unos gráficos impresionantes y una jugabilidad mejorada. Explora el vasto paisaje de Cyrodiil.</p>
+                    <p><?= esc($juego['about']) ?></p>
                 </div>
                 <div class="availability">
                     <span class="availability-tag available"><i class="bi bi-check-circle"></i> En stock</span>
@@ -36,11 +40,15 @@
                 </div>
                 <div class="pricing-section">
                     <div class="price-container">
-                        <span class="original-price">$54.99</span>
-                        <span class="discount-badge">-20%</span>
-                        <span class="current-price">$34.99</span>
+                        <span class="current-price">$<?= number_format($juego['price'], 2) ?></span>
+
+                        <!-- si el juego tiene descuento se aplica (deshabilitada por ahora) -->
+                        <?php if (isset($juego['discount']) && $juego['discount'] > 0): ?>
+                            <span class="discount-badge">-<?= $juego['discount'] ?>%</span>
+                            <span class="current-price">$<?= number_format($juego['price'] * (1 - $juego['discount'] / 100), 2) ?></span>
+                        <?php endif; ?>
                     </div>
-                    <button class="add-to-cart-btn" onclick="addToCart('game1', 'The Elder Scrolls IV: Oblivion Remastered', 34.99, 'https://i.ibb.co/PvQ0QYkT/oblivion.png')">
+                    <button class="add-to-cart-btn">
                         <i class="bi bi-cart-plus"></i> Añadir al carrito
                     </button>
                     <button class="wishlist-btn">
@@ -52,42 +60,30 @@
         <h2 class="titulo-sinopsis">Acerca de</h2>
         <div class="tab-content active" id="about">
             <div class="game-synopsis">
-                <h2>Sumérgete en Cyrodiil</h2>
-                <p>Kingdom Come: Deliverance 2 es la esperada secuela del aclamado juego de rol medieval desarrollado por Warhorse Studios. Ambientado en el corazón de Bohemia durante el turbulento siglo XV, el juego continúa la historia de Henry, un humilde herrero que se ve envuelto en una intrincada red de conspiraciones, guerras y traiciones.</p>
-                <p>Tras los eventos del primer juego, Henry se enfrenta a nuevas amenazas mientras busca justicia y redención en un mundo desgarrado por la guerra y la corrupción. Con un enfoque en la autenticidad histórica, el juego ofrece un vasto mundo abierto lleno de castillos, aldeas y paisajes detallados, donde cada decisión del jugador tiene consecuencias reales.</p>
+                <?= nl2br(esc($juego['synopsis'])) ?>
             </div>
         </div>
-        <h2 class="titulo-sinopsis">Visuales</h2>
+
+        <h2 class="titulo-sinopsis" style="margin-top: 30px;">Visuales</h2>
         <div class="visuales-container">
-            <div class="trailer-container">
-                <iframe
-                    src="https://www.youtube.com/embed/j7DJGMHhTpU?si=ySamK1GHy5TSNyqP"
-                    title="Trailer del videojuego"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
+            <?php if ($juego['youtube_trailer_id']): ?>
+                <div class="trailer-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>"
+                        title="Trailer de <?= esc($juego['title']) ?>"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            <?php endif; ?>
             <div class="galeria-container">
-                <div class="thumbnail">
-                    <a href="https://i.ibb.co/5WYHngcH/oblivion1.jpg" data-lightbox="img" data-title="Montañas nevadas con lobos">
-                        <img src="https://i.ibb.co/5WYHngcH/oblivion1.jpg" alt="Montañas nevadas con lobos">
-                    </a>
-                </div>
-                <div class="thumbnail">
-                    <a href="https://i.ibb.co/1F2cyCV/oblivion2.jpg" data-lightbox="img" data-title="Personaje con armadura">
-                        <img src="https://i.ibb.co/1F2cyCV/oblivion2.jpg" alt="Personaje con armadura">
-                    </a>
-                </div>
-                <div class="thumbnail">
-                    <a href="https://i.ibb.co/QF4TFKmb/oblivion4.jpg" data-lightbox="img" data-title="Escena de batalla">
-                        <img src="https://i.ibb.co/QF4TFKmb/oblivion4.jpg" alt="Escena de batalla">
-                    </a>
-                </div>
-                <div class="thumbnail">
-                    <a href="https://i.ibb.co/TBT601QY/oblivion5.jpg" data-lightbox="img" data-title="Personaje en un bosque">
-                        <img src="https://i.ibb.co/TBT601QY/oblivion5.jpg" alt="Personaje en un bosque">
-                    </a>
-                </div>
+                <?php foreach ($imagenes as $imagen): ?>
+                    <div class="thumbnail">
+                        <a href="<?= $imagen['image_url'] ?>" data-lightbox="img" data-title="<?= esc($imagen['alt_text'] ?? $juego['title']) ?>">
+                            <img src="<?= $imagen['image_url'] ?>" alt="<?= esc($imagen['alt_text'] ?? $juego['title']) ?>">
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -110,15 +106,15 @@
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Procesador</span>
-                            <span class="requisito-valor">Intel Core i5-6600K / AMD Ryzen 5 1400</span>
+                            <span class="requisito-valor"><?= esc($requisitos['minimo']['cpu']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Memoria</span>
-                            <span class="requisito-valor">8 GB RAM</span>
+                            <span class="requisito-valor"><?= esc($requisitos['minimo']['ram']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Gráficos</span>
-                            <span class="requisito-valor">NVIDIA GTX 970 4GB / AMD RX 470 4GB</span>
+                            <span class="requisito-valor"><?= esc($requisitos['minimo']['gpu']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">DirectX</span>
@@ -126,7 +122,7 @@
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Almacenamiento</span>
-                            <span class="requisito-valor">60 GB SSD</span>
+                            <span class="requisito-valor"><?= esc($requisitos['minimo']['storage']) ?></span>
                         </div>
                     </div>
                 </div>
@@ -145,15 +141,15 @@
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Procesador</span>
-                            <span class="requisito-valor">Intel Core i7-9700K / AMD Ryzen 7 3700X</span>
+                            <span class="requisito-valor"><?= esc($requisitos['recomendado']['cpu']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Memoria</span>
-                            <span class="requisito-valor">16 GB RAM</span>
+                            <span class="requisito-valor"><?= esc($requisitos['recomendado']['ram']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Gráficos</span>
-                            <span class="requisito-valor">NVIDIA RTX 2070 Super 8GB / AMD RX 5700 XT 8GB</span>
+                            <span class="requisito-valor"><?= esc($requisitos['recomendado']['gpu']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">DirectX</span>
@@ -161,7 +157,7 @@
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Almacenamiento</span>
-                            <span class="requisito-valor">60 GB SSD (NVMe recomendado)</span>
+                            <span class="requisito-valor"><?= esc($requisitos['recomendado']['storage']) ?></span>
                         </div>
                     </div>
                 </div>
@@ -180,15 +176,15 @@
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Procesador</span>
-                            <span class="requisito-valor">Intel Core i9-12900K / AMD Ryzen 9 5900X</span>
+                            <span class="requisito-valor"><?= esc($requisitos['ultra']['cpu']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Memoria</span>
-                            <span class="requisito-valor">32 GB RAM</span>
+                            <span class="requisito-valor"><?= esc($requisitos['ultra']['ram']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Gráficos</span>
-                            <span class="requisito-valor">NVIDIA RTX 3080 10GB / AMD RX 6800 XT 16GB</span>
+                            <span class="requisito-valor"><?= esc($requisitos['ultra']['gpu']) ?></span>
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">DirectX</span>
@@ -196,7 +192,7 @@
                         </div>
                         <div class="requisito-item">
                             <span class="requisito-etiqueta">Almacenamiento</span>
-                            <span class="requisito-valor">60 GB SSD NVMe</span>
+                            <span class="requisito-valor"><?= esc($requisitos['ultra']['storage']) ?></span>
                         </div>
                     </div>
                 </div>

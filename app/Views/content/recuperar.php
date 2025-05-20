@@ -1,4 +1,4 @@
-<section class="auth-section recovery-page">
+<section class="auth-section recovery-page" style="margin-top: 25px;">
     <div class="auth-container">
         <div class="auth-form-container">
             <form action="procesar_recuperacion.php" method="POST" class="auth-form">

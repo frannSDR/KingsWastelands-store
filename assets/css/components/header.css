@@ -101,15 +101,18 @@ header nav {
   position: absolute;
   border-radius: 5px;
   bottom: -5px;
-  left: 0;
+  left: 50%;
   width: 0%;
   height: 3px;
   background-color: var(--color-principal);
   transition: all 0.5s;
+  transform: translateX(-50%);
 }
 
 .nav_links li a:hover::before {
   width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 
@@ -326,4 +329,18 @@ header nav {
     position: relative;
     margin-left: 5px;
   }
+}
+
+.logout-btn {
+    color: var(--texto-secundario);
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    padding: 0px;
+    transition: color 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: #FF4444;
+    background: transparent;
 }

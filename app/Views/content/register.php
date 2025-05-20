@@ -1,16 +1,23 @@
 <section class="auth-section register-page">
     <div class="auth-container">
         <div class="auth-form-container">
-            <form action="procesar_registro.php" method="POST" class="auth-form">
+            <form action="<?php echo base_url('procesar_registro') ?>" method="POST" class="auth-form">
+                <?= csrf_field() ?>
                 <h1 class="auth-title">Registro</h1>
 
+                <?php if (isset($validation)): ?>
+                    <div class="alert alert-danger">
+                        <?= $validation->listErrors() ?>
+                    </div>
+                <?php endif; ?>
+
                 <div class="input-box">
-                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="email" name="email" placeholder="Email" required value="<?= old('email') ?>">
                     <i class='bx bxs-envelope'></i>
                 </div>
 
                 <div class="input-box">
-                    <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+                    <input type="text" name="usuario" placeholder="Nombre de usuario" required value="<?= old('usuario') ?>">
                     <i class='bx bxs-user'></i>
                 </div>
 

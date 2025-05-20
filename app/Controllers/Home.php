@@ -40,6 +40,12 @@ class Home extends BaseController
         return view('../Views/plantillas/header_view.php', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/contacto.php') . view('../Views/plantillas/footer_view.php');
     }
 
+    public function error_contacto(): string
+    {
+        $data['titulo'] = "Error de Contacto";
+        return view('../Views/plantillas/header_view.php', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/consulta_error.php') . view('../Views/plantillas/footer_view.php');
+    }
+
     public function terminos(): string
     {
         $data['titulo'] = "Términos y Usos";

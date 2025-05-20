@@ -5,28 +5,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= $titulo ?? '' ?></title>
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/components/lightbox.css" rel="stylesheet" />
-  <link href="assets/css/components/home.css" rel="stylesheet" />
-  <link href="assets/css/components/header.css" rel="stylesheet" />
-  <link href="assets/css/components/login-register.css" rel="stylesheet" />
-  <link href="assets/css/components/cart.css" rel="stylesheet" />
-  <link href="assets/css/components/comercializacion.css" rel="stylesheet" />
-  <link href="assets/css/components/footer.css" rel="stylesheet" />
-  <link href="assets/css/components/games.css" rel="stylesheet" />
-  <link href="assets/css/components/game-section.css" rel="stylesheet" />
-  <link href="assets/css/components/quienes-somos.css" rel="stylesheet" />
-  <link href="assets/css/components/reglas-terminos.css" rel="stylesheet" />
-  <link href="assets/css/components/contacto.css" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/lightbox.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/home.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/header.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/login-register.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/cart.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/comercializacion.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/footer.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/games.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/game-section.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/quienes-somos.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/reglas-terminos.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/contacto.css') ?>" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/9984108ce5.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
   <header>
     <!-- logo de la pagina  -->
-    <h1><a class="logo" href="<?php echo base_url('/') ?>"><img class="logo_img" src="assets/img/dslogo.png" alt="logo"></a></h1>
+    <h1><a class="logo" href="<?php echo base_url('/') ?>"><img class="logo_img" src="<?= base_url('assets/img/dslogo.png') ?>" alt="logo"></a></h1>
 
     <!-- navbar de la pagina -->
     <nav>
@@ -44,8 +44,18 @@
         <li><a href="<?php echo base_url('populares') ?>">Populares</a></li>
         <li><a href="<?php echo base_url('ofertas') ?>">Ofertas</a></li>
         <li><a href="<?php echo base_url('nosotros') ?>">Quienes somos</a></li>
-        <li><a href="<?php echo base_url('login') ?>">Iniciar Sesion</a></li>
-        <li><a href="<?php echo base_url('register') ?>">Registrarse</a></li>
+        <?php if (!session()->get('is_active')): ?>
+          <li><a href="<?php echo base_url('login') ?>">Iniciar Sesion</a></li>
+          <li><a href="<?php echo base_url('register') ?>">Registrarse</a></li>
+        <?php else: ?>
+          <li><span style="color: #ccc; font-weight: 500; font-size: 14px;">Hola, <?= esc(session()->get('nickname')) ?></span></li>
+          <li>
+            <form action="<?= base_url('logout') ?>" method="post">
+              <?= csrf_field() ?>
+              <button class="logout-btn" type="submit"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+            </form>
+          </li>
+        <?php endif; ?>
 
         <!-- opciones que solo aparecen en el menu hamburguesa(responsive) -->
         <li class="mobile-only"><a href="#" class="mobile-cart">Carrito de compras <i class="bi bi-cart"></i><span class="mobile-cart-count"></span></a></li>

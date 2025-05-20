@@ -294,7 +294,7 @@
 .cart-item-count {
   position: absolute;
   top: 7px;
-  right: 143px;
+  right: 90px;
   background-color: var(--color-principal);
   color: var(--texto);
   font-size: 12px;

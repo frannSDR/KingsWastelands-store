@@ -6,7 +6,7 @@
 
                 <!-- logo de la tienda -->
                 <a href="#top">
-                    <img class="footer-logo-img" src="assets/img/dslogo.png" alt="DS Store Logo">
+                    <img class="footer-logo-img" src="<?= base_url('assets/img/dslogo.png') ?>" alt="DS Store Logo">
                 </a>
                 <p class="footer-slogan">Tu destino para los mejores juegos digitales</p>
 
@@ -61,13 +61,12 @@
 </footer>
 
 <!-- librerias y js -->
-<script src="assets/css/bootstrap.min.css"></script>
-<script src="assets/js/lightbox-plus-jquery.js"></script>
-<script src="assets/js/home.js"></script>
-<script src="assets/js/game-sections.js"></script>
-<script src="assets/js/cart.js"></script>
-<script src="assets/js/login-register.js"></script>
-<script src="assets/js/new-pass.js"></script>
+<script src="<?= base_url('assets/js/lightbox-plus-jquery.js') ?>"></script>
+<script src="<?= base_url('assets/js/home.js') ?>"></script>
+<script src="<?= base_url('assets/js/game-sections.js') ?>"></script>
+<script src="<?= base_url('assets/js/cart.js') ?>"></script>
+<script src="<?= base_url('assets/js/login-register.js') ?>"></script>
+<script src="<?= base_url('assets/js/new-pass.js') ?>"></script>
 </body>
 
 </html>

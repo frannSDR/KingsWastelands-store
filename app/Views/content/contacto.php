@@ -16,33 +16,65 @@
                 </ul>
             </div>
             <div class="contact-form-card">
-                <form class="contact-form">
+                <!-- Mostrar mensaje de éxito si existe -->
+                <?php if (session()->has('mensaje_consulta')): ?>
+                    <div class="alert alert-success">
+                        <?= session('mensaje_consulta') ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Mostrar errores de validación -->
+                <?php if (isset($validation)): ?>
+                    <div class="alert alert-danger">
+                        <ul>
+                            <?php foreach ($validation as $error): ?>
+                                <li><?= $error ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+
+                <form class="contact-form" action="<?= base_url('consulta') ?>" method="post">
+                    <?= csrf_field() ?>
+
                     <h2><i class="form-icon"></i> Formulario de contacto</h2>
                     <p class="form-description">Completá el siguiente formulario y te responderemos a la brevedad:</p>
 
                     <div class="form-group">
                         <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" name="nombre" required class="form-input">
+                        <input type="text" id="nombre" name="nombre" value="<?= old('nombre') ?>" required class="form-input <?= (isset($validation['nombre']) ? 'is-invalid' : '') ?>">
+                        <?php if (isset($validation['nombre'])): ?>
+                            <div class="invalid-feedback"><?= $validation['nombre'] ?></div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Correo electrónico:</label>
-                        <input type="email" id="email" name="email" required placeholder="nombre@gmail.com" class="form-input">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" value="<?= old('correo') ?>" required placeholder="nombre@gmail.com" class="form-input <?= (isset($validation['correo']) ? 'is-invalid' : '') ?>">
+                        <?php if (isset($validation['correo'])): ?>
+                            <div class="invalid-feedback"><?= $validation['correo'] ?></div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="form-group">
                         <label for="telefono">Teléfono de contacto (opcional):</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="+54 9 3794..." class="form-input">
+                        <input type="tel" id="telefono" name="telefono" value="<?= old('telefono') ?>" placeholder="+54 9 3794..." class="form-input">
                     </div>
 
                     <div class="form-group">
-                        <label for="motivo">¿Sobre qué juego querés consultar?</label>
-                        <input type="text" id="motivo" name="motivo" placeholder="Ejemplo: Elden Ring, FIFA 24..." required class="form-input">
+                        <label for="motivo">Motivo de la consulta:</label>
+                        <input type="text" id="motivo" name="motivo" value="<?= old('motivo') ?>" placeholder="Ejemplo: Consulta sobre compra, problema con descarga..." required class="form-input <?= (isset($validation['motivo']) ? 'is-invalid' : '') ?>">
+                        <?php if (isset($validation['motivo'])): ?>
+                            <div class="invalid-feedback"><?= $validation['motivo'] ?></div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="form-group">
-                        <label for="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribí tu consulta aquí..." required class="form-textarea"></textarea>
+                        <label for="consulta">Mensaje:</label>
+                        <textarea id="consulta" name="consulta" rows="5" placeholder="Escribí tu consulta aquí..." required class="form-textarea <?= (isset($validation['consulta']) ? 'is-invalid' : '') ?>"><?= old('consulta') ?></textarea>
+                        <?php if (isset($validation['consulta'])): ?>
+                            <div class="invalid-feedback"><?= $validation['consulta'] ?></div>
+                        <?php endif; ?>
                     </div>
                     <button type="submit" class="submit-btn">Enviar consulta</button>
                 </form>

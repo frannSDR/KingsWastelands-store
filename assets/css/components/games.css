@@ -329,6 +329,11 @@
   transition: all 0.3s ease;
 }
 
+.pagination-button a {
+  color: white;
+  text-decoration: none;
+}
+
 .pagination-button:hover {
   background: var(--color-principal);
   color: white;
