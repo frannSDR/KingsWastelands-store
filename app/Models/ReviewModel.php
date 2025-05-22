@@ -17,6 +17,7 @@ class ReviewModel extends Model
     protected $allowedFields = [
         'game_id',
         'user_id',
+        'review_title',
         'rating',
         'review_text',
         'created_at',

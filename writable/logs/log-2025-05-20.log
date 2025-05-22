@@ -1,0 +1,69 @@
+CRITICAL - 2025-05-20 18:13:29 --> Error: Call to a member function select() on null
+[Method: GET, Route: juego/4]
+in APPPATH\Controllers\Juegos.php on line 484.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 18:13:32 --> Error: Call to a member function select() on null
+[Method: GET, Route: juego/41]
+in APPPATH\Controllers\Juegos.php on line 484.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('41')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 18:13:35 --> Error: Call to a member function select() on null
+[Method: GET, Route: juego/4]
+in APPPATH\Controllers\Juegos.php on line 484.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 18:16:14 --> ErrorException: Undefined variable $estadisticas
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\game-section.php on line 218.
+ 1 APPPATH\Views\content\game-section.php(218): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $estadisticas', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php', 218)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 5 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 18:18:18 --> ErrorException: Undefined variable $reseñas
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\game-section.php on line 269.
+ 1 APPPATH\Views\content\game-section.php(269): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $reseñas', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php', 269)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 5 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 18:20:59 --> ErrorException: Undefined array key "username"
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\game-section.php on line 275.
+ 1 APPPATH\Views\content\game-section.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "username"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php', 275)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 5 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -88,12 +88,6 @@ class Home extends BaseController
         return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/game-section') . view('../Views/plantillas/footer_view');
     }
 
-    public function game_section2(): string
-    {
-        $data['titulo'] = 'Kingdom Come Deliverance II';
-        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/game-section2') . view('../Views/plantillas/footer_view');
-    }
-
     public function cart(): string
     {
         $data['titulo'] = "Carrito de Compras";

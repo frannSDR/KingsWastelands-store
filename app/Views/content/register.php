@@ -1,11 +1,12 @@
-<section class="auth-section register-page">
+<section class="auth-section register-page" style="margin-top: 50px;">
     <div class="auth-container">
         <div class="auth-form-container">
             <form action="<?php echo base_url('procesar_registro') ?>" method="POST" class="auth-form">
                 <?= csrf_field() ?>
                 <h1 class="auth-title">Registro</h1>
 
-                <?php if (isset($validation)): ?>
+                <?php $validation = session('validation'); ?>
+                <?php if ($validation): ?>
                     <div class="alert alert-danger">
                         <?= $validation->listErrors() ?>
                     </div>

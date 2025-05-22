@@ -56,3 +56,7 @@ $routes->get('/recuperar', 'Home::recuperar');
 $routes->get('/nueva-pass', 'Home::new_pass');
 
 $routes->post('/logout', 'Usuario::logout');
+
+$routes->post('/juego/(:num)/guardar-resena', 'Juegos::guardarResena');
+
+$routes->get('/juego/(:num)/filtrar-resenas', 'Juegos::filtrarResenas/$1');

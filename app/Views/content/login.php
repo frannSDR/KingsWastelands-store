@@ -5,6 +5,12 @@
                 <?= csrf_field() ?>
                 <h1 class="auth-title">Inicio de Sesión</h1>
 
+                <?php if (session('mensaje')): ?>
+                    <div class="alert alert-success">
+                        <?= session('mensaje') ?>
+                    </div>
+                <?php endif; ?>
+
                 <?php if (isset($validation)): ?>
                     <div class="alert alert-danger">
                         <?= $validation->listErrors() ?>

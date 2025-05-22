@@ -7,6 +7,7 @@ use App\Models\CategoriaModel;
 use App\Models\JuegoCategoriaModel;
 use App\Models\GaleriaModel;
 use App\Models\RequisitosModel;
+use App\Models\ReviewModel;
 
 class Juegos extends BaseController
 {
@@ -15,6 +16,7 @@ class Juegos extends BaseController
     protected $juegoCategoriaModel;
     protected $galeriaModel;
     protected $requisitosModel;
+    protected $reviewModel;
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class Juegos extends BaseController
         $this->juegoCategoriaModel = new JuegoCategoriaModel();
         $this->galeriaModel = new GaleriaModel();
         $this->requisitosModel = new RequisitosModel();
+        $this->reviewModel = new ReviewModel();
     }
 
     public function populares()
@@ -478,20 +481,177 @@ class Juegos extends BaseController
         }
 
         // Obtener reseñas (todavia no)
-        //$reseñas = $this->juegosModel->getReseñas($id); 
+        $reviews = $this->reviewModel
+            ->select('juegos_reviews.*, usuarios.nickname')
+            ->join('usuarios', 'usuarios.user_id = juegos_reviews.user_id', 'left')
+            ->where('game_id', $id)
+            ->where('is_approved', 1)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
+        // Calculamos las estadisticas de las reseñas
+        $totalReviews = count($reviews);
+        $scorePromedio = 0;
+        $distribucion = [0, 0, 0, 0, 0]; // para contar las estrellitas
+
+        if ($totalReviews > 0) {
+            $sumaReviews = 0;
+            foreach ($reviews as $res) {
+                $sumaReviews += $res['rating'];
+                $distribucion[5 - $res['rating']]++; // hacemos esto para invertir el indice para 5 estrellas = indice 0
+            }
+            $scorePromedio = round($sumaReviews / $totalReviews, 1);
+
+            // calculamos los procentajes para la distribucion
+            foreach ($distribucion as &$valor) {
+                $valor = round(($valor / $totalReviews) * 100);
+            }
+        }
 
         $data = [
             'title' => $juego['title'],
             'juego' => $juego,
             'categorias' => $categorias,
             'imagenes' => $imagenes,
-            'requisitos' => $requisitosOrganizados
-            //'reseñas' => $reseñas
+            'requisitos' => $requisitosOrganizados,
+            'reviews' => $reviews,
+            'stats' => [
+                'total' => $totalReviews,
+                'promedio' => $scorePromedio,
+                'distribucion' => $distribucion
+            ]
         ];
 
         return view('../Views/plantillas/header_view', $data)
             . view('../Views/plantillas/side_cart')
             . view('../Views/content/game-section')
             . view('../Views/plantillas/footer_view');
+    }
+
+    public function guardarResena()
+    {
+        // verificamos que sea una peticion AJAX
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(403)->setJSON([
+                'success' => false,
+                'message' => 'Acceso no permitido'
+            ]);
+        }
+
+        // verificamos si el usuario esta logueado
+        if (!session()->has('user_id')) {
+            return $this->response->setStatusCode(401)->setJSON([
+                'success' => false,
+                'message' => 'Debes iniciar sesión para enviar una reseña',
+                'redirect' => base_url('login')
+            ]);
+        }
+
+        // validamos los datos
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'game_id' => 'required|is_not_unique[juegos.game_id]',
+            'titulo-resena' => 'required|max_length[100]',
+            'rating' => 'required|in_list[1,2,3,4,5]',
+            'texto-resena' => 'required|min_length[10]|max_length[2000]'
+        ], [
+            'game_id' => [
+                'required' => 'Juego no especificado',
+                'is_not_unique' => 'El juego no existe'
+            ],
+            'titulo-resena' => [
+                'required' => 'El título es obligatorio',
+                'max_length' => 'El título no puede exceder los 100 caracteres'
+            ],
+            'rating' => [
+                'required' => 'La puntuación es obligatoria',
+                'in_list' => 'Puntuación no válida'
+            ],
+            'texto-resena' => [
+                'required' => 'El texto de la reseña es obligatorio',
+                'min_length' => 'La reseña debe tener al menos 10 caracteres',
+                'max_length' => 'La reseña no puede exceder los 2000 caracteres'
+            ]
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'success' => false,
+                'errors' => $validation->getErrors(),
+                'message' => 'Por favor corrige los errores en el formulario'
+            ]);
+        }
+
+        // verificamos si el usuario ya ha reseñado este juego
+        $existingReview = $this->reviewModel
+            ->where('game_id', $this->request->getPost('game_id'))
+            ->where('user_id', session('user_id'))
+            ->first();
+
+        if ($existingReview) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'success' => false,
+                'message' => 'Ya has enviado una reseña para este juego'
+            ]);
+        }
+
+        // preparamos los datos para guardar
+        $data = [
+            'game_id' => $this->request->getPost('game_id'),
+            'user_id' => session('user_id'),
+            'review_title' => $this->request->getPost('titulo-resena'),
+            'rating' => $this->request->getPost('rating'),
+            'review_text' => $this->request->getPost('texto-resena'),
+            'is_approved' => 1 // cambiamos a 0 en caso de querer moderacion previa
+        ];
+
+        // guardamos la reseña
+        try {
+            $this->reviewModel->insert($data);
+
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Reseña enviada con éxito'
+            ]);
+        } catch (\Exception $e) {
+            log_message('error', 'Error al guardar reseña: ' . $e->getMessage());
+            return $this->response->setStatusCode(500)->setJSON([
+                'success' => false,
+                'message' => 'Error al guardar la reseña. Por favor intenta nuevamente.'
+            ]);
+        }
+    }
+
+
+    public function filtrarResenas($gameId)
+    {
+        $estrellas = $this->request->getGet('estrellas');
+        $orden = $this->request->getGet('orden');
+        $page = $this->request->getGet('page') ?? 1;
+        $perPage = 5;
+
+        $reviewsBuilder = $this->reviewModel
+            ->select('juegos_reviews.*, usuarios.nickname')
+            ->join('usuarios', 'usuarios.user_id = juegos_reviews.user_id', 'left')
+            ->where('game_id', $gameId);
+
+        if ($estrellas && $estrellas !== 'all') {
+            $reviewsBuilder = $reviewsBuilder->where('rating', $estrellas);
+        }
+
+        if ($orden === 'mejores') {
+            $reviewsBuilder = $reviewsBuilder->orderBy('rating', 'DESC');
+        } else {
+            $reviewsBuilder = $reviewsBuilder->orderBy('created_at', 'DESC');
+        }
+
+        $reviews = $reviewsBuilder->paginate($perPage, 'reviews', $page);
+        $pager = $this->reviewModel->pager;
+
+        return view('content/partials/lista_resenas', [
+            'reviews' => $reviews,
+            'pager' => $pager,
+            'currentPage' => $page
+        ]);
     }
 }

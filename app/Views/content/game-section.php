@@ -2,7 +2,7 @@
 <div class="game-banner" style="background-image: url('<?= $juego['banner_image_url'] ?>');">
     <div class="banner-overlay"></div>
     <div class="banner-content">
-        <h1><?= esc($juego['title']) ?></h1>
+        <img src="<?= $juego['logo_url'] ?>" alt="Logo de <?= esc($juego['title']) ?>" class="game-logo">
         <div class="banner-rating">
             <span class="stars"><?= str_repeat('★', floor($juego['rating'] / 2)) . str_repeat('☆', 5 - floor($juego['rating'] / 2)) ?></span>
             <span class="rating-value"><?= number_format($juego['rating'] / 2, 1) ?>/5</span>
@@ -57,6 +57,7 @@
                 </div>
             </div>
         </div>
+
         <h2 class="titulo-sinopsis">Acerca de</h2>
         <div class="tab-content active" id="about">
             <div class="game-synopsis">
@@ -215,52 +216,34 @@
 
             <div class="estadisticas-resenas">
                 <div class="puntuacion-general">
-                    <div class="puntuacion-numero">4.8</div>
+                    <div class="puntuacion-numero"><?= number_format($stats['promedio'], 1) ?></div>
                     <div class="estrellas">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-half"></i>
+                        <?php
+                        $estrellasLlenas = floor($stats['promedio']);
+                        $mediaEstrella = ($stats['promedio'] - $estrellasLlenas) >= 0.5;
+
+                        for ($i = 1; $i <= 5; $i++):
+                            if ($i <= $estrellasLlenas): ?>
+                                <i class="bi bi-star-fill"></i>
+                            <?php elseif ($i == $estrellasLlenas + 1 && $mediaEstrella): ?>
+                                <i class="bi bi-star-half"></i>
+                            <?php else: ?>
+                                <i class="bi bi-star"></i>
+                        <?php endif;
+                        endfor; ?>
                     </div>
-                    <div class="total-resenas">Basado en 843 reseñas</div>
+                    <div class="total-resenas">Basado en <?= $stats['total'] ?> reseñas</div>
                 </div>
                 <div class="distribucion-puntuacion">
-                    <div class="barra-puntuacion">
-                        <span class="etiqueta-estrellas">5 <i class="bi bi-star-fill"></i></span>
-                        <div class="barra-contenedor">
-                            <div class="barra-progreso" style="width: 75%"></div>
+                    <?php for ($i = 5; $i >= 1; $i--): ?>
+                        <div class="barra-puntuacion">
+                            <span class="etiqueta-estrellas"><?= $i ?> <i class="bi bi-star-fill"></i></span>
+                            <div class="barra-contenedor">
+                                <div class="barra-progreso" style="width: <?= $stats['distribucion'][5 - $i] ?>%"></div>
+                            </div>
+                            <span class="porcentaje"><?= $stats['distribucion'][5 - $i] ?>%</span>
                         </div>
-                        <span class="porcentaje">75%</span>
-                    </div>
-                    <div class="barra-puntuacion">
-                        <span class="etiqueta-estrellas">4 <i class="bi bi-star-fill"></i></span>
-                        <div class="barra-contenedor">
-                            <div class="barra-progreso" style="width: 18%"></div>
-                        </div>
-                        <span class="porcentaje">18%</span>
-                    </div>
-                    <div class="barra-puntuacion">
-                        <span class="etiqueta-estrellas">3 <i class="bi bi-star-fill"></i></span>
-                        <div class="barra-contenedor">
-                            <div class="barra-progreso" style="width: 5%"></div>
-                        </div>
-                        <span class="porcentaje">5%</span>
-                    </div>
-                    <div class="barra-puntuacion">
-                        <span class="etiqueta-estrellas">2 <i class="bi bi-star-fill"></i></span>
-                        <div class="barra-contenedor">
-                            <div class="barra-progreso" style="width: 1%"></div>
-                        </div>
-                        <span class="porcentaje">1%</span>
-                    </div>
-                    <div class="barra-puntuacion">
-                        <span class="etiqueta-estrellas">1 <i class="bi bi-star-fill"></i></span>
-                        <div class="barra-contenedor">
-                            <div class="barra-progreso" style="width: 1%"></div>
-                        </div>
-                        <span class="porcentaje">1%</span>
-                    </div>
+                    <?php endfor; ?>
                 </div>
             </div>
 
@@ -270,216 +253,73 @@
                     <select id="orden-resenas" name="orden-resenas">
                         <option value="recientes">Más recientes</option>
                         <option value="mejores">Mejor valoradas</option>
-                        <option value="criticas">Más críticas</option>
                     </select>
                 </div>
                 <div class="filtro-estrellas">
                     <span class="filtro-texto">Filtrar:</span>
-                    <button class="boton-filtro activo">Todas</button>
-                    <button class="boton-filtro">5★</button>
-                    <button class="boton-filtro">4★</button>
-                    <button class="boton-filtro">3★</button>
-                    <button class="boton-filtro">2★</button>
-                    <button class="boton-filtro">1★</button>
+                    <button class="boton-filtro activo" data-estrellas="all">Todas</button>
+                    <?php for ($i = 5; $i >= 1; $i--): ?>
+                        <button class="boton-filtro" data-estrellas="<?= $i ?>"><?= $i ?>★</button>
+                    <?php endfor; ?>
                 </div>
             </div>
 
             <div class="lista-resenas">
-                <!-- Reseña 1 -->
-                <div class="resena-usuario">
-                    <div class="encabezado-resena">
-                        <div class="info-usuario">
-                            <img src="/api/placeholder/40/40" alt="Avatar de usuario" class="avatar-usuario">
-                            <div class="detalles-usuario">
-                                <div class="nombre-usuario">Elpe_lado23</div>
-                                <div class="info-compra"><i class="bi bi-patch-check-fill"></i> Compra verificada</div>
-                            </div>
-                        </div>
-                        <div class="valoracion-fecha">
-                            <div class="estrellas-usuario">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                            <div class="fecha-resena">27 abril 2025</div>
-                        </div>
-                    </div>
-                    <div class="contenido-resena">
-                        <h3 class="titulo-resena">¡Una obra maestra renovada!</h3>
-                        <p>Esta remasterización es exactamente lo que los fans llevábamos años esperando. Los gráficos han sido completamente actualizados respetando el estilo artístico original, y las mejoras en la jugabilidad hacen que sea mucho más accesible para los nuevos jugadores. La iluminación dinámica y los efectos atmosféricos le dan nueva vida a Cyrodiil. Además, han solucionado muchos de los bugs clásicos que tenía el juego original.</p>
-                        <div class="horas-jugadas">Horas jugadas: 47</div>
-                        <div class="controles-resena">
-                            <div class="utilidad-resena">
-                                <span>¿Te ha resultado útil?</span>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-up"></i> Sí (34)</button>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-down"></i> No (2)</button>
-                            </div>
-                            <button class="boton-reportar">Reportar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reseña 2 -->
-                <div class="resena-usuario">
-                    <div class="encabezado-resena">
-                        <div class="info-usuario">
-                            <img src="/api/placeholder/40/40" alt="Avatar de usuario" class="avatar-usuario">
-                            <div class="detalles-usuario">
-                                <div class="nombre-usuario">rrshk</div>
-                                <div class="info-compra"><i class="bi bi-patch-check-fill"></i> Compra verificada</div>
-                            </div>
-                        </div>
-                        <div class="valoracion-fecha">
-                            <div class="estrellas-usuario">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <div class="fecha-resena">25 abril 2025</div>
-                        </div>
-                    </div>
-                    <div class="contenido-resena">
-                        <h3 class="titulo-resena">Muy bueno, pero con algunos detalles mejorables</h3>
-                        <p>El trabajo de remasterización es impresionante en términos visuales. La interfaz de usuario modernizada y los controles revisados son un gran acierto. Mi única queja es que algunos de los sistemas más antiguos, como el de persuasión con la rueda de diálogo, podrían haberse renovado más profundamente. Aun así, es una experiencia fantástica y la nostalgia está intacta. El sistema de combate sigue siendo algo rígido comparado con los estándares actuales.</p>
-                        <div class="horas-jugadas">Horas jugadas: 32</div>
-                        <div class="controles-resena">
-                            <div class="utilidad-resena">
-                                <span>¿Te ha resultado útil?</span>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-up"></i> Sí (28)</button>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-down"></i> No (5)</button>
-                            </div>
-                            <button class="boton-reportar">Reportar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reseña 3 -->
-                <div class="resena-usuario">
-                    <div class="encabezado-resena">
-                        <div class="info-usuario">
-                            <img src="/api/placeholder/40/40" alt="Avatar de usuario" class="avatar-usuario">
-                            <div class="detalles-usuario">
-                                <div class="nombre-usuario">Martin_tillo</div>
-                                <div class="info-compra"><i class="bi bi-patch-check-fill"></i> Compra verificada</div>
-                            </div>
-                        </div>
-                        <div class="valoracion-fecha">
-                            <div class="estrellas-usuario">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                            <div class="fecha-resena">23 abril 2025</div>
-                        </div>
-                    </div>
-                    <div class="contenido-resena">
-                        <h3 class="titulo-resena">Superó todas mis expectativas</h3>
-                        <p>Como veterano que jugó el Oblivion original cuando salió en 2006, tenía mis dudas sobre esta remasterización. ¡Pero vaya sorpresa! No solo han mejorado los gráficos, sino que han refinado muchos de los sistemas del juego. El equilibrio de las clases está mejor logrado, la IA de los NPCs es más inteligente, y los tiempos de carga son prácticamente inexistentes. Las misiones del Gremio de Ladrones siguen siendo mis favoritas. 100% recomendado tanto para veteranos como para nuevos jugadores.</p>
-                        <div class="horas-jugadas">Horas jugadas: 78</div>
-                        <div class="controles-resena">
-                            <div class="utilidad-resena">
-                                <span>¿Te ha resultado útil?</span>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-up"></i> Sí (52)</button>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-down"></i> No (1)</button>
-                            </div>
-                            <button class="boton-reportar">Reportar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reseña 4 -->
-                <div class="resena-usuario">
-                    <div class="encabezado-resena">
-                        <div class="info-usuario">
-                            <img src="/api/placeholder/40/40" alt="Avatar de usuario" class="avatar-usuario">
-                            <div class="detalles-usuario">
-                                <div class="nombre-usuario">Moya_Nico</div>
-                                <div class="info-compra"><i class="bi bi-patch-check-fill"></i> Compra verificada</div>
-                            </div>
-                        </div>
-                        <div class="valoracion-fecha">
-                            <div class="estrellas-usuario">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                            <div class="fecha-resena">22 abril 2025</div>
-                        </div>
-                    </div>
-                    <div class="contenido-resena">
-                        <h3 class="titulo-resena">Mejorado pero aún con problemas</h3>
-                        <p>Si bien los gráficos son impresionantes y la música sigue siendo legendaria, me decepciona que algunos problemas fundamentales del diseño original no se hayan abordado. El sistema de nivelación de enemigos sigue haciendo que el juego sea más difícil a medida que subes de nivel, lo que resulta contraproducente. También he experimentado varios cuelgues en las secciones de las Puertas de Oblivion. Es una buena remasterización, pero no tan pulida como esperaba por este precio.</p>
-                        <div class="horas-jugadas">Horas jugadas: 12</div>
-                        <div class="controles-resena">
-                            <div class="utilidad-resena">
-                                <span>¿Te ha resultado útil?</span>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-up"></i> Sí (15)</button>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-down"></i> No (8)</button>
-                            </div>
-                            <button class="boton-reportar">Reportar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reseña 5 -->
-                <div class="resena-usuario">
-                    <div class="encabezado-resena">
-                        <div class="info-usuario">
-                            <img src="/api/placeholder/40/40" alt="Avatar de usuario" class="avatar-usuario">
-                            <div class="detalles-usuario">
-                                <div class="nombre-usuario">moriniga</div>
-                                <div class="info-compra"><i class="bi bi-patch-check-fill"></i> Compra verificada</div>
-                            </div>
-                        </div>
-                        <div class="valoracion-fecha">
-                            <div class="estrellas-usuario">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
-                            <div class="fecha-resena">22 abril 2025</div>
-                        </div>
-                    </div>
-                    <div class="contenido-resena">
-                        <h3 class="titulo-resena">Mi primera experiencia con Oblivion</h3>
-                        <p>Nunca jugué al original, así que esta remasterización ha sido mi primera toma de contacto con Oblivion. ¡Y qué descubrimiento! Ahora entiendo por qué este juego es tan querido. El mundo es increíblemente inmersivo, las misiones son variadas y la libertad que te da es asombrosa. Como jugadora de Skyrim, me ha sorprendido lo profundos que son algunos sistemas en comparación. Los gremios tienen líneas argumentales mucho más elaboradas. El sistema de creación de hechizos es adictivo.</p>
-                        <div class="horas-jugadas">Horas jugadas: 25</div>
-                        <div class="controles-resena">
-                            <div class="utilidad-resena">
-                                <span>¿Te ha resultado útil?</span>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-up"></i> Sí (20)</button>
-                                <button class="boton-utilidad"><i class="bi bi-hand-thumbs-down"></i> No (1)</button>
-                            </div>
-                            <button class="boton-reportar">Reportar</button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Reseña -->
+                <?= view('content/partials/lista_resenas', [
+                    'reviews' => $reviews,
+                    'pager' => $pager ?? null,
+                    'currentPage' => $currentPage ?? 1
+                ]) ?>
             </div>
 
-            <div class="paginacion-resenas">
-                <button class="boton-pagina activo">1</button>
-                <button class="boton-pagina">2</button>
-                <button class="boton-pagina">3</button>
-                <button class="boton-pagina">4</button>
-                <button class="boton-pagina">...</button>
-                <button class="boton-pagina">42</button>
-                <button class="boton-pagina siguiente">Siguiente <i class="bi bi-chevron-right"></i></button>
-            </div>
-
-            <div class="escribir-resena">
-                <h3>¿Has jugado este juego?</h3>
-                <button class="boton-escribir-resena">Escribe tu reseña</button>
+            <div id="formulario-resena" class="formulario-resena-container" style="display: none;">
+                <div class="formulario-resena">
+                    <div class="encabezado-formulario">
+                        <h3>Escribe tu reseña</h3>
+                        <button id="cerrar-formulario" class="boton-cerrar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                    <!-- formulario para que el usuario escriba su reseña -->
+                    <form id="nueva-resena">
+                        <div class="grupo-formulario">
+                            <label for="titulo-resena">Título de la reseña</label>
+                            <input type="text" id="titulo-resena" name="titulo-resena" placeholder="Ej: ¡Una experiencia increíble!" required>
+                        </div>
+                        <div class="grupo-formulario">
+                            <label>Tu puntuación</label>
+                            <div class="rating-estrellas">
+                                <input type="radio" id="estrella5" name="rating" value="5">
+                                <label for="estrella5" class="estrella"><i class="bi bi-star-fill"></i></label>
+                                <input type="radio" id="estrella4" name="rating" value="4">
+                                <label for="estrella4" class="estrella"><i class="bi bi-star-fill"></i></label>
+                                <input type="radio" id="estrella3" name="rating" value="3">
+                                <label for="estrella3" class="estrella"><i class="bi bi-star-fill"></i></label>
+                                <input type="radio" id="estrella2" name="rating" value="2">
+                                <label for="estrella2" class="estrella"><i class="bi bi-star-fill"></i></label>
+                                <input type="radio" id="estrella1" name="rating" value="1">
+                                <label for="estrella1" class="estrella"><i class="bi bi-star-fill"></i></label>
+                            </div>
+                        </div>
+                        <div class="grupo-formulario">
+                            <label for="texto-resena">Tu reseña</label>
+                            <textarea id="texto-resena" name="texto-resena" rows="5" placeholder="Comparte tus experiencias con este juego..." required></textarea>
+                        </div>
+                        <div class="acciones-formulario">
+                            <button type="button" id="cancelar-resena" class="boton-secundario">Cancelar</button>
+                            <button type="submit" class="boton-primario">Enviar reseña</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    window.baseUrl = "<?= base_url() ?>";
+    window.gameId = <?= esc($juego['game_id']) ?>;
+    window.guardarResenaUrl = "<?= base_url('juego/' . $juego['game_id'] . '/guardar-resena') ?>";
+    window.isUserLoggedIn = <?= session()->has('user_id') ? 'true' : 'false' ?>;
+    window.loginUrl = "<?= base_url('login') ?>";
+</script>

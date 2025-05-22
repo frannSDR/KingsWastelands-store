@@ -1,0 +1,422 @@
+CRITICAL - 2025-05-21 15:08:42 --> ErrorException: Undefined variable $juego
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\footer_view.php on line 65.
+ 1 APPPATH\Views\plantillas\footer_view.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $juego', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\plantillas\\footer_view.php', 65)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\plantillas\\footer_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/plantillas/footer_view', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('../Views/plantillas/footer_view')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 16:25:13 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "registro.php"
+[Method: POST, Route: procesar_registro]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('registro.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('registro', [], true)
+ 3 APPPATH\Controllers\Usuario.php(50): view('registro', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuario->procesar_registro()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 16:33:55 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "register.php"
+[Method: POST, Route: procesar_registro]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('register.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('register', [], true)
+ 3 APPPATH\Controllers\Usuario.php(50): view('register', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuario->procesar_registro()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:46:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:46:32 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:46:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:46:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:46:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:46:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:46:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:26 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:26 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:28 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:28 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:47:28 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "content/partials/lista_resenas.php"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('content/partials/lista_resenas.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 3 APPPATH\Controllers\Juegos.php(644): view('content/partials/lista_resenas', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:57:20 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 653.
+ 1 APPPATH\Controllers\Juegos.php(653): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 653)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:57:21 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 653.
+ 1 APPPATH\Controllers\Juegos.php(653): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 653)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:57:24 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 653.
+ 1 APPPATH\Controllers\Juegos.php(653): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 653)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:58:07 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 653.
+ 1 APPPATH\Controllers\Juegos.php(653): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 653)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:58:10 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 653.
+ 1 APPPATH\Controllers\Juegos.php(653): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 653)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:58:25 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 653.
+ 1 APPPATH\Controllers\Juegos.php(653): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 653)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:58:27 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 653.
+ 1 APPPATH\Controllers\Juegos.php(653): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 653)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:59:10 --> ParseError: syntax error, unexpected token "<"
+[Method: GET, Route: juego/4]
+in APPPATH\Controllers\Juegos.php on line 646.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Juegos')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Juegos')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Juegos', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:59:55 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 652.
+ 1 APPPATH\Controllers\Juegos.php(652): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 652)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 22:59:58 --> ErrorException: Undefined array key "nickname"
+[Method: GET, Route: juego/4/filtrar-resenas]
+in APPPATH\Controllers\Juegos.php on line 652.
+ 1 APPPATH\Controllers\Juegos.php(652): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nickname"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Controllers\\Juegos.php', 652)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->filtrarResenas('4')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 23:50:37 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\partials\lista_resenas.php on line 40.
+ 1 APPPATH\Views\content\partials\lista_resenas.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 5 APPPATH\Views\content\game-section.php(269): view('content/partials/lista_resenas', [...])
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 9 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 23:52:26 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\partials\lista_resenas.php on line 40.
+ 1 APPPATH\Views\content\partials\lista_resenas.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 5 APPPATH\Views\content\game-section.php(269): view('content/partials/lista_resenas', [...])
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 9 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 23:52:34 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\partials\lista_resenas.php on line 40.
+ 1 APPPATH\Views\content\partials\lista_resenas.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 5 APPPATH\Views\content\game-section.php(269): view('content/partials/lista_resenas', [...])
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 9 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 23:55:11 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\partials\lista_resenas.php on line 40.
+ 1 APPPATH\Views\content\partials\lista_resenas.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 5 APPPATH\Views\content\game-section.php(269): view('content/partials/lista_resenas', [...])
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 9 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-21 23:57:17 --> ErrorException: Undefined variable $pager
+[Method: GET, Route: juego/4]
+in APPPATH\Views\content\partials\lista_resenas.php on line 40.
+ 1 APPPATH\Views\content\partials\lista_resenas.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pager', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php', 40)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\partials\\lista_resenas.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/lista_resenas', [], true)
+ 5 APPPATH\Views\content\game-section.php(269): view('content/partials/lista_resenas', [...])
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 9 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('4')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

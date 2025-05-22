@@ -30,10 +30,11 @@ class Usuario extends Controller
                 ]
             ],
             'contraseña' => [
-                'rules' => 'required|min_length[6]',
+                'rules' => 'required|min_length[6]|regex_match[/(?=.*[A-Z])^.{6,}$/]',
                 'errors' => [
                     'required' => 'La contraseña es obligatoria',
-                    'min_length' => 'La contraseña debe tener al menos 6 caracteres'
+                    'min_length' => 'La contraseña debe tener al menos 6 caracteres',
+                    'regex_match' => 'La contraseña debe tener al menos una letra mayúscula'
                 ]
             ],
             'confirmar_contraseña' => [
@@ -46,10 +47,9 @@ class Usuario extends Controller
         ]);
 
         if (!$validacion) {
-            // si falla la validacion, se vuelve al formulario y se muestran los errores
-            return view('registro', [
-                'validation' => $this->validator
-            ]);
+            // Guardar los errores en flashdata
+            session()->setFlashdata('validation', $this->validator);
+            return redirect()->to(base_url('register'))->withInput();
         }
 
         // si la validación es exitosa, procesamos el registro
@@ -122,6 +122,7 @@ class Usuario extends Controller
             'email' => $usuario['email'],
             'nickname' => $usuario['nickname'],
             'is_active' => true,
+            'is_admin' => $usuario['is_admin']
         ]);
 
         // Redirigir al dashboard
