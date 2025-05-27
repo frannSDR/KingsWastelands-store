@@ -129,4 +129,10 @@ class Home extends BaseController
         $data['titulo'] = "Registrarse";
         return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/nueva-pass') . view('../Views/plantillas/footer_view');
     }
+
+    public function perfil(): string
+    {
+        $data['titulo'] = "Admin Perfil";
+        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/perfil') . view('../Views/plantillas/footer_view');
+    }
 }

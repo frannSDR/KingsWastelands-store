@@ -8,6 +8,12 @@ use CodeIgniter\Controller;
 
 class Usuario extends Controller
 {
+    protected $usuarioModel;
+
+    public function __construct()
+    {
+        $this->usuarioModel = new UsuarioModel();
+    }
 
     public function procesar_registro()
     {

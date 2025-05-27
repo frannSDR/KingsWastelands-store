@@ -18,6 +18,7 @@
   <link href="<?= base_url('assets/css/components/quienes-somos.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/reglas-terminos.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/contacto.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/admin.css') ?>" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/9984108ce5.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -48,6 +49,9 @@
           <li><a href="<?php echo base_url('login') ?>">Iniciar Sesion</a></li>
           <li><a href="<?php echo base_url('register') ?>">Registrarse</a></li>
         <?php else: ?>
+          <?php if (session()->get('is_admin') == 1): ?>
+            <li><a href="<?php echo base_url('perfil') ?>">Admin</a></li>
+          <?php endif; ?>
           <li><span style="color: #ccc; font-weight: 500; font-size: 14px;">Hola, <?= esc(session()->get('nickname')) ?></span></li>
           <li>
             <form action="<?= base_url('logout') ?>" method="post">

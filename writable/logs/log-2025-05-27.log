@@ -1,0 +1,618 @@
+ERROR - 2025-05-27 04:56:03 --> mysqli_sql_exception: Unknown column 'name' in 'field list' in C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\xampp\htdocs\KingsWastelands-store\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+#6 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+#7 C:\xampp\htdocs\KingsWastelands-store\app\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+#8 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(933): App\Controllers\Admin->admin()
+#9 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\KingsWastelands-store\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 04:56:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'field list'
+[Method: GET, Route: perfil]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 04:56:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 04:56:03 --> [Caused by] mysqli_sql_exception: Unknown column 'name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-27 04:58:50 --> mysqli_sql_exception: Unknown column 'name' in 'field list' in C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\xampp\htdocs\KingsWastelands-store\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+#6 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+#7 C:\xampp\htdocs\KingsWastelands-store\app\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+#8 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(933): App\Controllers\Admin->admin()
+#9 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\KingsWastelands-store\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 04:58:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'field list'
+[Method: GET, Route: perfil]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 04:58:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 04:58:50 --> [Caused by] mysqli_sql_exception: Unknown column 'name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-27 04:58:52 --> mysqli_sql_exception: Unknown column 'name' in 'field list' in C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\xampp\htdocs\KingsWastelands-store\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+#6 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+#7 C:\xampp\htdocs\KingsWastelands-store\app\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+#8 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(933): App\Controllers\Admin->admin()
+#9 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\KingsWastelands-store\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 04:58:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'field list'
+[Method: GET, Route: perfil]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 04:58:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 04:58:52 --> [Caused by] mysqli_sql_exception: Unknown column 'name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-27 05:00:34 --> mysqli_sql_exception: Unknown column 'icon' in 'field list' in C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\xampp\htdocs\KingsWastelands-store\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+#6 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+#7 C:\xampp\htdocs\KingsWastelands-store\app\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+#8 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(933): App\Controllers\Admin->admin()
+#9 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\KingsWastelands-store\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 05:00:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+[Method: GET, Route: perfil]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:00:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:00:34 --> [Caused by] mysqli_sql_exception: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-27 05:00:37 --> mysqli_sql_exception: Unknown column 'icon' in 'field list' in C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\xampp\htdocs\KingsWastelands-store\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+#6 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+#7 C:\xampp\htdocs\KingsWastelands-store\app\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+#8 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(933): App\Controllers\Admin->admin()
+#9 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\KingsWastelands-store\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 05:00:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+[Method: GET, Route: perfil]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:00:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:00:37 --> [Caused by] mysqli_sql_exception: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-27 05:01:39 --> mysqli_sql_exception: Unknown column 'icon' in 'field list' in C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\xampp\htdocs\KingsWastelands-store\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+#6 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+#7 C:\xampp\htdocs\KingsWastelands-store\app\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+#8 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(933): App\Controllers\Admin->admin()
+#9 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\KingsWastelands-store\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 05:01:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+[Method: GET, Route: perfil]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:01:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:01:39 --> [Caused by] mysqli_sql_exception: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-27 05:01:43 --> mysqli_sql_exception: Unknown column 'icon' in 'field list' in C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\KingsWastelands-store\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `categor...', 0)
+#1 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `categor...')
+#2 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `categor...')
+#3 C:\xampp\htdocs\KingsWastelands-store\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `categor...', Array, false)
+#4 C:\xampp\htdocs\KingsWastelands-store\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+#6 C:\xampp\htdocs\KingsWastelands-store\system\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+#7 C:\xampp\htdocs\KingsWastelands-store\app\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+#8 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(933): App\Controllers\Admin->admin()
+#9 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 C:\xampp\htdocs\KingsWastelands-store\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\KingsWastelands-store\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\KingsWastelands-store\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-27 05:01:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+[Method: GET, Route: perfil]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:01:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:01:43 --> [Caused by] mysqli_sql_exception: Unknown column 'icon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `category_id`, `name_cat`, `slug`, `icon`
+FROM `categorias`
+ORDER BY `category_id` ASC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(675): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH\BaseModel.php(1287): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH\Controllers\Admin.php(102): CodeIgniter\BaseModel->paginate(10, 'default', 1)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-27 05:26:44 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: perfil]
+in APPPATH\Views\content\partials\gestion-categorias.php on line 93.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('content/partials/gestion-categorias', [], true)
+ 3 APPPATH\Views\content\perfil.php(66): view('content/partials/gestion-categorias', [...])
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\perfil.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/perfil', [], true)
+ 7 APPPATH\Controllers\Admin.php(136): view('../Views/content/perfil')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->admin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
