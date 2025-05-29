@@ -45,7 +45,7 @@
 
 <!-- Tabla de categorías -->
 <div class="admin-table-container">
-    <table class="admin-table">
+    <table class="category-admin-table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -57,13 +57,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <?php foreach ($categorias as $categoria): ?>
+            <?php foreach ($categorias as $categoria): ?>
+                <tr>
                     <td><?= $categoria['category_id'] ?></td>
                     <td><?= esc($categoria['name_cat']) ?></td>
                     <td><?= esc($categoria['slug']) ?></td>
                     <td><i class="bi bi-dice-5"></i></td>
-                    <td>128</td>
+                    <td><?= $categoria['juegos_count'] ?></td>
                     <td>
                         <div class="action-buttons">
                             <button class="btn-icon btn-edit" title="Editar" data-id="1">
@@ -74,9 +74,9 @@
                             </button>
                         </div>
                     </td>
-            </tr>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
-    <?php endforeach; ?>
     </table>
 </div>
 

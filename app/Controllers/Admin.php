@@ -33,15 +33,23 @@ class Admin extends BaseController
 
     public function admin()
     {
-        // JUEGOS
-        $page = $this->request->getVar('page') ?? 1; // obtenemos la pagina actual y la cantidad de juegos por paginasi no se especifica la pagina, se usa la 1
-        $perPage = 10; // 9 es la cantidad de juegos que mostramos por pagina
-        $filter = $this->request->getVar('filter') ?? 'title'; // obtenenemos los parametros de filtrado, filtramos por titulo
-        $direction = $this->request->getVar('direction') ?? 'asc';
-        $direction = strtoupper($direction) === 'DESC' ? 'DESC' : 'ASC'; // validamos la direccion y filtramos por el orden ascendente
+
+        $session = session();
+
+        if (!$session->has('user_id') || $session->get('is_admin') != 1) {
+            return redirect()->to(base_url('/'))->with('mensaje', 'Acceso no autorizado');
+        }
+
+        //! JUEGOS
+
+        $gamesPage = $this->request->getVar('page') ?? 1; // obtenemos la pagina actual y la cantidad de juegos por paginasi no se especifica la pagina, se usa la 1
+        $gamesPerPage = 20; // 25 es la cantidad de juegos que mostramos por pagina
+        $gameFilter = $this->request->getVar('filter') ?? 'title'; // obtenenemos los parametros de filtrado, filtramos por titulo
+        $gameDirection = $this->request->getVar('direction') ?? 'asc';
+        $gameDirection = strtoupper($gameDirection) === 'DESC' ? 'DESC' : 'ASC'; // validamos la direccion y filtramos por el orden ascendente
 
         // dependiendo del filtro, ordenamos por la columna correspondiente, como filtramos por el titulo, lo hacemos alfabeticamente
-        $orderBy = match ($filter) {
+        $gamesOrderBy = match ($gameFilter) {
             'title' => 'title',
             'release' => 'release_date',
             'rating' => 'rating',
@@ -51,15 +59,16 @@ class Admin extends BaseController
 
         // obtenemos todos los juegos, solo los campos necesarios, aplicamos el orden y paginacion
         $juegos = $this->juegosModel
-            ->select('game_id, title, price, release_date, card_image_url')
-            ->orderBy($orderBy, $direction)
-            ->paginate($perPage, 'default', $page);
+            ->select('game_id, title, price, release_date, card_image_url, logo_url')
+            ->orderBy($gamesOrderBy, $gameDirection)
+            ->paginate($gamesPerPage, 'default', $gamesPage);
 
         // contamos el total de juegos y calculamos el total de paginas
-        $total = $this->juegosModel->countAll();
-        $totalPages = ceil($total / $perPage); // usamos ceil para redondear hacia arriba
+        $gamesTotal = $this->juegosModel->countAll();
+        $gamesTotalPages = ceil($gamesTotal / $gamesPerPage); // usamos ceil para redondear hacia arriba
 
-        // USUARIOS
+        //! USUARIOS
+
         $userPage = $this->request->getVar('page') ?? 1; // Obtener la página actual, por defecto es 1
         $userPerPage = 10; // Número de usuarios por página
         $userFilter = $this->request->getVar('filter') ?? 'user_id';
@@ -82,9 +91,9 @@ class Admin extends BaseController
         $userTotal = $this->usuariosModel->countAll();
         $userTotalPages = ceil($userTotal / $userPerPage);
 
-        // CATEGORIAS
+        //! CATEGORIAS
 
-        $catPage = $this->request->getVar('filter') ?? 1; // Obtener la página actual, por defecto es 1
+        $catPage = $this->request->getVar('page') ?? 1; // Obtener la página actual, por defecto es 1
         $catPerPage = 10; // Número de categorías por página
         $catFilter = $this->request->getVar('filter') ?? 'category_id';
         $catDirection = $this->request->getVar('direction') ?? 'asc';
@@ -97,7 +106,9 @@ class Admin extends BaseController
         };
 
         $categorias = $this->categoriaModel
-            ->select('category_id, name_cat, slug')
+            ->select('categorias.category_id, categorias.name_cat, categorias.slug, COUNT(juego_categorias.game_id) as juegos_count')
+            ->join('juego_categorias', 'juego_categorias.category_id = categorias.category_id', 'left')
+            ->groupBy('categorias.category_id')
             ->orderBy($catOrderBy, $catDirection)
             ->paginate($catPerPage, 'default', $catPage);
 
@@ -107,14 +118,12 @@ class Admin extends BaseController
         // preparamos los datos para la vista en la pagina
         $data = [
             // Juegos
-            'title' => 'Todos los Juegos',
             'juegos' => $juegos,
-            'section_title' => 'Todos los Juegos',
-            'currentPage' => $page,
-            'totalPages' => $totalPages,
+            'currentGamesPage' => $gamesPage,
+            'totalGamesPages' => $gamesTotalPages,
+            'currentGameFilter' => $gameFilter,
+            'currentDirection' => strtolower($gameDirection),
             'pager' => $this->juegosModel->pager,
-            'currentFilter' => $filter,
-            'currentDirection' => strtolower($direction),
             // Usuarios
             'usuarios' => $usuarios,
             'currentUserPage' => $userPage,
@@ -131,9 +140,9 @@ class Admin extends BaseController
             'currentCatDirection' => strtolower($catDirection)
         ];
 
-        return view('../Views/plantillas/header_view', $data)
+        return view('../Views/plantillas/header_view',)
             . view('../Views/plantillas/side_cart')
-            . view('../Views/content/perfil')
+            . view('../Views/content/perfil', $data)
             . view('../Views/plantillas/footer_view');
     }
 
@@ -141,14 +150,14 @@ class Admin extends BaseController
     {
         // Obtenemos la página actual y la cantidad de juegos por página
         $gamesPage = $this->request->getVar('page') ?? 1;
-        $gamesPerPage = 10;
+        $gamesPerPage = 20;
 
         // Obtenemos los parámetros de filtrado
         $gameFilter = $this->request->getVar('filter') ?? 'alphabetic';
-        $direction = $this->request->getVar('direction') ?? 'asc';
+        $gameDirection = $this->request->getVar('direction') ?? 'asc';
 
         // Validamos la dirección
-        $direction = strtoupper($direction) === 'DESC' ? 'DESC' : 'ASC';
+        $gameDirection = strtoupper($gameDirection) === 'DESC' ? 'DESC' : 'ASC';
 
         // Dependiendo del filtro, ordenamos por la columna correspondiente
         $gamesOrderBy = match ($gameFilter) {
@@ -162,19 +171,31 @@ class Admin extends BaseController
 
         // Obtenemos todos los juegos, aplicamos orden y paginación
         $juegos = $this->juegosModel
-            ->select('game_id, title, price, release_date, card_image_url')
-            ->orderBy($gamesOrderBy, $direction)
+            ->select('game_id, title, price, release_date, card_image_url, logo_url')
+            ->orderBy($gamesOrderBy, $gameDirection)
             ->paginate($gamesPerPage, 'default', $gamesPage);
 
         // Contamos el total de juegos y calculamos el total de páginas
         $gamesTotal = $this->juegosModel->countAll();
         $gamesTotalPages = ceil($gamesTotal / $gamesPerPage);
 
-        return view('content/partials/gestion-juegos', [
+        $dataGames = [
             'juegos' => $juegos,
-            'currentPage' => $gamesPage,
-            'totalPages' => $gamesTotalPages
-        ]);
+            'currentGamesPage' => $gamesPage,
+            'totalGamesPages' => $gamesTotalPages,
+            'currentGameFilter' => $gameFilter,
+            'currentDirection' => strtolower($gameDirection),
+            'pager' => $this->juegosModel->pager
+        ];
+
+        if ($this->request->isAJAX()) {
+            return view('content/partials/gestion-juegos', $dataGames);
+        } else {
+            return view('../Views/plantillas/header_view', $dataGames)
+                . view('../Views/plantillas/side_cart')
+                . view('../Views/content/perfil', $dataGames)
+                . view('../Views/plantillas/footer_view');
+        }
     }
 
     public function admin_usuarios()
@@ -203,16 +224,25 @@ class Admin extends BaseController
         $userTotal = $this->usuariosModel->countAll();
         $userTotalPages = ceil($userTotal / $userPerPage);
 
-        return view('content/partials/gestion-usuarios', [
+        $dataUsers = [
             'title' => 'Gestión de Usuarios',
-            'usuarios' => $usuarios,
             'section_title' => 'Usuarios',
+            'usuarios' => $usuarios,
             'currentUserPage' => $userPage,
             'totalUserPages' => $userTotalPages,
             'userPager' => $this->usuariosModel->pager,
             'currentUserFilter' => $userFilter,
             'currentUserDirection' => strtolower($userDirection)
-        ]);
+        ];
+
+        if ($this->request->isAJAX()) {
+            return view('content/partials/gestion-usuarios', $dataUsers);
+        } else {
+            return view('../Views/plantillas/header_view.php', $dataUsers)
+                . view('../Views/plantillas/side_cart.php')
+                . view('../Views/content/perfil.php', $dataUsers)
+                . view('../Views/plantillas/footer_view.php');
+        }
     }
 
     public function admin_categorias()
@@ -232,22 +262,33 @@ class Admin extends BaseController
         };
 
         $categorias = $this->categoriaModel
-            ->select('category_id, name_cat, slug')
+            ->select('categorias.category_id, categorias.name_cat, categorias.slug, COUNT(juego_categorias.game_id) as juegos_count')
+            ->join('juego_categorias', 'juego_categorias.category_id = categorias.category_id', 'left')
+            ->groupBy('categorias.category_id')
             ->orderBy($catOrderBy, $catDirection)
             ->paginate($catPerPage, 'default', $catPage);
 
         $catTotal = $this->categoriaModel->countAll();
         $catTotalPages = ceil($catTotal / $catPerPage);
 
-        return view('content/partials/gestion-categorias', [
+        $dataCat = [
             'title' => 'Gestión de Categorías',
-            'categorias' => $categorias,
             'section_title' => 'Categorías',
+            'categorias' => $categorias,
             'currentCatPage' => $catPage,
             'totalCatPages' => $catTotalPages,
             'catPager' => $this->categoriaModel->pager,
             'currentCatFilter' => $catFilter,
             'currentCatDirection' => strtolower($catDirection)
-        ]);
+        ];
+
+        if ($this->request->isAJAX()) {
+            return view('content/partials/gestion-categorias', $dataCat);
+        } else {
+            return view('../Views/plantillas/header_view.php')
+                . view('../Views/plantillas/side_cart.php')
+                . view('../Views/content/perfil.php', $dataCat)
+                . view('../Views/plantillas/footer_view.php');
+        }
     }
 }

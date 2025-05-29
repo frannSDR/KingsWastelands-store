@@ -79,66 +79,76 @@ class Usuario extends Controller
 
     public function procesar_login()
     {
+
+        $validation = \Config\Services::validation();
+        $request = \Config\Services::request();
+        $session = session();
+
         // Validar el formulario
-        $validacion = $this->validate([
-            'usuario' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Ingrese su nombre de usuario'
-                ]
+        $validation->setRules(
+            [
+                'usuario' => 'required',
+                'contraseña' => 'required',
             ],
-            'contraseña' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'La contraseña es obligatoria'
+            [ // errores
+                'usuario' => [
+                    'required' => 'Ingrese el nombre de usuario',
+                ],
+                'contraseña' => [
+                    'required' => 'Ingrese la contraseña'
                 ]
             ]
-        ]);
+        );
 
-        if (!$validacion) {
+        if (!$validation->withRequest($request)->run()) {
             // Si la validación falla, volvemos al formulario con los errores
-            return view('login', [
-                'validation' => $this->validator
-            ]);
+            $data['titulo'] = 'Login';
+            $data['validation'] = $validation->getErrors();
+            return view('login', $data);
         }
-
-        // Si la validación es exitosa, procesamos el login
-        $usuarioModel = new UsuarioModel();
 
         $nickname = $this->request->getPost('usuario');
         $contraseña = $this->request->getPost('contraseña');
 
-        // Buscar el usuario por email
+        // Si la validación es exitosa, procesamos el login
+        $usuarioModel = new UsuarioModel();
+
+        // Buscar el usuario por nickname
         $usuario = $usuarioModel->where('nickname', $nickname)->first();
 
-        if (!$usuario || !password_verify($contraseña, $usuario['password_hash'])) {
+        if ($usuario && password_verify($contraseña, $usuario['password_hash'])) {
+            $data = [
+                'user_id' => $usuario['user_id'],
+                'email' => $usuario['email'],
+                'nickname' => $usuario['nickname'],
+                'is_active' => true,
+                'is_admin' => $usuario['is_admin']
+            ];
+            $session->set($data);
+            switch ($usuario['is_admin']) {
+                case '1':
+                    return redirect()->to(base_url('perfil'));
+                    break;
+                case '0':
+                    return redirect()->to(base_url('/'));
+                    break;
+            }
+
+            // Actualizar última fecha de login
+            $usuarioModel->update($usuario['user_id'], [
+                'last_login' => date('Y-m-d H:i:s')
+            ]);
+        } else {
             // Si no existe el usuario o la contraseña es incorrecta
-            session()->setFlashdata('error', 'Usuario o contraseña incorrectos');
-            return redirect()->to(base_url('login'));
+            return redirect()->to(base_url('login'))->with('mensaje', 'Usuario y/o contraseña incorrecto!');
         }
-
-        // Actualizar última fecha de login
-        $usuarioModel->update($usuario['user_id'], [
-            'last_login' => date('Y-m-d H:i:s')
-        ]);
-
-        // Crear sesión de usuario
-        session()->set([
-            'user_id' => $usuario['user_id'],
-            'email' => $usuario['email'],
-            'nickname' => $usuario['nickname'],
-            'is_active' => true,
-            'is_admin' => $usuario['is_admin']
-        ]);
-
-        // Redirigir al dashboard
-        return redirect()->to(base_url('/'));
     }
 
     public function logout()
     {
-        // Destruir la sesión
-        session()->destroy();
+        // destruimos la sesion
+        $session = session();
+        $session->destroy();
         return redirect()->to(base_url('/'));
     }
 
@@ -155,7 +165,7 @@ class Usuario extends Controller
                 'motivo' => 'required|max_length[100]',
                 'consulta' => 'required|max_length[250]|min_length[10]',
             ],
-            [   // Errors
+            [   // errors
                 'nombre' => [
                     'required' => 'El nombre es obligatorio',
                     'max_length' => 'El nombre debe tener como máximo 150 caracteres'
@@ -172,7 +182,7 @@ class Usuario extends Controller
                 ],
 
                 'consulta' => [
-                    'required' => 'La consulta es requerido',
+                    'required' => 'El texto de consulta es requerido',
                     'min_length' => 'La consulta debe tener como mínimo 10 caracteres',
                     'max_length' => 'La consulta debe tener como máximo 200 caracteres',
                 ],

@@ -2,7 +2,7 @@ function bindAddGameBtn() {
     const addGameBtn = document.getElementById('addGameBtn');
     const gameFormContainer = document.getElementById('game-form-container');
     const gameTableContainer = document.getElementById('adminTable');
-    const paginationContainer = document.getElementById('pagination-container');
+    const paginationContainer = document.getElementById('gamesPagination-container');
 
     if (addGameBtn && gameFormContainer && gameTableContainer) {
         addGameBtn.onclick = function () {
@@ -134,37 +134,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ... listeners para otros botones
-
-    // Paginación AJAX Juegos
+    // Manejar la paginación
     document.addEventListener('click', function(e) {
-        let link = e.target;
-        if (link.tagName === 'i' && link.parentElement.tagName === 'a') {
-            link = link.parentElement;
-        }
-
-        if (e.target.matches('.pagination-button a')) {
+        // Paginación de usuarios
+        if (e.target.closest('.user-pagination-button a')) {
             e.preventDefault();
-            fetch(e.target.href)
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById('games-list-container').innerHTML = html;
-                    bindAddGameBtn(); // Re-bindear el boton de añadir juego
-                });
+            const url = e.target.closest('a').href;
+            fetchPaginatedContent(url, 'usuarios-list-container');
+        }
+        
+        // Paginación de juegos
+        if (e.target.closest('.games-pagination-button a')) {
+            e.preventDefault();
+            const url = e.target.closest('a').href;
+            fetchPaginatedContent(url, 'games-list-container');
+        }
+        
+        // Paginación de categorías
+        if (e.target.closest('.cat-pagination-button a')) {
+            e.preventDefault();
+            const url = e.target.closest('a').href;
+            fetchPaginatedContent(url, 'categorias-list-container');
         }
     });
 
-    // Paginación AJAX Usuarios
-    document.addEventListener('click', function(e) {
+    // Función para cargar contenido paginado
+    function fetchPaginatedContent(url, containerId) {
+        fetch(url, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById(containerId).innerHTML = html;
+            history.pushState(null, null, url);
+        });
+    }
 
-        if (e.target.matches('.user-pagination-button a')) {
-            e.preventDefault();
-            fetch(e.target.href)
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById('usuarios-list-container').innerHTML = html;
-                    bindAddGameBtn(); // Re-bindear el boton de añadir juego
-                });
+    // Manejar el popstate (navegación con el botón atrás/adelante)
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.section) {
+            loadSectionContent(event.state.section);
+        } else {
+            window.location.reload();
         }
     });
 

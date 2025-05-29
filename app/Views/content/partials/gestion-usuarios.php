@@ -10,7 +10,7 @@
 </div>
 
 <!-- paginacion header -->
-<div id="pagination-container" class="pagination">
+<div id="pagination-container" class="user-pagination">
     <?php
     // mostrar numeros de pagina
     $start = max(1, $currentUserPage - 2);
@@ -86,12 +86,12 @@
 </div>
 
 <!-- paginacion footer -->
-<div id="pagination-container" class="pagination">
+<div id="pagination-container" class="user-pagination">
     <?php
     // mostrar numeros de pagina
     $start = max(1, $currentUserPage - 2);
     $end = min($totalUserPages, $currentUserPage + 2);
-    $baseUrl = base_url('/perfil/admin-users');
+    $baseUrl = base_url('/perfil/admin-usuarios');
     ?>
     <?php if ($start > 1): ?>
         <button class="user-pagination-button <?= 1 == $currentUserPage ? 'active' : '' ?>">
@@ -110,7 +110,7 @@
 
     <?php if ($end < $totalUserPages): ?>
         <?php if ($end < $totalUserPages - 1): ?>
-            <span class="pagination-ellipsis">...</span>
+            <span class="user-pagination-ellipsis">...</span>
         <?php endif; ?>
         <button class="user-pagination-button <?= $totalUserPages == $currentUserPage ? 'active' : '' ?>">
             <a href="<?= $baseUrl ?>?page=<?= $totalUserPages ?>"><?= $totalUserPages ?></a>

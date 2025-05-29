@@ -7,6 +7,7 @@
             <h3 class="admin-username"><?= session('nickname') ?></h3>
             <span class="admin-role">Administrador</span>
         </div>
+
         <nav class="admin-menu">
             <ul>
                 <li class="menu-item active" data-section="usuarios">
@@ -27,6 +28,7 @@
                 </li>
             </ul>
         </nav>
+
         <!-- logout -->
         <div class="admin-logout">
             <form action="<?= base_url('logout') ?>" method="post">
@@ -38,42 +40,44 @@
 
     <!-- Contenido principal -->
     <main class="admin-content">
-        <!-- seccion de usuarios (activa por defecto) -->
+
+        <!-- seccion de usuarios -->
         <div id="usuarios-section" class="content-section active">
             <div id="usuarios-list-container">
                 <?= view('content/partials/gestion-usuarios', [
                     'usuarios' => $usuarios ?? [],
-                    'currentPage' => $currentPage ?? 1,
-                    'totalPages' => $totalPages ?? 1
+                    'currentUserPage' => $userPage ?? 1,
+                    'totalUserPages' => $userTotalPages ?? 1
                 ]) ?>
             </div>
         </div>
 
-        <!-- Sección de Juegos (incluye el formulario que ya creamos) -->
+        <!-- seccion de juegos -->
         <div id="juegos-section" class="content-section">
             <div id="games-list-container">
                 <?= view('content/partials/gestion-juegos', [
                     'juegos' => $juegos ?? [],
-                    'currentPage' => $currentPage ?? 1,
-                    'totalPages' => $totalPages ?? 1
+                    'currentGamesPage' => $gamesPage ?? 1,
+                    'totalGamesPages' => $gamesTotalPages ?? 1
                 ]) ?>
             </div>
         </div>
 
-        <!-- Sección de Categorías -->
+        <!-- seccion de Categorías -->
         <div id="categorias-section" class="content-section">
             <div id="categorias-list-container">
                 <?= view('content/partials/gestion-categorias', [
                     'categorias' => $categorias ?? [],
-                    'currentPage' => $currentPage ?? 1,
-                    'totalPages' => $totalPages ?? 1
+                    'currentPage' => $currentCatPage ?? 1,
+                    'totalPages' => $totalCatPages ?? 1
                 ]) ?>
             </div>
+        </div>
 
-            <!-- Sección de Compras -->
-            <div id="compras-section" class="content-section">
-                <h2><i class="bi bi-cart-check-fill"></i> Administrar Compras</h2>
-                <!-- Contenido de compras -->
-            </div>
+        <!-- Sección de Compras -->
+        <div id="compras-section" class="content-section">
+            <h2><i class="bi bi-cart-check-fill"></i> Administrar Compras</h2>
+            <!-- Contenido de compras -->
+        </div>
     </main>
 </section>

@@ -13,44 +13,44 @@
 </div>
 
 <!-- paginacion header -->
-<div id="pagination-container" class="pagination">
+<div id="gamesPagination-container" class="games-pagination">
     <?php
-    // mostrar numeros de pagina
-    $start = max(1, $currentPage - 2);
-    $end = min($totalPages, $currentPage + 2);
+    $start = max(1, $currentGamesPage - 2);
+    $end = min($totalGamesPages, $currentGamesPage + 2);
     $baseUrl = base_url('/perfil/admin-juegos');
     ?>
     <?php if ($start > 1): ?>
-        <button class="pagination-button <?= 1 == $currentPage ? 'active' : '' ?>">
+        <button class="games-pagination-button <?= 1 == $currentGamesPage ? 'active' : '' ?>">
             <a href="<?= $baseUrl ?>?page=1">1</a>
         </button>
         <?php if ($start > 2): ?>
-            <span class="pagination-ellipsis">...</span>
+            <span class="games-pagination-ellipsis">...</span>
         <?php endif; ?>
     <?php endif; ?>
 
     <?php for ($i = $start; $i <= $end; $i++): ?>
-        <button class="pagination-button <?= $i == $currentPage ? 'active' : '' ?>">
+        <button class="games-pagination-button <?= $i == $currentGamesPage ? 'active' : '' ?>">
             <a href="<?= $baseUrl ?>?page=<?= $i ?>"><?= $i ?></a>
         </button>
     <?php endfor; ?>
 
-    <?php if ($end < $totalPages): ?>
-        <?php if ($end < $totalPages - 1): ?>
-            <span class="pagination-ellipsis">...</span>
+    <?php if ($end < $totalGamesPages): ?>
+        <?php if ($end < $totalGamesPages - 1): ?>
+            <span class="games-pagination-ellipsis">...</span>
         <?php endif; ?>
-        <button class="pagination-button <?= $totalPages == $currentPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $totalPages ?>"><?= $totalPages ?></a>
+        <button class="games-pagination-button <?= $totalGamesPages == $currentGamesPage ? 'active' : '' ?>">
+            <a href="<?= $baseUrl ?>?page=<?= $totalGamesPages ?>"><?= $totalGamesPages ?></a>
         </button>
     <?php endif; ?>
 </div>
 
 <!-- Listado de juegos existentes -->
 <div id="adminTable" class="admin-table-container">
-    <table class="admin-table">
+    <table class="games-admin-table">
         <thead>
             <tr>
                 <th>ID</th>
+                <th></th>
                 <th>Título</th>
                 <th>Precio</th>
                 <th>Fecha de lanzamiento</th>
@@ -61,7 +61,8 @@
             <?php foreach ($juegos as $juego): ?>
                 <tr>
                     <td><?= $juego['game_id'] ?></td>
-                    <td><?= esc($juego['title']) ?></td>
+                    <td><img src="<?= $juego['logo_url'] ?>" alt="Logo de <?= esc($juego['title']) ?>" class="game-admin-logo"></td>
+                    <td> <?= esc($juego['title']) ?> </td>
                     <td>$<?= $juego['price'] ?></td>
                     <td><?= $juego['release_date'] ?? 'nn' ?></td>
                     <td>
@@ -285,35 +286,33 @@
 </div>
 
 <!-- paginacion footer -->
-<div id="pagination-container" class="pagination">
+<div id="gamesPagination-container" class="games-pagination">
     <?php
-    // mostrar numeros de pagina
-    $start = max(1, $currentPage - 2);
-    $end = min($totalPages, $currentPage + 2);
+    $start = max(1, $currentGamesPage - 2);
+    $end = min($totalGamesPages, $currentGamesPage + 2);
     $baseUrl = base_url('/perfil/admin-juegos');
     ?>
-
     <?php if ($start > 1): ?>
-        <button class="pagination-button <?= 1 == $currentPage ? 'active' : '' ?>">
+        <button class="games-pagination-button <?= 1 == $currentGamesPage ? 'active' : '' ?>">
             <a href="<?= $baseUrl ?>?page=1">1</a>
         </button>
         <?php if ($start > 2): ?>
-            <span class="pagination-ellipsis">...</span>
+            <span class="games-pagination-ellipsis">...</span>
         <?php endif; ?>
     <?php endif; ?>
 
     <?php for ($i = $start; $i <= $end; $i++): ?>
-        <button class="pagination-button <?= $i == $currentPage ? 'active' : '' ?>">
+        <button class="games-pagination-button <?= $i == $currentGamesPage ? 'active' : '' ?>">
             <a href="<?= $baseUrl ?>?page=<?= $i ?>"><?= $i ?></a>
         </button>
     <?php endfor; ?>
 
-    <?php if ($end < $totalPages): ?>
-        <?php if ($end < $totalPages - 1): ?>
-            <span class="pagination-ellipsis">...</span>
+    <?php if ($end < $totalGamesPages): ?>
+        <?php if ($end < $totalGamesPages - 1): ?>
+            <span class="games-pagination-ellipsis">...</span>
         <?php endif; ?>
-        <button class="pagination-button <?= $totalPages == $currentPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $totalPages ?>"><?= $totalPages ?></a>
+        <button class="games-pagination-button <?= $totalGamesPages == $currentGamesPage ? 'active' : '' ?>">
+            <a href="<?= $baseUrl ?>?page=<?= $totalGamesPages ?>"><?= $totalGamesPages ?></a>
         </button>
     <?php endif; ?>
 </div>

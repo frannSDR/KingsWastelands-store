@@ -261,7 +261,3 @@ lightbox.option({
   'imageFadeDuration': 300, // Duración de la transición de la imagen
   'showImageNumberLabel': true // Muestra el número de la imagen actual
 });
-
-
-
-
