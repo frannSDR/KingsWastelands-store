@@ -180,7 +180,7 @@ function categoryForm() {
 }
 
 function bindEditGameBtns() {
-    document.querySelectorAll('.btn-edit').forEach(function(btn) {
+    document.querySelectorAll('.btn-edit-game').forEach(function(btn) {
         btn.addEventListener('click', function() {
             const gameId = this.getAttribute('data-id');
             fetch('/perfil/obtener-juego/' + gameId)
@@ -188,7 +188,6 @@ function bindEditGameBtns() {
                 .then(data => {
                     if (data.success) {
                         const form = document.getElementById('upload-game-form');
-                        // Rellenar campos principales
                         form.title.value = data.juego.title;
                         form.price.value = data.juego.price;
                         form.release_date.value = data.juego.release_date;

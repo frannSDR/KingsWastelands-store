@@ -67,7 +67,7 @@
                     <td><?= $juego['release_date'] ?? 'nn' ?></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn-icon btn-edit" title="Editar">
+                            <button data-id="<?= $juego['game_id'] ?>" class="btn-icon btn-edit btn-edit-game" title="Editar">
                                 <i class="bi bi-pencil-square"></i>
                             </button>
                             <button class="btn-icon btn-danger" title="Eliminar">
@@ -97,7 +97,6 @@
             <?php endif; ?>
             <form id="upload-game-form" class="game-form" action="<?= base_url('/perfil/guardar-juego') ?>" method="post">
                 <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
-                <input type="hidden" name="game_id" id="game_id">
                 <!-- Sección 1: Info Básica -->
                 <fieldset class="form-section">
                     <legend><i class="bi bi-info-circle"></i> Información Principal</legend>
