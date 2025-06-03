@@ -1,0 +1,26 @@
+CRITICAL - 2025-06-01 00:50:10 --> ErrorException: Undefined array key "recomendado"
+[Method: GET, Route: juego/83]
+in APPPATH\Views\content\game-section.php on line 145.
+ 1 APPPATH\Views\content\game-section.php(145): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "recomendado"', 'C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php', 145)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\KingsWastelands-store\\app\\Views\\content\\game-section.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('../Views/content/game-section', [], true)
+ 5 APPPATH\Controllers\Juegos.php(527): view('../Views/content/game-section')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Juegos->detalle('83')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Juegos))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-01 04:59:15 --> CodeIgniter\Validation\Exceptions\ValidationException: "alpha_nmumeric" is not a valid rule.
+[Method: POST, Route: perfil/guardar-juego]
+in SYSTEMPATH\Validation\Validation.php on line 346.
+ 1 SYSTEMPATH\Validation\Validation.php(346): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('alpha_nmumeric')
+ 2 SYSTEMPATH\Validation\Validation.php(202): CodeIgniter\Validation\Validation->processRules('trailer', 'trailer', '944Ty9YpjEs?si=ZurDwJcBPd1T0uzI', [...], [...], 'trailer')
+ 3 APPPATH\Controllers\Admin_controllers\Admin.php(288): CodeIgniter\Validation\Validation->run()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin_controllers\Admin->subir_juego()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(58): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

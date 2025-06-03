@@ -21,7 +21,7 @@
     ?>
     <?php if ($start > 1): ?>
         <button class="games-pagination-button <?= 1 == $currentGamesPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=1">1</a>
+            <a href="<?= $baseUrl ?>?games_page=1">1</a>
         </button>
         <?php if ($start > 2): ?>
             <span class="games-pagination-ellipsis">...</span>
@@ -30,7 +30,7 @@
 
     <?php for ($i = $start; $i <= $end; $i++): ?>
         <button class="games-pagination-button <?= $i == $currentGamesPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $i ?>"><?= $i ?></a>
+            <a href="<?= $baseUrl ?>?games_page=<?= $i ?>"><?= $i ?></a>
         </button>
     <?php endfor; ?>
 
@@ -39,7 +39,7 @@
             <span class="games-pagination-ellipsis">...</span>
         <?php endif; ?>
         <button class="games-pagination-button <?= $totalGamesPages == $currentGamesPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $totalGamesPages ?>"><?= $totalGamesPages ?></a>
+            <a href="<?= $baseUrl ?>?games_page=<?= $totalGamesPages ?>"><?= $totalGamesPages ?></a>
         </button>
     <?php endif; ?>
 </div>
@@ -86,8 +86,18 @@
     <section class="upload-game-section" style="margin-top: 70px;">
         <div class="container">
             <h2 class="section-title"><i class="bi bi-upload"></i> Subir Nuevo Juego</h2>
-
-            <form id="upload-game-form" class="game-form">
+            <?php if (session('errors')): ?>
+                <div class="alert alert-danger">
+                    <ul>
+                        <?php foreach (session('errors') as $error): ?>
+                            <li><?= esc($error) ?></li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            <form id="upload-game-form" class="game-form" action="<?= base_url('/perfil/guardar-juego') ?>" method="post">
+                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
+                <input type="hidden" name="game_id" id="game_id">
                 <!-- Sección 1: Info Básica -->
                 <fieldset class="form-section">
                     <legend><i class="bi bi-info-circle"></i> Información Principal</legend>
@@ -95,59 +105,56 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="game-name">Nombre del Juego*</label>
-                            <input type="text" id="game-name" required placeholder="Ej: Cyberpunk 2077">
+                            <input type="text" id="game-name" name="title" required placeholder="Ej: Cyberpunk 2077">
                         </div>
 
                         <div class="form-group">
                             <label for="game-price">Precio (USD)*</label>
                             <div class="price-input">
                                 <span>$</span>
-                                <input type="number" id="game-price" min="0" step="0.01" required placeholder="59.99">
+                                <input type="number" id="game-price" name="price" min="0" step="0.01" required placeholder="59.99">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="release-date">Fecha de Lanzamiento*</label>
-                            <input type="date" id="release-date" required>
+                            <input type="date" id="release-date" name="release_date" required>
                         </div>
 
                         <div class="form-group">
                             <label for="developer">Desarrolladora*</label>
-                            <input type="text" id="developer" required placeholder="Ej: CD Projekt Red">
+                            <input type="text" id="developer" name="developer" required placeholder="Ej: CD Projekt Red">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="about">Acerca del Juego (Breve descripción)*</label>
-                        <input type="text" id="about" maxlength="150" required
+                        <input type="text" id="about" name="about" maxlength="150" required
                             placeholder="Ej: Un RPG de mundo abierto en la ciudad futurista de Night City">
                     </div>
 
                     <div class="form-group">
                         <label for="synopsis">Sinopsis*</label>
-                        <textarea id="synopsis" rows="4" required
+                        <textarea id="synopsis" name="synopsis" rows="4" required
                             placeholder="Describe la trama, características principales..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Categorías*</label>
                         <div class="categories-grid">
-                            <label class="category-checkbox">
-                                <input type="checkbox" name="category" value="rpg"> Accion
-                            </label>
-                            <label class="category-checkbox">
-                                <input type="checkbox" name="category" value="fps"> Aventura
-                            </label>
-                            <label class="category-checkbox">
-                                <input type="checkbox" name="category" value="aventura"> Indie
-                            </label>
-                            <label class="category-checkbox">
-                                <input type="checkbox" name="category" value="rpg"> Terror
-                            </label>
-                            <label class="category-checkbox">
-                                <input type="checkbox" name="category" value="rpg"> Estrategia
-                            </label>
-                            <!-- Añade más categorías según necesites -->
+                            <?php foreach ($categorias as $categoria): ?>
+                                <label class="category-checkbox">
+                                    <input type="checkbox" name="categories[]" value="<?= $categoria['category_id'] ?>"> <?= esc($categoria['name_cat']) ?>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Valoracion*</label>
+                        <div class="price-input">
+                            <span><i class="bi bi-star"></i></span>
+                            <input type="number" id="game-rating" name="game_rating" min="1" step="0.5" required placeholder="8,5">
                         </div>
                     </div>
                 </fieldset>
@@ -158,33 +165,38 @@
 
                     <div class="form-grid">
                         <div class="form-group">
+                            <label for="cover-url">URL Trailer*</label>
+                            <input type="text" id="trailer-url" name="trailer" required placeholder="Ej: dQw4w9WgXcQ">
+                        </div>
+
+                        <div class="form-group">
                             <label for="cover-url">URL Cover*</label>
-                            <input type="url" id="cover-url" required placeholder="https://ejemplo.com/cover.jpg">
+                            <input type="url" name="cover_url" required placeholder="https://ejemplo.com/cover.jpg">
                         </div>
 
                         <div class="form-group">
                             <label for="card-url">URL Card*</label>
-                            <input type="url" id="card-url" required placeholder="https://ejemplo.com/card.jpg">
+                            <input type="url" name="card_url" required placeholder="https://ejemplo.com/card.jpg">
                         </div>
 
                         <div class="form-group">
                             <label for="banner-url">URL Banner*</label>
-                            <input type="url" id="banner-url" required placeholder="https://ejemplo.com/banner.jpg">
+                            <input type="url" name="banner_url" required placeholder="https://ejemplo.com/banner.jpg">
                         </div>
 
                         <div class="form-group">
                             <label for="logo-url">URL Logo*</label>
-                            <input type="url" id="logo-url" required placeholder="https://ejemplo.com/logo.png">
+                            <input type="url" name="logo_url" required placeholder="https://ejemplo.com/logo.png">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Imágenes Adicionales (4 URLs)*</label>
                         <div id="additional-images">
-                            <input type="url" class="image-url" required placeholder="https://ejemplo.com/screenshot1.jpg">
-                            <input type="url" class="image-url" required placeholder="https://ejemplo.com/screenshot2.jpg">
-                            <input type="url" class="image-url" required placeholder="https://ejemplo.com/screenshot3.jpg">
-                            <input type="url" class="image-url" required placeholder="https://ejemplo.com/screenshot4.jpg">
+                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot1.jpg">
+                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot2.jpg">
+                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot3.jpg">
+                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot4.jpg">
                         </div>
                     </div>
                 </fieldset>
@@ -193,80 +205,68 @@
                 <fieldset class="form-section">
                     <legend><i class="bi bi-pc-display"></i> Requisitos del Sistema</legend>
 
-                    <div class="requirements-tabs">
-                        <button type="button" class="tab-btn active" data-tab="minimos">Mínimos</button>
-                        <button type="button" class="tab-btn" data-tab="recomendados">Recomendados</button>
-                        <button type="button" class="tab-btn" data-tab="ultra">Ultra</button>
-                    </div>
-
-                    <div class="tab-content active" id="minimos">
+                    <legend>Minimos</legend>
+                    <div class="tab-content" id="minimos">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="min-cpu">CPU*</label>
-                                <input type="text" id="min-cpu" required placeholder="Ej: Intel Core i7-4790K">
+                                <input type="text" id="min-cpu" name="min_cpu" required placeholder="Ej: Intel Core i7-4790K">
                             </div>
-
                             <div class="form-group">
                                 <label for="min-ram">RAM*</label>
-                                <input type="text" id="min-ram" required placeholder="Ej: 8 GB">
+                                <input type="text" id="min-ram" name="min_ram" required placeholder="Ej: 8 GB">
                             </div>
-
                             <div class="form-group">
                                 <label for="min-gpu">GPU*</label>
-                                <input type="text" id="min-gpu" required placeholder="Ej: NVIDIA GTX 1650">
+                                <input type="text" id="min-gpu" name="min_gpu" required placeholder="Ej: NVIDIA GTX 1650">
                             </div>
-
                             <div class="form-group">
                                 <label for="min-storage">Almacenamiento*</label>
-                                <input type="text" id="min-storage" required placeholder="Ej: 70 GB SDD">
+                                <input type="text" id="min-storage" name="min_storage" required placeholder="Ej: 70 GB SDD">
                             </div>
                         </div>
                     </div>
 
+                    <legend>Recomendados</legend>
                     <div class="tab-content" id="recomendados">
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="min-cpu">CPU*</label>
-                                <input type="text" id="min-cpu" required placeholder="Ej: Intel Core i7-4790K">
+                                <label for="rec-cpu">CPU*</label>
+                                <input type="text" id="rec-cpu" name="rec_cpu" required placeholder="Ej: Intel Core i7-4790K">
                             </div>
-
                             <div class="form-group">
-                                <label for="min-ram">RAM*</label>
-                                <input type="text" id="min-ram" required placeholder="Ej: 8 GB">
+                                <label for="rec-ram">RAM*</label>
+                                <input type="text" id="rec-ram" name="rec_ram" required placeholder="Ej: 8 GB">
                             </div>
-
                             <div class="form-group">
-                                <label for="min-gpu">GPU*</label>
-                                <input type="text" id="min-gpu" required placeholder="Ej: NVIDIA GTX 1650">
+                                <label for="rec-gpu">GPU*</label>
+                                <input type="text" id="rec-gpu" name="rec_gpu" required placeholder="Ej: NVIDIA GTX 1650">
                             </div>
-
                             <div class="form-group">
-                                <label for="min-storage">Almacenamiento*</label>
-                                <input type="text" id="min-storage" required placeholder="Ej: 70 GB SDD">
+                                <label for="rec-storage">Almacenamiento*</label>
+                                <input type="text" id="rec-storage" name="rec_storage" required placeholder="Ej: 70 GB SDD">
                             </div>
                         </div>
                     </div>
 
+                    <legend>Ultra</legend>
                     <div class="tab-content" id="ultra">
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="min-cpu">CPU*</label>
-                                <input type="text" id="min-cpu" required placeholder="Ej: Intel Core i7-4790K">
+                                <label for="ultra-cpu">CPU*</label>
+                                <input type="text" id="ultra-cpu" name="ultra_cpu" required placeholder="Ej: Intel Core i7-4790K">
                             </div>
-
                             <div class="form-group">
-                                <label for="min-ram">RAM*</label>
-                                <input type="text" id="min-ram" required placeholder="Ej: 8 GB">
+                                <label for="ultra-ram">RAM*</label>
+                                <input type="text" id="ultra-ram" name="ultra_ram" required placeholder="Ej: 8 GB">
                             </div>
-
                             <div class="form-group">
-                                <label for="min-gpu">GPU*</label>
-                                <input type="text" id="min-gpu" required placeholder="Ej: NVIDIA GTX 1650">
+                                <label for="ultra-gpu">GPU*</label>
+                                <input type="text" id="ultra-gpu" name="ultra_gpu" required placeholder="Ej: NVIDIA GTX 1650">
                             </div>
-
                             <div class="form-group">
-                                <label for="min-storage">Almacenamiento*</label>
-                                <input type="text" id="min-storage" required placeholder="Ej: 70 GB SDD">
+                                <label for="ultra-storage">Almacenamiento*</label>
+                                <input type="text" id="ultra-storage" name="ultra_storage" required placeholder="Ej: 70 GB SDD">
                             </div>
                         </div>
                     </div>
@@ -276,8 +276,8 @@
                     <button type="reset" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpiar
                     </button>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-cloud-upload"></i> Publicar Juego
+                    <button type="submit" class="btn btn-primary" id="submit-game-btn">
+                        <i class="bi bi-cloud-upload"></i> <span id="submit-game-btn-text">Publicar Juego</span>
                     </button>
                 </div>
             </form>
@@ -294,7 +294,7 @@
     ?>
     <?php if ($start > 1): ?>
         <button class="games-pagination-button <?= 1 == $currentGamesPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=1">1</a>
+            <a href="<?= $baseUrl ?>?games_page=1">1</a>
         </button>
         <?php if ($start > 2): ?>
             <span class="games-pagination-ellipsis">...</span>
@@ -303,7 +303,7 @@
 
     <?php for ($i = $start; $i <= $end; $i++): ?>
         <button class="games-pagination-button <?= $i == $currentGamesPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $i ?>"><?= $i ?></a>
+            <a href="<?= $baseUrl ?>?games_page=<?= $i ?>"><?= $i ?></a>
         </button>
     <?php endfor; ?>
 
@@ -312,7 +312,7 @@
             <span class="games-pagination-ellipsis">...</span>
         <?php endif; ?>
         <button class="games-pagination-button <?= $totalGamesPages == $currentGamesPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $totalGamesPages ?>"><?= $totalGamesPages ?></a>
+            <a href="<?= $baseUrl ?>?games_page=<?= $totalGamesPages ?>"><?= $totalGamesPages ?></a>
         </button>
     <?php endif; ?>
 </div>

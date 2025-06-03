@@ -19,7 +19,7 @@
     ?>
     <?php if ($start > 1): ?>
         <button class="user-pagination-button <?= 1 == $currentUserPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=1">1</a>
+            <a href="<?= $baseUrl ?>?user_page=1">1</a>
         </button>
         <?php if ($start > 2): ?>
             <span class="user-pagination-ellipsis">...</span>
@@ -28,7 +28,7 @@
 
     <?php for ($i = $start; $i <= $end; $i++): ?>
         <button class="user-pagination-button <?= $i == $currentUserPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $i ?>"><?= $i ?></a>
+            <a href="<?= $baseUrl ?>?user_page=<?= $i ?>"><?= $i ?></a>
         </button>
     <?php endfor; ?>
 
@@ -37,7 +37,7 @@
             <span class="user-pagination-ellipsis">...</span>
         <?php endif; ?>
         <button class="user-pagination-button <?= $totalUserPages == $currentUserPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $totalUserPages ?>"><?= $totalUserPages ?></a>
+            <a href="<?= $baseUrl ?>?user_page=<?= $totalUserPages ?>"><?= $totalUserPages ?></a>
         </button>
     <?php endif; ?>
 </div>
@@ -95,7 +95,7 @@
     ?>
     <?php if ($start > 1): ?>
         <button class="user-pagination-button <?= 1 == $currentUserPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=1">1</a>
+            <a href="<?= $baseUrl ?>?user_page=1">1</a>
         </button>
         <?php if ($start > 2): ?>
             <span class="user-pagination-ellipsis">...</span>
@@ -104,7 +104,7 @@
 
     <?php for ($i = $start; $i <= $end; $i++): ?>
         <button class="user-pagination-button <?= $i == $currentUserPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $i ?>"><?= $i ?></a>
+            <a href="<?= $baseUrl ?>?user_page=<?= $i ?>"><?= $i ?></a>
         </button>
     <?php endfor; ?>
 
@@ -113,7 +113,7 @@
             <span class="user-pagination-ellipsis">...</span>
         <?php endif; ?>
         <button class="user-pagination-button <?= $totalUserPages == $currentUserPage ? 'active' : '' ?>">
-            <a href="<?= $baseUrl ?>?page=<?= $totalUserPages ?>"><?= $totalUserPages ?></a>
+            <a href="<?= $baseUrl ?>?user_page=<?= $totalUserPages ?>"><?= $totalUserPages ?></a>
         </button>
     <?php endif; ?>
 </div>

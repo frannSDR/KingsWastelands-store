@@ -26,6 +26,7 @@ class JuegosModel extends Model
         'banner_image_url',
         'card_image_url',
         'rating',
+        'logo_url',
         'created_at',
         'updated_at'
     ];

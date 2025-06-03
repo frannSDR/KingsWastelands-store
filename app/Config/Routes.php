@@ -61,10 +61,14 @@ $routes->post('/juego/(:num)/guardar-resena', 'Juegos::guardarResena');
 
 $routes->get('/juego/(:num)/filtrar-resenas', 'Juegos::filtrarResenas/$1');
 
-$routes->get('/perfil', 'Admin::admin');
+$routes->get('/perfil', 'Admin_controllers\Admin::admin');
 
-$routes->get('/perfil/admin-juegos', 'Admin::admin_juegos');
+$routes->get('/perfil/admin-juegos', 'Admin_controllers\Admin::admin_juegos');
 
-$routes->get('/perfil/admin-usuarios', 'Admin::admin_usuarios');
+$routes->get('/perfil/admin-usuarios', 'Admin_controllers\Admin::admin_usuarios');
 
-$routes->get('/perfil/admin-categorias', 'Admin::admin_categorias');
+$routes->get('/perfil/admin-categorias', 'Admin_controllers\Admin::admin_categorias');
+
+$routes->post('/perfil/guardar-juego', 'Admin_controllers\Admin::subir_juego');
+
+$routes->get('perfil/obtener-juego/(:num)', 'Admin_controllers\Admin::obtener_juego/$1');
