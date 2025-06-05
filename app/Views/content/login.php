@@ -2,7 +2,6 @@
     <div class="auth-container">
         <div class="auth-form-container">
             <form action="<?php echo base_url('procesar_login') ?>" method="POST" class="auth-form">
-                <?= csrf_field() ?>
                 <h1 class="auth-title">Inicio de Sesión</h1>
 
                 <?php if (session('mensaje')): ?>

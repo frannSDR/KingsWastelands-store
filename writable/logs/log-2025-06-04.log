@@ -1,0 +1,1410 @@
+DEBUG - 2025-06-04 00:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 00:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 00:08:15 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 00:08:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 00:08:22 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 00:08:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 00:08:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 00:08:27 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 00:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 00:46:56 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:08:54 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:13:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:13:10 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:13:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:13:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:13:16 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:19:50 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:22:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:22:39 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:23:06 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:23:13 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:23:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:23:25 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:23:27 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:23:56 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:28:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:28:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 02:55:38 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 02:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:55:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:55:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:55:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:55:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:55:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:56:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 02:56:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 03:28:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 03:28:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 03:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:09:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:09:28 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:09:43 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:09:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:09:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:09:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:09:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:09:54 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:09:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:09:55 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:12:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:12:58 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:13:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:13:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:14:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:14:10 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:15:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:15:28 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:16:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:16:51 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:17:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:17:45 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:26:06 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:26:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:27:19 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:27:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:27:32 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:27:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:27:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:28:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:47:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:47:41 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:47:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:48:02 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 05:48:10 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/54]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/54')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/54')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:48:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:48:13 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:48:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:48:30 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:51:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:51:17 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 05:51:23 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/54]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/54')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/54')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:51:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:51:28 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 05:51:58 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/54]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/54')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/54')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:52:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:52:02 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:52:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:52:10 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 05:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:52:22 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: POST, Route: perfil/activar-juego/7]
+in SYSTEMPATH\BaseModel.php on line 1010.
+ 1 SYSTEMPATH\BaseModel.php(1010): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin_controllers\Admin.php(552): CodeIgniter\Model->update('7', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin_controllers\Admin->activar_juego('7')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:52:50 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:52:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:53:14 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/55')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/55')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:59:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:59:33 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 05:59:37 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/55')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/55')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 05:59:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 05:59:40 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:21:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:21:52 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 06:21:58 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/55')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/55')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:22:03 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:23:27 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:23:34 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/55')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/55')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:23:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:23:38 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:24:23 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 06:24:27 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/55')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/55')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:26:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:26:40 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 06:26:44 --> CodeIgniter\Router\Exceptions\RouterException: The namespace delimiter is a backslash (\), not a slash (/). Route handler: "\App\Controllers\Admin_controllers/Admin::desactivar_juego/$1"
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\Router\Router.php on line 494.
+ 1 SYSTEMPATH\Router\Router.php(494): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\Admin_controllers/Admin::desactivar_juego/$1')
+ 2 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('perfil/desactivar-juego/55')
+ 3 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('perfil/desactivar-juego/55')
+ 4 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:28:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:28:12 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 06:28:18 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\BaseModel.php on line 1010.
+ 1 SYSTEMPATH\BaseModel.php(1010): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin_controllers\Admin.php(544): CodeIgniter\Model->update('55', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin_controllers\Admin->desactivar_juego('55')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:28:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:28:19 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:30:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:30:18 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 06:30:23 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: POST, Route: perfil/desactivar-juego/55]
+in SYSTEMPATH\BaseModel.php on line 1010.
+ 1 SYSTEMPATH\BaseModel.php(1010): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin_controllers\Admin.php(544): CodeIgniter\Model->update('55', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin_controllers\Admin->desactivar_juego('55')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin_controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:30:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:30:26 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:30:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:33:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:33:27 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:33:32 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:33:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:33:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:33:40 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:34:20 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:35:07 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:35:35 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:35:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:35:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:35:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:35:41 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:37:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:37:30 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:37:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:37:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:37:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:37:36 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:37:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:39:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:39:00 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:44:29 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:44:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:44:53 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:44:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:45:00 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:45:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:45:10 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:45:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:45:20 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:49:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:49:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:49:14 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:52:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:52:34 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:52:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:52:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:52:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:52:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:52:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:52:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:52:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:52:48 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:52:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:52:52 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:52:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:47 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:50 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:51 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:52 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:52 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:53 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:53 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:54 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:54 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:55 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:54:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 06:54:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:56 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:54:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:54:57 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 06:55:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 06:55:17 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:02:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:02:36 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:02:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:02:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:02:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:06:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:06:03 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:06:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:06:09 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-04 07:17:22 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:17:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:17:53 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:17:57 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:18:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:18:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:18:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:18:11 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:18:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:18:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:18:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:18:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:18:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:18:22 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:23:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:23:49 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:24:51 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:25:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:25:56 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:36:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:36:56 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:41:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:41:38 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:41:58 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:49:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:49:30 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:52:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:52:21 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:52:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:52:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:52:29 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:52:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:52:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:52:36 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:56:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:56:41 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 07:56:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 07:56:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 07:56:46 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 08:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 08:16:25 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 08:16:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 08:16:37 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 08:19:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 08:19:51 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 08:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 08:21:23 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 08:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 08:24:00 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-06-04 08:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-06-04 08:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-06-04 08:24:05 --> ErrorException: Undefined property: Config\Toolbar::$viewsPath
+[Method: GET, Route: /]
+in SYSTEMPATH\Debug\Toolbar.php on line 474.
+ 1 SYSTEMPATH\Debug\Toolbar.php(474): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Toolbar::$viewsPath', 'C:\\xampp\\htdocs\\KingsWastelands-store\\system\\Debug\\Toolbar.php', 474)
+ 2 APPPATH\Config\Events.php(47): CodeIgniter\Debug\Toolbar->respond()
+ 3 SYSTEMPATH\Events\Events.php(155): CodeIgniter\Events\Events::Config\{closure}()
+ 4 SYSTEMPATH\CodeIgniter.php(339): CodeIgniter\Events\Events::trigger('pre_system')
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

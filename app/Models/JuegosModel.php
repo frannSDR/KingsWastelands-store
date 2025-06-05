@@ -15,6 +15,7 @@ class JuegosModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
+        'is_active',
         'title',
         'price',
         'release_date',

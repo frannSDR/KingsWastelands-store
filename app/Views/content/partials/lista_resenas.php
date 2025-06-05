@@ -3,7 +3,7 @@
     <div class="resena-usuario">
         <div class="encabezado-resena">
             <div class="info-usuario">
-                <img src="/api/placeholder/40/40" alt="Avatar de usuario" class="avatar-usuario">
+                <img src="<?php echo base_url('assets/uploads/profile_imgs/' . $review['user_img']) ?>" alt="Avatar de usuario" class="avatar-usuario">
                 <div class="detalles-usuario">
                     <div class="nombre-usuario"><?= esc($review['nickname']) ?></div>
                     <div class="info-compra"><i class="bi bi-patch-check-fill"></i> Compra verificada</div>
@@ -36,6 +36,7 @@
         </div>
     </div>
 <?php endforeach; ?>
+
 <!-- paginacion de re mierda -->
 <?php if ($pager && $pager->hasMore()): ?>
     <div class="paginacion-resenas">

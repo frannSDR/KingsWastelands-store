@@ -7,14 +7,12 @@
     </div>
 </div>
 
-<!-- Formulario para agregar/editar (oculto inicialmente) -->
+<!-- Formulario para agregar una categoria (oculto inicialmente) -->
 <div id="category-form-container" class="form-container" style="display: none;">
-    <form id="category-form">
-        <input type="hidden" id="category-id" name="category_id" value="">
-
+    <form id="category-form" action="<?= base_url('/perfil/guardar-categoria') ?>" method="post">
         <div class="form-group">
             <label for="category-name">Nombre*</label>
-            <input type="text" id="category-name" name="name" required placeholder="Ej: RPG">
+            <input type="text" id="category-name" name="name_cat" required placeholder="Ej: RPG">
         </div>
 
         <div class="form-group">
@@ -22,20 +20,7 @@
             <input type="text" id="category-slug" name="slug" required placeholder="Ej: juegos-rpg">
         </div>
 
-        <div class="form-group">
-            <label for="category-icon">Icono (Bootstrap Icons)</label>
-            <div class="icon-selector">
-                <input type="text" id="category-icon" name="icon" placeholder="Ej: bi-controller">
-                <div class="icon-preview">
-                    <i id="icon-preview" class="bi bi-question-circle"></i>
-                </div>
-            </div>
-        </div>
-
         <div class="form-actions">
-            <button type="button" class="btn btn-secondary" id="cancel-category">
-                Cancelar
-            </button>
             <button type="submit" class="btn btn-primary">
                 <span id="category-submit-text">Guardar</span>
             </button>
@@ -51,7 +36,6 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Slug</th>
-                <th>Icono</th>
                 <th>Juegos</th>
                 <th>Acciones</th>
             </tr>
@@ -62,14 +46,10 @@
                     <td><?= $categoria['category_id'] ?></td>
                     <td><?= esc($categoria['name_cat']) ?></td>
                     <td><?= esc($categoria['slug']) ?></td>
-                    <td><i class="bi bi-dice-5"></i></td>
                     <td><?= $categoria['juegos_count'] ?></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn-icon btn-edit" title="Editar" data-id="1">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="btn-icon btn-danger" title="Eliminar" data-id="1">
+                            <button data-id="<?= $categoria['category_id'] ?>" class="btn-icon btn-danger btn-del-cat" title="Eliminar">
                                 <i class="bi bi-trash3"></i>
                             </button>
                         </div>
@@ -78,16 +58,4 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
-
-<!-- Modal de confirmación -->
-<div id="delete-category-modal" class="admin-modal">
-    <div class="modal-content">
-        <h3><i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación</h3>
-        <p>¿Estás seguro de eliminar la categoría "<span id="category-to-delete"></span>"?</p>
-        <div class="modal-actions">
-            <button class="btn btn-secondary" id="cancel-delete">Cancelar</button>
-            <button class="btn btn-danger" id="confirm-delete">Eliminar</button>
-        </div>
-    </div>
 </div>

@@ -1,16 +1,61 @@
 // JavaScript para gestion 
 document.addEventListener('DOMContentLoaded', function() {
-    bindEditGameBtns();
-    bindAddGameBtn();
-    changeBetweenSections();
-    searchUser();
-    categoryForm();
-    actionBtns();
-    paginationLogic();
+    subirFotoPerfil();
+    logicaPaginacion();
+    editarJuego();
+    agregarJuegoDisplay();
+    agregarCategoriaDisplay();
+    cambiarEntreSecciones();
+    eliminarCategoria();
+    banearUsuario();
+    desbanearUsuario();
+    activar_juego();
+    desactivar_juego();
 });
 
+function subirFotoPerfil() {
+    const changeBtn = document.getElementById('changeProfileBtn');
+    const inputFile = document.getElementById('profileImageInput');
+    const imagePreview = document.getElementById('currentProfileImage');
+    const form = document.getElementById('profileImageForm');
+
+    if (changeBtn && inputFile && imagePreview && form) {
+        changeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            inputFile.click();
+        });
+
+        inputFile.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                }
+                reader.readAsDataURL(this.files[0]);
+
+                form.submit();
+            }
+        });
+    }
+}
+
+// Cambiar entre secciones
+function cambiarEntreSecciones() {
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            menuItems.forEach(i => i.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            this.classList.add('active');
+            const sectionId = this.getAttribute('data-section') + '-section';
+            const section = document.getElementById(sectionId);
+            if (section) section.classList.add('active');
+        });
+    });
+}
+
 // Mostrar y ocultar formulario
-function bindAddGameBtn() {
+function agregarJuegoDisplay() {
     const addGameBtn = document.getElementById('addGameBtn');
     const gameFormContainer = document.getElementById('game-form-container');
     const gameTableContainer = document.getElementById('adminTable');
@@ -33,153 +78,7 @@ function bindAddGameBtn() {
     }
 }
 
-// Cambiar entre secciones
-function changeBetweenSections() {
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            menuItems.forEach(i => i.classList.remove('active'));
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-            this.classList.add('active');
-            const sectionId = this.getAttribute('data-section') + '-section';
-            const section = document.getElementById(sectionId);
-            if (section) section.classList.add('active');
-        });
-    });
-}
-
-// Búsqueda en tiempo real
-function searchUser() {
-    const searchInput = document.getElementById('user-search');
-    if (!searchInput) return;
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const rows = document.querySelectorAll('.users-admin-table tbody tr');
-        rows.forEach(row => {
-            const text = row.textContent.toLowerCase();
-            row.style.display = text.includes(searchTerm) ? '' : 'none';
-        });
-    });
-}
-
-// Botones de accion (placeholder)
-function actionBtns() {
-    document.querySelectorAll('.btn-edit').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Lógica para editar usuario
-        });
-    });
-}
-
-// Manejar el formulario de nueva categoria
-function categoryForm() {
-    const addCategoryBtn = document.getElementById('add-category-btn');
-    const categoryFormContainer = document.getElementById('category-form-container');
-    const cancelCategoryBtn = document.getElementById('cancel-category');
-    const deleteModal = document.getElementById('delete-category-modal');
-    const categoryFormEl = document.getElementById('category-form');
-    const iconInput = document.getElementById('category-icon');
-    const iconPreview = document.getElementById('icon-preview');
-    const categoryIdInput = document.getElementById('category-id');
-    const categoryNameInput = document.getElementById('category-name');
-    const categorySlugInput = document.getElementById('category-slug');
-    const categorySubmitText = document.getElementById('category-submit-text');
-    const confirmDeleteBtn = document.getElementById('confirm-delete');
-    const cancelDeleteBtn = document.getElementById('cancel-delete');
-    const categoryToDelete = document.getElementById('category-to-delete');
-
-    if (!addCategoryBtn || !categoryFormContainer || !cancelCategoryBtn || !deleteModal || !categoryFormEl) return;
-
-    // Mostrar/ocultar formulario
-    addCategoryBtn.addEventListener('click', function() {
-        categoryFormContainer.style.display = 'block';
-        categoryFormEl.reset();
-        if (categoryIdInput) categoryIdInput.value = '';
-        if (categorySubmitText) categorySubmitText.textContent = 'Guardar';
-        if (iconPreview) iconPreview.className = 'bi bi-question-circle';
-    });
-
-    cancelCategoryBtn.addEventListener('click', function() {
-        categoryFormContainer.style.display = 'none';
-    });
-
-    // Preview del icono
-    if (iconInput && iconPreview) {
-        iconInput.addEventListener('input', function() {
-            const iconClass = this.value.trim() ? 'bi-' + this.value.trim() : 'bi-question-circle';
-            iconPreview.className = 'bi ' + iconClass;
-        });
-    }
-
-    // Botones de editar categorias
-    document.querySelectorAll('.btn-edit[data-id]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const categoryId = this.getAttribute('data-id');
-            // Aquí iría la lógica para cargar los datos de la categoría (AJAX)
-            categoryFormContainer.style.display = 'block';
-            if (categorySubmitText) categorySubmitText.textContent = 'Actualizar';
-
-            // Ejemplo con datos estáticos:
-            if (categoryId === '1') {
-                if (categoryIdInput) categoryIdInput.value = '1';
-                if (categoryNameInput) categoryNameInput.value = 'RPG';
-                if (categorySlugInput) categorySlugInput.value = 'juegos-rpg';
-                if (iconInput) iconInput.value = 'dice-5';
-                if (iconPreview) iconPreview.className = 'bi bi-dice-5';
-            }
-        });
-    });
-
-    // Botones de eliminar
-    document.querySelectorAll('.btn-danger[data-id]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const categoryId = this.getAttribute('data-id');
-            const row = this.closest('tr');
-            const categoryName = row ? row.querySelector('td:nth-child(2)').textContent : '';
-            if (categoryToDelete) categoryToDelete.textContent = categoryName;
-            deleteModal.style.display = 'flex';
-
-            // Configurar acción de eliminación
-            if (confirmDeleteBtn) {
-                confirmDeleteBtn.onclick = function() {
-                    // Aquí iría la lógica AJAX para eliminar
-                    console.log('Eliminar categoría ID:', categoryId);
-                    deleteModal.style.display = 'none';
-                    // Recargar o eliminar la fila
-                    if (row) row.remove();
-                };
-            }
-        });
-    });
-
-    // Cerrar modal
-    if (cancelDeleteBtn) {
-        cancelDeleteBtn.addEventListener('click', function() {
-            deleteModal.style.display = 'none';
-        });
-    }
-
-    // Enviar formulario
-    categoryFormEl.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Aquí iría la lógica AJAX para guardar
-        console.log('Formulario enviado:', {
-            id: categoryIdInput ? categoryIdInput.value : '',
-            name: categoryNameInput ? categoryNameInput.value : '',
-            slug: categorySlugInput ? categorySlugInput.value : '',
-            icon: iconInput ? iconInput.value : ''
-        });
-
-        // Simular éxito
-        categoryFormContainer.style.display = 'none';
-        alert('¡Categoría guardada con éxito!');
-    });
-}
-
-function bindEditGameBtns() {
+function editarJuego() {
     document.querySelectorAll('.btn-edit-game').forEach(function(btn) {
         btn.addEventListener('click', function() {
             const gameId = this.getAttribute('data-id');
@@ -187,6 +86,7 @@ function bindEditGameBtns() {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
+                        // aca obtenemos y mostramos los datos del objeto $juego
                         const form = document.getElementById('upload-game-form');
                         form.title.value = data.juego.title;
                         form.price.value = data.juego.price;
@@ -201,56 +101,57 @@ function bindEditGameBtns() {
                         form.logo_url.value = data.juego.logo_url;
                         form.game_rating.value = data.juego.rating;
 
-                        // Marcar categorías (debes traerlas en data.juego.categories como array de IDs)
-                        if (Array.isArray(data.juego.categories)) {
+                        // aca obtenemos los checkboxes de categorias marcados para cada juego
+                        // esto se hace obteniendo un array con los valores de categoria que tiene cada juego, luego, dado que los checkboxes se muestran en el mismo orden en el que las categorias estan ordenadas en la base de datos, se marcan aquellos checkboxes que coinciden con los valores de las categorias
+                        if (Array.isArray(data.categories)) {
                             document.querySelectorAll('input[name="categories[]"]').forEach(cb => {
-                                cb.checked = data.juego.categories.includes(parseInt(cb.value));
+                                cb.checked = data.categories.includes(parseInt(cb.value));
                             });
                         }
 
-                        // Imágenes adicionales (debes traerlas en data.juego.additional_images como array)
-                        if (Array.isArray(data.juego.additional_images)) {
+                        // aca obtengo las posiciones de las urls de las imagens adicionales de cada juego y se muestran en su input correspondiente
+                        if (Array.isArray(data.additional_images)) {
                             const imgs = document.querySelectorAll('input[name="additional_images[]"]');
                             imgs.forEach((input, idx) => {
-                                input.value = data.juego.additional_images[idx] || '';
+                                input.value = data.additional_images[idx] || '';
                             });
                         }
 
-                        // Requisitos (debes traerlos en data.juego.requisitos como objeto por tipo)
-                        if (data.juego.requisitos) {
-                            if (data.juego.requisitos.minimo) {
-                                form.min_cpu.value = data.juego.requisitos.minimo.cpu;
-                                form.min_ram.value = data.juego.requisitos.minimo.ram;
-                                form.min_gpu.value = data.juego.requisitos.minimo.gpu;
-                                form.min_storage.value = data.juego.requisitos.minimo.storage;
+                        // aca obtenemos los requisitos, simplemente se verifica por un condicional si cada requisito coincide con el 'tipo', y se muestra el valor acorde a eso
+                        if (data.requisitos) {
+                            if (data.requisitos.minimo) {
+                                form.min_cpu.value = data.requisitos.minimo.cpu;
+                                form.min_ram.value = data.requisitos.minimo.ram;
+                                form.min_gpu.value = data.requisitos.minimo.gpu;
+                                form.min_storage.value = data.requisitos.minimo.storage;
                             }
-                            if (data.juego.requisitos.recomendado) {
-                                form.rec_cpu.value = data.juego.requisitos.recomendado.cpu;
-                                form.rec_ram.value = data.juego.requisitos.recomendado.ram;
-                                form.rec_gpu.value = data.juego.requisitos.recomendado.gpu;
-                                form.rec_storage.value = data.juego.requisitos.recomendado.storage;
+                            if (data.requisitos.recomendado) {
+                                form.rec_cpu.value = data.requisitos.recomendado.cpu;
+                                form.rec_ram.value = data.requisitos.recomendado.ram;
+                                form.rec_gpu.value = data.requisitos.recomendado.gpu;
+                                form.rec_storage.value = data.requisitos.recomendado.storage;
                             }
-                            if (data.juego.requisitos.ultra) {
-                                form.ultra_cpu.value = data.juego.requisitos.ultra.cpu;
-                                form.ultra_ram.value = data.juego.requisitos.ultra.ram;
-                                form.ultra_gpu.value = data.juego.requisitos.ultra.gpu;
-                                form.ultra_storage.value = data.juego.requisitos.ultra.storage;
+                            if (data.requisitos.ultra) {
+                                form.ultra_cpu.value = data.requisitos.ultra.cpu;
+                                form.ultra_ram.value = data.requisitos.ultra.ram;
+                                form.ultra_gpu.value = data.requisitos.ultra.gpu;
+                                form.ultra_storage.value = data.requisitos.ultra.storage;
                             }
                         }
 
-                        // Cambia el action y el texto del botón
+                        // cambiamos la funcion y el texto del boton 'publicar juego' que por defecto es subir un juego nuevo a la base de datos, por la funcion de actualizar un juego basado en su $id
                         form.action = '/perfil/actualizar-juego/' + gameId;
                         const submitBtn = form.querySelector('button[type="submit"]');
                         submitBtn.textContent = 'Actualizar juego';
 
-                        // Mostrar formulario y ocultar tabla
+                        // aca simplemente mostramos o ocultamos el formulario para rellenar los datos
                         document.getElementById('game-form-container').style.display = 'block';
                         document.getElementById('adminTable').style.display = 'none';
 
-                        // Al enviar el formulario, restaurar todo a modo "alta"
+                        // devolvemos el boton submit a su funcion y texto por defecto, la de subir un juego
                         form.onsubmit = function() {
                             setTimeout(() => {
-                                // Restaurar formulario tras submit (espera redirección)
+                                // restauracion del boton
                                 form.action = '/perfil/guardar-juego';
                                 submitBtn.textContent = 'Publicar juego';
                                 form.reset();
@@ -266,24 +167,136 @@ function bindEditGameBtns() {
     });
 }
 
+// Funcion para desactivar un juego
+function desactivar_juego() {
+    document.querySelectorAll('.btn-ban-game').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const gameId = this.getAttribute('data-id');
+            if (confirm('¿Seguro que deseas desactivar este juego?')) {
+                fetch('/perfil/desactivar-juego/' + gameId, {
+                    method: 'POST',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(res => {
+                    if (res.ok) location.reload();
+                    else alert('No se pudo desactivar el juego');
+                });
+            }
+        });
+    });
+}
+
+// Funcion para activar un juego
+function activar_juego() {
+    document.querySelectorAll('.btn-active-game').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const gameId = this.getAttribute('data-id');
+            if (confirm('¿Seguro que deseas activar este juego?')) {
+                fetch('/perfil/activar-juego/' + gameId, {
+                    method: 'POST',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(res => {
+                    if (res.ok) location.reload();
+                    else alert('No se pudo activar el juego');
+                });
+            }
+        });
+    });
+}
+
+// Funcion para banear a un usuario
+function banearUsuario() {
+    document.querySelectorAll('.btn-ban-user').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const userId = this.getAttribute('data-id');
+            if(confirm('¿Seguro que deseas banear a este usuario?')) {
+                fetch('/perfil/banear-usuario/' + userId, {
+                    method: 'POST',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(res => {
+                    if (res.ok) location.reload();
+                    else alert('No se pudo banear este usuario');
+                });
+            }
+        });
+    });
+}
+
+// Funcion para desbanear a un usuario
+function desbanearUsuario() {
+    document.querySelectorAll('.btn-desban-user').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const userId = this.getAttribute('data-id');
+            if(confirm('¿Seguro que deseas desbanear a este usuario?')) {
+                fetch('/perfil/desbanear-usuario/' + userId, {
+                    method: 'POST',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(res => {
+                    if (res.ok) location.reload();
+                    else alert('No se pudo desbanear este usuario');
+                });
+            }
+        });
+    });
+}
+
+// Manejar el formulario de nueva categoria
+function eliminarCategoria() {
+    document.querySelectorAll('.btn-del-cat').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const catId = this.getAttribute('data-id');
+            if (confirm('¿Seguro que deseas borrar esta categoria?')) {
+                fetch('/perfil/eliminar-categoria/' + catId, {
+                    method: 'POST',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                })
+                .then(res => {
+                    if (res.ok) location.reload();
+                    else alert('No se pudo eliminar la categoría');
+                });
+            }
+        });
+    });
+}
+
+function agregarCategoriaDisplay() {
+    const addGameBtn = document.getElementById('add-category-btn');
+    const gameFormContainer = document.getElementById('category-form-container');
+
+    if (addGameBtn && gameFormContainer) {
+        addGameBtn.onclick = function () {
+            const formVisible = gameFormContainer.style.display === 'block';
+
+            if (!formVisible) {
+                gameFormContainer.style.display = 'block';
+            } else {
+                gameFormContainer.style.display = 'none';
+            }
+        };
+    }   
+}
+
 // Manejar la paginacion
-function paginationLogic() {
+function logicaPaginacion() {
     document.addEventListener('click', function(e) {
-        // Paginación de usuarios
+        // paginacion de usuarios
         const userPagBtn = e.target.closest('.user-pagination-button a');
         if (userPagBtn) {
             e.preventDefault();
             fetchPaginatedContent(userPagBtn.href, 'usuarios-list-container');
             return;
         }
-        // Paginación de juegos
+        // paginacion de juegos
         const gamesPagBtn = e.target.closest('.games-pagination-button a');
         if (gamesPagBtn) {
             e.preventDefault();
             fetchPaginatedContent(gamesPagBtn.href, 'games-list-container');
             return;
         }
-        // Paginación de categorías
+        // paginacion para las categorias (a pesar que por ahora tenemos una sola pagina)
         const catPagBtn = e.target.closest('.cat-pagination-button a');
         if (catPagBtn) {
             e.preventDefault();
@@ -292,7 +305,7 @@ function paginationLogic() {
         }
     });
 
-    // Función para cargar contenido paginado
+    // funcion para poder cargar el contenido paginado
     function fetchPaginatedContent(url, containerId) {
         fetch(url, {
             headers: {
@@ -305,9 +318,15 @@ function paginationLogic() {
             if (container) container.innerHTML = html;
             history.pushState({section: containerId}, '', url);
 
-            // Re-bindeamos el boton solo si es la seccion de juegos
-            if (containerId === 'games-list-container') {
-                bindAddGameBtn();
+            // rebindeamos las funciones para poder trabajar con ajax
+            if (containerId === 'games-list-container' || containerId === 'usuarios-list-container' || containerId === 'categorias-list-container') {
+                agregarJuegoDisplay();
+                editarJuego();
+                eliminarCategoria();
+                banearUsuario();
+                desbanearUsuario();
+                activar_juego();
+                desactivar_juego();
             }
         });
     }

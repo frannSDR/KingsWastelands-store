@@ -79,29 +79,19 @@ class Usuario extends Controller
 
     public function procesar_login()
     {
-
         $validation = \Config\Services::validation();
         $request = \Config\Services::request();
         $session = session();
 
-        // Validar el formulario
-        $validation->setRules(
-            [
-                'usuario' => 'required',
-                'contraseña' => 'required',
-            ],
-            [ // errores
-                'usuario' => [
-                    'required' => 'Ingrese el nombre de usuario',
-                ],
-                'contraseña' => [
-                    'required' => 'Ingrese la contraseña'
-                ]
-            ]
-        );
+        $validation->setRules([
+            'usuario' => 'required',
+            'contraseña' => 'required',
+        ], [
+            'usuario' => ['required' => 'Ingrese el nombre de usuario'],
+            'contraseña' => ['required' => 'Ingrese la contraseña']
+        ]);
 
         if (!$validation->withRequest($request)->run()) {
-            // Si la validación falla, volvemos al formulario con los errores
             $data['titulo'] = 'Login';
             $data['validation'] = $validation->getErrors();
             return view('login', $data);
@@ -110,39 +100,41 @@ class Usuario extends Controller
         $nickname = $this->request->getPost('usuario');
         $contraseña = $this->request->getPost('contraseña');
 
-        // Si la validación es exitosa, procesamos el login
         $usuarioModel = new UsuarioModel();
-
-        // Buscar el usuario por nickname
         $usuario = $usuarioModel->where('nickname', $nickname)->first();
 
-        if ($usuario && password_verify($contraseña, $usuario['password_hash'])) {
-            $data = [
-                'user_id' => $usuario['user_id'],
-                'email' => $usuario['email'],
-                'nickname' => $usuario['nickname'],
-                'is_active' => true,
-                'is_admin' => $usuario['is_admin']
-            ];
-            $session->set($data);
-            switch ($usuario['is_admin']) {
-                case '1':
-                    return redirect()->to(base_url('perfil'));
-                    break;
-                case '0':
-                    return redirect()->to(base_url('/'));
-                    break;
-            }
-
-            // Actualizar última fecha de login
-            $usuarioModel->update($usuario['user_id'], [
-                'last_login' => date('Y-m-d H:i:s')
-            ]);
-        } else {
-            // Si no existe el usuario o la contraseña es incorrecta
-            return redirect()->to(base_url('login'))->with('mensaje', 'Usuario y/o contraseña incorrecto!');
+        if (!$usuario) {
+            return redirect()->to(base_url('login'))->with('mensaje', 'El usuario no existe.');
         }
+
+        if ($usuario['is_active'] != 1) {
+            return redirect()->to(base_url('login'))->with('mensaje', 'Tu cuenta está desactivada.');
+        }
+
+        if (!password_verify($contraseña, $usuario['password_hash'])) {
+            return redirect()->to(base_url('login'))->with('mensaje', 'Usuario o contraseña incorrecta.');
+        }
+
+        // Autenticación exitosa
+        $data = [
+            'user_id' => $usuario['user_id'],
+            'email' => $usuario['email'],
+            'nickname' => $usuario['nickname'],
+            'is_active' => $usuario['is_active'],
+            'is_admin' => $usuario['is_admin'],
+            'user_img' => $usuario['user_img'] // esto ayuda con lo anterior también
+        ];
+
+        $session->set($data);
+
+        // Actualizar fecha de último login
+        $usuarioModel->update($usuario['user_id'], [
+            'last_login' => date('Y-m-d H:i:s')
+        ]);
+
+        return redirect()->to(base_url($usuario['is_admin'] ? 'perfil' : '/'));
     }
+
 
     public function logout()
     {

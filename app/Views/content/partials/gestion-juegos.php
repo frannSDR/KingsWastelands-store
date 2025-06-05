@@ -70,9 +70,16 @@
                             <button data-id="<?= $juego['game_id'] ?>" class="btn-icon btn-edit btn-edit-game" title="Editar">
                                 <i class="bi bi-pencil-square"></i>
                             </button>
-                            <button class="btn-icon btn-danger" title="Eliminar">
-                                <i class="bi bi-trash3"></i>
-                            </button>
+                            <?php if (!$juego['is_active'] == 0): ?>
+                                <button data-id="<?= $juego['game_id'] ?>" class="btn-icon btn-ban btn-ban-game" title="Desactivar">
+                                    <i class="bi bi-slash-circle"></i>
+                                </button>
+                            <?php endif; ?>
+                            <?php if (!$juego['is_active'] == 1): ?>
+                                <button data-id="<?= $juego['game_id'] ?>" class="btn-icon btn-active btn-active-game" title="Activar">
+                                    <i class="bi bi-cloud-arrow-up"></i>
+                                </button>
+                            <?php endif; ?>
                         </div>
                     </td>
                 </tr>
@@ -96,7 +103,6 @@
                 </div>
             <?php endif; ?>
             <form id="upload-game-form" class="game-form" action="<?= base_url('/perfil/guardar-juego') ?>" method="post">
-                <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
                 <!-- Sección 1: Info Básica -->
                 <fieldset class="form-section">
                     <legend><i class="bi bi-info-circle"></i> Información Principal</legend>
@@ -272,6 +278,9 @@
                 </fieldset>
 
                 <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-category">
+                        Cancelar
+                    </button>
                     <button type="reset" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpiar
                     </button>

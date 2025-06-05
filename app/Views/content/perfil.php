@@ -1,11 +1,22 @@
 <section class="admin-panel" style="margin-top: 50px;">
 
-    <!-- Barra lateral de navegación -->
     <aside class="admin-sidebar">
         <div class="admin-profile">
-            <img src="https://i.ibb.co/tTSsBgtP/sif.gif" alt="Admin Avatar" class="admin-avatar">
+            <!-- Mostrar la imagen actual del usuario -->
+            <img src="<?php echo base_url('assets/uploads/profile_imgs/' . session('user_img')) ?>" alt="Admin Avatar" class="admin-avatar" id="currentProfileImage" height="120" width="120">
             <h3 class="admin-username"><?= session('nickname') ?></h3>
             <span class="admin-role">Administrador</span>
+
+            <!-- Botón/Enlace para cambiar imagen -->
+            <a class="change-profile-link" id="changeProfileBtn" style="text-decoration: none; margin-right: 5px;">
+                <i class="bi bi-camera-fill"></i> Cambiar imagen
+            </a>
+
+            <!-- Formulario oculto para subir imagen -->
+            <form id="profileImageForm" action="<?= base_url('perfil/subir-foto') ?>" method="post" enctype="multipart/form-data" style="display: none;">
+                <?= csrf_field() ?>
+                <input type="file" name="profile_image" id="profileImageInput" accept="image/jpeg,image/png">
+            </form>
         </div>
 
         <nav class="admin-menu">

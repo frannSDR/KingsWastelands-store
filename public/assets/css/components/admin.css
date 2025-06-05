@@ -220,6 +220,37 @@
     background-color: rgba(239, 68, 68, 0.1);
 }
 
+.btn-active:hover {
+    color: #1fd62f;
+    background-color: rgba(74, 239, 68, 0.1);
+}
+
+.change-profile-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #8b5cf6;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.change-profile-link:hover {
+    color: #6d28d9;
+}
+
+.change-profile-link i {
+    margin-right: 5px;
+}
+
+.admin-avatar {
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.admin-avatar:hover {
+    opacity: 0.8;
+}
+
 /*! ------------------ PAGINACION USERS ------------------ */
 
 .user-pagination {

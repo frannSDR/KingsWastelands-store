@@ -480,9 +480,9 @@ class Juegos extends BaseController
             $requisitosOrganizados[$req['tipo']] = $req;
         }
 
-        // Obtener reseñas (todavia no)
+        // Obtener reseñas
         $reviews = $this->reviewModel
-            ->select('juegos_reviews.*, usuarios.nickname')
+            ->select('juegos_reviews.*, usuarios.nickname, usuarios.user_img')
             ->join('usuarios', 'usuarios.user_id = juegos_reviews.user_id', 'left')
             ->where('game_id', $id)
             ->where('is_approved', 1)
@@ -631,7 +631,7 @@ class Juegos extends BaseController
         $perPage = 5;
 
         $reviewsBuilder = $this->reviewModel
-            ->select('juegos_reviews.*, usuarios.nickname')
+            ->select('juegos_reviews.*, usuarios.nickname, usuarios.user_img')
             ->join('usuarios', 'usuarios.user_id = juegos_reviews.user_id', 'left')
             ->where('game_id', $gameId);
 

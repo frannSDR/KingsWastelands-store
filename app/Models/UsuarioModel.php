@@ -15,6 +15,7 @@ class UsuarioModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
+        'user_img',
         'email',
         'nickname',
         'password_hash',
@@ -51,25 +52,4 @@ class UsuarioModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function reviews()
-    {
-        return $this->hasMany(ReviewModel::class, 'user_id', 'user_id');
-    }
-
-    public function cart()
-    {
-        return $this->hasOne(CartModel::class, 'user_id', 'user_id');
-    }
-
-    public function wishlist()
-    {
-        return $this->hasOne(DeseadosModel::class, 'user_id', 'user_id');
-    }
-
-    public function orders()
-    {
-        return $this->hasMany(OrdenModel::class, 'user_id', 'user_id');
-    }
 }

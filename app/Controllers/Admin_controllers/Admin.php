@@ -60,7 +60,7 @@ class Admin extends BaseController
 
         // obtenemos todos los juegos, solo los campos necesarios, aplicamos el orden y paginacion
         $juegos = $this->juegosModel
-            ->select('game_id, title, price, release_date, card_image_url, logo_url')
+            ->select('game_id, title, price, release_date, card_image_url, logo_url, is_active')
             ->orderBy($gamesOrderBy, $gameDirection)
             ->paginate($gamesPerPage, 'games', $gamesPage);
 
@@ -85,7 +85,7 @@ class Admin extends BaseController
         };
 
         $usuarios = $this->usuariosModel
-            ->select('user_id, email, nickname, created_at, last_login, is_active')
+            ->select('user_id, user_img, email, nickname, created_at, last_login, is_active')
             ->orderBy($userOrderBy, $userDirection)
             ->paginate($userPerPage, 'users', $userPage);
 
@@ -147,6 +147,50 @@ class Admin extends BaseController
             . view('../Views/plantillas/footer_view');
     }
 
+    public function subir_foto()
+    {
+        // verificar si se envio un archivo
+        if (!$this->validate([
+            'profile_image' => [
+                'uploaded[profile_image]',
+                'mime_in[profile_image,image/jpg,image/jpeg,image/png]',
+                'max_size[profile_image,2048]', // 2MB máximo
+            ]
+        ])) {
+            return redirect()->back()->with('error', $this->validator->getErrors());
+        }
+
+        $file = $this->request->getFile('profile_image');
+
+        // verificar si el archivo es válido y no se movió por error
+        if (!$file->isValid()) {
+            return redirect()->back()->with('error', $file->getErrorString());
+        }
+
+        // generamos un nombre unico para cada imagen asi evitamos problemas de coincidencia
+        $newName = $file->getRandomName();
+
+        // verificamos que la carpeta exista, si no existe, se crea una automaticamente y mueve las imagenes ahi
+        $path = FCPATH . 'assets/uploads/profile_imgs';
+
+        if (!is_dir($path)) {
+            mkdir($path, 0755, true);
+        }
+
+        // movemos el archivo a la carpeta deseada (en este caso public/assets/uploads/profile_images)
+        $file->move(FCPATH . 'assets/uploads/profile_imgs', $newName);
+
+        // obtenenemos el ID del usuario actual de la sesion
+        $userId = session()->get('user_id');
+
+        // actualizamos la base de datos con el nombre del archivo
+        $userModel = $this->usuariosModel;
+        $userModel->update($userId, ['user_img' => $newName]);
+        session()->set('user_img', $newName);
+
+        return redirect()->to(base_url('/perfil'))->with('mensaje', 'Foto de perfil actualizada');
+    }
+
     public function admin_usuarios()
     {
         $userPage = $this->request->getVar('user_page') ?? 1; // Obtener la página actual, por defecto es 1
@@ -166,7 +210,7 @@ class Admin extends BaseController
         };
 
         $usuarios = $this->usuariosModel
-            ->select('user_id, email, nickname, created_at, last_login, is_active')
+            ->select('user_id, user_img, email, nickname, created_at, last_login, is_active')
             ->orderBy($userOrderBy, $userDirection)
             ->paginate($userPerPage, 'users', $userPage);
 
@@ -189,6 +233,18 @@ class Admin extends BaseController
         } else {
             return redirect()->to(base_url('/perfil'));
         }
+    }
+
+    public function banear_usuario($id = null)
+    {
+        $this->usuariosModel->update($id, ['is_active' => 0]);
+        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('mensaje', 'Usuario baneado correctamente');
+    }
+
+    public function desbanear_usuario($id = null)
+    {
+        $this->usuariosModel->update($id, ['is_active' => 1]);
+        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('mensaje', 'Usuario desbaneado correctamente');
     }
 
     public function admin_juegos()
@@ -216,7 +272,7 @@ class Admin extends BaseController
 
         // Obtenemos todos los juegos, aplicamos orden y paginación
         $juegos = $this->juegosModel
-            ->select('game_id, title, price, release_date, card_image_url, logo_url')
+            ->select('game_id, title, price, release_date, card_image_url, logo_url, is_active')
             ->orderBy($gamesOrderBy, $gameDirection)
             ->paginate($gamesPerPage, 'games', $gamesPage);
 
@@ -227,6 +283,7 @@ class Admin extends BaseController
         // Contamos el total de juegos y calculamos el total de páginas
         $gamesTotal = $this->juegosModel->countAll();
         $gamesTotalPages = ceil($gamesTotal / $gamesPerPage);
+        $gamePager = $this->juegosModel->pager;
 
         $dataGames = [
             'juegos' => $juegos,
@@ -235,7 +292,7 @@ class Admin extends BaseController
             'currentGameFilter' => $gameFilter,
             'currentDirection' => strtolower($gameDirection),
             'categorias' => $categorias,
-            'gamesPager' => $this->juegosModel->pager
+            'gamesPager' => $gamePager
         ];
 
         if ($this->request->isAJAX()) {
@@ -249,7 +306,7 @@ class Admin extends BaseController
     {
         $session = session();
 
-        // Seguridad: solo admin
+        // seguridad: solo admin
         if (!$session->has('user_id') || $session->get('is_admin') != 1) {
             return redirect()->to(base_url('/'))->with('mensaje', 'Acceso no autorizado');
         }
@@ -362,16 +419,74 @@ class Admin extends BaseController
         return redirect()->to(base_url('/perfil'))->with('mensaje', 'Juego subido correctamente');
     }
 
-    public function obtener_juego($id)
+    public function obtener_juego($id = null)
     {
+
+        // obtenemos el id del juego correspondiente que queremos editar
         $juego = $this->juegosModel->find($id);
-        if ($juego) {
-            return $this->response->setJSON(['success' => true, 'juego' => $juego]);
+        if (!$juego) {
+            return $this->response->setJSON(['success' => false]);
         }
-        return $this->response->setJSON(['success' => false]);
+
+        // obtenemos las categorias
+        $categorias = $this->juegoCategoriaModel
+            ->where('game_id', $id)
+            ->findAll();
+        $categoriaIds = array_map(fn($cat) => (int)$cat['category_id'], $categorias);
+
+        // obtenemos las imagenes adicionales
+        $imagenes = $this->galeriaModel
+            ->where('game_id', $id)
+            ->findAll();
+        $imagenesUrls = array_map(fn($img) => $img['image_url'], $imagenes);
+
+        // obtenemos los requisitos
+        $requisitos = $this->requisitosModel
+            ->where('game_id', $id)
+            ->findAll();
+        $reqs = [
+            'minimo' => null,
+            'recomendado' => null,
+            'ultra' => null
+        ];
+
+        foreach ($requisitos as $req) {
+            if ($req['tipo'] === 'minimo') {
+                $reqs['minimo'] = [
+                    'cpu' => $req['cpu'],
+                    'ram' => $req['ram'],
+                    'gpu' => $req['gpu'],
+                    'storage' => $req['storage'],
+                ];
+            }
+            if ($req['tipo'] === 'recomendado') {
+                $reqs['recomendado'] = [
+                    'cpu' => $req['cpu'],
+                    'ram' => $req['ram'],
+                    'gpu' => $req['gpu'],
+                    'storage' => $req['storage'],
+                ];
+            }
+            if ($req['tipo'] === 'ultra') {
+                $reqs['ultra'] = [
+                    'cpu' => $req['cpu'],
+                    'ram' => $req['ram'],
+                    'gpu' => $req['gpu'],
+                    'storage' => $req['storage'],
+                ];
+            }
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'juego' => $juego,
+            'categories' => $categoriaIds,
+            'additional_images' => $imagenesUrls,
+            'requisitos' => $reqs
+        ]);
     }
 
-    public function actualizar_juego($id)
+    public function actualizar_juego($id = null)
     {
         $validation = \Config\Services::validation();
 
@@ -481,6 +596,18 @@ class Admin extends BaseController
         return redirect()->to(base_url('/perfil'))->with('mensaje', 'Juego actualizado correctamente');
     }
 
+    public function desactivar_juego($id = null)
+    {
+        $this->juegosModel->update($id, ['is_active' => 0]);
+        return redirect()->to(base_url('/perfil/admin-juegos'))->with('mensaje', 'Juego desactivado correctamente');
+    }
+
+    public function activar_juego($id = null)
+    {
+        $this->juegosModel->update($id, ['is_active' => 1]);
+        return redirect()->to(base_url('/perfil/admin-juegos'))->with('mensaje', 'Juego activado correctamente');
+    }
+
     public function admin_categorias()
     {
         $catPage = $this->request->getVar('cat_page') ?? 1; // Obtener la página actual, por defecto es 1
@@ -523,5 +650,41 @@ class Admin extends BaseController
         } else {
             return redirect()->to(base_url('/perfil'));
         }
+    }
+
+    public function eliminar_categoria($id = null)
+    {
+        $this->categoriaModel->delete($id);
+        return redirect()->to(base_url('/perfil/admin-categorias'))->with('mensaje', 'Categoría borrada correctamente');
+    }
+
+    public function agregar_categoria()
+    {
+        $session = session();
+
+        // seguridad: solo admin
+        if (!$session->has('user_id') || $session->get('is_admin') != 1) {
+            return redirect()->to(base_url('/'))->with('mensaje', 'Acceso no autorizado');
+        }
+
+        // validacion basica
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'name_cat' => 'required',
+            'slug' => 'required'
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+
+        $catData = [
+            'name_cat' => $this->request->getPost('name_cat'),
+            'slug' => $this->request->getPost('slug')
+        ];
+
+        $this->categoriaModel->insert($catData);
+
+        return redirect()->to(base_url('/perfil'))->with('mensaje', 'Categoria añadida correctamente');
     }
 }

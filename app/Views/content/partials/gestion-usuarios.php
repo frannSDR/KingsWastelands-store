@@ -60,7 +60,7 @@
                 <tr>
                     <td><?= $usuario['user_id'] ?></td>
                     <td>
-                        <img src="https://via.placeholder.com/40" alt="Avatar" class="user-avatar">
+                        <img src="<?php echo base_url('assets/uploads/profile_imgs/' . $usuario['user_img']) ?>" alt="Avatar" class="user-avatar">
                     </td>
                     <td><?= esc($usuario['email']) ?></td>
                     <td><?= esc($usuario['nickname']) ?></td>
@@ -68,15 +68,16 @@
                     <td><?= $usuario['last_login'] ?></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn-icon btn-edit" title="Editar">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="btn-icon btn-ban" title="Banear">
-                                <i class="bi bi-slash-circle"></i>
-                            </button>
-                            <button class="btn-icon btn-danger" title="Eliminar">
-                                <i class="bi bi-trash3"></i>
-                            </button>
+                            <?php if (!$usuario['is_active'] == 0): ?>
+                                <button data-id="<?= $usuario['user_id'] ?>" class="btn-icon btn-ban btn-ban-user" title="Banear">
+                                    <i class="bi bi-ban"></i>
+                                </button>
+                            <?php endif; ?>
+                            <?php if (!$usuario['is_active'] == 1): ?>
+                                <button data-id="<?= $usuario['user_id'] ?>" class="btn-icon btn-active btn-desban-user" title="Desbanear">
+                                    <i class="bi bi-check-circle"></i>
+                                </button>
+                            <?php endif; ?>
                         </div>
                     </td>
                 </tr>
