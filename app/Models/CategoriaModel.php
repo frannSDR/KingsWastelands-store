@@ -46,26 +46,4 @@ class CategoriaModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function games()
-    {
-        return $this->hasMany(JuegoCategoriaModel::class, 'category_id', 'category_id');
-    }
-
-    /**
-     * Obtener todas las categorías
-     */
-    public function getAllCategorias()
-    {
-        return $this->findAll();
-    }
-
-    /**
-     * Obtener categoría por slug
-     */
-    public function getCategoriaBySlug($slug)
-    {
-        return $this->where('slug', $slug)->first();
-    }
 }

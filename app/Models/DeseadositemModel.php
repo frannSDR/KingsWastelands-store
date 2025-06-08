@@ -46,20 +46,4 @@ class DeseadosItemModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function wishlist()
-    {
-        return $this->belongsTo(DeseadosModel::class, 'user_id', 'user_id');
-    }
-
-    public function game()
-    {
-        return $this->belongsTo(JuegosModel::class, 'game_id', 'game_id');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(UsuarioModel::class, 'user_id', 'user_id');
-    }
 }

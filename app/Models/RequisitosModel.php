@@ -49,10 +49,4 @@ class RequisitosModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function game()
-    {
-        return $this->belongsTo(JuegosModel::class, 'game_id', 'game_id');
-    }
 }

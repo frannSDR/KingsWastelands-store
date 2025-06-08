@@ -11,21 +11,11 @@ $routes->get('/ofertas', 'Juegos::ofertas');
 
 $routes->get('/populares', 'Juegos::populares');
 
-$routes->get('/juegos', 'Juegos::index');
-
 $routes->get('/juego/(:num)', 'Juegos::detalle/$1');
 
 $routes->get('/nosotros', 'Home::nosotros');
 
-$routes->get('/accion', 'Juegos::accion');
-
-$routes->get('/aventura', 'Juegos::aventuras');
-
-$routes->get('/terror', 'Juegos::terror');
-
-$routes->get('/indie', 'Juegos::indie');
-
-$routes->get('/estrategia', 'Juegos::estrategia');
+$routes->get('/juegos', 'Juegos::all_games');
 
 $routes->get('/comercializacion', 'Home::comercializacion');
 
@@ -38,6 +28,8 @@ $routes->get('/error_contacto', 'Home::error_contacto');
 $routes->get('/terminos', 'Home::terminos');
 
 $routes->get('/cart', 'Home::cart');
+
+$routes->get('/wishlist', 'Home::wishlist');
 
 $routes->get('/pago', 'Home::pago');
 
@@ -88,3 +80,5 @@ $routes->post('perfil/actualizar-juego/(:num)', 'Admin_controllers\Admin::actual
 $routes->post('perfil/desactivar-juego/(:num)', 'Admin_controllers\Admin::desactivar_juego/$1');
 
 $routes->post('perfil/activar-juego/(:num)', 'Admin_controllers\Admin::activar_juego/$1');
+
+$routes->get('(:segment)', 'Juegos::categoria/$1');

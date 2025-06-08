@@ -46,15 +46,4 @@ class ReviewHelpfulModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function review()
-    {
-        return $this->belongsTo(ReviewModel::class, 'review_id', 'review_id');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(UsuarioModel::class, 'user_id', 'user_id');
-    }
 }

@@ -1,130 +1,38 @@
-<!-- titulo de ofertas semanales -->
-<div class="section-container">
-    <div class="trending-title">
-        <a href="#">
-            <p>Ofertas Semanales</p>
-        </a>
+<!-- Juegos en Oferta -->
+<section class="games-section">
+    <div class="home-section-header">
+        <h2 class="home-section-title">
+            <svg class="section-icon" viewBox="0 0 24 24">
+                <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+            </svg>
+            Ofertas Especiales
+        </h2>
+        <a href="<?= base_url('ofertas') ?>" class="view-all">Ver todos</a>
     </div>
 
-    <!-- seccion de ofertas semanales -->
-    <div class="games-container">
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">39%</div>
-                <img src="https://i.ibb.co/TxjmLssc/aoe4.jpg" alt="Grand Theft Auto VI" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/QFlVNtGJVDU?si=bLkxQMRVd74u4f8v&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
+    <div class="games-grid">
+        <?php foreach ($juegosOferta as $juego): ?>
+            <div class="home-game-card sale">
+                <div class="game-badge sale">-<?= $juego['discount'] ?>%</div>
+                <a href="<?= base_url('juego/' . $juego['game_id']) ?>">
+                    <div class="game-image">
+                        <img src="<?= $juego['card_image_url'] ?>" alt="<?= esc($juego['title']) ?>">
+                        <div class="game-hover">
+                            <div class="game-timer">
+                                <i class="bi bi-clock"></i> <?= $juego['time_left'] ?>
+                            </div>
+                            <button class="quick-view">Añadir al carrito</button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3><?= esc($juego['title']) ?></h3>
+                        <div class="game-price">
+                            <span class="discounted-price">$<?= $juego['discounted_price'] ?></span>
+                            <span class="original-price">$<?= $juego['price'] ?></span>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="game-info">
-                <div class="game-title">Age of Empires IV</div>
-                <div class="game-price">$59.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">45%</div>
-                <img src="https://i.ibb.co/VYjhMxw2/aw2.png" alt="Clair Obscure: Expedition 33" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/YKRhE5hcG_E?si=0t7ox8LMxgc44_1G&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Alan Wake 2</div>
-                <div class="game-price">$13.03</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">10%</div>
-                <img src="https://i.ibb.co/HfN9RKR4/control.jpg" alt="Metal Gear Solid Delta: Snake Eater" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/w6bE11FrSFM?si=onQXddZiRWunkBGN&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Control: Definitive Edition</div>
-                <div class="game-price">$54.65</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">15%</div>
-                <img src="https://i.ibb.co/WvW8Vt0G/doometernal.png" alt="Terraria" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/2HOClc6Svg4?si=ALkAytz1s-FFLxpX&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Doom Eternal</div>
-                <div class="game-price">$5.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">80%</div>
-                <img src="https://i.ibb.co/Hc5dS8S/hk.png" alt="Doom The Dark Ages" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/UAO2urG23S4?si=XpyHvdqdY3le2NYF&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Hollow Knight</div>
-                <div class="game-price">$11.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">5%</div>
-                <img src="https://i.ibb.co/tp8p5GmS/nier1.jpg" alt="Dune Awakening" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/qvemKwb20vY?si=HqRhJIb0lYNX7qsK&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Nier Automata: YorHa Edition</div>
-                <div class="game-price">$15.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">67%</div>
-                <img src="https://i.ibb.co/rGLdrB6S/outerwilds.png" alt="Elden Ring Nightreign" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/d6LGnVCL1_A?si=4FDiqwPA2cudWst5&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Outer Wilds</div>
-                <div class="game-price">$45.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">15%</div>
-                <img src="https://i.ibb.co/VYP5WQpH/rdr2.jpg" alt="Silksong" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/gmA6MrX81z4?si=AD23SjNQpNKZDsQr&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-
-            </div>
-            <div class="game-info">
-                <div class="game-title">Red Dead Redemption 2</div>
-                <div class="game-price">$50.99</div>
-            </div>
-        </div>
-        <div class="game-card">
-            <div class="media-container">
-                <div class="discount-badge">75%</div>
-                <img src="https://i.ibb.co/60dL2TVJ/mabb.jpg" alt="The Outer Worlds 2" class="game-image">
-                <div class="game-trailer">
-                    <iframe src="https://www.youtube.com/embed/q6oH5cW7PaA?si=OZ-3h7ajRmR8f-9v&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </div>
-            <div class="game-info">
-                <div class="game-title">Mount & Blade II: Bannerlord</div>
-                <div class="game-price">$34.99</div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
-</div>
+</section>

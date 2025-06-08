@@ -96,26 +96,6 @@ header nav {
   color: var(--color-principal);
 }
 
-.nav_links li a::before {
-  content: '';
-  position: absolute;
-  border-radius: 5px;
-  bottom: -5px;
-  left: 50%;
-  width: 0%;
-  height: 3px;
-  background-color: var(--color-principal);
-  transition: all 0.5s;
-  transform: translateX(-50%);
-}
-
-.nav_links li a:hover::before {
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-
 .right-header {
   flex: 0 0 auto; 
   display: flex;

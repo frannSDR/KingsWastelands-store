@@ -54,10 +54,4 @@ class FacturaModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function order()
-    {
-        return $this->belongsTo(OrdenModel::class, 'order_id', 'order_id');
-    }
 }

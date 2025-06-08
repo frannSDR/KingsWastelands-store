@@ -575,3 +575,355 @@ body {
     width: 60%;
   }
 }
+
+/*!---------------------------------------*/
+
+.home-container {
+    padding: 2rem;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.games-section {
+    margin-bottom: 4rem;
+}
+
+.home-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gris-claro);
+}
+
+.home-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    color: var(--texto);
+    margin: 0;
+}
+
+.section-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-principal);
+}
+
+.view-all {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.view-all:hover {
+    color: var(--color-principal);
+}
+
+/* Tarjetas de juegos populares (carrusel) */
+.games-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-principal) var(--gris-claro);
+}
+
+.games-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.games-carousel::-webkit-scrollbar-track {
+    background: var(--gris-claro);
+    border-radius: 10px;
+}
+
+.games-carousel::-webkit-scrollbar-thumb {
+    background-color: var(--color-principal);
+    border-radius: 10px;
+}
+
+.home-game-card {
+    position: relative;
+    min-width: 200px;
+    width: 200px;
+    background: var(--color-secundario);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+}
+
+.home-game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.game-badge.popular {
+    background: var(--precio);
+    color: #000;
+}
+
+.game-badge.sale {
+    background: var(--precio-descuento);
+    color: white;
+}
+
+.game-image {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.home-game-card:hover .game-image img {
+    transform: scale(1.05);
+}
+
+.game-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.home-game-card:hover .game-hover {
+    opacity: 1;
+}
+
+.game-rating {
+    align-self: flex-end;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: var(--precio);
+    font-weight: bold;
+}
+
+.quick-view {
+    background: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.quick-view:hover {
+    background: var(--hover-color);
+}
+
+.game-info {
+    padding: 0.75rem;
+}
+
+.game-info h3 {
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--texto);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.original-price {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+}
+
+.discounted-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--precio);
+}
+
+/* Juegos en oferta (grid) */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.home-game-card.sale {
+    width: 100%;
+}
+
+.home-game-card.sale .game-image {
+    height: 150px;
+}
+
+/* Próximos lanzamientos */
+.coming-soon-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.coming-soon-card {
+    display: flex;
+    background: var(--color-secundario);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.coming-soon-card:hover {
+    transform: translateY(-5px);
+}
+
+.coming-soon-image {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.coming-soon-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.release-date {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.release-date .day {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.release-date .month {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--texto-secundario);
+}
+
+.coming-soon-info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.coming-soon-info h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--texto);
+}
+
+.coming-soon-platforms {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: auto;
+}
+
+.platform {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.platform.pc {
+    background: rgba(0, 100, 255, 0.2);
+    color: #0064ff;
+}
+
+.platform.xbox {
+    background: rgba(16, 124, 16, 0.2);
+    color: #107c10;
+}
+
+.platform.ps {
+    background: rgba(0, 64, 152, 0.2);
+    color: #004098;
+}
+
+.wishlist-btn {
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid var(--color-principal);
+    color: var(--color-principal);
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wishlist-btn:hover {
+    background: var(--color-principal);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .games-carousel {
+        gap: 1rem;
+    }
+    
+    .home-game-card {
+        min-width: 160px;
+        width: 160px;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    .coming-soon-container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -48,20 +48,4 @@ class DetalleOrdenModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function order()
-    {
-        return $this->belongsTo(OrdenModel::class, 'order_id', 'order_id');
-    }
-
-    public function game()
-    {
-        return $this->belongsTo(JuegosModel::class, 'game_id', 'game_id');
-    }
-
-    public function keys()
-    {
-        return $this->hasMany(KeyModel::class, 'order_item_id', 'item_id');
-    }
 }

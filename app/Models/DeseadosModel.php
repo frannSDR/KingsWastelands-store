@@ -45,15 +45,4 @@ class DeseadosModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function user()
-    {
-        return $this->belongsTo(UsuarioModel::class, 'user_id', 'user_id');
-    }
-
-    public function items()
-    {
-        return $this->hasMany(DeseadosItemModel::class, 'user_id', 'user_id');
-    }
 }

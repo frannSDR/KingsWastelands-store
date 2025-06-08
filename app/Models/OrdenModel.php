@@ -51,20 +51,4 @@ class OrdenModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function user()
-    {
-        return $this->belongsTo(UsuarioModel::class, 'user_id', 'user_id');
-    }
-
-    public function items()
-    {
-        return $this->hasMany(DetalleOrdenModel::class, 'order_id', 'order_id');
-    }
-
-    public function invoice()
-    {
-        return $this->hasOne(FacturaModel::class, 'order_id', 'order_id');
-    }
 }

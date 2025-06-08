@@ -6,8 +6,44 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        $data['titulo'] = "Home";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/plantillas/slider_view') . view('../Views/plantillas/tendencias_view') . view('../Views/plantillas/trust_view') . view('../Views/plantillas/prox_releases_view') . view('../Views/plantillas/carousel_view') . view('../Views/plantillas/ofertas_semanales_view') . view('../Views/plantillas/newsletter_view') . view('../Views/plantillas/footer_view');
+        $juegosModel = new \App\Models\JuegosModel();
+        $categoriaModel = new \App\Models\CategoriaModel();
+
+        // Juegos en oferta
+        $categoriaOfertas = $categoriaModel->where('slug', 'ofertas')->first();
+        $juegosOferta = [];
+        if ($categoriaOfertas) {
+            $juegosOferta = $juegosModel
+                ->join('juego_categorias', 'juegos.game_id = juego_categorias.game_id')
+                ->where('juego_categorias.category_id', $categoriaOfertas['category_id'])
+                ->findAll(9);
+        }
+
+        // Juegos populares
+        $categoriaPopular = $categoriaModel->where('slug', 'popular')->first();
+        $juegosPopulares = [];
+        if ($categoriaPopular) {
+            $juegosPopulares = $juegosModel
+                ->join('juego_categorias', 'juegos.game_id = juego_categorias.game_id')
+                ->where('juego_categorias.category_id', $categoriaPopular['category_id'])
+                ->findAll(9);
+        }
+
+        $data = [
+            'juegosOferta' => $juegosOferta,
+            'juegosPopulares' => $juegosPopulares
+        ];
+
+        // Puedes agregar más secciones si quieres (por ejemplo, próximos lanzamientos)
+
+        return view('plantillas/header_view')
+            . view('plantillas/side_cart')
+            . view('plantillas/slider_view', $data)
+            . view('plantillas/tendencias_view', $data)
+            . view('plantillas/carousel_view')
+            . view('plantillas/trust_view')
+            . view('plantillas/newsletter_view')
+            . view('plantillas/footer_view');
     }
 
     public function ofertas(): string
@@ -52,34 +88,10 @@ class Home extends BaseController
         return view('../Views/plantillas/header_view.php', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/terminos.php') . view('../Views/plantillas/footer_view.php');
     }
 
-    public function accion(): string
+    public function juegos(): string
     {
-        $data['titulo'] = "Accion";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/accion') . view('../Views/plantillas/footer_view');
-    }
-
-    public function aventura(): string
-    {
-        $data['titulo'] = "Aventuras";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/aventura') . view('../Views/plantillas/footer_view');
-    }
-
-    public function terror(): string
-    {
-        $data['titulo'] = "Terror";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/terror') . view('../Views/plantillas/footer_view');
-    }
-
-    public function indie(): string
-    {
-        $data['titulo'] = "Indie";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/indie') . view('../Views/plantillas/footer_view');
-    }
-
-    public function estrategia(): string
-    {
-        $data['titulo'] = "Estrategia";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/estrategia') . view('../Views/plantillas/footer_view');
+        $data['titulo'] = "Juegos";
+        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/games') . view('../Views/plantillas/footer_view');
     }
 
     public function game_section(): string
@@ -134,5 +146,11 @@ class Home extends BaseController
     {
         $data['titulo'] = "Admin Perfil";
         return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/perfil') . view('../Views/plantillas/footer_view');
+    }
+
+    public function wishlist(): string
+    {
+        $data['titulo'] = "Wishlist";
+        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/whishlist') . view('../Views/plantillas/footer_view');
     }
 }

@@ -57,40 +57,4 @@ class JuegosModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones (usamos esto para poder realizar las relaciones con los modelos)
-    public function reviews()
-    {
-        return $this->hasMany(ReviewModel::class, 'game_id', 'game_id');
-    }
-
-    public function gallery()
-    {
-        return $this->hasMany(GaleriaModel::class, 'game_id', 'game_id');
-    }
-
-    public function categories()
-    {
-        return $this->hasMany(JuegoCategoriaModel::class, 'game_id', 'game_id');
-    }
-
-    public function keys()
-    {
-        return $this->hasMany(KeyModel::class, 'game_id', 'game_id');
-    }
-
-    public function getJuegosPorCategoria($categoriaSlug, $perPage = null)
-    {
-        $builder = $this->select('juegos.game_id, juegos.title, juegos.price, juegos.card_image_url, juegos.youtube_trailer_id')
-            ->join('juego_categorias', 'juego_categorias.game_id = juegos.game_id')
-            ->join('categorias', 'categorias.category_id = juego_categorias.category_id')
-            ->where('categorias.slug', $categoriaSlug)
-            ->orderBy('juegos.created_at', 'DESC');
-
-        if ($perPage) {
-            return $builder->paginate($perPage);
-        }
-
-        return $builder->findAll();
-    }
 }

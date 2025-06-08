@@ -62,7 +62,7 @@
 
 <!-- librerias y js -->
 <script src="<?= base_url('assets/js/perfil.js') ?>"></script>
-<script src="<?= base_url('assets/js/lightbox-plus-jquery.js') ?>"></script>
+<script src="<?= base_url('assets/js/lightbox/lightbox-plus-jquery.js') ?>"></script>
 <script src="<?= base_url('assets/js/home.js') ?>"></script>
 <script src="<?= base_url('assets/js/game-sections.js') ?>"></script>
 <script src="<?= base_url('assets/js/cart.js') ?>"></script>

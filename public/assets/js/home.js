@@ -35,41 +35,56 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-//! -------------- reproduccion de videos en las tarjetas -------------- //
+//! -------------- reproduccion de videos en las cards -------------- //
 
 document.addEventListener('DOMContentLoaded', function() {
-  const gameCards = document.querySelectorAll('.game-card');
+  const gameCards = document.querySelectorAll('.all-game-card');
   
-  // cargamos la API de youTube
+  // Cargar la API de YouTube
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   
-  // controlamos que la api haya cargado correctamente
+  // Controlamos que la API haya cargado correctamente
   window.onYouTubeIframeAPIReady = function() {
-    gameCards.forEach(card => {
-      const iframe = card.querySelector('iframe');
-      if (iframe) {
-        const player = new YT.Player(iframe, {
-          events: {
-            'onReady': onPlayerReady
+      gameCards.forEach(card => {
+          const iframe = card.querySelector('iframe');
+          if (iframe) {
+              // Crear el player de YouTube
+              const player = new YT.Player(iframe, {
+                  events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                  }
+              });
+              
+              // Eventos de mouse para la carta
+              card.addEventListener('mouseenter', () => {
+                  if (player && player.playVideo) {
+                      player.playVideo();
+                  }
+              });
+              
+              card.addEventListener('mouseleave', () => {
+                  if (player && player.pauseVideo) {
+                      player.pauseVideo();
+                  }
+              });
           }
-        });
-        
-        card.addEventListener('mouseenter', () => {
-          player.playVideo();
-        });
-        
-        card.addEventListener('mouseleave', () => {
-          player.pauseVideo();
-        });
-      }
-    });
+      });
   }
   
   function onPlayerReady(event) {
-    event.target.mute(); // nos aseguramos de que el video este muteado
+      // Nos aseguramos de que el video esté muteado
+      event.target.mute();
+  }
+  
+  function onPlayerStateChange(event) {
+      // Opcional: manejar cambios de estado del video
+      if (event.data == YT.PlayerState.PLAYING) {
+          event.target.mute(); // Asegurar que siga muteado
+      }
   }
 });
 
@@ -296,3 +311,17 @@ function createParticles() {
 }
 
 createParticles();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const paginationNumbers = document.querySelectorAll('.pagination-number:not(.active)');
+    
+    paginationNumbers.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.transform = 'scale(1.05)';
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'scale(1)';
+        });
+    });
+});

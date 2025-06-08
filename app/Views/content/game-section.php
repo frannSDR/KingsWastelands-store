@@ -27,9 +27,9 @@
                     <span class="meta-item"><i class="bi bi-people"></i> <?= esc($juego['developer']) ?></span>
                     <span class="meta-item"><i class="bi bi-tags"></i>
                         <?php foreach ($categorias as $categoria): ?>
-                            <spand href="/<?= $categoria['slug'] ?>"><?= $categoria['name_cat'] ?><?= !end($categorias) ? ', ' : '' ?>
+                            <span href="/<?= $categoria['slug'] ?>"><?= $categoria['name_cat'] ?><?= !end($categorias) ? ', ' : '' ?>
                             <?php endforeach; ?>
-                    </span>
+                            </span>
                 </div>
                 <div class="game-description">
                     <p><?= esc($juego['about']) ?></p>
