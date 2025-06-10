@@ -173,6 +173,8 @@
                             <div class="all-game-footer">
                                 <div class="all-game-price">$ <?= $juego['price'] ?></div>
                                 <div class="all-game-buttons">
+                                    <button class="btn2 btn-primary2"><i class="bi bi-heart-fill"></i></button>
+                                    <button class="btn2 btn-primary2"><i class="bi bi-heart"></i></button>
                                     <button class="btn2 btn-primary2"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                                 </div>
                             </div>

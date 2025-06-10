@@ -98,9 +98,9 @@ class Juegos extends BaseController
         foreach ($juegos as &$juego) {
             $juego['categorias'] = $categoriasPorJuego[$juego['game_id']] ?? [];
         }
-        unset($juego); // buena práctica
 
-        // --- DATOS PARA LA VISTA ---
+        unset($juego);
+
         $data = [
             'juegos' => $juegos,
             'currentGamesPage' => $gamesPage,
@@ -147,8 +147,7 @@ class Juegos extends BaseController
         if ($slug !== 'todos') {
             $categoria = $this->categoriaModel->where('slug', $slug)->first();
             if (!$categoria) {
-                // Si la categoría no existe, puedes redirigir o mostrar error
-                return redirect()->to('/')->with('error', 'La categoría no existe');
+                return redirect()->to('/')->with('error-msg', 'La categoría no existe');
             }
             $builder->join('juego_categorias', 'juego_categorias.game_id = juegos.game_id')
                 ->where('juego_categorias.category_id', $categoria['category_id']);
@@ -157,7 +156,7 @@ class Juegos extends BaseController
         $juegos = $builder->orderBy($orderBy, $direction)
             ->paginate($perPage, 'default', $page);
 
-        // --- ASOCIAR CATEGORÍAS A CADA JUEGO (igual que en all_games) ---
+        // asociamos las categorias a cada juego
         $gameIds = array_column($juegos, 'game_id');
         $categoriasPorJuego = [];
         if (!empty($gameIds)) {
@@ -202,39 +201,39 @@ class Juegos extends BaseController
 
     public function detalle($id)
     {
-        // Obtener el juego por ID
+        // obtenemos el juego por su id
         $juego = $this->juegosModel->find($id);
 
         if (!$juego) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
-        // Obtener imágenes del juego
+        // obtenemos las imagenes de galeria del juego
         $imagenes = $this->galeriaModel
             ->select('image_url, image_order')
             ->where('game_id', $id)
             ->orderBy('image_order', 'ASC')
             ->findAll();
 
-        // Obtener categorías del juego
+        // obtenemos sus categorias
         $categorias = $this->juegoCategoriaModel
             ->select('categorias.name_cat, categorias.slug')
             ->join('categorias', 'categorias.category_id = juego_categorias.category_id')
             ->where('juego_categorias.game_id', $id)
             ->findAll();
 
-        // Obtener requisitos del sistema
+        // obtenemos los requisitos
         $requisitos = $this->requisitosModel
             ->where('game_id', $id)
             ->findAll();
 
-        // Organizar los requisitos por tipo para facilitar el acceso en la vista
+        // organizamos los requisitos por tipo para facilitar el acceso en la vista
         $requisitosOrganizados = [];
         foreach ($requisitos as $req) {
             $requisitosOrganizados[$req['tipo']] = $req;
         }
 
-        // Obtener reseñas
+        // obtenemos las reseñas
         $reviews = $this->reviewModel
             ->select('juegos_reviews.*, usuarios.nickname, usuarios.user_img')
             ->join('usuarios', 'usuarios.user_id = juegos_reviews.user_id', 'left')
@@ -243,7 +242,7 @@ class Juegos extends BaseController
             ->orderBy('created_at', 'DESC')
             ->findAll();
 
-        // Calculamos las estadisticas de las reseñas
+        // calculamos las estadisticas para las reseñas
         $totalReviews = count($reviews);
         $scorePromedio = 0;
         $distribucion = [0, 0, 0, 0, 0]; // para contar las estrellitas
@@ -332,7 +331,7 @@ class Juegos extends BaseController
             return $this->response->setStatusCode(400)->setJSON([
                 'success' => false,
                 'errors' => $validation->getErrors(),
-                'message' => 'Por favor corrige los errores en el formulario'
+                'error-msg' => 'Por favor corrige los errores en el formulario'
             ]);
         }
 
@@ -345,7 +344,7 @@ class Juegos extends BaseController
         if ($existingReview) {
             return $this->response->setStatusCode(400)->setJSON([
                 'success' => false,
-                'message' => 'Ya has enviado una reseña para este juego'
+                'error-msg' => 'Ya has enviado una reseña para este juego'
             ]);
         }
 
@@ -359,19 +358,15 @@ class Juegos extends BaseController
             'is_approved' => 1 // cambiamos a 0 en caso de querer moderacion previa
         ];
 
-        // guardamos la reseña
+        // usamos un trycatch para guardar la reseña
         try {
             $this->reviewModel->insert($data);
-
             return $this->response->setJSON([
                 'success' => true,
-                'message' => 'Reseña enviada con éxito'
             ]);
-        } catch (\Exception $e) {
-            log_message('error', 'Error al guardar reseña: ' . $e->getMessage());
+        } catch (\Exception) {
             return $this->response->setStatusCode(500)->setJSON([
                 'success' => false,
-                'message' => 'Error al guardar la reseña. Por favor intenta nuevamente.'
             ]);
         }
     }
@@ -405,6 +400,56 @@ class Juegos extends BaseController
             'reviews' => $reviews,
             'pager' => $pager,
             'currentPage' => $page
+        ]);
+    }
+
+    public function votarUtil($review_id)
+    {
+        $user_id = session()->get('user_id');
+        $is_helpful = $this->request->getPost('is_helpful');
+        if ($is_helpful === null) {
+            $json = $this->request->getJSON();
+            $is_helpful = $json->is_helpful ?? null;
+        }
+
+        if (!$user_id) {
+            return $this->response->setJSON(['error-msg' => 'Debes iniciar sesión para poder likear']);
+        }
+
+        if ($is_helpful === null) {
+            return $this->response->setJSON(['error-msg' => 'Falta el parámetro is_helpful']);
+        }
+
+        $helpfulModel = new \App\Models\ReviewHelpfulModel();
+
+        $existe = $helpfulModel
+            ->where('review_id', $review_id)
+            ->where('user_id', $user_id)
+            ->first();
+
+        if ($existe) {
+            if ($existe['is_helpful'] == $is_helpful) {
+                // si el voto es igual, lo quitamos (elimina el registro)
+                $helpfulModel->delete($existe['helpful_id']);
+            } else {
+                // si el voto es distinto, lo actualizamos
+                $helpfulModel->update($existe['helpful_id'], ['is_helpful' => $is_helpful]);
+            }
+        } else {
+            // inserta el nuevo voto
+            $helpfulModel->insert([
+                'review_id' => $review_id,
+                'user_id' => $user_id,
+                'is_helpful' => $is_helpful
+            ]);
+        }
+
+        $likes = $helpfulModel->where('review_id', $review_id)->where('is_helpful', 1)->countAllResults();
+        $dislikes = $helpfulModel->where('review_id', $review_id)->where('is_helpful', 0)->countAllResults();
+
+        return $this->response->setJSON([
+            'likes' => $likes,
+            'dislikes' => $dislikes
         ]);
     }
 }

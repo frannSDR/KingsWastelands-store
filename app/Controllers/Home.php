@@ -148,6 +148,12 @@ class Home extends BaseController
         return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/perfil') . view('../Views/plantillas/footer_view');
     }
 
+    public function perfil_user(): string
+    {
+        $data['titulo'] = "User Perfil";
+        return view('../Views/plantillas/header_view', $data) . view('../Views/plantillas/side_cart') . view('../Views/content/user_perfil') . view('../Views/plantillas/footer_view');
+    }
+
     public function wishlist(): string
     {
         $data['titulo'] = "Wishlist";

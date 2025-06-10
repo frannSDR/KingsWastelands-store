@@ -4,19 +4,24 @@
             <form action="<?php echo base_url('procesar_login') ?>" method="POST" class="auth-form">
                 <h1 class="auth-title">Inicio de Sesión</h1>
 
-                <?php if (session('mensaje')): ?>
-                    <div class="alert alert-danger">
-                        <?= session('mensaje') ?>
+
+                <?php if ($errors = session('error-msg')): ?>
+                    <?php foreach ((array)$errors as $msg): ?>
+                        <div class="alert alert-danger"><?= esc($msg) ?></div>
+                    <?php endforeach; ?>
+                <?php elseif (session('exito-msg')): ?>
+                    <div class="alert alert-success">
+                        <?= session('exito-msg') ?>
                     </div>
                 <?php endif; ?>
 
                 <div class="input-box">
-                    <input type="text" name="usuario" placeholder="Nombre de Usuario" required value="<?= old('usuario') ?>">
+                    <input type="text" name="usuario" placeholder="Nombre de Usuario" value="<?= old('usuario') ?>">
                     <i class='bx bxs-user'></i>
                 </div>
 
                 <div class="input-box">
-                    <input type="password" name="contraseña" placeholder="Contraseña" required>
+                    <input type="password" name="contraseña" placeholder="Contraseña">
                     <i class='bx bxs-lock-alt'></i>
                 </div>
 

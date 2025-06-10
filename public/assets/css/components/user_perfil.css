@@ -1,0 +1,658 @@
+/*! ------------------ USER PANEL ------------------ */
+.user-panel {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #e5e7eb;
+}
+
+.user-sidebar {
+    background-color: #252525;
+    border-right: 1px solid #2d2d2d;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #7B68EE; 
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(123, 104, 238, 0.5);
+}
+
+.user-username {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+}
+
+.user-role {
+    color: #a1a1aa;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: #a1a1aa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.menu-item i {
+    font-size: 1.1rem;
+}
+
+.menu-item:hover {
+    background-color: #333;
+    color: #e5e7eb;
+}
+
+.menu-item.active {
+    background: linear-gradient(90deg, rgba(123, 104, 238, 0.2), transparent);
+    color: #7B68EE; /* Usando tu color principal */
+    border-left: 3px solid #7B68EE;
+}
+
+.user-logout {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.user-content {
+    padding: 30px;
+    background-color: #1a1a1a;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Estilos para la sección de perfil */
+.profile-info-container {
+    background-color: #252525;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e5e7eb;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #7B68EE;
+    box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.2);
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    resize: vertical;
+    min-height: 100px;
+    transition: all 0.3s ease;
+}
+
+.save-btn {
+    background-color: #7B68EE;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.save-btn:hover {
+    background-color: #624aff;
+}
+
+.security-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.security-section h3 {
+    color: #e5e7eb;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.security-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #7B68EE;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.security-link:hover {
+    color: #624aff;
+}
+
+/* Estilos para la sección de compras */
+.purchases-container {
+    margin-top: 20px;
+}
+
+.purchase-card {
+    background-color: #252525;
+    border-radius: 12px;
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.purchase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #333;
+}
+
+.purchase-id {
+    font-weight: 500;
+    color: #e5e7eb;
+}
+
+.purchase-date {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+}
+
+.purchase-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.purchase-status.completed {
+    background-color: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+}
+
+.purchase-status.pending {
+    background-color: rgba(250, 204, 21, 0.1);
+    color: #facc15;
+}
+
+.purchase-status.cancelled {
+    background-color: rgba(248, 113, 113, 0.1);
+    color: #f87171;
+}
+
+.purchase-details {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+    padding: 20px;
+}
+
+.purchase-games {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.purchase-game {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.game-image {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.game-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 0.95rem;
+    color: #e5e7eb;
+}
+
+.game-price {
+    color: #7B68EE;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.purchase-summary {
+    border-left: 1px solid #333;
+    padding-left: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #a1a1aa;
+    font-size: 0.9rem;
+}
+
+.summary-row.total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    color: #e5e7eb;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.view-receipt-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #444;
+    color: #e5e7eb;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-receipt-btn:hover {
+    background-color: #3d3d3d;
+}
+
+.download-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #7B68EE;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #624aff;
+}
+
+/* Estilos para la lista de deseados */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.wishlist-item {
+    background-color: #252525;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.wishlist-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-image {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+}
+
+.wishlist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.wishlist-item:hover .wishlist-image img {
+    transform: scale(1.05);
+}
+
+.remove-wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.wishlist-item:hover .remove-wishlist-btn {
+    opacity: 1;
+}
+
+.remove-wishlist-btn:hover {
+    background-color: #ef4444;
+}
+
+.wishlist-info {
+    padding: 15px;
+}
+
+.wishlist-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wishlist-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.wishlist-meta .price {
+    color: #7B68EE;
+    font-weight: 500;
+}
+
+.wishlist-meta .release-date {
+    color: #a1a1aa;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #7B68EE;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #624aff;
+}
+
+/* Estilos para la sección de configuración */
+.settings-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.settings-card {
+    background-color: #252525;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #333;
+}
+
+.settings-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.setting-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #7B68EE;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #7B68EE;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.danger-zone {
+    border-color: #ef4444;
+}
+
+.delete-account-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ef4444;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.delete-account-btn:hover {
+    background-color: #dc2626;
+}
+
+.warning-text {
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* Estilos para estados vacíos */
+.empty-state {
+    background-color: #252525;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    border: 1px dashed #444;
+    margin-top: 20px;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    color: #7B68EE;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    color: #a1a1aa;
+    margin-bottom: 20px;
+}
+
+.browse-btn {
+    padding: 10px 20px;
+    background-color: #7B68EE;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.browse-btn:hover {
+    background-color: #624aff;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .user-panel {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-sidebar {
+        display: none;
+    }
+    
+    .purchase-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .purchase-summary {
+        border-left: none;
+        border-top: 1px solid #333;
+        padding-left: 0;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-content {
+        padding: 20px 15px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

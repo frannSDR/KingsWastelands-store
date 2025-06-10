@@ -17,9 +17,9 @@
             </div>
             <div class="contact-form-card">
                 <!-- Mostrar mensaje de éxito si existe -->
-                <?php if (session()->has('mensaje_consulta')): ?>
+                <?php if (session()->has('exito-msg')): ?>
                     <div class="alert alert-success">
-                        <?= session('mensaje_consulta') ?>
+                        <?= session('exito-msg') ?>
                     </div>
                 <?php endif; ?>
 
@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" name="nombre" value="<?= old('nombre') ?>" required class="form-input <?= (isset($validation['nombre']) ? 'is-invalid' : '') ?>">
+                        <input type="text" id="nombre" name="nombre" value="<?= old('nombre') ?>" class="form-input <?= (isset($validation['nombre']) ? 'is-invalid' : '') ?>">
                         <?php if (isset($validation['nombre'])): ?>
                             <div class="invalid-feedback"><?= $validation['nombre'] ?></div>
                         <?php endif; ?>
@@ -50,7 +50,7 @@
 
                     <div class="form-group">
                         <label for="correo">Correo electrónico:</label>
-                        <input type="email" id="correo" name="correo" value="<?= old('correo') ?>" required placeholder="nombre@gmail.com" class="form-input <?= (isset($validation['correo']) ? 'is-invalid' : '') ?>">
+                        <input type="email" id="correo" name="correo" value="<?= old('correo') ?>" placeholder="nombre@gmail.com" class="form-input <?= (isset($validation['correo']) ? 'is-invalid' : '') ?>">
                         <?php if (isset($validation['correo'])): ?>
                             <div class="invalid-feedback"><?= $validation['correo'] ?></div>
                         <?php endif; ?>
@@ -63,7 +63,7 @@
 
                     <div class="form-group">
                         <label for="motivo">Motivo de la consulta:</label>
-                        <input type="text" id="motivo" name="motivo" value="<?= old('motivo') ?>" placeholder="Ejemplo: Consulta sobre compra, problema con descarga..." required class="form-input <?= (isset($validation['motivo']) ? 'is-invalid' : '') ?>">
+                        <input type="text" id="motivo" name="motivo" value="<?= old('motivo') ?>" placeholder="Ejemplo: Consulta sobre compra, problema con descarga..." class="form-input <?= (isset($validation['motivo']) ? 'is-invalid' : '') ?>">
                         <?php if (isset($validation['motivo'])): ?>
                             <div class="invalid-feedback"><?= $validation['motivo'] ?></div>
                         <?php endif; ?>
@@ -71,7 +71,7 @@
 
                     <div class="form-group">
                         <label for="consulta">Mensaje:</label>
-                        <textarea id="consulta" name="consulta" rows="5" placeholder="Escribí tu consulta aquí..." required class="form-textarea <?= (isset($validation['consulta']) ? 'is-invalid' : '') ?>"><?= old('consulta') ?></textarea>
+                        <textarea id="consulta" name="consulta" rows="5" placeholder="Escribí tu consulta aquí..." class="form-textarea <?= (isset($validation['consulta']) ? 'is-invalid' : '') ?>"><?= old('consulta') ?></textarea>
                         <?php if (isset($validation['consulta'])): ?>
                             <div class="invalid-feedback"><?= $validation['consulta'] ?></div>
                         <?php endif; ?>

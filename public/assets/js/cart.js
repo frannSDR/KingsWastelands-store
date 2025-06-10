@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // funciones para actualizar el contador del carrito
   function updateCartCount() {
-    const cartCountElement = document.querySelector('.cart-item-count');
+    // const cartCountElement = document.querySelector('.cart-item-count');
     const itemCount = window.cart.reduce((total, item) => total + item.quantity, 0);
     
     if (cartCountElement) {
@@ -185,11 +185,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // inicializamos el carrito y los event listeners
   function init() {
     // creamos el circulito que sirve de contador para el carrito
-    if (!document.querySelector('.cart-item-count')) {
-      const cartCountElement = document.createElement('span');
-      cartCountElement.classList.add('cart-item-count');
-      cartIcon.parentNode.appendChild(cartCountElement);
-    }
+    // if (!document.querySelector('.cart-item-count')) {
+    //   const cartCountElement = document.createElement('span');
+    //   cartCountElement.classList.add('cart-item-count');
+    //   cartIcon.parentNode.appendChild(cartCountElement);
+    // }
     
     loadCartFromLocalStorage();
 

@@ -47,15 +47,4 @@ class CartItemModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Relaciones
-    public function cart()
-    {
-        return $this->belongsTo(CartModel::class, 'cart_id', 'cart_id');
-    }
-
-    public function game()
-    {
-        return $this->belongsTo(JuegosModel::class, 'game_id', 'game_id');
-    }
 }

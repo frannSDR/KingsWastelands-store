@@ -285,7 +285,8 @@
                     <form id="nueva-resena">
                         <div class="grupo-formulario">
                             <label for="titulo-resena">Título de la reseña</label>
-                            <input type="text" id="titulo-resena" name="titulo-resena" placeholder="Ej: ¡Una experiencia increíble!" required>
+                            <input type="text" id="titulo-resena" name="titulo-resena" placeholder="Ej: ¡Una experiencia increíble!">
+                            <div class="alert alert-danger error-msg" id="error-titulo-resena"></div>
                         </div>
                         <div class="grupo-formulario">
                             <label>Tu puntuación</label>
@@ -301,10 +302,12 @@
                                 <input type="radio" id="estrella1" name="rating" value="1">
                                 <label for="estrella1" class="estrella"><i class="bi bi-star-fill"></i></label>
                             </div>
+                            <div class="alert alert-danger error-msg" id="error-rating"></div>
                         </div>
                         <div class="grupo-formulario">
                             <label for="texto-resena">Tu reseña</label>
-                            <textarea id="texto-resena" name="texto-resena" rows="5" placeholder="Comparte tus experiencias con este juego..." required></textarea>
+                            <textarea id="texto-resena" name="texto-resena" rows="5" placeholder="Comparte tus experiencias con este juego..."></textarea>
+                            <div class="alert alert-danger error-msg" id="error-texto-resena"></div>
                         </div>
                         <div class="acciones-formulario">
                             <button type="button" id="cancelar-resena" class="boton-secundario">Cancelar</button>

@@ -69,18 +69,27 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Mostrar mensaje de éxito
                 mostrarNotificacion('success', '¡Reseña enviada con éxito!');
-                
-                // Recargar la página para mostrar la nueva reseña
                 setTimeout(() => {
                     window.location.reload();
                 }, 1500);
             } else {
-                // Mostrar errores
-                mostrarNotificacion('error', data.message || 'Error al enviar la reseña');
+                mostrarNotificacion('error', data['error-msg'] || data.message || 'Error al enviar la reseña');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Enviar reseña';
+
+                // Limpiar errores anteriores
+                document.querySelectorAll('.error-msg').forEach(div => div.textContent = '');
+
+                // Mostrar errores de cada campo
+                if (data.errors) {
+                    for (const campo in data.errors) {
+                        const errorDiv = document.getElementById('error-' + campo);
+                        if (errorDiv) {
+                            errorDiv.textContent = data.errors[campo];
+                        }
+                    }
+                }
             }
         })
         .catch(error => {
@@ -161,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(res => res.text())
             .then(html => {
                 listaResenas.innerHTML = html;
-                asignarEventosPaginacion(); // <-- importante
+                asignarEventosPaginacion(); 
             });
     }
 
@@ -175,11 +184,41 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    document.querySelectorAll('.boton-utilidad').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const reviewId = this.closest('.utilidad-resena').dataset.reviewId;
+            const isHelpful = this.classList.contains('like') ? 1 : 0;
+            console.log('Votando', reviewId, isHelpful);
+            fetch(`/votar-util/${reviewId}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({is_helpful: isHelpful})
+            })
+            .then(res => res.json())
+            .then(data => {
+            const utilidadResena = btn.closest('.utilidad-resena');
+            if (data.likes !== undefined && data.dislikes !== undefined) {
+                // Actualiza el texto de los botones
+                utilidadResena.querySelector('.like').textContent = `Sí (${data.likes})`;
+                utilidadResena.querySelector('.dislike').textContent = `No (${data.dislikes})`;
+            } else if (data['error-msg'] || data['error']) {
+                // Muestra el error en pantalla (puedes usar tu función de notificación)
+                mostrarNotificacion('error', data['error-msg'] || data['error']);
+            }
+            })
+            .catch(() => {
+                mostrarNotificacion('error', 'Error de conexión');
+            });
+        });
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     asignarEventosPaginacion();
 });
+
+
 
 //! ----------- filtro para los juegos ----------- //
 const filterButton = document.getElementById('filterButton');

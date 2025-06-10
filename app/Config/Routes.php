@@ -49,7 +49,13 @@ $routes->get('/nueva-pass', 'Home::new_pass');
 
 $routes->post('/logout', 'Usuario::logout');
 
+$routes->get('/datos_usuario', 'UserProfile::datos_usuario');
+
+$routes->post('/perfil/actualizar-datos', 'UserProfile::actualizar_datos');
+
 $routes->post('/juego/(:num)/guardar-resena', 'Juegos::guardarResena');
+
+$routes->post('votar-util/(:num)', 'Juegos::votarUtil/$1');
 
 $routes->get('/juego/(:num)/filtrar-resenas', 'Juegos::filtrarResenas/$1');
 

@@ -9,9 +9,11 @@ use CodeIgniter\Controller;
 class Usuario extends Controller
 {
     protected $usuarioModel;
+    protected $consultaModel;
 
     public function __construct()
     {
+        $this->consultaModel = new ConsultaModel();
         $this->usuarioModel = new UsuarioModel();
     }
 
@@ -54,12 +56,9 @@ class Usuario extends Controller
 
         if (!$validacion) {
             // Guardar los errores en flashdata
-            session()->setFlashdata('validation', $this->validator);
+            session()->setFlashdata('error-msg', $this->validator);
             return redirect()->to(base_url('register'))->withInput();
         }
-
-        // si la validación es exitosa, procesamos el registro
-        $usuarioModel = new UsuarioModel();
 
         // preparamos los datos para guardar
         $datos = [
@@ -70,10 +69,10 @@ class Usuario extends Controller
         ];
 
         // guardamos el usuario en la base de datos
-        $usuarioModel->insert($datos);
+        $this->usuarioModel->insert($datos);
 
         // si la sesion es exitosa redirigimos al login con un mensaje
-        session()->setFlashdata('mensaje', 'Registro exitoso. Ahora puedes iniciar sesión.');
+        session()->setFlashdata('exito-msg', 'Registro exitoso. Ahora puedes iniciar sesión.');
         return redirect()->to(base_url('login'));
     }
 
@@ -92,27 +91,26 @@ class Usuario extends Controller
         ]);
 
         if (!$validation->withRequest($request)->run()) {
-            $data['titulo'] = 'Login';
-            $data['validation'] = $validation->getErrors();
-            return view('login', $data);
+            return redirect()->to(base_url('login'))
+                ->withInput()
+                ->with('error-msg', $validation->getErrors());
         }
 
         $nickname = $this->request->getPost('usuario');
         $contraseña = $this->request->getPost('contraseña');
 
-        $usuarioModel = new UsuarioModel();
-        $usuario = $usuarioModel->where('nickname', $nickname)->first();
+        $usuario = $this->usuarioModel->where('nickname', $nickname)->first();
 
         if (!$usuario) {
-            return redirect()->to(base_url('login'))->with('mensaje', 'El usuario no existe.');
+            return redirect()->to(base_url('login'))->with('error-msg', 'El usuario no existe.');
         }
 
         if ($usuario['is_active'] != 1) {
-            return redirect()->to(base_url('login'))->with('mensaje', 'Tu cuenta está desactivada.');
+            return redirect()->to(base_url('login'))->with('error-msg', 'Tu cuenta está desactivada.');
         }
 
         if (!password_verify($contraseña, $usuario['password_hash'])) {
-            return redirect()->to(base_url('login'))->with('mensaje', 'Usuario o contraseña incorrecta.');
+            return redirect()->to(base_url('login'))->with('error-msg', 'Usuario o contraseña incorrecta.');
         }
 
         // Autenticación exitosa
@@ -128,7 +126,7 @@ class Usuario extends Controller
         $session->set($data);
 
         // Actualizar fecha de último login
-        $usuarioModel->update($usuario['user_id'], [
+        $this->usuarioModel->update($usuario['user_id'], [
             'last_login' => date('Y-m-d H:i:s')
         ]);
 
@@ -157,7 +155,7 @@ class Usuario extends Controller
                 'motivo' => 'required|max_length[100]',
                 'consulta' => 'required|max_length[250]|min_length[10]',
             ],
-            [   // errors
+            [   // errores
                 'nombre' => [
                     'required' => 'El nombre es obligatorio',
                     'max_length' => 'El nombre debe tener como máximo 150 caracteres'
@@ -190,18 +188,16 @@ class Usuario extends Controller
                 'consulta' => $request->getPost('consulta')
             ];
 
-            $consulta = new ConsultaModel();
-            $consulta->insert($data);
+            $this->consultaModel->insert($data);
 
-            return redirect()->route('contacto')->with('mensaje_consulta', 'Su consulta se envió exitosamente!');
+            return redirect()->route('contacto')->with('exito-msg', 'Su consulta se envió exitosamente!');
         } else {
 
-            $data['titulo'] = 'Error de Contacto';
             $data['validation'] = $validation->getErrors();
-            return view('../Views/plantillas/header_view.php', $data) .
+            return view('../Views/plantillas/header_view') .
                 view('../Views/plantillas/side_cart') .
-                view('../Views/content/error_consulta.php') .
-                view('../Views/plantillas/footer_view.php');
+                view('../Views/content/contacto', $data) .
+                view('../Views/plantillas/footer_view');
         }
     }
 }

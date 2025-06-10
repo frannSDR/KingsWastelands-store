@@ -4,7 +4,7 @@
             <form action="<?php echo base_url('procesar_registro') ?>" method="POST" class="auth-form">
                 <h1 class="auth-title">Registro</h1>
 
-                <?php $validation = session('validation'); ?>
+                <?php $validation = session('error-msg'); ?>
                 <?php if ($validation): ?>
                     <div class="alert alert-danger">
                         <?= $validation->listErrors() ?>
@@ -12,27 +12,27 @@
                 <?php endif; ?>
 
                 <div class="input-box">
-                    <input type="email" name="email" placeholder="Email" required value="<?= old('email') ?>">
+                    <input name="email" placeholder="Email" value="<?= old('email') ?>">
                     <i class='bx bxs-envelope'></i>
                 </div>
 
                 <div class="input-box">
-                    <input type="text" name="usuario" placeholder="Nombre de usuario" required value="<?= old('usuario') ?>">
+                    <input type="text" name="usuario" placeholder="Nombre de usuario" value="<?= old('usuario') ?>">
                     <i class='bx bxs-user'></i>
                 </div>
 
                 <div class="input-box">
-                    <input type="password" name="contraseña" placeholder="Contraseña" required>
+                    <input type="password" name="contraseña" placeholder="Contraseña">
                     <i class='bx bxs-lock-alt'></i>
                 </div>
 
                 <div class="input-box">
-                    <input type="password" name="confirmar_contraseña" placeholder="Confirmar contraseña" required>
+                    <input type="password" name="confirmar_contraseña" placeholder="Confirmar contraseña">
                     <i class='bx bxs-lock-alt'></i>
                 </div>
 
                 <div class="terms">
-                    <input type="checkbox" id="terms" required>
+                    <input type="checkbox" id="terms">
                     <label for="terms">Acepto los <a href="#">Términos y Condiciones</a></label>
                 </div>
 

@@ -196,6 +196,10 @@
     font-size: 0.9rem;
 }
 
+.alert:empty {
+  display: none;
+}
+
 .alert-success {
     background-color: rgba(0, 200, 81, 0.2);
     color: var(--success-color);

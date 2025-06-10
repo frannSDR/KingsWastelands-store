@@ -38,7 +38,7 @@ class Admin extends BaseController
         $session = session();
 
         if (!$session->has('user_id') || $session->get('is_admin') != 1) {
-            return redirect()->to(base_url('/'))->with('mensaje', 'Acceso no autorizado');
+            return redirect()->to(base_url('/'))->with('error-msg', 'Acceso no autorizado');
         }
 
         //! JUEGOS
@@ -157,14 +157,14 @@ class Admin extends BaseController
                 'max_size[profile_image,2048]', // 2MB máximo
             ]
         ])) {
-            return redirect()->back()->with('error', $this->validator->getErrors());
+            return redirect()->back()->with('error-msg', $this->validator->getErrors());
         }
 
         $file = $this->request->getFile('profile_image');
 
         // verificar si el archivo es válido y no se movió por error
         if (!$file->isValid()) {
-            return redirect()->back()->with('error', $file->getErrorString());
+            return redirect()->back()->with('error-msg', $file->getErrorString());
         }
 
         // generamos un nombre unico para cada imagen asi evitamos problemas de coincidencia
