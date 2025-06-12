@@ -821,7 +821,7 @@ body {
     object-fit: cover;
 }
 
-.release-date {
+.home-release-date {
     position: absolute;
     bottom: 10px;
     left: 10px;
@@ -831,14 +831,14 @@ body {
     border-radius: 4px;
 }
 
-.release-date .day {
+.home-release-date .day {
     display: block;
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
 }
 
-.release-date .month {
+.home-release-date .month {
     display: block;
     font-size: 0.7rem;
     color: var(--texto-secundario);

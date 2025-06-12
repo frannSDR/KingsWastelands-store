@@ -76,7 +76,7 @@
         <!-- Sección de Lista de Deseados -->
         <div id="deseados-section" class="content-section">
             <div class="wishlist-user-profile">
-                <?= view('content/partials/wishlist-user-profile', []) ?>
+                <?= view('content/partials/wishlist-user-profile', ['deseados' => $deseados]) ?>
             </div>
         </div>
 

@@ -49,9 +49,13 @@ $routes->get('/nueva-pass', 'Home::new_pass');
 
 $routes->post('/logout', 'Usuario::logout');
 
+$routes->get('/user-profile', 'UserProfile::perfil');
+
 $routes->get('/datos_usuario', 'UserProfile::datos_usuario');
 
 $routes->post('/perfil/actualizar-datos', 'UserProfile::actualizar_datos');
+
+$routes->post('/add-to-wishlist', 'UserProfile::add_to_wishlist');
 
 $routes->post('/juego/(:num)/guardar-resena', 'Juegos::guardarResena');
 

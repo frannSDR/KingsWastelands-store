@@ -119,13 +119,13 @@
     border: solid 2px var(--hover-color);
 }
 
-.all-game-card-link {
+.all-game-title a {
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
-.all-game-card-link .all-game-card {
+.all-game-title a {
     cursor: pointer;
 }
 

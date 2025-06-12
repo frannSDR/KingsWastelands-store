@@ -4,31 +4,30 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DeseadosItemModel extends Model
+class WishlistModel extends Model
 {
-    protected $table      = 'wishlist_items';
-    protected $primaryKey = 'item_id';
+    protected $table      = 'wishlists';
+    protected $primaryKey = 'user_id';
 
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = [
         'user_id',
-        'game_id',
-        'added_at'
+        'created_at',
+        'updated_at'
     ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];

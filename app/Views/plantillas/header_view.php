@@ -63,7 +63,7 @@
     <div class="right-header">
       <div class="header-action">
         <a id="cart-icon" class="cart_icon desktop-only" href="#"><i class="bi bi-cart"></i></a>
-        <a href="<?php echo base_url('datos_usuario') ?>" class="cart_icon desktop-only"><i class="bi bi-person-circle"></i></a>
+        <a href="<?php echo base_url('user-profile') ?>" class="cart_icon desktop-only"><i class="bi bi-person-circle"></i></a>
         <!-- <span class="cart-item-count desktop-only"></span> -->
       </div>
 

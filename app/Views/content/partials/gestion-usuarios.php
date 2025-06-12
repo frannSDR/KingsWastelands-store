@@ -60,7 +60,7 @@
                 <tr>
                     <td><?= $usuario['user_id'] ?></td>
                     <td>
-                        <img src="<?php echo base_url('assets/uploads/profile_imgs/' . $usuario['user_img']) ?>" alt="Avatar" class="user-avatar">
+                        <img src="<?php echo base_url('assets/uploads/profile_imgs/' . $usuario['user_img']) ?>" alt="Avatar" class="td-user-avatar">
                     </td>
                     <td><?= esc($usuario['email']) ?></td>
                     <td><?= esc($usuario['nickname']) ?></td>

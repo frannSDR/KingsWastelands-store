@@ -6,30 +6,60 @@ use App\Controllers\BaseController;
 use App\Models\JuegosModel;
 use App\Models\CategoriaModel;
 use App\Models\JuegoCategoriaModel;
-use App\Models\GaleriaModel;
-use App\Models\RequisitosModel;
-use App\Models\ReviewModel;
 use App\Models\UsuarioModel;
+use App\Models\WishlistModel;
+use App\Models\WishlistItemModel;
 
 class UserProfile extends BaseController
 {
     protected $juegosModel;
     protected $categoriaModel;
     protected $juegoCategoriaModel;
-    protected $galeriaModel;
-    protected $requisitosModel;
-    protected $reviewModel;
     protected $usuariosModel;
+    protected $wishlistModel;
+    protected $wishlistItemModel;
 
     public function __construct()
     {
         $this->juegosModel = new JuegosModel();
         $this->categoriaModel = new CategoriaModel();
         $this->juegoCategoriaModel = new JuegoCategoriaModel();
-        $this->galeriaModel = new GaleriaModel();
-        $this->requisitosModel = new RequisitosModel();
-        $this->reviewModel = new ReviewModel();
         $this->usuariosModel = new UsuarioModel();
+        $this->wishlistModel = new WishlistModel();
+        $this->wishlistItemModel = new WishlistItemModel();
+    }
+
+    public function perfil()
+    {
+        $userId = session('user_id');
+        if (!$userId) {
+            return redirect()->to(base_url('login'))->with('error-msg', 'Primero debes estar logueado!');
+        }
+
+        $usuario = $this->usuariosModel->find($userId);
+
+        // Obtener la wishlist del usuario
+        $wishlistItems = $this->wishlistItemModel
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $deseados = [];
+        foreach ($wishlistItems as $item) {
+            $juego = $this->juegosModel
+                ->select('game_id, title, price, release_date, card_image_url')
+                ->find($item['game_id']);
+            if ($juego) {
+                $deseados[] = $juego;
+            }
+        }
+
+        return view('plantillas/header_view')
+            . view('plantillas/side_cart')
+            . view('content/user_perfil', [
+                'usuario' => $usuario,
+                'deseados' => $deseados
+            ])
+            . view('plantillas/footer_view');
     }
 
     public function datos_usuario()
@@ -155,6 +185,94 @@ class UserProfile extends BaseController
             'message' => 'Datos actualizados correctamente.',
             'nickname' => $nickname,
             'email' => $email
+        ]);
+    }
+
+    public function show_wishlist()
+    {
+        $userId = session('user_id');
+        if (!$userId) {
+            return redirect()->to(base_url('login'))->with('error-msg', 'Primero debes iniciar sesión.');
+        }
+
+        // 1. Obtén los items de la wishlist del usuario
+        $wishlistItems = $this->wishlistItemModel
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $deseados = [];
+
+        // 2. Por cada item, obtén los datos del juego
+        foreach ($wishlistItems as $item) {
+            $juego = $this->juegosModel
+                ->select('game_id, title, price, release_date, card_image_url')
+                ->find($item['game_id']);
+            if ($juego) {
+                $deseados[] = $juego;
+            }
+        }
+
+        // 3. Pasa los juegos a la vista
+        return view('content/partials/wishlist-user-profile', [
+            'deseados' => $deseados
+        ]);
+    }
+
+    public function add_to_wishlist()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Petición inválida']);
+        }
+
+        $userId = session('user_id');
+        if (!$userId) {
+            return $this->response->setStatusCode(401)->setJSON(['error' => 'No autenticado']);
+        }
+
+        $gameId = $this->request->getPost('game_id');
+        if (!$gameId) {
+            $json = $this->request->getJSON();
+            $gameId = $json->game_id ?? null;
+        }
+        if (!$gameId) {
+            return $this->response->setStatusCode(422)->setJSON(['error' => 'ID de juego no proporcionado']);
+        }
+
+        // Verifica si el usuario ya tiene una wishlist, si no, la crea
+        $wishlist = $this->wishlistModel->where('user_id', $userId)->first();
+        if (!$wishlist) {
+            $this->wishlistModel->insert([
+                'user_id' => $userId,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+        } else {
+            // Actualiza la fecha de actualización
+            $this->wishlistModel->update($wishlist['user_id'], [
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+        }
+
+        // Verifica si el juego ya está en la wishlist
+        $exists = $this->wishlistItemModel
+            ->where('user_id', $userId)
+            ->where('game_id', $gameId)
+            ->first();
+
+        if ($exists) {
+            return $this->response->setStatusCode(409)->setJSON(['error' => 'Este juego ya está en tu lista de deseados.']);
+        }
+
+        // Agrega el juego a la wishlist
+        $this->wishlistItemModel->insert([
+            'user_id' => $userId,
+            'game_id' => $gameId,
+            'added_at' => date('Y-m-d H:i:s')
+        ]);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Juego agregado a tu lista de deseados.'
         ]);
     }
 }

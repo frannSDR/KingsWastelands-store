@@ -8,6 +8,8 @@ use App\Models\JuegoCategoriaModel;
 use App\Models\GaleriaModel;
 use App\Models\RequisitosModel;
 use App\Models\ReviewModel;
+use App\Models\WishlistModel;
+use App\Models\WishlistItemModel;
 
 class Juegos extends BaseController
 {
@@ -17,6 +19,8 @@ class Juegos extends BaseController
     protected $galeriaModel;
     protected $requisitosModel;
     protected $reviewModel;
+    protected $wishlistModel;
+    protected $wishlistItemModel;
 
     public function __construct()
     {
@@ -26,6 +30,8 @@ class Juegos extends BaseController
         $this->galeriaModel = new GaleriaModel();
         $this->requisitosModel = new RequisitosModel();
         $this->reviewModel = new ReviewModel();
+        $this->wishlistModel = new WishlistModel();
+        $this->wishlistItemModel = new WishlistItemModel();
     }
 
     public function all_games()
@@ -101,8 +107,17 @@ class Juegos extends BaseController
 
         unset($juego);
 
+        $deseados_ids = [];
+        if (session()->has('user_id')) {
+            $wishlistItems = $this->wishlistItemModel
+                ->where('user_id', session('user_id'))
+                ->findAll();
+            $deseados_ids = array_column($wishlistItems, 'game_id');
+        }
+
         $data = [
             'juegos' => $juegos,
+            'deseados_ids' => $deseados_ids,
             'currentGamesPage' => $gamesPage,
             'totalGamesPages' => $gamesTotalPages,
             'currentGameFilter' => $gameFilter,
@@ -261,11 +276,21 @@ class Juegos extends BaseController
             }
         }
 
+        $deseados_ids = [];
+        if (session()->has('user_id')) {
+            $wishlistItems = $this->wishlistItemModel
+                ->where('user_id', session('user_id'))
+                ->findAll();
+            $deseados_ids = array_column($wishlistItems, 'game_id');
+        }
+
+
         $data = [
             'title' => $juego['title'],
             'juego' => $juego,
             'categorias' => $categorias,
             'imagenes' => $imagenes,
+            'deseados_ids' => $deseados_ids,
             'requisitos' => $requisitosOrganizados,
             'reviews' => $reviews,
             'stats' => [
@@ -275,9 +300,9 @@ class Juegos extends BaseController
             ]
         ];
 
-        return view('../Views/plantillas/header_view', $data)
+        return view('../Views/plantillas/header_view')
             . view('../Views/plantillas/side_cart')
-            . view('../Views/content/game-section')
+            . view('../Views/content/game-section', $data)
             . view('../Views/plantillas/footer_view');
     }
 

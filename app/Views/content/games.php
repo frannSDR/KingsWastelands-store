@@ -137,50 +137,51 @@
         <!-- card de cada juego -->
         <div class="all-games-list-container" id="gamesContainer">
             <?php foreach ($juegos as $juego): ?>
-                <a href="<?= base_url('juego/' . $juego['game_id']) ?>" class="all-game-card-link">
-                    <div class="all-game-card">
-                        <div class="all-game-image">
-                            <div class="game-trailer">
-                                <?php if (!empty($juego['youtube_trailer_id'])): ?>
-                                    <iframe
-                                        src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1"
-                                        title="YouTube video player"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin"
-                                        allowfullscreen>
-                                    </iframe>
-                                <?php endif; ?>
-                            </div>
-                            <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= esc($juego['title']) ?>">
+                <div class="all-game-card">
+                    <div class="all-game-image">
+                        <div class="game-trailer">
+                            <?php if (!empty($juego['youtube_trailer_id'])): ?>
+                                <iframe
+                                    src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1"
+                                    title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen>
+                                </iframe>
+                            <?php endif; ?>
                         </div>
-                        <div class="all-game-info">
-                            <h3 class="all-game-title"><?= esc($juego['title']) ?></h3>
-                            <div class="all-game-meta">
-                                <span><i class="bi bi-star-fill" style="color: #FFD700;"></i> <?= $juego['rating'] ?></span>
-                                <span><i class="bi bi-calendar3" style="color:rgb(75, 153, 255);"></i> <?= date('d M Y', strtotime($juego['release_date'])) ?></span>
-                            </div>
-                            <div class="all-game-tags">
-                                <?php if (!empty($juego['categorias'])): ?>
-                                    <?php foreach ($juego['categorias'] as $index => $categoria): ?>
-                                        <span class="all-game-tag" href="/<?= esc($categoria['slug']) ?>">
-                                            <?= esc($categoria['name_cat']) ?><?= $index < count($juego['categorias']) - 1 ? ' ' : '' ?>
-                                        </span>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
-                            <p class="all-game-description"><?= esc($juego['about']) ?></p>
-                            <div class="all-game-footer">
-                                <div class="all-game-price">$ <?= $juego['price'] ?></div>
-                                <div class="all-game-buttons">
-                                    <button class="btn2 btn-primary2"><i class="bi bi-heart-fill"></i></button>
-                                    <button class="btn2 btn-primary2"><i class="bi bi-heart"></i></button>
-                                    <button class="btn2 btn-primary2"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
-                                </div>
+                        <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= esc($juego['title']) ?>">
+                    </div>
+                    <div class="all-game-info">
+                        <h3 class="all-game-title"><a href="<?= base_url('juego/' . $juego['game_id']) ?>"><?= esc($juego['title']) ?></a></h3>
+                        <div class="all-game-meta">
+                            <span><i class="bi bi-star-fill" style="color: #FFD700;"></i> <?= $juego['rating'] ?></span>
+                            <span><i class="bi bi-calendar3" style="color:rgb(75, 153, 255);"></i> <?= date('d M Y', strtotime($juego['release_date'])) ?></span>
+                        </div>
+                        <div class="all-game-tags">
+                            <?php if (!empty($juego['categorias'])): ?>
+                                <?php foreach ($juego['categorias'] as $index => $categoria): ?>
+                                    <span class="all-game-tag" href="/<?= esc($categoria['slug']) ?>">
+                                        <?= esc($categoria['name_cat']) ?><?= $index < count($juego['categorias']) - 1 ? ' ' : '' ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                        <p class="all-game-description"><?= esc($juego['about']) ?></p>
+                        <div class="all-game-footer">
+                            <div class="all-game-price">$ <?= $juego['price'] ?></div>
+                            <div class="all-game-buttons">
+                                <button class="btn2 btn-primary2 add-wish" data-game-id="<?= $juego['game_id'] ?>"><?php if (in_array($juego['game_id'], $deseados_ids)): ?>
+                                        <i class="bi bi-bookmark-check-fill"></i>
+                                    <?php else: ?>
+                                        <i class="bi bi-bookmark"></i>
+                                    <?php endif; ?></button>
+                                <button class="btn2 btn-primary2" data-game-id="<?= $juego['game_id'] ?>"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             <?php endforeach; ?>
         </div>
     </main>

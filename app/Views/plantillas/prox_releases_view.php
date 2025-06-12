@@ -17,7 +17,7 @@
                     <div class="coming-soon-card">
                         <div class="coming-soon-image">
                             <img src="<?= $juego['card_image_url'] ?>" alt="<?= esc($juego['title']) ?>">
-                            <div class="release-date">
+                            <div class="home-release-date">
                                 <span class="day"><?= date('d', strtotime($juego['release_date'])) ?></span>
                                 <span class="month"><?= strtoupper(date('M', strtotime($juego['release_date']))) ?></span>
                             </div>
