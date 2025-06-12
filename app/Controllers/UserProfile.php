@@ -148,15 +148,17 @@ class UserProfile extends BaseController
 
         $validation = \Config\Services::validation();
         $validation->setRules([
-            'nickname' => 'required|min_length[3]|max_length[30]',
-            'email'    => 'required|valid_email'
+            'nickname' => 'required|min_length[3]|max_length[30]|is_unique[usuarios.nickname]',
+            'email'    => 'required|valid_email|is_unique[usuarios.email]'
         ], [
             'nickname' => [
+                'is_unique' => 'El nombre de usuario ya existe',
                 'required' => 'El nombre de usuario es obligatorio',
                 'min_length' => 'El nombre de usuario debe tener al menos 3 caracteres',
                 'max_length' => 'El nombre de usuario no puede superar los 30 caracteres'
             ],
             'email' => [
+                'is_unique' => 'El correo electrónico ya existe',
                 'required' => 'El correo electrónico es obligatorio',
                 'valid_email' => 'El correo electrónico no es válido'
             ]
