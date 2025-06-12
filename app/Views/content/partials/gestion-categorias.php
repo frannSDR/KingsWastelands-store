@@ -7,6 +7,16 @@
     </div>
 </div>
 
+<?php if ($errors = session('error-msg')): ?>
+    <?php foreach ((array)$errors as $msg): ?>
+        <div class="alert alert-danger"><?= esc($msg) ?></div>
+    <?php endforeach; ?>
+    <?php elseif (session('exito-msg')): ?>
+        <div class="alert alert-success">
+            <?= session('exito-msg') ?>
+    </div>
+<?php endif; ?>
+
 <!-- Formulario para agregar una categoria (oculto inicialmente) -->
 <div id="category-form-container" class="form-container" style="display: none;">
     <form id="category-form" action="<?= base_url('/perfil/guardar-categoria') ?>" method="post">

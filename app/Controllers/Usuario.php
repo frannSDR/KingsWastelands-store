@@ -51,7 +51,14 @@ class Usuario extends Controller
                     'required' => 'Debe confirmar la contraseña',
                     'matches' => 'Las contraseñas no coinciden'
                 ]
-            ]
+            ],
+            'terms' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debe aceptar los terminos y condiciones'
+                ]
+            ],
+
         ]);
 
         if (!$validacion) {

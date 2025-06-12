@@ -9,6 +9,16 @@
     </div>
 </div>
 
+<?php if ($errors = session('error-msg')): ?>
+    <?php foreach ((array)$errors as $msg): ?>
+        <div class="alert alert-danger"><?= esc($msg) ?></div>
+    <?php endforeach; ?>
+<?php elseif (session('exito-msg')): ?>
+    <div class="alert alert-success">
+        <?= session('exito-msg') ?>
+    </div>
+<?php endif; ?>
+
 <!-- paginacion header -->
 <div id="pagination-container" class="user-pagination">
     <?php

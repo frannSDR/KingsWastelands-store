@@ -17,6 +17,15 @@
                 <?= csrf_field() ?>
                 <input type="file" name="profile_image" id="profileImageInput" accept="image/jpeg,image/png">
             </form>
+            <?php if ($errors = session('error-msg')): ?>
+                <?php foreach ((array)$errors as $msg): ?>
+                    <div class="alert alert-danger"><?= esc($msg) ?></div>
+                <?php endforeach; ?>
+            <?php elseif (session('exito-msg')): ?>
+                <div class="alert alert-success">
+                    <?= session('exito-msg') ?>
+                </div>
+            <?php endif; ?>
         </div>
 
         <nav class="admin-menu">

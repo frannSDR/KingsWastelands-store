@@ -42,8 +42,6 @@
         <?php else: ?>
           <?php if (session()->get('is_admin') == 1): ?>
             <li><a href="<?php echo base_url('perfil') ?>">Admin</a></li>
-          <?php else: ?>
-            <li><a href="<?php echo base_url('user_perfil') ?>">Perfil</a></li>
           <?php endif; ?>
           <li><span style="color: #ccc; font-weight: 500; font-size: 14px;">Hola, <?= esc(session()->get('nickname')) ?></span></li>
           <li>

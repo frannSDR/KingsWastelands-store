@@ -188,7 +188,7 @@ class Admin extends BaseController
         $userModel->update($userId, ['user_img' => $newName]);
         session()->set('user_img', $newName);
 
-        return redirect()->to(base_url('/perfil'))->with('mensaje', 'Foto de perfil actualizada');
+        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Foto de perfil actualizada');
     }
 
     public function admin_usuarios()
@@ -238,13 +238,13 @@ class Admin extends BaseController
     public function banear_usuario($id = null)
     {
         $this->usuariosModel->update($id, ['is_active' => 0]);
-        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('mensaje', 'Usuario baneado correctamente');
+        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('exito-msg', 'Usuario baneado correctamente');
     }
 
     public function desbanear_usuario($id = null)
     {
         $this->usuariosModel->update($id, ['is_active' => 1]);
-        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('mensaje', 'Usuario desbaneado correctamente');
+        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('exito-msg', 'Usuario desbaneado correctamente');
     }
 
     public function admin_juegos()
@@ -308,7 +308,7 @@ class Admin extends BaseController
 
         // seguridad: solo admin
         if (!$session->has('user_id') || $session->get('is_admin') != 1) {
-            return redirect()->to(base_url('/'))->with('mensaje', 'Acceso no autorizado');
+            return redirect()->to(base_url('/'))->with('error-msg', 'Acceso no autorizado');
         }
 
         // Validación básica
@@ -416,7 +416,7 @@ class Admin extends BaseController
             'tipo' => 'ultra'
         ]);
 
-        return redirect()->to(base_url('/perfil'))->with('mensaje', 'Juego subido correctamente');
+        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Juego subido correctamente');
     }
 
     public function obtener_juego($id = null)
@@ -593,19 +593,19 @@ class Admin extends BaseController
             'tipo' => 'ultra'
         ]);
 
-        return redirect()->to(base_url('/perfil'))->with('mensaje', 'Juego actualizado correctamente');
+        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Juego actualizado correctamente');
     }
 
     public function desactivar_juego($id = null)
     {
         $this->juegosModel->update($id, ['is_active' => 0]);
-        return redirect()->to(base_url('/perfil/admin-juegos'))->with('mensaje', 'Juego desactivado correctamente');
+        return redirect()->to(base_url('/perfil/admin-juegos'))->with('exito-msg', 'Juego desactivado correctamente');
     }
 
     public function activar_juego($id = null)
     {
         $this->juegosModel->update($id, ['is_active' => 1]);
-        return redirect()->to(base_url('/perfil/admin-juegos'))->with('mensaje', 'Juego activado correctamente');
+        return redirect()->to(base_url('/perfil/admin-juegos'))->with('exito-msg', 'Juego activado correctamente');
     }
 
     public function admin_categorias()
@@ -655,7 +655,7 @@ class Admin extends BaseController
     public function eliminar_categoria($id = null)
     {
         $this->categoriaModel->delete($id);
-        return redirect()->to(base_url('/perfil/admin-categorias'))->with('mensaje', 'Categoría borrada correctamente');
+        return redirect()->to(base_url('/perfil/admin-categorias'))->with('exito-msg', 'Categoría borrada correctamente');
     }
 
     public function agregar_categoria()
@@ -664,7 +664,7 @@ class Admin extends BaseController
 
         // seguridad: solo admin
         if (!$session->has('user_id') || $session->get('is_admin') != 1) {
-            return redirect()->to(base_url('/'))->with('mensaje', 'Acceso no autorizado');
+            return redirect()->to(base_url('/'))->with('error-msg', 'Acceso no autorizado');
         }
 
         // validacion basica
@@ -685,6 +685,6 @@ class Admin extends BaseController
 
         $this->categoriaModel->insert($catData);
 
-        return redirect()->to(base_url('/perfil'))->with('mensaje', 'Categoria añadida correctamente');
+        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Categoria añadida correctamente');
     }
 }
