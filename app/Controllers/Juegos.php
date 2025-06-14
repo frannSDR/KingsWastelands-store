@@ -195,8 +195,17 @@ class Juegos extends BaseController
 
         unset($juego);
 
+        $deseados_ids = [];
+        if (session()->has('user_id')) {
+            $wishlistItems = $this->wishlistItemModel
+                ->where('user_id', session('user_id'))
+                ->findAll();
+            $deseados_ids = array_column($wishlistItems, 'game_id');
+        }
+
         $data = [
             'juegos' => $juegos,
+            'deseados_ids' => $deseados_ids,
             'categoriaActual' => $slug,
             'pager' => $this->juegosModel->pager,
             'currentPage' => $page,

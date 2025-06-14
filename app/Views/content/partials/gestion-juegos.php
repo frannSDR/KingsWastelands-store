@@ -44,6 +44,16 @@
     <?php endif; ?>
 </div>
 
+<?php if ($errors = session('error-msg')): ?>
+    <?php foreach ((array)$errors as $msg): ?>
+        <div class="alert alert-danger"><?= esc($msg) ?></div>
+    <?php endforeach; ?>
+    <?php elseif (session('exito-msg')): ?>
+        <div class="alert alert-success">
+            <?= session('exito-msg') ?>
+    </div>
+<?php endif; ?>
+
 <!-- Listado de juegos existentes -->
 <div id="adminTable" class="admin-table-container">
     <table class="games-admin-table">
