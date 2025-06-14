@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="terms">
-                    <input type="checkbox" id="terms" name="terms">
-                    <label for="terms">Acepto los <a href="#">Términos y Condiciones</a></label>
+                    <input type="checkbox" id="terms">
+                    <label for="terms">Acepto los <a href="<?php echo base_url('terminos') ?>" >Términos y Condiciones</a></label>
                 </div>
 
                 <button type="submit" class="auth-btn">Registrarse</button>
