@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    document.querySelectorAll('.games-add-wishlist').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const gameId = this.getAttribute('data-game-id');
@@ -70,11 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    // Cambia el icono a "bookmark-check-fill"
                     icon.classList.remove('bi-bookmark');
                     icon.classList.add('bi-bookmark-check-fill');
-                    // Opcional: deshabilita el botón para evitar duplicados
-                    btn.disabled = true;
                 } else if (data.error) {
                     alert(data.error);
                 }
@@ -87,7 +84,45 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.add-wish').forEach(btn => {
+    document.querySelectorAll('.games-add-wishlist').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const gameId = this.getAttribute('data-game-id');
+            const icon = this.querySelector('i');
+            const isInWishlist = icon.classList.contains('bi-bookmark-check-fill');
+            const url = isInWishlist ? '/remove-from-wishlist' : '/add-to-wishlist';
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ game_id: gameId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    if (isInWishlist) {
+                        icon.classList.remove('bi-bookmark-check-fill');
+                        icon.classList.add('bi-bookmark');
+                    } else {
+                        icon.classList.remove('bi-bookmark');
+                        icon.classList.add('bi-bookmark-check-fill');
+                    }
+                } else if (data.error) {
+                    alert(data.error);
+                }
+            })
+            .catch(() => {
+                alert('Error de conexión');
+            });
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.game-section-add-wishlist').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const gameId = this.getAttribute('data-game-id');
@@ -104,11 +139,76 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    // Cambia el icono a "bookmark-check-fill"
                     icon.classList.remove('bi-bookmark');
                     icon.classList.add('bi-bookmark-check-fill');
-                    // Opcional: deshabilita el botón para evitar duplicados
-                    btn.disabled = true;
+                } else if (data.error) {
+                    alert(data.error);
+                }
+            })
+            .catch(() => {
+                alert('Error de conexión');
+            });
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.game-section-add-wishlist').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const gameId = this.getAttribute('data-game-id');
+            const icon = this.querySelector('i');
+            const isInWishlist = icon.classList.contains('bi-bookmark-check-fill');
+            const url = isInWishlist ? '/remove-from-wishlist' : '/add-to-wishlist';
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ game_id: gameId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    if (isInWishlist) {
+                        icon.classList.remove('bi-bookmark-check-fill');
+                        icon.classList.add('bi-bookmark');
+                    } else {
+                        icon.classList.remove('bi-bookmark');
+                        icon.classList.add('bi-bookmark-check-fill');
+                    }
+                } else if (data.error) {
+                    alert(data.error);
+                }
+            })
+            .catch(() => {
+                alert('Error de conexión');
+            });
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.remove-wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const gameId = this.getAttribute('data-game-id');
+            const item = this.closest('.wishlist-item');
+
+            fetch('/remove-from-wishlist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ game_id: gameId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    if (item) item.remove();
                 } else if (data.error) {
                     alert(data.error);
                 }

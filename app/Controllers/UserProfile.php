@@ -33,7 +33,7 @@ class UserProfile extends BaseController
     {
         $userId = session('user_id');
         if (!$userId) {
-            return redirect()->to(base_url('login'))->with('error-msg', 'Primero debes estar logueado!');
+            return redirect()->to(base_url('login'))->with('alerta-msg', 'Primero debes estar logueado!');
         }
 
         $usuario = $this->usuariosModel->find($userId);
@@ -54,7 +54,6 @@ class UserProfile extends BaseController
         }
 
         return view('plantillas/header_view')
-            . view('plantillas/side_cart')
             . view('content/user_perfil', [
                 'usuario' => $usuario,
                 'deseados' => $deseados
@@ -67,7 +66,7 @@ class UserProfile extends BaseController
         $userId = session('user_id');
         if (!$userId) {
             // Si no está logueado, redirige al login
-            return redirect()->to(base_url('login'))->with('error-msg', 'Primero debes estar logueado!');
+            return redirect()->to(base_url('login'))->with('alerta-msg', 'Primero debes estar logueado!');
         }
 
         // Obtén los datos del usuario
@@ -86,7 +85,6 @@ class UserProfile extends BaseController
 
         // Pasa los datos a la vista
         return view('/plantillas/header_view')
-            . view('/plantillas/side_cart')
             . view('content/user_perfil', $data)
             . view('/plantillas/footer_view');
     }
@@ -194,7 +192,7 @@ class UserProfile extends BaseController
     {
         $userId = session('user_id');
         if (!$userId) {
-            return redirect()->to(base_url('login'))->with('error-msg', 'Primero debes iniciar sesión.');
+            return redirect()->to(base_url('login'))->with('alerta-msg', 'Primero debes iniciar sesión.');
         }
 
         // 1. Obtén los items de la wishlist del usuario
@@ -228,7 +226,7 @@ class UserProfile extends BaseController
 
         $userId = session('user_id');
         if (!$userId) {
-            return $this->response->setStatusCode(401)->setJSON(['error' => 'No autenticado']);
+            return $this->response->setStatusCode(401)->setJSON(['error' => 'Debes inicar sesión para acceder a esta función.']);
         }
 
         $gameId = $this->request->getPost('game_id');
@@ -261,10 +259,6 @@ class UserProfile extends BaseController
             ->where('game_id', $gameId)
             ->first();
 
-        if ($exists) {
-            return $this->response->setStatusCode(409)->setJSON(['error' => 'Este juego ya está en tu lista de deseados.']);
-        }
-
         // Agrega el juego a la wishlist
         $this->wishlistItemModel->insert([
             'user_id' => $userId,
@@ -273,8 +267,44 @@ class UserProfile extends BaseController
         ]);
 
         return $this->response->setJSON([
+            'success' => true
+        ]);
+    }
+
+    public function remove_from_wishlist()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'Petición inválida']);
+        }
+
+        $userId = session('user_id');
+        if (!$userId) {
+            return $this->response->setStatusCode(401)->setJSON(['error' => 'No autenticado']);
+        }
+
+        $gameId = $this->request->getPost('game_id');
+        if (!$gameId) {
+            $json = $this->request->getJSON();
+            $gameId = $json->game_id ?? null;
+        }
+        if (!$gameId) {
+            return $this->response->setStatusCode(422)->setJSON(['error' => 'ID de juego no proporcionado']);
+        }
+
+        // Verifica si el juego está en la wishlist
+        $exists = $this->wishlistItemModel
+            ->where('user_id', $userId)
+            ->where('game_id', $gameId)
+            ->first();
+
+        // Elimina el juego de la wishlist
+        $this->wishlistItemModel
+            ->where('user_id', $userId)
+            ->where('game_id', $gameId)
+            ->delete();
+
+        return $this->response->setJSON([
             'success' => true,
-            'message' => 'Juego agregado a tu lista de deseados.'
         ]);
     }
 }

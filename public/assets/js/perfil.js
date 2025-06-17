@@ -11,7 +11,32 @@ document.addEventListener('DOMContentLoaded', function() {
     desbanearUsuario();
     activar_juego();
     desactivar_juego();
+    asociarModalDescuento();
 });
+
+function modalDescuento(gameId, actionUrl) {
+  const modal = document.getElementById('specialModal');
+  const form = document.getElementById('specialDiscountForm');
+  form.action = actionUrl; // Establece la acción del formulario dinámicamente
+  modal.style.display = 'flex';
+  form.reset();
+}
+
+function cerrarModalDescuento() {
+  document.getElementById('specialModal').style.display = 'none';
+}
+
+// Asocia el evento a todos los botones con la clase .btn-special
+function asociarModalDescuento() {
+    document.querySelectorAll('.btn-special').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const gameId = btn.getAttribute('data-game-id');
+            const actionUrl = btn.getAttribute('data-action-url');
+            modalDescuento(gameId, actionUrl);
+        });
+    });
+}
 
 function subirFotoPerfil() {
     const changeBtn = document.getElementById('changeProfileBtn');
@@ -327,6 +352,7 @@ function logicaPaginacion() {
                 desbanearUsuario();
                 activar_juego();
                 desactivar_juego();
+                asociarModalDescuento();
             }
         });
     }

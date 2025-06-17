@@ -13,6 +13,10 @@
                     <div class="alert alert-success">
                         <?= session('exito-msg') ?>
                     </div>
+                <?php elseif (session('alerta-msg')): ?>
+                    <div class="alert alert-warning">
+                        <?= session('alerta-msg') ?>
+                    </div>
                 <?php endif; ?>
 
                 <div class="input-box">

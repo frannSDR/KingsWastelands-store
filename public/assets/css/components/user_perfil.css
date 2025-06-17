@@ -441,7 +441,7 @@
     color: #a1a1aa;
 }
 
-.add-to-cart-btn {
+.add-to-cart-btn-profile {
     width: 100%;
     padding: 8px;
     background-color: #7B68EE;
@@ -457,7 +457,7 @@
     transition: all 0.3s ease;
 }
 
-.add-to-cart-btn:hover {
+.add-to-cart-btn-profile:hover {
     background-color: #624aff;
 }
 

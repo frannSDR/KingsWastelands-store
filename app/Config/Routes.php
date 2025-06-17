@@ -9,8 +9,6 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/ofertas', 'Juegos::ofertas');
 
-$routes->get('/populares', 'Juegos::populares');
-
 $routes->get('/juego/(:num)', 'Juegos::detalle/$1');
 
 $routes->get('/nosotros', 'Home::nosotros');
@@ -28,8 +26,6 @@ $routes->get('/error_contacto', 'Home::error_contacto');
 $routes->get('/terminos', 'Home::terminos');
 
 $routes->get('/cart', 'Home::cart');
-
-$routes->get('/wishlist', 'Home::wishlist');
 
 $routes->get('/pago', 'Home::pago');
 
@@ -57,6 +53,8 @@ $routes->post('/perfil/actualizar-datos', 'UserProfile::actualizar_datos');
 
 $routes->post('/add-to-wishlist', 'UserProfile::add_to_wishlist');
 
+$routes->post('/remove-from-wishlist', 'UserProfile::remove_from_wishlist');
+
 $routes->post('/juego/(:num)/guardar-resena', 'Juegos::guardarResena');
 
 $routes->post('votar-util/(:num)', 'Juegos::votarUtil/$1');
@@ -82,6 +80,10 @@ $routes->post('/perfil/guardar-categoria', 'Admin_controllers\Admin::agregar_cat
 $routes->post('/perfil/eliminar-categoria/(:num)', 'Admin_controllers\Admin::eliminar_categoria/$1');
 
 $routes->post('/perfil/guardar-juego', 'Admin_controllers\Admin::subir_juego');
+
+$routes->post('/perfil/aplicar_descuento_juego/(:num)', 'Admin_controllers\Admin::aplicar_descuento_juego/$1');
+
+$routes->post('/perfil/quitar_descuento_juego/(:num)', 'Admin_controllers\Admin::quitar_descuento_juego/$1');
 
 $routes->get('perfil/obtener-juego/(:num)', 'Admin_controllers\Admin::obtener_juego/$1');
 

@@ -21,6 +21,7 @@
 }
 
 .game-banner {
+  margin-top: 60px;
   height: 400px;
   background-image: url('https://i.ibb.co/RT99g1NV/oblivion1.png');
   background-size: cover;
@@ -234,7 +235,8 @@
   box-shadow: 0 5px 15px rgba(107, 33, 168, 0.4);
 }
 
-.wishlist-btn {
+.game-section-add-wishlist {
+  margin-top: 10px;
   background-color: transparent;
   color: #e5e7eb;
   border: 1px solid #3d3d3d;
@@ -248,7 +250,7 @@
   gap: 8px;
 }
 
-.wishlist-btn:hover {
+.game-section-add-wishlist:hover {
   background-color: #333;
   border-color: #6d28d9;
   color: #8b5cf6;
@@ -388,7 +390,7 @@
   }
   
   .add-to-cart-btn,
-  .wishlist-btn {
+  .game-section-add-wishlist {
     width: 100%;
     justify-content: center;
     margin-bottom: 10px;

@@ -48,9 +48,9 @@
     <?php foreach ((array)$errors as $msg): ?>
         <div class="alert alert-danger"><?= esc($msg) ?></div>
     <?php endforeach; ?>
-    <?php elseif (session('exito-msg')): ?>
-        <div class="alert alert-success">
-            <?= session('exito-msg') ?>
+<?php elseif (session('exito-msg')): ?>
+    <div class="alert alert-success">
+        <?= session('exito-msg') ?>
     </div>
 <?php endif; ?>
 
@@ -62,7 +62,9 @@
                 <th>ID</th>
                 <th></th>
                 <th>Título</th>
-                <th>Precio</th>
+                <th>Precio Original</th>
+                <th>% Descuento</th>
+                <th>Precio Oferta</th>
                 <th>Fecha de lanzamiento</th>
                 <th>Acciones</th>
             </tr>
@@ -72,11 +74,31 @@
                 <tr>
                     <td><?= $juego['game_id'] ?></td>
                     <td><img src="<?= $juego['logo_url'] ?>" alt="Logo de <?= esc($juego['title']) ?>" class="game-admin-logo"></td>
-                    <td> <?= esc($juego['title']) ?> </td>
-                    <td>$<?= $juego['price'] ?></td>
-                    <td><?= $juego['release_date'] ?? 'nn' ?></td>
+                    <td><?= esc($juego['title']) ?></td>
+                    <td>$<?= number_format($juego['price'], 2) ?></td>
+                    <?php if ($juego['special_price_active'] == 1): ?>
+                        <td><?= round(100 - ($juego['special_price'] / $juego['price']) * 100) ?>%</td>
+                        <td>
+                            <span style="color:var(--color-principal);font-weight:bold;">
+                                $<?= number_format($juego['special_price'], 2) ?>
+                            </span>
+                        </td>
+                    <?php else: ?>
+                        <td>n/a</td>
+                        <td>S/Descuento</td>
+                    <?php endif; ?>
+                    <td><span style="color:rgb(211, 179, 0);"><?= $juego['release_date'] ?? 'nn' ?></span></td>
                     <td>
                         <div class="action-buttons">
+                            <?php if ($juego['special_price_active'] == 0): ?>
+                                <button data-game-id="<?= $juego['game_id'] ?>" data-action-url="<?= base_url('perfil/aplicar_descuento_juego/' . $juego['game_id']) ?>" class="btn-icon btn-special btn-special-game" title="Aplicar Descuento">
+                                    <i class="bi bi-tag"></i>
+                                </button>
+                            <?php elseif ($juego['special_price_active'] == 1): ?>
+                                <form method="post" action="<?= base_url('perfil/quitar_descuento_juego/' . $juego['game_id']) ?>" style="display:inline;">
+                                    <button type="submit" class="btn-icon btn-no-special"><i class="bi bi-tag-fill" title="Quitar Descuento"></i></button>
+                                </form>
+                            <?php endif; ?>
                             <button data-id="<?= $juego['game_id'] ?>" class="btn-icon btn-edit btn-edit-game" title="Editar">
                                 <i class="bi bi-pencil-square"></i>
                             </button>
@@ -84,8 +106,7 @@
                                 <button data-id="<?= $juego['game_id'] ?>" class="btn-icon btn-ban btn-ban-game" title="Desactivar">
                                     <i class="bi bi-slash-circle"></i>
                                 </button>
-                            <?php endif; ?>
-                            <?php if (!$juego['is_active'] == 1): ?>
+                            <?php elseif (!$juego['is_active'] == 1): ?>
                                 <button data-id="<?= $juego['game_id'] ?>" class="btn-icon btn-active btn-active-game" title="Activar">
                                     <i class="bi bi-cloud-arrow-up"></i>
                                 </button>
@@ -96,6 +117,21 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
+
+<!-- Modal de descuento -->
+<div id="specialModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <h2>Aplicar descuento</h2>
+        <form id="specialDiscountForm" method="post">
+            <label for="porcentaje">Porcentaje de descuento (%)</label>
+            <input type="number" id="porcentaje" name="porcentaje" min="1" max="100" required>
+            <div class="modal-actions">
+                <button type="submit" class="btn-modal" style="background: var(--color-principal); color: var(--texto);">Aplicar</button>
+                <button type="button" class="btn-modal-cancel" onclick="cerrarModalDescuento()">Cancelar</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <!-- Formulario para agregar juegos (oculto inicialmente) -->
@@ -169,7 +205,7 @@
                         <label for="rating">Valoracion*</label>
                         <div class="price-input">
                             <span><i class="bi bi-star"></i></span>
-                            <input type="number" id="game-rating" name="game_rating" min="1" step="0.5" required placeholder="8,5">
+                            <input type="number" id="game-rating" name="game_rating" min="1" step="0.1" placeholder="8,5">
                         </div>
                     </div>
                 </fieldset>
@@ -288,9 +324,6 @@
                 </fieldset>
 
                 <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" id="cancel-category">
-                        Cancelar
-                    </button>
                     <button type="reset" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpiar
                     </button>

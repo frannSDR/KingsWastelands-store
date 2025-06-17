@@ -6,7 +6,7 @@
           <div class="slide-content">
             <h1><?= esc($juego['title']) ?></h1>
             <p><?= esc($juego['about']) ?></p>
-            <button>$<?= $juego['price'] ?></button>
+            <a href="<?= base_url('juego/' . $juego['game_id']) ?>"><button>$<?= $juego['price'] ?></button></a>
           </div>
         </div>
       <?php endforeach; ?>
@@ -18,9 +18,9 @@
     <?php if ($errors = session('error-msg')): ?>
       <?php foreach ((array)$errors as $msg): ?>
         <div class="alert alert-danger"><?= esc($msg) ?></div>
-        <?php endforeach; ?>
-        <?php elseif (session('exito-msg')): ?>
-          <div class="alert alert-success">
-            <?= session('exito-msg') ?>
-          </div>
+      <?php endforeach; ?>
+    <?php elseif (session('exito-msg')): ?>
+      <div class="alert alert-success">
+        <?= session('exito-msg') ?>
+      </div>
     <?php endif; ?>

@@ -172,12 +172,17 @@
                         <div class="all-game-footer">
                             <div class="all-game-price">$ <?= $juego['price'] ?></div>
                             <div class="all-game-buttons">
-                                <button class="btn2 btn-primary2 add-wish" data-game-id="<?= $juego['game_id'] ?>"><?php if (in_array($juego['game_id'], $deseados_ids)): ?>
+                                <button class="btn2 btn-primary2 games-add-wishlist" data-game-id="<?= $juego['game_id'] ?>"><?php if (in_array($juego['game_id'], $deseados_ids)): ?>
                                         <i class="bi bi-bookmark-check-fill"></i>
                                     <?php else: ?>
                                         <i class="bi bi-bookmark"></i>
-                                    <?php endif; ?></button>
-                                <button class="btn2 btn-primary2" data-game-id="<?= $juego['game_id'] ?>"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
+                                    <?php endif; ?>
+                                </button>
+                                <?php if (strtotime($juego['release_date']) <= time()): ?>
+                                    <button class="btn2 btn-primary2" data-game-id="<?= $juego['game_id'] ?>"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
+                                <?php else: ?>
+                                    <button class="btn2 btn-primary2"> Proximamente...</button>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

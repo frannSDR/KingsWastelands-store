@@ -35,6 +35,107 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider-track');
+    const cards = document.querySelectorAll('.slider-card');
+    const prevBtn = document.querySelector('.slider-arrow.prev');
+    const nextBtn = document.querySelector('.slider-arrow.next');
+    const dotsContainer = document.querySelector('.slider-dots');
+    
+    let currentIndex = 0;
+    
+    // Crear puntos de navegación
+    cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('slider-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    // Función para actualizar el slider
+    function updateSlider() {
+        cards.forEach((card, index) => {
+            card.classList.toggle('active', index === currentIndex);
+        });
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    // Ir a slide específico
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+    }
+    
+    // Slide anterior
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
+        updateSlider();
+    });
+    
+    // Slide siguiente
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+        updateSlider();
+    });
+    
+    // Autoplay (opcional)
+    let autoplay = setInterval(() => {
+        currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+        updateSlider();
+    }, 5000);
+    
+    // Pausar autoplay al interactuar
+    slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+    slider.addEventListener('mouseleave', () => {
+        autoplay = setInterval(() => {
+            currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+            updateSlider();
+        }, 5000);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Configura el contador regresivo (ejemplo: 24 horas)
+    let hours = 23;
+    let minutes = 59;
+    let seconds = 59;
+    
+    const countdownElement = document.getElementById('countdown');
+    
+    const timer = setInterval(function() {
+        seconds--;
+        
+        if (seconds < 0) {
+            seconds = 59;
+            minutes--;
+        }
+        
+        if (minutes < 0) {
+            minutes = 59;
+            hours--;
+        }
+        
+        if (hours < 0) {
+            clearInterval(timer);
+            countdownElement.textContent = "¡Oferta terminada!";
+            return;
+        }
+        
+        // Formatea el tiempo con 2 dígitos
+        const formattedHours = hours.toString().padStart(2, '0');
+        const formattedMinutes = minutes.toString().padStart(2, '0');
+        const formattedSeconds = seconds.toString().padStart(2, '0');
+        
+        countdownElement.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    }, 1000);
+});
+
 //! -------------- reproduccion de videos en las cards -------------- //
 
 document.addEventListener('DOMContentLoaded', function() {

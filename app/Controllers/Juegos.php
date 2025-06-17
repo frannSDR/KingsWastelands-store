@@ -134,7 +134,6 @@ class Juegos extends BaseController
         ];
 
         return view('../Views/plantillas/header_view')
-            . view('../Views/plantillas/side_cart')
             . view('../Views/content/games', $data)
             . view('../Views/plantillas/footer_view');
     }
@@ -218,7 +217,6 @@ class Juegos extends BaseController
         ];
 
         return view('../Views/plantillas/header_view', $data)
-            . view('../Views/plantillas/side_cart')
             . view('../Views/content/games', $data)
             . view('../Views/plantillas/footer_view');
     }
@@ -310,7 +308,6 @@ class Juegos extends BaseController
         ];
 
         return view('../Views/plantillas/header_view')
-            . view('../Views/plantillas/side_cart')
             . view('../Views/content/game-section', $data)
             . view('../Views/plantillas/footer_view');
     }
@@ -485,5 +482,19 @@ class Juegos extends BaseController
             'likes' => $likes,
             'dislikes' => $dislikes
         ]);
+    }
+
+    public function ofertas()
+    {
+        // juegos en oferta
+        $juegosEnOferta = $this->juegosModel->where('special_price_active', 1)->findAll(10);
+
+        $data = [
+            'juegosEnOferta' => $juegosEnOferta
+        ];
+
+        return view('plantillas/header_view')
+            . view('Views/content/ofertas', $data)
+            . view('plantillas/footer_view');
     }
 }

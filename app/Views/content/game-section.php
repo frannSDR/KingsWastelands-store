@@ -51,7 +51,7 @@
                     <button class="add-to-cart-btn">
                         <i class="bi bi-cart-plus"></i> Añadir al carrito
                     </button>
-                    <button class="wishlist-btn" data-game-id="<?= $juego['game_id'] ?>">
+                    <button class="game-section-add-wishlist" data-game-id="<?= $juego['game_id'] ?>">
                         <?php if (in_array($juego['game_id'], $deseados_ids)): ?>
                             <i class="bi bi-bookmark-check-fill"></i>En la lista de deseados
                         <?php else: ?>

@@ -21,6 +21,10 @@
   <link href="<?= base_url('assets/css/components/admin.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/wishlist.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/user_perfil.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/mensajes.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/ofertas.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/prox-lanzamientos.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/destacados.css') ?>" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/9984108ce5.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -34,6 +38,7 @@
     <!-- navbar de la pagina -->
     <nav>
       <ul class="nav_links">
+        <li><a href="<?php echo base_url('ofertas') ?>">Ofertas</a></li>
         <li><a href="<?php echo base_url('juegos') ?>">Juegos</a></li>
         <li><a href="<?php echo base_url('nosotros') ?>">Quienes somos</a></li>
         <?php if (!session()->get('is_active')): ?>
@@ -53,15 +58,15 @@
         <?php endif; ?>
 
         <!-- opciones que solo aparecen en el menu hamburguesa(responsive) -->
-        <li class="mobile-only"><a href="#" class="mobile-cart">Carrito de compras <i class="bi bi-cart"></i><!-- <span class="mobile-cart-count"></span> --></a></li>
+        <li class="mobile-only"><a href="#" class="mobile-cart">Carrito de compras <i class="bi bi-cart"></i></li>
       </ul>
     </nav>
 
     <!-- Contenedor para los elementos de la derecha -->
     <div class="right-header">
       <div class="header-action">
-        <a id="cart-icon" class="cart_icon desktop-only" href="#"><i class="bi bi-cart"></i></a>
-        <a href="<?php echo base_url('user-profile') ?>" class="cart_icon desktop-only"><i class="bi bi-person-circle"></i></a>
+        <a href="<?php echo base_url('cart') ?>" class="cart-icon desktop-only"><i class="bi bi-cart"></i></a>
+        <a href="<?php echo base_url('user-profile') ?>" class="login-icon desktop-only"><i class="bi bi-person-circle"></i></a>
         <!-- <span class="cart-item-count desktop-only"></span> -->
       </div>
 

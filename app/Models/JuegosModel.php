@@ -18,6 +18,8 @@ class JuegosModel extends Model
         'is_active',
         'title',
         'price',
+        'special_price',
+        'special_price_active',
         'release_date',
         'about',
         'synopsis',

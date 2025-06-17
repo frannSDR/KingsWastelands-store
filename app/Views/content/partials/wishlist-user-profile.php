@@ -27,7 +27,7 @@
                             <span class="price">$<?= $juego['price'] ?></span>
                             <span class="release-date"><?= date('d M Y', strtotime($juego['release_date'])) ?></span>
                         </div>
-                        <button class="add-to-cart-btn" data-game-id="<?= $juego['game_id'] ?>">
+                        <button class="add-to-cart-btn-profile" data-game-id="<?= $juego['game_id'] ?>">
                             <i class="bi bi-cart-plus"></i> Añadir al carrito
                         </button>
                     </div>

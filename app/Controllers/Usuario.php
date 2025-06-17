@@ -201,10 +201,9 @@ class Usuario extends Controller
         } else {
 
             $data['validation'] = $validation->getErrors();
-            return view('../Views/plantillas/header_view') .
-                view('../Views/plantillas/side_cart') .
-                view('../Views/content/contacto', $data) .
-                view('../Views/plantillas/footer_view');
+            return view('../Views/plantillas/header_view')
+                . view('../Views/content/contacto', $data)
+                . view('../Views/plantillas/footer_view');
         }
     }
 }

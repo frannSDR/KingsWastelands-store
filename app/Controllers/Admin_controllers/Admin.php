@@ -60,7 +60,7 @@ class Admin extends BaseController
 
         // obtenemos todos los juegos, solo los campos necesarios, aplicamos el orden y paginacion
         $juegos = $this->juegosModel
-            ->select('game_id, title, price, release_date, card_image_url, logo_url, is_active')
+            ->select('game_id, title, price, special_price, special_price_active, release_date, card_image_url, logo_url, is_active')
             ->orderBy($gamesOrderBy, $gameDirection)
             ->paginate($gamesPerPage, 'games', $gamesPage);
 
@@ -142,7 +142,6 @@ class Admin extends BaseController
         ];
 
         return view('../Views/plantillas/header_view')
-            . view('../Views/plantillas/side_cart')
             . view('../Views/content/perfil', $data)
             . view('../Views/plantillas/footer_view');
     }
@@ -272,7 +271,7 @@ class Admin extends BaseController
 
         // Obtenemos todos los juegos, aplicamos orden y paginación
         $juegos = $this->juegosModel
-            ->select('game_id, title, price, release_date, card_image_url, logo_url, is_active')
+            ->select('game_id, title, price, special_price, special_price_active, release_date, card_image_url, logo_url, is_active')
             ->orderBy($gamesOrderBy, $gameDirection)
             ->paginate($gamesPerPage, 'games', $gamesPage);
 
@@ -316,11 +315,10 @@ class Admin extends BaseController
         $validation->setRules([
             'title' => 'required',
             'price' => 'required|numeric',
-            'release_date' => 'required|valid_date',
+            'release_date' => 'valid_date',
             'developer' => 'required',
             'about' => 'required',
             'synopsis' => 'required',
-            'game_rating' => 'required|numeric',
             'categories' => 'required',
             'cover_url' => 'required|valid_url',
             'card_url' => 'required|valid_url',
@@ -343,7 +341,7 @@ class Admin extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+            return redirect()->back()->withInput()->with('error-msg', $validation->getErrors());
         }
 
         // Guardar juego principal
@@ -494,11 +492,11 @@ class Admin extends BaseController
         $validation->setRules([
             'title' => 'required',
             'price' => 'required|numeric',
-            'release_date' => 'required|valid_date',
+            'release_date' => 'valid_date',
             'developer' => 'required',
             'about' => 'required',
             'synopsis' => 'required',
-            'game_rating' => 'required|numeric',
+            'game_rating' => 'numeric',
             'categories' => 'required',
             'cover_url' => 'required|valid_url',
             'card_url' => 'required|valid_url',
@@ -686,5 +684,52 @@ class Admin extends BaseController
         $this->categoriaModel->insert($catData);
 
         return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Categoria añadida correctamente');
+    }
+
+    public function aplicar_descuento_juego($game_id = null)
+    {
+        $session = session();
+        if (!$session->has('user_id') || $session->get('is_admin') != 1) {
+            return redirect()->to(base_url('/'))->with('error-msg', 'Acceso no autorizado');
+        }
+
+        $porcentaje = $this->request->getPost('porcentaje');
+        if (!$porcentaje || !is_numeric($porcentaje) || $porcentaje <= 0 || $porcentaje >= 100) {
+            return redirect()->back()->with('error-msg', 'Porcentaje inválido');
+        }
+
+        $juego = $this->juegosModel->find($game_id);
+        if (!$juego) {
+            return redirect()->back()->with('error-msg', 'Juego no encontrado');
+        }
+
+        $special_price = round($juego['price'] * (1 - ($porcentaje / 100)), 2);
+
+        $this->juegosModel->update($game_id, [
+            'special_price' => $special_price,
+            'special_price_active' => 1
+        ]);
+
+        return redirect()->back()->with('exito-msg', 'Descuento aplicado correctamente');
+    }
+
+    public function quitar_descuento_juego($game_id = null)
+    {
+        $session = session();
+        if (!$session->has('user_id') || $session->get('is_admin') != 1) {
+            return redirect()->to(base_url('/'))->with('error-msg', 'Acceso no autorizado');
+        }
+
+        $juego = $this->juegosModel->find($game_id);
+        if (!$juego) {
+            return redirect()->back()->with('error-msg', 'Juego no encontrado');
+        }
+
+        $this->juegosModel->update($game_id, [
+            'special_price' => null,
+            'special_price_active' => 0
+        ]);
+
+        return redirect()->back()->with('exito-msg', 'Descuento quitado correctamente');
     }
 }

@@ -8,6 +8,41 @@
   --hover-color: #9281FF; /* Color al pasar el mouse */
   --error-color: #FF4444;
   --success-color: #00C851;
+    /* Paleta Clásico Profesional */
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #2D2D2D;
+  --border-color: #3D3D3D;
+  
+  /* Colores de acento (usando tu color principal) */
+  --primary-accent: #7B68EE;
+  --primary-hover: #624aff;
+  
+  /* Texto */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(
+  to bottom right, 
+  #111 0%, 
+  #222 50%, 
+  #111 100%
+);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(123, 104, 238, 0.05) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 /*! ---------- HEADER ---------- */
@@ -149,7 +184,7 @@ header nav {
   transition: all 0.3s ease;
 }
 
-.cart_icon, .login_icon {
+.cart-icon, .login_icon {
   padding: 0 5px;
   display: flex;
   align-items: center;
