@@ -35,17 +35,17 @@ $routes->get('/confirmacion', 'Home::confirmacion');
 
 $routes->get('/login', 'Home::login');
 
-$routes->post('/procesar_login', 'Usuario::procesar_login');
+$routes->post('/procesar_login', 'User_controllers\Usuario::procesar_login');
 
 $routes->get('/register', 'Home::register');
 
-$routes->post('/procesar_registro', 'Usuario::procesar_registro');
+$routes->post('/procesar_registro', 'User_controllers\Usuario::procesar_registro');
 
 $routes->get('/recuperar', 'Home::recuperar');
 
 $routes->get('/nueva-pass', 'Home::new_pass');
 
-$routes->post('/logout', 'Usuario::logout');
+$routes->post('/logout', 'User_controllers\Usuario::logout');
 
 $routes->get('/user-profile', 'User_controllers\UserProfile::perfil');
 

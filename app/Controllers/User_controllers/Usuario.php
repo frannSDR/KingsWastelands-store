@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\User_controllers;
 
+use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
 use App\Models\ConsultaModel;
 use CodeIgniter\Controller;

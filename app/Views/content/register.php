@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="terms">
-                    <input type="checkbox" id="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms">Acepto los <a href="<?php echo base_url('terminos') ?>" >Términos y Condiciones</a></label>
                 </div>
 
