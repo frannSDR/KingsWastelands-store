@@ -39,6 +39,7 @@
     <nav>
       <ul class="nav_links">
         <li><a href="<?php echo base_url('ofertas') ?>">Ofertas</a></li>
+        <li><a href="<?php echo base_url('prox-lanzamientos') ?>">Reservas</a></li>
         <li><a href="<?php echo base_url('juegos') ?>">Juegos</a></li>
         <li><a href="<?php echo base_url('nosotros') ?>">Quienes somos</a></li>
         <?php if (!session()->get('is_active')): ?>
@@ -64,8 +65,8 @@
 
     <!-- Contenedor para los elementos de la derecha -->
     <div class="right-header">
-      <div class="header-action">
-        <a href="<?php echo base_url('cart') ?>" class="cart-icon desktop-only"><i class="bi bi-cart"></i></a>
+      <div class="home-header-action">
+        <a href="<?php echo base_url('carrito') ?>" class="cart-icon desktop-only"><i class="bi bi-cart"></i></a>
         <a href="<?php echo base_url('user-profile') ?>" class="login-icon desktop-only"><i class="bi bi-person-circle"></i></a>
         <!-- <span class="cart-item-count desktop-only"></span> -->
       </div>

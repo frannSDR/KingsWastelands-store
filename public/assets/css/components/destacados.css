@@ -1,3 +1,32 @@
+:root {
+  --background-color: #121212;
+  --color-secundario: #1E1E1E;
+  --color-principal: #7B68EE; /* color principal */
+  --texto: #FFFFFF;
+  --texto-secundario: #CCCCCC;
+  --gris-claro: #333333;
+  --hover-color: #624aff;
+  --precio: #FFD700;               /* Dorado para precios */
+  --precio-descuento: #FF4444;     /* Rojo para descuentos */
+
+  /* Colores específicos para ofertas (nuevos) */
+  --color-oferta: #FF7043;         /* Naranja principal */
+  --color-oferta-hover: #E64A19;   /* Naranja oscuro (hover) */
+  --color-oferta-texto: #FFFFFF;   /* Texto sobre naranja */
+  --color-oferta-sombra: rgba(230, 74, 25, 0.3); /* Sombra naranja */
+  
+  /* Etiquetas especiales */
+  --color-mejor-oferta: #FFD700;   /* Dorado para "MEJOR OFERTA" */
+  --color-mejor-oferta-texto: #000000; /* Texto negro sobre dorado */
+  
+  /* Contador de tiempo */
+  --color-timer: #FF4444;          /* Rojo para urgencia */
+  --color-timer-fondo: rgba(239, 68, 68, 0.1); /* Fondo rojo suave */
+  
+  /* Bordes */
+  --color-borde-oferta: rgba(251, 140, 0, 0.7); /* Borde naranja semitransparente */
+}
+
 /* Estilos para la sección destacados */
 .destacados-section {
     max-width: 1400px;
@@ -193,9 +222,9 @@
 
 .destacado-cta {
     padding: 0.75rem 1.5rem;
-    background: var(--color-principal);
+    background: rgba(123, 104, 238, 0.1);
     color: white;
-    border: none;
+    border: 1px solid var(--color-principal);
     border-radius: 6px;
     font-weight: 500;
     cursor: pointer;
@@ -210,7 +239,8 @@
 }
 
 .destacado-cta.preorder {
-    background: var(--color-oferta);
+    border: 1px solid var(--color-oferta-hover);
+    background: rgba(223, 118, 33, 0.1);
 }
 
 .destacado-cta.preorder:hover {

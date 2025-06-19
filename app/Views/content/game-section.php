@@ -49,7 +49,13 @@
                         <?php endif; ?>
                     </div>
                     <button class="add-to-cart-btn">
-                        <i class="bi bi-cart-plus"></i> Añadir al carrito
+                        <?php if ($enCarrito): ?>
+                            <i class="bi bi-cart-check-fill"></i>
+                            <span class="cart-btn-text">En el carrito</span>
+                        <?php else: ?>
+                            <i class="bi bi-cart-plus"></i>
+                            <span class="cart-btn-text">Añadir al carrito</span>
+                        <?php endif; ?>
                     </button>
                     <button class="game-section-add-wishlist" data-game-id="<?= $juego['game_id'] ?>">
                         <?php if (in_array($juego['game_id'], $deseados_ids)): ?>

@@ -61,6 +61,7 @@
 </footer>
 
 <!-- librerias y js -->
+<script src="<?= base_url('assets/js/cart.js') ?>"></script>
 <script src="<?= base_url('assets/js/user-profile.js') ?>"></script>
 <script src="<?= base_url('assets/js/destacados.js') ?>"></script>
 <script src="<?= base_url('assets/js/perfil.js') ?>"></script>

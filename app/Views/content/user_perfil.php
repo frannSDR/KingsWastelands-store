@@ -32,13 +32,17 @@
                     <i class="bi bi-person-fill"></i>
                     <span>Mi Perfil</span>
                 </li>
-                <li class="menu-item" data-section="compras">
-                    <i class="bi bi-receipt"></i>
-                    <span>Mis Compras</span>
+                <li class="menu-item" data-section="carrito">
+                    <i class="bi bi-cart"></i>
+                    <span>Mi Carrito</span>
                 </li>
                 <li class="menu-item" data-section="deseados">
                     <i class="bi bi-heart-fill"></i>
                     <span>Lista de Deseados</span>
+                </li>
+                <li class="menu-item" data-section="compras">
+                    <i class="bi bi-receipt"></i>
+                    <span>Mis Compras</span>
                 </li>
                 <li class="menu-item" data-section="configuracion">
                     <i class="bi bi-gear-fill"></i>

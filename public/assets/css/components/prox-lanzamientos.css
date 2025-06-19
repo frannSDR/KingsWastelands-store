@@ -1,3 +1,32 @@
+:root {
+  --background-color: #121212;
+  --color-secundario: #1E1E1E;
+  --color-principal: #7B68EE; /* color principal */
+  --texto: #FFFFFF;
+  --texto-secundario: #CCCCCC;
+  --gris-claro: #333333;
+  --hover-color: #624aff;
+  --precio: #FFD700;               /* Dorado para precios */
+  --precio-descuento: #FF4444;     /* Rojo para descuentos */
+
+  /* Colores específicos para ofertas (nuevos) */
+  --color-oferta: #FF7043;         /* Naranja principal */
+  --color-oferta-hover: #E64A19;   /* Naranja oscuro (hover) */
+  --color-oferta-texto: #FFFFFF;   /* Texto sobre naranja */
+  --color-oferta-sombra: rgba(230, 74, 25, 0.3); /* Sombra naranja */
+  
+  /* Etiquetas especiales */
+  --color-mejor-oferta: #FFD700;   /* Dorado para "MEJOR OFERTA" */
+  --color-mejor-oferta-texto: #000000; /* Texto negro sobre dorado */
+  
+  /* Contador de tiempo */
+  --color-timer: #FF4444;          /* Rojo para urgencia */
+  --color-timer-fondo: rgba(239, 68, 68, 0.1); /* Fondo rojo suave */
+  
+  /* Bordes */
+  --color-borde-oferta: rgba(251, 140, 0, 0.7); /* Borde naranja semitransparente */
+}
+
 /* Estilos para la sección de próximos lanzamientos */
 .proximos-lanzamientos {
     max-width: 1400px;
@@ -157,6 +186,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: all 0.3s ease;
+}
+
+.release-title:hover {
+    transform: translateX(5px);
+    color: var(--hover-color);
 }
 
 .release-meta {
@@ -281,7 +316,7 @@
     }
     
     .release-cards-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     }
     
     .release-actions {
@@ -291,4 +326,338 @@
     .wishlist-btn, .notify-btn {
         width: 100%;
     }
+}
+
+/*!-------------------------- seccion individual para prox lanzamientos -------------------------- */
+
+/* CSS para la sección de próximos lanzamientos */
+.upcoming-games {
+    padding: 2rem 1rem;
+    max-width: 1400px;
+    margin: 60px auto 0px auto;
+    background-color: var(--background-color);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 6px 0 rgba(123, 104, 238, 0.10);
+    border: 1px solid rgba(123, 104, 238, 0.18);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+}
+
+.upcoming-section-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-section-title {
+  font-size: 2rem;
+  color: var(--texto);
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.upcoming-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--color-principal);
+  border-radius: 3px;
+}
+
+.section-subtitle {
+  color: var(--texto-secundario);
+  font-size: 1rem;
+}
+
+.release-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(123, 104, 238, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-top: 1rem;
+  color: var(--color-principal);
+  font-weight: bold;
+}
+
+.calendar-icon {
+  margin-right: 0.5rem;
+}
+
+.next-month {
+  font-weight: bold;
+}
+
+.upcoming-horizontal-games-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.horizontal-game-card {
+  background-color: var(--color-secundario);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(123, 104, 238, 0.3);
+}
+
+.horizontal-game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.upcoming-game-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.upcoming-image-container {
+  position: relative;
+  width: 40%;
+  min-width: 300px;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.upcoming-game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(0.9);
+}
+
+.horizontal-game-card:hover .upcoming-game-image {
+  transform: scale(1.03);
+  filter: brightness(1);
+}
+
+.release-banner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--color-principal);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.upcoming-game-details {
+  width: 60%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.upcoming-game-info {
+  margin-bottom: 1rem;
+}
+
+.upcoming-game-title {
+  color: var(--texto);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.upcoming-game-title:hover {
+    transform: translateX(5px);
+    color: var(--hover-color);
+}
+
+.upcoming-game-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.upcoming-platform-badge {
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.upcoming-platform-badge.pc {
+  background-color: #2a5c8d;
+}
+
+.upcoming-platform-badge.ps5 {
+  background-color: #003087;
+}
+
+.upcoming-platform-badge.xbox {
+  background-color: #107c10;
+}
+
+.upcoming-platform-badge.switch {
+  background-color: #e60012;
+}
+
+.upcoming-wishlist-count {
+  display: flex;
+  align-items: center;
+  color: var(--texto-secundario);
+}
+
+.upcoming-heart-icon {
+  margin-right: 0.3rem;
+  color: #ff4081;
+}
+
+.upcoming-game-description {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.upcoming-developer-info {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.upcoming-developer-label {
+  color: var(--texto-secundario);
+}
+
+.upcoming-developer-name {
+  color: var(--texto);
+  font-weight: bold;
+}
+
+.upcoming-preorder-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.upcoming-price-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.upcoming-release-price {
+  color: var(--texto);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.upcoming-preorder-discount {
+  color: var(--precio-descuento);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.upcoming-preorder-btn {
+  background-color: rgba(255, 112, 67, 0.1);
+  color: var(--color-oferta);
+  border: 1px solid var(--color-oferta);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.upcoming-preorder-btn:hover {
+  background-color: var(--color-oferta);
+  color: white;
+}
+
+.upcoming-game-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.coming-soon-badge {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+.upcoming-exclusive-badge {
+  background-color: var(--precio);
+  color: var(--color-mejor-oferta-texto);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .upcoming-game-content {
+    flex-direction: column;
+  }
+  
+  .upcoming-image-container,
+  .upcoming-game-details {
+    width: 100%;
+  }
+  
+  .upcoming-image-container {
+    min-width: auto;
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 768px) {
+  .upcoming-section-title {
+    font-size: 1.8rem;
+  }
+  
+  .upcoming-game-title {
+    font-size: 1.2rem;
+  }
+  
+  .upcoming-release-price {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upcoming-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .upcoming-preorder-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .upcoming-preorder-btn {
+    width: 100%;
+  }
+  
+  .upcoming-game-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }

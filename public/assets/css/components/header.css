@@ -171,26 +171,26 @@ header nav {
   display: block;
 }
 
-.header-action {
+.home-header-action {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.login_icon {
+.login-icon, .cart-icon {
   margin-top: 3px;
   font-size: 25px;
   color: white;
   transition: all 0.3s ease;
 }
 
-.cart-icon, .login_icon {
+.cart-icon, .login-icon {
   padding: 0 5px;
   display: flex;
   align-items: center;
 }
 
-.login_icon:hover {
+.cart-icon:hover, .login-icon:hover {
   color: var(--color-principal);
 }
 
@@ -315,7 +315,7 @@ header nav {
     border-bottom: none;
   }
   
-  .header-action {
+  .home-header-action {
     display: flex;
     gap: 15px;
   }

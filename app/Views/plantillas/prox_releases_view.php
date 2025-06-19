@@ -9,7 +9,7 @@
         </h2>
         <div class="countdown-badge">
             <i class="bi bi-fire"></i>
-            <span id="next-release-countdown">Proximamente...</span>
+            <span id="next-release-countdown">Este año...</span>
         </div>
     </div>
 
@@ -28,22 +28,20 @@
                     </div>
                 </div>
                 <div class="release-info">
-                    <h3 class="release-title"><?= esc($juego['title']) ?></h3>
+                    <a href="<?= base_url('juego/' . $juego['game_id']) ?>" style="text-decoration: none; color: white;">
+                        <h3 class="release-title"><?= esc($juego['title']) ?></h3>
+                    </a>
                     <div class="release-meta">
                         <span class="release-developer"><?= esc($juego['developer']) ?></span>
                     </div>
                     <div class="release-actions">
                         <button class="wishlist-btn">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                            </svg>
-                            Lista de deseos
+                            <i class="bi bi-heart"></i>
+                            Deseados
                         </button>
                         <button class="notify-btn">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
-                            </svg>
-                            Avisarme
+                            <i class="bi bi-cart"></i>
+                            Reservar
                         </button>
                     </div>
                 </div>
@@ -53,7 +51,7 @@
     </div>
 
     <div class="section-footer">
-        <a href="<?= base_url('proximos') ?>" class="view-all-link">
+        <a href="<?= base_url('prox-lanzamientos') ?>" class="view-all-link">
             Ver todos los próximos lanzamientos
             <svg class="arrow-icon" viewBox="0 0 24 24">
                 <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />

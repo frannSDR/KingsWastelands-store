@@ -22,10 +22,13 @@ class Home extends BaseController
         $proxLanzamientos = $juegosModel
             ->where('release_date >', date('Y-m-d'))
             ->orderBy('release_date', 'ASC')
-            ->findAll();
+            ->findAll(12);
 
         // juegos en oferta
-        $juegosEnOferta = $juegosModel->where('special_price_active', 1)->findAll(10);
+        $juegosEnOferta = $juegosModel
+            ->where('special_price_active', 1)
+            ->orderBy('updated_at')
+            ->findAll(12);
 
         // juegos populares
         $categoriaPopular = $categoriaModel->where('slug', 'indie')->first();
@@ -66,18 +69,6 @@ class Home extends BaseController
             . view('plantillas/footer_view');
     }
 
-    public function ofertas(): string
-    {
-        $data['titulo'] = "Ofertas";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/ofertas') . view('../Views/plantillas/footer_view');
-    }
-
-    public function populares(): string
-    {
-        $data['titulo'] = "Populares";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/populares') . view('../Views/plantillas/footer_view');
-    }
-
     public function nosotros(): string
     {
         $data['titulo'] = "Nosotros";
@@ -96,12 +87,6 @@ class Home extends BaseController
         return view('../Views/plantillas/header_view.php', $data) . view('../Views/content/contacto.php') . view('../Views/plantillas/footer_view.php');
     }
 
-    public function error_contacto(): string
-    {
-        $data['titulo'] = "Error de Contacto";
-        return view('../Views/plantillas/header_view.php', $data) . view('../Views/content/consulta_error.php') . view('../Views/plantillas/footer_view.php');
-    }
-
     public function terminos(): string
     {
         $data['titulo'] = "Términos y Usos";
@@ -112,12 +97,6 @@ class Home extends BaseController
     {
         $data['titulo'] = "Juegos";
         return view('../Views/plantillas/header_view', $data) . view('../Views/content/games') . view('../Views/plantillas/footer_view');
-    }
-
-    public function game_section(): string
-    {
-        $data['titulo'] = 'TEC: Oblivion Remastered';
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/game-section') . view('../Views/plantillas/footer_view');
     }
 
     public function cart(): string

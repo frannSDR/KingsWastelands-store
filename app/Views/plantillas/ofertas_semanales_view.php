@@ -17,10 +17,12 @@
                 <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= $juego['title'] ?>" class="oferta-image">
 
                 <div class="oferta-content">
-                    <h3 class="oferta-title"><?= esc($juego['title']) ?></h3>
+                    <a href="<?= base_url('juego/' . $juego['game_id']) ?>" style="text-decoration: none; color: white;">
+                        <h3 class="oferta-title"><?= esc($juego['title']) ?></h3>
+                    </a>
                     <div class="oferta-prices">
                         <span class="original-price">$<?= $juego['price'] ?></span>
-                        <span class="current-price">$<?= $juego['special_price'] ?></span>
+                        <span class="home-current-price">$<?= $juego['special_price'] ?></span>
                     </div>
                     <div class="oferta-meta">
                         <span class="oferta-rating">

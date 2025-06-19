@@ -7,13 +7,15 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->get('/ofertas', 'Juegos::ofertas');
+$routes->get('/ofertas', 'Games_controllers\Juegos::ofertas');
 
-$routes->get('/juego/(:num)', 'Juegos::detalle/$1');
+$routes->get('/prox-lanzamientos', 'Games_controllers\Juegos::prox_lanzamientos');
+
+$routes->get('/juego/(:num)', 'Games_controllers\Juegos::detalle/$1');
 
 $routes->get('/nosotros', 'Home::nosotros');
 
-$routes->get('/juegos', 'Juegos::all_games');
+$routes->get('/juegos', 'Games_controllers\Juegos::all_games');
 
 $routes->get('/comercializacion', 'Home::comercializacion');
 
@@ -25,7 +27,7 @@ $routes->get('/error_contacto', 'Home::error_contacto');
 
 $routes->get('/terminos', 'Home::terminos');
 
-$routes->get('/cart', 'Home::cart');
+$routes->get('/carrito', 'Cart_controllers\Cart::index');
 
 $routes->get('/pago', 'Home::pago');
 
@@ -45,21 +47,29 @@ $routes->get('/nueva-pass', 'Home::new_pass');
 
 $routes->post('/logout', 'Usuario::logout');
 
-$routes->get('/user-profile', 'UserProfile::perfil');
+$routes->get('/user-profile', 'User_controllers\UserProfile::perfil');
 
-$routes->get('/datos_usuario', 'UserProfile::datos_usuario');
+$routes->get('/datos_usuario', 'User_controllers\UserProfile::datos_usuario');
 
-$routes->post('/perfil/actualizar-datos', 'UserProfile::actualizar_datos');
+$routes->post('/perfil/actualizar-datos', 'User_controllers\UserProfile::actualizar_datos');
 
-$routes->post('/add-to-wishlist', 'UserProfile::add_to_wishlist');
+$routes->post('/add-to-wishlist', 'User_controllers\UserProfile::add_to_wishlist');
 
-$routes->post('/remove-from-wishlist', 'UserProfile::remove_from_wishlist');
+$routes->post('/remove-from-wishlist', 'User_controllers\UserProfile::remove_from_wishlist');
 
-$routes->post('/juego/(:num)/guardar-resena', 'Juegos::guardarResena');
+$routes->post('cart/add', 'Cart_controllers\Cart::add');
 
-$routes->post('votar-util/(:num)', 'Juegos::votarUtil/$1');
+$routes->post('cart/remove', 'Cart_controllers\Cart::remove');
 
-$routes->get('/juego/(:num)/filtrar-resenas', 'Juegos::filtrarResenas/$1');
+$routes->post('cart/update', 'Cart_controllers\Cart::update');
+
+$routes->post('cart/clear', 'Cart_controllers\Cart::clear');
+
+$routes->post('/juego/(:num)/guardar-resena', 'Games_controllers\Juegos::guardarResena');
+
+$routes->post('votar-util/(:num)', 'Games_controllers\Juegos::votarUtil/$1');
+
+$routes->get('/juego/(:num)/filtrar-resenas', 'Games_controllers\Juegos::filtrarResenas/$1');
 
 $routes->get('/perfil', 'Admin_controllers\Admin::admin');
 
@@ -93,4 +103,4 @@ $routes->post('perfil/desactivar-juego/(:num)', 'Admin_controllers\Admin::desact
 
 $routes->post('perfil/activar-juego/(:num)', 'Admin_controllers\Admin::activar_juego/$1');
 
-$routes->get('(:segment)', 'Juegos::categoria/$1');
+$routes->get('(:segment)', 'Games_controllers\Juegos::categoria/$1');

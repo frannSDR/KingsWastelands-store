@@ -1,15 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
+  --background-color: #121212;
+  --color-secundario: #1E1E1E;
   --color-principal: #7B68EE; /* color principal */
-  --color-secundario: #303030; /* color secundario */
-  --background-color: #1E1E1E; /* fondo */
-  --texto: #FFFFFF; /* texto */
-  --texto-secundario: #CCCCCC; /* texto secundario */
-  --gris-claro: #333333; /* algunos bordes */
-  --hover-color: #9281FF; /* Color al pasar el mouse */
-  --error-color: #FF4444;
-  --success-color: #00C851;
+  --texto: #FFFFFF;
+  --texto-secundario: #CCCCCC;
+  --gris-claro: #333333;
+  --hover-color: #624aff;
+  --precio: #FFD700;               /* Dorado para precios */
+  --precio-descuento: #FF4444;     /* Rojo para descuentos */
+
+  /* Colores específicos para ofertas (nuevos) */
+  --color-oferta: #FF7043;         /* Naranja principal */
+  --color-oferta-hover: #E64A19;   /* Naranja oscuro (hover) */
+  --color-oferta-texto: #FFFFFF;   /* Texto sobre naranja */
+  --color-oferta-sombra: rgba(230, 74, 25, 0.3); /* Sombra naranja */
+  
+  /* Etiquetas especiales */
+  --color-mejor-oferta: #FFD700;   /* Dorado para "MEJOR OFERTA" */
+  --color-mejor-oferta-texto: #000000; /* Texto negro sobre dorado */
+  
+  /* Contador de tiempo */
+  --color-timer: #FF4444;          /* Rojo para urgencia */
+  --color-timer-fondo: rgba(239, 68, 68, 0.1); /* Fondo rojo suave */
+  
+  /* Bordes */
+  --color-borde-oferta: rgba(251, 140, 0, 0.7); /* Borde naranja semitransparente */
 }
 
 * {
@@ -278,7 +295,7 @@ body {
 /*! --------- SECCION DE CONFIANZA --------- */
 
 .benefits-bar {
-  background-color: #1A1A1A;
+  background-color: var(--background-color);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   width: 100%;
   padding: 30px 0;
@@ -418,13 +435,20 @@ body {
 }
 
 .email-input {
+  background-color: var(--background-color);
+  color: var(--color-principal);
+  border: 1px solid transparent;
   padding: 12px 15px;
-  border-radius: 4px;
-  border: none;
+  border-radius: 7px;
   width: 100%;
   max-width: 350px;
   margin-bottom: 15px;
   font-size: 14px;
+  transition: 0.3s all ease;
+}
+
+.email-input:focus {
+  border: 1px solid #5c43eb;
 }
 
 .submit-button {
