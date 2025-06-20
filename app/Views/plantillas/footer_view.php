@@ -61,10 +61,13 @@
 </footer>
 
 <!-- librerias y js -->
+<script>
+    window.baseUrl = "<?= base_url() ?>";
+</script>
 <script src="<?= base_url('assets/js/cart.js') ?>"></script>
 <script src="<?= base_url('assets/js/user-profile.js') ?>"></script>
 <script src="<?= base_url('assets/js/destacados.js') ?>"></script>
-<script src="<?= base_url('assets/js/perfil.js') ?>"></script>
+<script src="<?= base_url('assets/js/admin.js') ?>"></script>
 <script src="<?= base_url('assets/js/lightbox/lightbox-plus-jquery.js') ?>"></script>
 <script src="<?= base_url('assets/js/home.js') ?>"></script>
 <script src="<?= base_url('assets/js/game-sections.js') ?>"></script>

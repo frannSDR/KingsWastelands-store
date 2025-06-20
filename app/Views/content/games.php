@@ -1,7 +1,6 @@
 <div class="all-games-container">
     <!-- menu lateral -->
     <aside class="all-games-sidebar">
-
         <div class="all-games-menu-title">Explorar</div>
         <ul class="all-menu-categories">
             <li><a href="<?= base_url('todos') ?>" <?= ($categoriaActual ?? '') === 'todos' ? 'class="all-active"' : '' ?>>Todos los juegos</a></li>
@@ -13,14 +12,6 @@
             <li><a href="<?= base_url('estrategia') ?>" <?= ($categoriaActual ?? '') === 'estrategia' ? 'class="all-active"' : '' ?>>Estrategias</a></li>
             <li><a href="<?= base_url('openworld') ?>" <?= ($categoriaActual ?? '') === 'openworld' ? 'class="all-active"' : '' ?>>Mundo Abierto</a></li>
         </ul>
-
-        <div class="all-menu-title">Filtros</div>
-        <ul class="all-menu-categories">
-            <li><a href="#">En oferta</a></li>
-            <li><a href="#">Nuevos lanzamientos</a></li>
-            <li><a href="#">Más populares</a></li>
-        </ul>
-
     </aside>
 
     <!-- main content -->
@@ -137,6 +128,7 @@
         <!-- card de cada juego -->
         <div class="all-games-list-container" id="gamesContainer">
             <?php foreach ($juegos as $juego): ?>
+                <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
                 <div class="all-game-card">
                     <div class="all-game-image">
                         <div class="game-trailer">
@@ -179,7 +171,13 @@
                                     <?php endif; ?>
                                 </button>
                                 <?php if (strtotime($juego['release_date']) <= time()): ?>
-                                    <button class="btn2 btn-primary2" data-game-id="<?= $juego['game_id'] ?>"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
+                                    <button class="btn2 btn-primary2" data-game-id="<?= $juego['game_id'] ?>">
+                                        <?php if ($enCarrito): ?>
+                                            <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
+                                        <?php else: ?>
+                                            <i class="bi bi-cart"></i><span class="cart-btn-text">Añadir al carrito</span>
+                                        <?php endif; ?>
+                                    </button>
                                 <?php else: ?>
                                     <button class="btn2 btn-primary2"> Proximamente...</button>
                                 <?php endif; ?>

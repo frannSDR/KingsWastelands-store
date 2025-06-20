@@ -22,6 +22,8 @@
 }
 
 .checkout-steps::before {
+    margin: 0 auto;
+    width: 235px;
     content: '';
     position: absolute;
     top: 15px;

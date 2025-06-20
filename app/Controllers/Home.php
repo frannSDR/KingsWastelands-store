@@ -9,6 +9,9 @@ class Home extends BaseController
         $juegosModel = new \App\Models\JuegosModel();
         $categoriaModel = new \App\Models\CategoriaModel();
         $itemDeseadosModel = new \App\Models\WishlistItemModel();
+        $cartModel = new \App\Models\CartModel();
+        $cartItemModel = new \App\Models\CartItemModel();
+
 
         $deseados_ids = [];
         if (session()->has('user_id')) {
@@ -50,7 +53,33 @@ class Home extends BaseController
                 ->findAll(8);
         }
 
+        // obtenemos los juegos en el carrito del usuario
+        $enCarritoIds = [];
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+            $cart = $cartModel->where('user_id', $userId)->first();
+            if ($cart) {
+                $cartItems = $cartItemModel
+                    ->where('cart_id', $cart['cart_id'])
+                    ->findAll();
+                $enCarritoIds = array_column($cartItems, 'game_id');
+            }
+        }
+
+        // verificamos si un juego se encuentra en el carrito
+        foreach ($juegosEnOferta as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        foreach ($proxLanzamientos as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        unset($juego);
+
+
         $data = [
+            'enCarritoIds' => $enCarritoIds ?? [],
             'juegosPopulares' => $juegosPopulares,
             'juegosDestacados' => $juegosDestacados,
             'juegosEnOferta' => $juegosEnOferta,

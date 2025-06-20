@@ -27,7 +27,13 @@ $routes->get('/error_contacto', 'Home::error_contacto');
 
 $routes->get('/terminos', 'Home::terminos');
 
-$routes->get('/carrito', 'Cart_controllers\Cart::index');
+$routes->get('/carrito', 'Cart_controllers\Cart::carrito');
+
+$routes->get('/pago', 'Cart_controllers\Cart::pago');
+
+$routes->get('/confirmacion', 'Cart_controllers\Cart::confirmacion');
+
+$routes->post('cart/completarCompra', 'Cart_controllers\Cart::completarCompra');
 
 $routes->get('/pago', 'Home::pago');
 

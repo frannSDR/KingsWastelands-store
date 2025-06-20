@@ -12,6 +12,7 @@
 
     <div class="upcoming-horizontal-games-container">
         <?php foreach ($proxLanzamientos as $juego): ?>
+            <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
             <div class="horizontal-game-card">
                 <div class="upcoming-game-content">
                     <div class="upcoming-image-container">
@@ -39,7 +40,13 @@
                             <div class="upcoming-price-wrapper">
                                 <span class="upcoming-release-price">$<?= $juego['price'] ?></span>
                             </div>
-                            <button class="upcoming-preorder-btn"><i class="bi bi-cart"> </i>Reservar Ahora</button>
+                            <button class="upcoming-preorder-btn" data-game-id="<?= $juego['game_id'] ?>">
+                                <?php if ($enCarrito): ?>
+                                    <i class="bi bi-cart-fill"></i><span class="cart-btn-text"> En el carrito</span>
+                                <?php else: ?>
+                                    <i class="bi bi-cart"></i><span class="cart-btn-text"> Reservar Ahora</span>
+                                <?php endif; ?>
+                            </button>
                         </div>
                     </div>
                 </div>

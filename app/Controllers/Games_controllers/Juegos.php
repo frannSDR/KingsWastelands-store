@@ -122,8 +122,29 @@ class Juegos extends BaseController
             $deseados_ids = array_column($wishlistItems, 'game_id');
         }
 
+        // obtenemoslos juegos en el carrito del usuario
+        $enCarritoIds = [];
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+            $cart = $this->cartModel->where('user_id', $userId)->first();
+            if ($cart) {
+                $cartItems = $this->cartItemModel
+                    ->where('cart_id', $cart['cart_id'])
+                    ->findAll();
+                $enCarritoIds = array_column($cartItems, 'game_id');
+            }
+        }
+
+        // verificamos si un juego se encuentra en el carrito
+        foreach ($juegos as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        unset($juego);
+
         $data = [
             'juegos' => $juegos,
+            'enCarritoIds' => $enCarritoIds,
             'deseados_ids' => $deseados_ids,
             'currentGamesPage' => $gamesPage,
             'totalGamesPages' => $gamesTotalPages,
@@ -209,7 +230,28 @@ class Juegos extends BaseController
             $deseados_ids = array_column($wishlistItems, 'game_id');
         }
 
+        // obtenemoslos juegos en el carrito del usuario
+        $enCarritoIds = [];
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+            $cart = $this->cartModel->where('user_id', $userId)->first();
+            if ($cart) {
+                $cartItems = $this->cartItemModel
+                    ->where('cart_id', $cart['cart_id'])
+                    ->findAll();
+                $enCarritoIds = array_column($cartItems, 'game_id');
+            }
+        }
+
+        // verificamos si un juego se encuentra en el carrito
+        foreach ($juegos as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        unset($juego);
+
         $data = [
+            'enCarritoIds' => $enCarritoIds,
             'juegos' => $juegos,
             'deseados_ids' => $deseados_ids,
             'categoriaActual' => $slug,
@@ -534,7 +576,39 @@ class Juegos extends BaseController
         $gamesTotal = $this->juegosModel->where('special_price_active', 1)->countAllResults();
         $gamesTotalPages = ceil($gamesTotal / $gamesPerPage);
 
+        //obtenemos los juegos en la lista de deseados del usuario
+        $deseados_ids = [];
+        if (session()->has('user_id')) {
+            $wishlistItems = $this->wishlistItemModel
+                ->where('user_id', session('user_id'))
+                ->findAll();
+            $deseados_ids = array_column($wishlistItems, 'game_id');
+        }
+
+        // obtenemos los juegos en el carrito del usuario
+        $enCarritoIds = [];
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+            $cart = $this->cartModel->where('user_id', $userId)->first();
+            if ($cart) {
+                $cartItems = $this->cartItemModel
+                    ->where('cart_id', $cart['cart_id'])
+                    ->findAll();
+                $enCarritoIds = array_column($cartItems, 'game_id');
+            }
+        }
+
+        // verificamos si un juego se encuentra en el carrito
+        foreach ($juegosEnOferta as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        unset($juego);
+
+
         $data = [
+            'deseados_ids' => $deseados_ids,
+            'enCarritoIds' => $enCarritoIds,
             'totalPages' => $gamesTotalPages,
             'currentPage' => $gamesPage,
             'juegosEnOferta' => $juegosEnOferta
@@ -568,7 +642,38 @@ class Juegos extends BaseController
         $gamesTotal = $this->juegosModel->where('release_date >', date('Y-m-d'))->countAllResults();
         $gamesTotalPages = ceil($gamesTotal / $gamesPerPage);
 
+        //obtenemos los juegos en la lista de deseados del usuario
+        $deseados_ids = [];
+        if (session()->has('user_id')) {
+            $wishlistItems = $this->wishlistItemModel
+                ->where('user_id', session('user_id'))
+                ->findAll();
+            $deseados_ids = array_column($wishlistItems, 'game_id');
+        }
+
+        // obtenemos los juegos en el carrito del usuario
+        $enCarritoIds = [];
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+            $cart = $this->cartModel->where('user_id', $userId)->first();
+            if ($cart) {
+                $cartItems = $this->cartItemModel
+                    ->where('cart_id', $cart['cart_id'])
+                    ->findAll();
+                $enCarritoIds = array_column($cartItems, 'game_id');
+            }
+        }
+
+        // verificamos si un juego se encuentra en el carrito
+        foreach ($proxLanzamientos as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        unset($juego);
+
         $data = [
+            'deseados_ids' => $deseados_ids,
+            'enCarritoIds' => $enCarritoIds,
             'totalPages' => $gamesTotalPages,
             'currentPage' => $gamesPage,
             'proxLanzamientos' => $proxLanzamientos

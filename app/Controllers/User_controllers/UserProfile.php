@@ -3,12 +3,14 @@
 namespace App\Controllers\User_controllers;
 
 use App\Controllers\BaseController;
+use App\Models\CartItemModel;
 use App\Models\JuegosModel;
 use App\Models\CategoriaModel;
 use App\Models\JuegoCategoriaModel;
 use App\Models\UsuarioModel;
 use App\Models\WishlistModel;
 use App\Models\WishlistItemModel;
+use App\Models\CartModel;
 
 class UserProfile extends BaseController
 {
@@ -18,6 +20,8 @@ class UserProfile extends BaseController
     protected $usuariosModel;
     protected $wishlistModel;
     protected $wishlistItemModel;
+    protected $cartModel;
+    protected $cartItemModel;
 
     public function __construct()
     {
@@ -27,6 +31,8 @@ class UserProfile extends BaseController
         $this->usuariosModel = new UsuarioModel();
         $this->wishlistModel = new WishlistModel();
         $this->wishlistItemModel = new WishlistItemModel();
+        $this->cartModel = new CartModel();
+        $this->cartItemModel = new CartItemModel();
     }
 
     public function perfil()
@@ -195,14 +201,12 @@ class UserProfile extends BaseController
             return redirect()->to(base_url('login'))->with('alerta-msg', 'Primero debes iniciar sesión.');
         }
 
-        // 1. Obtén los items de la wishlist del usuario
         $wishlistItems = $this->wishlistItemModel
             ->where('user_id', $userId)
             ->findAll();
 
         $deseados = [];
 
-        // 2. Por cada item, obtén los datos del juego
         foreach ($wishlistItems as $item) {
             $juego = $this->juegosModel
                 ->select('game_id, title, price, release_date, card_image_url')
@@ -212,10 +216,36 @@ class UserProfile extends BaseController
             }
         }
 
-        // 3. Pasa los juegos a la vista
-        return view('content/partials/wishlist-user-profile', [
-            'deseados' => $deseados
-        ]);
+        // obtenemos los juegos en el carrito del usuario
+        $enCarritoIds = [];
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+            $cart = $this->cartModel->where('user_id', $userId)->first();
+            if ($cart) {
+                $cartItems = $this->cartItemModel
+                    ->where('cart_id', $cart['cart_id'])
+                    ->findAll();
+                $enCarritoIds = array_column($cartItems, 'game_id');
+            }
+        }
+
+        // verificamos si un juego se encuentra en el carrito
+        foreach ($deseados as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        foreach ($deseados as &$juego) {
+            $juego['enCarrito'] = in_array($juego['game_id'], $enCarritoIds);
+        }
+
+        unset($juego);
+
+        $data = [
+            'deseados' => $deseados,
+            'enCarritoIds' => $enCarritoIds ?? []
+        ];
+
+        return view('content/partials/wishlist-user-profile', $data);
     }
 
     public function add_to_wishlist()

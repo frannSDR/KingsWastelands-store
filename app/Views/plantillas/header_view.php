@@ -25,6 +25,8 @@
   <link href="<?= base_url('assets/css/components/ofertas.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/prox-lanzamientos.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/destacados.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/pago.css') ?>" rel="stylesheet" />
+  <link href="<?= base_url('assets/css/components/confirmacion.css') ?>" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/9984108ce5.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">

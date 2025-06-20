@@ -12,6 +12,7 @@
 
     <div class="horizontal-games-container">
         <?php foreach ($juegosEnOferta as $juego): ?>
+            <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
             <div class="horizontal-game-card">
                 <div class="game-content">
                     <div class="game-image-container">
@@ -37,7 +38,13 @@
                                 <span class="original-price">$<?= $juego['price'] ?></span>
                                 <span class="current-price">$<?= $juego['special_price'] ?></span>
                             </div>
-                            <button class="buy-now-btn"><i class="bi bi-cart"></i>Añadir al carrito</button>
+                            <button class="buy-now-btn" data-game-id="<?= $juego['game_id'] ?>">
+                                <?php if ($enCarrito): ?>
+                                    <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
+                                <?php else: ?>
+                                    <i class="bi bi-cart"></i><span class="cart-btn-text">Añadir al carrito</span>
+                                <?php endif; ?>
+                            </button>
                         </div>
                     </div>
                 </div>

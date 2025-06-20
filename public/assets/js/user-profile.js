@@ -52,37 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.games-add-wishlist').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const gameId = this.getAttribute('data-game-id');
-            const icon = this.querySelector('i');
-
-            fetch('/add-to-wishlist', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify({ game_id: gameId })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    icon.classList.remove('bi-bookmark');
-                    icon.classList.add('bi-bookmark-check-fill');
-                } else if (data.error) {
-                    alert(data.error);
-                }
-            })
-            .catch(() => {
-                alert('Error de conexión');
-            });
-        });
-    });
-});
-
+// quitar agregar un juego desde la seccion games
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.games-add-wishlist').forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -121,37 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.game-section-add-wishlist').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const gameId = this.getAttribute('data-game-id');
-            const icon = this.querySelector('i');
-
-            fetch('/add-to-wishlist', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify({ game_id: gameId })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    icon.classList.remove('bi-bookmark');
-                    icon.classList.add('bi-bookmark-check-fill');
-                } else if (data.error) {
-                    alert(data.error);
-                }
-            })
-            .catch(() => {
-                alert('Error de conexión');
-            });
-        });
-    });
-});
-
+// agregar/quitar un juego de la lista de deseados de game-section
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.game-section-add-wishlist').forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -190,6 +130,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// agregar/quitar un juego de la lista de deseados de proximos lanzamientos (home)
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.proxLanzamientos-wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const gameId = this.getAttribute('data-game-id');
+            const icon = this.querySelector('i');
+            const isInWishlist = icon.classList.contains('bi-heart-fill');
+            const url = isInWishlist ? '/remove-from-wishlist' : '/add-to-wishlist';
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ game_id: gameId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    if (isInWishlist) {
+                        icon.classList.remove('bi-heart-fill');
+                        icon.classList.add('bi-heart');
+                    } else {
+                        icon.classList.remove('bi-heart');
+                        icon.classList.add('bi-heart-fill');
+                    }
+                } else if (data.error) {
+                    alert(data.error);
+                }
+            })
+            .catch(() => {
+                alert('Error de conexión');
+            });
+        });
+    });
+});
+
+// quitar un juego de la lista de deseados
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.remove-wishlist-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {

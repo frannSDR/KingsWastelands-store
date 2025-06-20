@@ -12,7 +12,7 @@
             </div>
             <div class="step">
                 <span>3</span>
-                <p>Confirmación</p>
+                <p>Confirmacion</p>
             </div>
         </div>
     </div>
@@ -90,24 +90,12 @@
                             <span>Subtotal (<?= count($items) ?> productos)</span>
                             <span class="subtotal">$<?= number_format($subtotal, 2) ?></span>
                         </div>
-                        <div class="summary-row">
-                            <span>Envío</span>
-                            <span class="shipping">$0.00</span>
-                        </div>
-                        <div class="summary-row discount">
-                            <span>Descuento</span>
-                            <span class="discount-amount">-$25.00</span>
-                        </div>
-                        <div class="promo-code">
-                            <input type="text" placeholder="Código promocional">
-                            <button class="apply-btn">Aplicar</button>
-                        </div>
                         <div class="summary-total">
                             <span>Total</span>
                             <span class="total-price2">$<?= number_format($subtotal, 2) ?></span>
                         </div>
                     </div>
-                    <button class="checkout-btn">Proceder al Pago</button>
+                    <button class="checkout-btn" <?= empty($items) ? 'disabled' : '' ?>>Proceder al Pago</button>
 
                     <div class="secure-checkout">
                         <i class="bi bi-shield-lock"></i>

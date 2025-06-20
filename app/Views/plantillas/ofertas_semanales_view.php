@@ -11,6 +11,7 @@
 
         <!-- Ejemplo de juego en oferta -->
         <?php foreach ($juegosEnOferta as $juego): ?>
+            <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
             <div class="oferta-card">
                 <div class="oferta-badge"><?= round(100 - ($juego['special_price'] / $juego['price']) * 100) ?>%</div>
                 <div class="oferta-ribbon">MEJOR OFERTA</div>
@@ -31,9 +32,12 @@
                         </span>
                         <span class="oferta-tag">RPG</span>
                     </div>
-                    <button class="oferta-button">
-                        <i class="bi bi-cart"></i>
-                        Añadir al carrito
+                    <button class="oferta-button add-to-cart-btn" data-game-id="<?= $juego['game_id'] ?>">
+                        <?php if ($enCarrito): ?>
+                            <i class="bi bi-cart-check-fill"></i><span class="cart-btn-text">En el carrito</span>
+                        <?php else: ?>
+                            <i class="bi bi-cart-plus"></i><span class="cart-btn-text">Añadir al carrito</span>
+                        <?php endif; ?>
                     </button>
                 </div>
             </div>

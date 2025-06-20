@@ -225,7 +225,7 @@
     gap: 0.75rem;
 }
 
-.wishlist-btn, .notify-btn {
+.proxLanzamientos-wishlist-btn, .notify-btn {
     flex: 1;
     padding: 0.6rem;
     border-radius: 6px;
@@ -238,13 +238,13 @@
     gap: 0.5rem;
 }
 
-.wishlist-btn {
+.proxLanzamientos-wishlist-btn {
     background: rgba(123, 104, 238, 0.1);
     border: 1px solid var(--color-principal);
     color: var(--color-principal);
 }
 
-.wishlist-btn:hover {
+.proxLanzamientos-wishlist-btn:hover {
     background: var(--color-principal);
     color: white;
 }
@@ -258,12 +258,6 @@
 .notify-btn:hover {
     background: var(--color-oferta);
     color: white;
-}
-
-.wishlist-btn svg, .notify-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
 }
 
 .section-footer {
@@ -323,7 +317,7 @@
         flex-direction: column;
     }
     
-    .wishlist-btn, .notify-btn {
+    .proxLanzamientos-wishlist-btn, .notify-btn {
         width: 100%;
     }
 }
