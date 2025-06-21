@@ -34,7 +34,6 @@
                         <input type="checkbox" id="remember">
                         <label for="remember">Recuérdame</label>
                     </div>
-                    <a href="<?php echo base_url('recuperar') ?>" class="forgot-link">¿Olvidaste la contraseña?</a>
                 </div>
 
                 <button type="submit" class="auth-btn">Iniciar Sesión</button>

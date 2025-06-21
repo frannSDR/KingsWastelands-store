@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     activar_juego();
     desactivar_juego();
     asociarModalDescuento();
+    logicaModalDetalleVenta();
 });
 
 function modalDescuento(gameId, actionUrl) {
@@ -107,7 +108,7 @@ function editarJuego() {
     document.querySelectorAll('.btn-edit-game').forEach(function(btn) {
         btn.addEventListener('click', function() {
             const gameId = this.getAttribute('data-id');
-            fetch('/perfil/obtener-juego/' + gameId)
+            fetch('/admin-section/obtener-juego/' + gameId)
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
@@ -165,7 +166,7 @@ function editarJuego() {
                         }
 
                         // cambiamos la funcion y el texto del boton 'publicar juego' que por defecto es subir un juego nuevo a la base de datos, por la funcion de actualizar un juego basado en su $id
-                        form.action = '/perfil/actualizar-juego/' + gameId;
+                        form.action = '/admin-section/actualizar-juego/' + gameId;
                         const submitBtn = form.querySelector('button[type="submit"]');
                         submitBtn.textContent = 'Actualizar juego';
 
@@ -177,7 +178,7 @@ function editarJuego() {
                         form.onsubmit = function() {
                             setTimeout(() => {
                                 // restauracion del boton
-                                form.action = '/perfil/guardar-juego';
+                                form.action = '/admin-section/guardar-juego';
                                 submitBtn.textContent = 'Publicar juego';
                                 form.reset();
                                 document.getElementById('game-form-container').style.display = 'none';
@@ -198,7 +199,7 @@ function desactivar_juego() {
         btn.addEventListener('click', function() {
             const gameId = this.getAttribute('data-id');
             if (confirm('¿Seguro que deseas desactivar este juego?')) {
-                fetch('/perfil/desactivar-juego/' + gameId, {
+                fetch('/admin-section/desactivar-juego/' + gameId, {
                     method: 'POST',
                     headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 })
@@ -217,7 +218,7 @@ function activar_juego() {
         btn.addEventListener('click', function() {
             const gameId = this.getAttribute('data-id');
             if (confirm('¿Seguro que deseas activar este juego?')) {
-                fetch('/perfil/activar-juego/' + gameId, {
+                fetch('/admin-section/activar-juego/' + gameId, {
                     method: 'POST',
                     headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 })
@@ -236,7 +237,7 @@ function banearUsuario() {
         btn.addEventListener('click', function(e) {
             const userId = this.getAttribute('data-id');
             if(confirm('¿Seguro que deseas banear a este usuario?')) {
-                fetch('/perfil/banear-usuario/' + userId, {
+                fetch('/admin-section/banear-usuario/' + userId, {
                     method: 'POST',
                     headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 })
@@ -255,7 +256,7 @@ function desbanearUsuario() {
         btn.addEventListener('click', function(e) {
             const userId = this.getAttribute('data-id');
             if(confirm('¿Seguro que deseas desbanear a este usuario?')) {
-                fetch('/perfil/desbanear-usuario/' + userId, {
+                fetch('/admin-section/desbanear-usuario/' + userId, {
                     method: 'POST',
                     headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 })
@@ -274,7 +275,7 @@ function eliminarCategoria() {
         btn.addEventListener('click', function() {
             const catId = this.getAttribute('data-id');
             if (confirm('¿Seguro que deseas borrar esta categoria?')) {
-                fetch('/perfil/eliminar-categoria/' + catId, {
+                fetch('/admin-section/eliminar-categoria/' + catId, {
                     method: 'POST',
                     headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 })
@@ -321,16 +322,23 @@ function logicaPaginacion() {
             fetchPaginatedContent(gamesPagBtn.href, 'games-list-container');
             return;
         }
-        // paginacion para las categorias (a pesar que por ahora tenemos una sola pagina)
+        // paginacion para las categorias
         const catPagBtn = e.target.closest('.cat-pagination-button a');
         if (catPagBtn) {
             e.preventDefault();
             fetchPaginatedContent(catPagBtn.href, 'categorias-list-container');
             return;
         }
+        // paginacion de ventas 
+        const ventasPagBtn = e.target.closest('.ventas-pagination-button a');
+        if (ventasPagBtn) {
+            e.preventDefault();
+            fetchPaginatedContent(ventasPagBtn.href, 'ventas-list-container');
+            return;
+        }
     });
 
-    // funcion para poder cargar el contenido paginado
+    // función para cargar el contenido paginado
     function fetchPaginatedContent(url, containerId) {
         fetch(url, {
             headers: {
@@ -344,7 +352,13 @@ function logicaPaginacion() {
             history.pushState({section: containerId}, '', url);
 
             // rebindeamos las funciones para poder trabajar con ajax
-            if (containerId === 'games-list-container' || containerId === 'usuarios-list-container' || containerId === 'categorias-list-container') {
+            const rebindeo = [
+                'games-list-container',
+                'usuarios-list-container',
+                'categorias-list-container',
+                'ventas-list-container'
+            ];
+            if (rebindeo.includes(containerId)) {
                 agregarJuegoDisplay();
                 editarJuego();
                 eliminarCategoria();
@@ -360,9 +374,98 @@ function logicaPaginacion() {
     // Manejar el popstate (navegación con el botón atrás/adelante)
     window.addEventListener('popstate', function(event) {
         if (event.state && event.state.section) {
-            // Aquí deberías recargar el contenido de la sección usando AJAX si es necesario
-            // Por simplicidad, recargamos la página
             window.location.reload();
         }
     });
+}
+
+function logicaModalDetalleVenta() {
+    // Abrir modal al hacer click en cualquier botón de detalles
+    document.body.addEventListener('click', function (e) {
+        const btn = e.target.closest('.view-btn[data-compra]');
+        if (btn) {
+            const compra = JSON.parse(btn.getAttribute('data-compra'));
+            mostrarDetalleVenta(compra);
+        }
+    });
+
+    // Cerrar modal al hacer click en el fondo o en el botón de cerrar
+    document.body.addEventListener('click', function (e) {
+        if (e.target.classList.contains('close-modal') || e.target.id === 'sale-detail-modal') {
+            document.getElementById('sale-detail-modal').style.display = 'none';
+        }
+    });
+
+    // Cerrar modal con ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.getElementById('sale-detail-modal').style.display = 'none';
+        }
+    });
+}
+
+function mostrarDetalleVenta(compra) {
+    const modal = document.getElementById('sale-detail-modal');
+    if (!modal) return;
+
+    // ID de venta
+    modal.querySelector('#sale-id').textContent = '#KW-' + compra.compra_id;
+
+    // Info cliente
+    modal.querySelector('#modal-nombre').textContent = compra.nombre_completo || '';
+    modal.querySelector('#modal-email').textContent = compra.user_email || compra.email || '';
+    modal.querySelector('#modal-telefono').textContent = compra.telefono || '';
+    modal.querySelector('#modal-userid').textContent = compra.user_id || '';
+
+    // Productos
+    const prodList = modal.querySelector('#modal-productos');
+    if (prodList) {
+        prodList.innerHTML = '';
+        (compra.productos || []).forEach(producto => {
+            prodList.innerHTML += `
+                <div class="product-detail-item">
+                    <div class="product-info">
+                        <span class="product-name">${producto.nombre || ''}</span>
+                        <span class="product-platform">${producto.platform || ''}</span>
+                        <span class="product-sku">${producto.sku ? 'SKU: ' + producto.sku : ''}</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="product-quantity">${producto.cantidad || 1} x</span>
+                        <span class="product-price">$${Number(producto.precio_unitario).toFixed(2)}</span>
+                        <span class="product-total">$${(Number(producto.precio_unitario) * (producto.cantidad || 1)).toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // Totales
+    const saleTotals = modal.querySelector('#modal-totales');
+    if (saleTotals) {
+        let subtotal = 0;
+        (compra.productos || []).forEach(p => {
+            subtotal += Number(p.precio_unitario) * (p.cantidad || 1);
+        });
+        saleTotals.innerHTML = `
+            <div class="total-row">
+                <span>Subtotal:</span>
+                <span>$${subtotal.toFixed(2)}</span>
+            </div>
+            <div class="total-row grand-total">
+                <span>Total:</span>
+                <span>$${Number(compra.total).toFixed(2)}</span>
+            </div>
+        `;
+    }
+
+    // Info de pago
+    modal.querySelector('#modal-metodo').textContent = compra.metodo_pago || '';
+    modal.querySelector('#modal-transaccion').textContent = compra.transaccion_id || '';
+    const estado = modal.querySelector('#modal-estado');
+    estado.textContent = compra.estado || '';
+    estado.className = 'detail-value status-badge ' + (compra.estado ? compra.estado.toLowerCase() : '');
+    modal.querySelector('#modal-fecha').textContent = compra.fecha ? (new Date(compra.fecha)).toLocaleString('es-AR') : '';
+
+    // Mostrar modal (usa flex si tu CSS lo requiere)
+    modal.style.display = 'flex';
 }

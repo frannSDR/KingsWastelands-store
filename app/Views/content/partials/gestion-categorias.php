@@ -11,15 +11,15 @@
     <?php foreach ((array)$errors as $msg): ?>
         <div class="alert alert-danger"><?= esc($msg) ?></div>
     <?php endforeach; ?>
-    <?php elseif (session('exito-msg')): ?>
-        <div class="alert alert-success">
-            <?= session('exito-msg') ?>
+<?php elseif (session('exito-msg')): ?>
+    <div class="alert alert-success">
+        <?= session('exito-msg') ?>
     </div>
 <?php endif; ?>
 
-<!-- Formulario para agregar una categoria (oculto inicialmente) -->
+<!-- formulario para agregar una categoria (oculto inicialmente) -->
 <div id="category-form-container" class="form-container" style="display: none;">
-    <form id="category-form" action="<?= base_url('/perfil/guardar-categoria') ?>" method="post">
+    <form id="category-form" action="<?= base_url('/admin-section/guardar-categoria') ?>" method="post">
         <div class="form-group">
             <label for="category-name">Nombre*</label>
             <input type="text" id="category-name" name="name_cat" required placeholder="Ej: RPG">
@@ -38,7 +38,7 @@
     </form>
 </div>
 
-<!-- Tabla de categorías -->
+<!-- tabla de las categorias -->
 <div class="admin-table-container">
     <table class="category-admin-table">
         <thead>

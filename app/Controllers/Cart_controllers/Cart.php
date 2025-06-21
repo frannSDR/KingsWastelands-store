@@ -8,6 +8,7 @@ use App\Models\CartItemModel;
 use App\Models\JuegosModel;
 use App\Models\ComprasModel;
 use App\Models\DetalleCompraModel;
+use App\Models\CategoriaModel;
 
 class Cart extends BaseController
 {
@@ -16,6 +17,7 @@ class Cart extends BaseController
     protected $juegosModel;
     protected $compraModel;
     protected $detalleModel;
+    protected $categoriaModel;
 
     public function __construct()
     {
@@ -24,6 +26,7 @@ class Cart extends BaseController
         $this->cartItemModel = new CartItemModel();
         $this->compraModel = new ComprasModel();
         $this->detalleModel = new DetalleCompraModel();
+        $this->categoriaModel = new CategoriaModel();
     }
 
     // Mostrar el carrito del usuario actual
@@ -122,7 +125,18 @@ class Cart extends BaseController
             $items[] = $detalle;
         }
 
+        // juegos destacados
+        $categoriaDestacado = $this->categoriaModel->where('slug', 'indie')->first();
+        $juegosDestacados = [];
+        if ($categoriaDestacado) {
+            $juegosDestacados = $this->juegosModel
+                ->join('juego_categorias', 'juegos.game_id = juego_categorias.game_id')
+                ->where('juego_categorias.category_id', $categoriaDestacado['category_id'])
+                ->findAll(8);
+        }
+
         $data = [
+            'juegosDestacados' => $juegosDestacados,
             'compra' => $compra,
             'items'  => $items
         ];

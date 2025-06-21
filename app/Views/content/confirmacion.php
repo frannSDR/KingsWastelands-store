@@ -1,4 +1,4 @@
-<!-- Header del proceso de confirmación -->
+<!-- header del proceso de confirmacion -->
 <header class="checkout-header">
     <div class="cart-container">
         <div class="checkout-steps">
@@ -18,7 +18,7 @@
     </div>
 </header>
 
-<!-- Contenedor principal de confirmación -->
+<!-- contendor principal de confirmacion -->
 <main class="confirmation-container">
     <div class="cart-container">
         <div class="confirmation-card">
@@ -33,7 +33,7 @@
             </div>
 
             <div class="confirmation-grid">
-                <!-- Resumen del pedido -->
+                <!-- resumen del pedido -->
                 <section class="order-details">
                     <h2><i class="bi bi-receipt"></i> Detalles del Pedido</h2>
 
@@ -87,19 +87,16 @@
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">Claves de producto:</span>
-                            <span class="detail-value">Disponibles en tu biblioteca</span>
+                            <span class="detail-value">Disponibles en correo electronico</span>
                         </div>
                     </div>
                 </section>
 
-                <!-- Acciones y soporte -->
+                <!-- acciones y soporte -->
                 <aside class="confirmation-actions">
                     <div class="action-card">
                         <h2><i class="bi bi-download"></i> Acceso Inmediato</h2>
                         <p>Tus juegos están disponibles para descargar ahora en tu biblioteca.</p>
-                        <button class="action-btn primary">
-                            <i class="bi bi-collection-play"></i> Ir a Mi Biblioteca
-                        </button>
                     </div>
 
                     <div class="action-card">
@@ -132,22 +129,18 @@
                     <div class="recommendations">
                         <h3>¿Qué tal si agregas estos juegos a tu colección?</h3>
                         <div class="recommended-games">
-                            <div class="game">
-                                <img src="https://via.placeholder.com/100/333333/7B68EE?text=Game+Cover" alt="Juego recomendado">
-                                <span>Starfield</span>
-                            </div>
-                            <div class="game">
-                                <img src="https://via.placeholder.com/100/333333/7B68EE?text=Game+Cover" alt="Juego recomendado">
-                                <span>Spider-Man 2</span>
-                            </div>
-                            <div class="game">
-                                <img src="https://via.placeholder.com/100/333333/7B68EE?text=Game+Cover" alt="Juego recomendado">
-                                <span>Final Fantasy XVI</span>
-                            </div>
+                            <?php foreach (array_slice($juegosDestacados, 0, 3) as $juego): ?>
+                                <div class="game">
+                                    <img src="<?= $juego['cover_image_url'] ?>" alt="Juego recomendado">
+                                    <span><?= $juego['title'] ?></span>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                        <button class="action-btn outline">
-                            <i class="bi bi-arrow-left"></i> Volver a la Tienda
-                        </button>
+                        <a href="<?php echo base_url('/') ?>" style="text-decoration: none; color: white;">
+                            <button class="action-btn outline">
+                                <i class="bi bi-arrow-left"></i> Volver a la Tienda
+                            </button>
+                        </a>
                     </div>
                 </aside>
             </div>

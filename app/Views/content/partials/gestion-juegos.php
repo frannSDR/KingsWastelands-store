@@ -2,10 +2,6 @@
 <div class="section-header">
     <h2><i class="bi bi-controller"></i> Gestión de Juegos</h2>
     <div class="header-actions">
-        <div class="search-box">
-            <i class="bi bi-search"></i>
-            <input type="text" id="user-search" placeholder="Buscar juegos...">
-        </div>
         <button class="btn btn-primary" id="addGameBtn">
             <i class="bi bi-plus"></i> Agregar juego
         </button>
@@ -17,7 +13,7 @@
     <?php
     $start = max(1, $currentGamesPage - 2);
     $end = min($totalGamesPages, $currentGamesPage + 2);
-    $baseUrl = base_url('/perfil/admin-juegos');
+    $baseUrl = base_url('/admin-section/admin-juegos');
     ?>
     <?php if ($start > 1): ?>
         <button class="games-pagination-button <?= 1 == $currentGamesPage ? 'active' : '' ?>">
@@ -119,7 +115,7 @@
     </table>
 </div>
 
-<!-- Modal de descuento -->
+<!-- modal de descuento -->
 <div id="specialModal" class="modal-overlay" style="display:none;">
     <div class="modal-content">
         <h2>Aplicar descuento</h2>
@@ -134,7 +130,7 @@
     </div>
 </div>
 
-<!-- Formulario para agregar juegos (oculto inicialmente) -->
+<!-- formulario para agregar juegos (oculto inicialmente) -->
 <div id="game-form-container" style="display: none;">
     <section class="upload-game-section" style="margin-top: 70px;">
         <div class="container">
@@ -148,7 +144,7 @@
                     </ul>
                 </div>
             <?php endif; ?>
-            <form id="upload-game-form" class="game-form" action="<?= base_url('/perfil/guardar-juego') ?>" method="post">
+            <form id="upload-game-form" class="game-form" action="<?= base_url('/admin-section/guardar-juego') ?>" method="post">
                 <!-- Sección 1: Info Básica -->
                 <fieldset class="form-section">
                     <legend><i class="bi bi-info-circle"></i> Información Principal</legend>
@@ -210,7 +206,6 @@
                     </div>
                 </fieldset>
 
-                <!-- Sección 2: Media URLs -->
                 <fieldset class="form-section">
                     <legend><i class="bi bi-image"></i> Multimedia</legend>
 
@@ -252,7 +247,6 @@
                     </div>
                 </fieldset>
 
-                <!-- Sección 3: Requisitos -->
                 <fieldset class="form-section">
                     <legend><i class="bi bi-pc-display"></i> Requisitos del Sistema</legend>
 
@@ -341,7 +335,7 @@
     <?php
     $start = max(1, $currentGamesPage - 2);
     $end = min($totalGamesPages, $currentGamesPage + 2);
-    $baseUrl = base_url('/perfil/admin-juegos');
+    $baseUrl = base_url('/admin-section/admin-juegos');
     ?>
     <?php if ($start > 1): ?>
         <button class="games-pagination-button <?= 1 == $currentGamesPage ? 'active' : '' ?>">

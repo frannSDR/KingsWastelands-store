@@ -11,63 +11,58 @@
 
     <div class="destacados-carousel">
         <?php foreach ($juegosDestacados as $juego): ?>
-            <?php if (strtotime($juego['release_date']) < time()): ?>
-                <div class="destacado-card featured">
-                    <div class="destacado-badge">EDITOR'S CHOICE</div>
-                    <div class="destacado-media">
-                        <img src="<?= $juego['banner_image_url'] ?>" alt="Banner de <?= $juego['title'] ?>" class="destacado-image">
-                        <button class="play-trailer-btn">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                            Ver tráiler
-                        </button>
-                    </div>
-                    <div class="destacado-content">
-                        <div class="destacado-meta">
-                            <span class="destacado-rating"><?= $juego['rating'] ?></span>
-                            <span class="destacado-category">Souls-like RPG</span>
+            <?php if ($juego['is_active'] != 0): ?>
+                <?php if (strtotime($juego['release_date']) < time()): ?>
+                    <div class="destacado-card featured">
+                        <div class="destacado-badge">SELECCION DEL EDITOR</div>
+                        <div class="destacado-media">
+                            <img src="<?= $juego['banner_image_url'] ?>" alt="Banner de <?= $juego['title'] ?>" class="destacado-image">
                         </div>
-                        <h3 class="destacado-title"><?= esc($juego['title']) ?></h3>
-                        <p class="destacado-description"><?= esc($juego['about']) ?></p>
-                        <div class="destacado-footer">
-                            <div class="destacado-platforms">
-                                <span class="platform-badge pc">PC</span>
+                        <div class="destacado-content">
+                            <div class="destacado-meta">
+                                <span class="destacado-rating"><?= $juego['rating'] ?></span>
                             </div>
-                            <button class="destacado-cta">
-                                <a style="text-decoration: none; color: white;" href="<?= base_url('juego/' . $juego['game_id']) ?>">Disponible</a>
+                            <h3 class="destacado-title"><?= esc($juego['title']) ?></h3>
+                            <p class="destacado-description"><?= esc($juego['about']) ?></p>
+                            <div class="destacado-footer">
+                                <div class="destacado-platforms">
+                                    <span class="platform-badge pc">PC</span>
+                                </div>
+                                <button class="destacado-cta">
+                                    <a style="text-decoration: none; color: white;" href="<?= base_url('juego/' . $juego['game_id']) ?>">Disponible</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="destacado-card">
+                        <div class="destacado-media">
+                            <img src="<?= $juego['banner_image_url'] ?>" alt="Banner de <?= $juego['title'] ?>" class="destacado-image">
+                            <button class="play-trailer-btn">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                Ver tráiler
                             </button>
                         </div>
-                    </div>
-                </div>
-            <?php else: ?>
-                <div class="destacado-card">
-                    <div class="destacado-media">
-                        <img src="<?= $juego['banner_image_url'] ?>" alt="Banner de <?= $juego['title'] ?>" class="destacado-image">
-                        <button class="play-trailer-btn">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                            Ver tráiler
-                        </button>
-                    </div>
-                    <div class="destacado-content">
-                        <div class="destacado-meta">
-                            <span class="destacado-category">JRPG</span>
-                        </div>
-                        <h3 class="destacado-title"><?= esc($juego['title']) ?></h3>
-                        <p class="destacado-description"><?= esc($juego['about']) ?></p>
-                        <div class="destacado-footer">
-                            <div class="destacado-platforms">
-                                <span class="platform-badge pc">PC</span>
+                        <div class="destacado-content">
+                            <div class="destacado-meta">
+                                <span class="destacado-category">JRPG</span>
                             </div>
-                            <button class="destacado-cta preorder">
-                                <i class="bi bi-arrow-clockwise"></i>
-                                <a style="text-decoration: none; color: white;" href="<?= base_url('juego/' . $juego['game_id']) ?>">Preordenar</a>
-                            </button>
+                            <h3 class="destacado-title"><?= esc($juego['title']) ?></h3>
+                            <p class="destacado-description"><?= esc($juego['about']) ?></p>
+                            <div class="destacado-footer">
+                                <div class="destacado-platforms">
+                                    <span class="platform-badge pc">PC</span>
+                                </div>
+                                <button class="destacado-cta preorder">
+                                    <i class="bi bi-arrow-clockwise"></i>
+                                    <a style="text-decoration: none; color: white;" href="<?= base_url('juego/' . $juego['game_id']) ?>">Preordenar</a>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
             <?php endif; ?>
         <?php endforeach; ?>
     </div>

@@ -9,38 +9,40 @@
 
     <div class="ofertas-grid">
 
-        <!-- Ejemplo de juego en oferta -->
+        <!-- ejemplo de juego en oferta -->
         <?php foreach ($juegosEnOferta as $juego): ?>
-            <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
-            <div class="oferta-card">
-                <div class="oferta-badge"><?= round(100 - ($juego['special_price'] / $juego['price']) * 100) ?>%</div>
-                <div class="oferta-ribbon">MEJOR OFERTA</div>
-                <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= $juego['title'] ?>" class="oferta-image">
+            <?php if ($juego['is_active'] != 0): ?>
+                <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
+                <div class="oferta-card">
+                    <div class="oferta-badge"><?= round(100 - ($juego['special_price'] / $juego['price']) * 100) ?>%</div>
+                    <div class="oferta-ribbon">MEJOR OFERTA</div>
+                    <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= $juego['title'] ?>" class="oferta-image">
 
-                <div class="oferta-content">
-                    <a href="<?= base_url('juego/' . $juego['game_id']) ?>" style="text-decoration: none; color: white;">
-                        <h3 class="oferta-title"><?= esc($juego['title']) ?></h3>
-                    </a>
-                    <div class="oferta-prices">
-                        <span class="original-price">$<?= $juego['price'] ?></span>
-                        <span class="home-current-price">$<?= $juego['special_price'] ?></span>
+                    <div class="oferta-content">
+                        <a href="<?= base_url('juego/' . $juego['game_id']) ?>" style="text-decoration: none; color: white;">
+                            <h3 class="oferta-title"><?= esc($juego['title']) ?></h3>
+                        </a>
+                        <div class="oferta-prices">
+                            <span class="original-price">$<?= $juego['price'] ?></span>
+                            <span class="home-current-price">$<?= $juego['special_price'] ?></span>
+                        </div>
+                        <div class="oferta-meta">
+                            <span class="oferta-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <?= $juego['rating'] ?>
+                            </span>
+                            <span class="oferta-tag">RPG</span>
+                        </div>
+                        <button class="oferta-button add-to-cart-btn" data-game-id="<?= $juego['game_id'] ?>">
+                            <?php if ($enCarrito): ?>
+                                <i class="bi bi-cart-check-fill"></i><span class="cart-btn-text">En el carrito</span>
+                            <?php else: ?>
+                                <i class="bi bi-cart-plus"></i><span class="cart-btn-text">Añadir al carrito</span>
+                            <?php endif; ?>
+                        </button>
                     </div>
-                    <div class="oferta-meta">
-                        <span class="oferta-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <?= $juego['rating'] ?>
-                        </span>
-                        <span class="oferta-tag">RPG</span>
-                    </div>
-                    <button class="oferta-button add-to-cart-btn" data-game-id="<?= $juego['game_id'] ?>">
-                        <?php if ($enCarrito): ?>
-                            <i class="bi bi-cart-check-fill"></i><span class="cart-btn-text">En el carrito</span>
-                        <?php else: ?>
-                            <i class="bi bi-cart-plus"></i><span class="cart-btn-text">Añadir al carrito</span>
-                        <?php endif; ?>
-                    </button>
                 </div>
-            </div>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 

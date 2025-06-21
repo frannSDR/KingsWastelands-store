@@ -28,14 +28,14 @@
     </div>
 <?php endif; ?>
 
-<!-- Contenedor principal de pago -->
+<!-- contenedor principal de pago -->
 <form action="<?= base_url('cart/completarCompra') ?>" method="post" id="payment-form">
     <main class="payment-container">
         <div class="cart-container">
             <h1 class="pago-titulo">Método de Pago</h1>
 
             <div class="payment-grid">
-                <!-- Formulario de pago -->
+                <!-- formulario de pago -->
                 <section class="payment-form">
                     <div class="form-section">
                         <h2><i class="bi bi-credit-card"></i> Información de Pago</h2>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
 
-                        <!-- Formulario de tarjeta de crédito (visible por defecto) -->
+                        <!-- formulario de tarjeta de crédito -->
                         <div class="payment-method-content active" id="credit-method">
                             <div class="form-group">
                                 <label for="card-number">Número de Tarjeta</label>
@@ -165,7 +165,7 @@
                         </div>
                 </section>
 
-                <!-- Resumen del pedido -->
+                <!-- resumen del pedido -->
                 <aside class="order-summary">
                     <div class="summary-card">
                         <h2>Resumen del Pedido</h2>

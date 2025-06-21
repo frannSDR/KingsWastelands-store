@@ -10,6 +10,8 @@ use App\Models\GaleriaModel;
 use App\Models\RequisitosModel;
 use App\Models\ReviewModel;
 use App\Models\UsuarioModel;
+use App\Models\ComprasModel;
+use App\Models\DetalleCompraModel;
 
 class Admin extends BaseController
 {
@@ -20,6 +22,8 @@ class Admin extends BaseController
     protected $requisitosModel;
     protected $reviewModel;
     protected $usuariosModel;
+    protected $comprasModel;
+    protected $detalleModel;
 
     public function __construct()
     {
@@ -30,6 +34,8 @@ class Admin extends BaseController
         $this->requisitosModel = new RequisitosModel();
         $this->reviewModel = new ReviewModel();
         $this->usuariosModel = new UsuarioModel();
+        $this->comprasModel = new ComprasModel();
+        $this->detalleModel = new DetalleCompraModel();
     }
 
     public function admin()
@@ -95,7 +101,7 @@ class Admin extends BaseController
         //! CATEGORIAS
 
         $catPage = $this->request->getVar('cat_page') ?? 1; // Obtener la página actual, por defecto es 1
-        $catPerPage = 10; // Número de categorías por página
+        $catPerPage = 20; // Número de categorías por página
         $catFilter = $this->request->getVar('cat_filter') ?? 'category_id';
         $catDirection = $this->request->getVar('cat_direction') ?? 'asc';
         $catDirection = strtoupper($catDirection) === 'DESC' ? 'DESC' : 'ASC';
@@ -115,6 +121,50 @@ class Admin extends BaseController
 
         $catTotal = $this->categoriaModel->countAll();
         $catTotalPages = ceil($catTotal / $catPerPage);
+
+        $ventasPage = $this->request->getVar('ventas_page') ?? 1;
+        $ventasPerPage = 10;
+
+        $compras = $this->comprasModel
+            ->orderBy('compra_id', 'DESC')
+            ->paginate($ventasPerPage, 'ventas', $ventasPage);
+
+        $ventasTotal = $this->comprasModel->countAll();
+        $ventasTotalPages = ceil($ventasTotal / $ventasPerPage);
+
+        $comprasData = [];
+        foreach ($compras as $compra) {
+            $usuario = $this->usuariosModel->find($compra['user_id']);
+            $detalles = $this->detalleModel->where('compra_id', $compra['compra_id'])->findAll();
+            $productos = [];
+            foreach ($detalles as $detalle) {
+                $juego = $this->juegosModel->find($detalle['game_id']);
+                if ($juego) {
+                    $productos[] = [
+                        'nombre' => $juego['title'],
+                        'precio_unitario' => $detalle['precio_unitario'],
+                        'imagen' => $juego['cover_image_url'] ?? '',
+                        'platform' => $juego['platform'] ?? '',
+                        'sku' => $juego['sku'] ?? '',
+                        'cantidad' => 1
+                    ];
+                }
+            }
+            $comprasData[] = [
+                'compra_id' => $compra['compra_id'],
+                'fecha' => $compra['fecha'],
+                'nombre_completo' => $compra['nombre_completo'],
+                'email' => $compra['email'],
+                'telefono' => $compra['telefono'],
+                'user_id' => $compra['user_id'],
+                'user_nickname' => $usuario['nickname'] ?? '',
+                'user_email' => $usuario['email'] ?? '',
+                'total' => $compra['total'],
+                'metodo_pago' => $compra['metodo_pago'] ?? '',
+                'productos' => $productos,
+                'estado' => 'Completada',
+            ];
+        }
 
         // preparamos los datos para la vista en la pagina
         $data = [
@@ -138,11 +188,15 @@ class Admin extends BaseController
             'totalCatPages' => $catTotalPages,
             'catPager' => $this->categoriaModel->pager,
             'currentCatFilter' => $catFilter,
-            'currentCatDirection' => strtolower($catDirection)
+            'currentCatDirection' => strtolower($catDirection),
+            // Ventas
+            'compras' => $comprasData,
+            'currentVentasPage' => $ventasPage,
+            'totalVentasPages' => $ventasTotalPages,
         ];
 
         return view('../Views/plantillas/header_view')
-            . view('../Views/content/perfil', $data)
+            . view('../Views/content/admin-section', $data)
             . view('../Views/plantillas/footer_view');
     }
 
@@ -187,7 +241,7 @@ class Admin extends BaseController
         $userModel->update($userId, ['user_img' => $newName]);
         session()->set('user_img', $newName);
 
-        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Foto de perfil actualizada');
+        return redirect()->to(base_url('/admin-section'))->with('exito-msg', 'Foto de perfil actualizada');
     }
 
     public function admin_usuarios()
@@ -230,20 +284,20 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             return view('content/partials/gestion-usuarios', $dataUsers);
         } else {
-            return redirect()->to(base_url('/perfil'));
+            return redirect()->to(base_url('/admin-section'));
         }
     }
 
     public function banear_usuario($id = null)
     {
         $this->usuariosModel->update($id, ['is_active' => 0]);
-        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('exito-msg', 'Usuario baneado correctamente');
+        return redirect()->to(base_url('/admin-section/admin-usuarios'))->with('exito-msg', 'Usuario baneado correctamente');
     }
 
     public function desbanear_usuario($id = null)
     {
         $this->usuariosModel->update($id, ['is_active' => 1]);
-        return redirect()->to(base_url('/perfil/admin-usuarios'))->with('exito-msg', 'Usuario desbaneado correctamente');
+        return redirect()->to(base_url('/admin-section/admin-usuarios'))->with('exito-msg', 'Usuario desbaneado correctamente');
     }
 
     public function admin_juegos()
@@ -297,7 +351,7 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             return view('content/partials/gestion-juegos', $dataGames);
         } else {
-            return redirect()->to(base_url('/perfil'));
+            return redirect()->to(base_url('/admin-section'));
         }
     }
 
@@ -414,7 +468,7 @@ class Admin extends BaseController
             'tipo' => 'ultra'
         ]);
 
-        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Juego subido correctamente');
+        return redirect()->to(base_url('/admin-section'))->with('exito-msg', 'Juego subido correctamente');
     }
 
     public function obtener_juego($id = null)
@@ -591,25 +645,25 @@ class Admin extends BaseController
             'tipo' => 'ultra'
         ]);
 
-        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Juego actualizado correctamente');
+        return redirect()->to(base_url('/admin-section'))->with('exito-msg', 'Juego actualizado correctamente');
     }
 
     public function desactivar_juego($id = null)
     {
         $this->juegosModel->update($id, ['is_active' => 0]);
-        return redirect()->to(base_url('/perfil/admin-juegos'))->with('exito-msg', 'Juego desactivado correctamente');
+        return redirect()->to(base_url('/admin-section'))->with('exito-msg', 'Juego desactivado correctamente');
     }
 
     public function activar_juego($id = null)
     {
         $this->juegosModel->update($id, ['is_active' => 1]);
-        return redirect()->to(base_url('/perfil/admin-juegos'))->with('exito-msg', 'Juego activado correctamente');
+        return redirect()->to(base_url('/admin-section'))->with('exito-msg', 'Juego activado correctamente');
     }
 
     public function admin_categorias()
     {
         $catPage = $this->request->getVar('cat_page') ?? 1; // Obtener la página actual, por defecto es 1
-        $catPerPage = 10; // Número de categorías por página
+        $catPerPage = 20; // Número de categorías por página
 
         $catFilter = $this->request->getVar('cat_filter') ?? 'category_id';
         $catDirection = $this->request->getVar('cat_direction') ?? 'asc';
@@ -646,14 +700,14 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             return view('content/partials/gestion-categorias', $dataCat);
         } else {
-            return redirect()->to(base_url('/perfil'));
+            return redirect()->to(base_url('/admin-section'));
         }
     }
 
     public function eliminar_categoria($id = null)
     {
         $this->categoriaModel->delete($id);
-        return redirect()->to(base_url('/perfil/admin-categorias'))->with('exito-msg', 'Categoría borrada correctamente');
+        return redirect()->to(base_url('/admin-section/admin-categorias'))->with('exito-msg', 'Categoría borrada correctamente');
     }
 
     public function agregar_categoria()
@@ -683,7 +737,75 @@ class Admin extends BaseController
 
         $this->categoriaModel->insert($catData);
 
-        return redirect()->to(base_url('/perfil'))->with('exito-msg', 'Categoria añadida correctamente');
+        return redirect()->to(base_url('/admin-section'))->with('exito-msg', 'Categoria añadida correctamente');
+    }
+
+    public function admin_ventas()
+    {
+        $session = session();
+        if (!$session->has('user_id') || $session->get('is_admin') != 1) {
+            return redirect()->to(base_url('/'))->with('error-msg', 'Acceso no autorizado');
+        }
+
+        $ventasPage = $this->request->getVar('ventas_page') ?? 1;
+        $ventasPerPage = 10;
+
+        // Paginación de compras
+        $compras = $this->comprasModel
+            ->orderBy('compra_id', 'DESC')
+            ->paginate($ventasPerPage, 'ventas', $ventasPage);
+
+        $ventasTotal = $this->comprasModel->countAll();
+        $ventasTotalPages = ceil($ventasTotal / $ventasPerPage);
+
+        $comprasData = [];
+        foreach ($compras as $compra) {
+            $usuario = $this->usuariosModel->find($compra['user_id']);
+            $detalles = $this->detalleModel->where('compra_id', $compra['compra_id'])->findAll();
+            $productos = [];
+            foreach ($detalles as $detalle) {
+                $juego = $this->juegosModel->find($detalle['game_id']);
+                if ($juego) {
+                    $productos[] = [
+                        'nombre' => $juego['title'],
+                        'precio_unitario' => $detalle['precio_unitario'],
+                        'imagen' => $juego['cover_image_url'] ?? '',
+                        'platform' => $juego['platform'] ?? '',
+                        'sku' => $juego['sku'] ?? '',
+                        'cantidad' => 1
+                    ];
+                }
+            }
+
+            $comprasData[] = [
+                'compra_id' => $compra['compra_id'],
+                'fecha' => $compra['fecha'],
+                'nombre_completo' => $compra['nombre_completo'],
+                'email' => $compra['email'],
+                'telefono' => $compra['telefono'],
+                'user_id' => $compra['user_id'],
+                'user_nickname' => $usuario['nickname'] ?? '',
+                'user_email' => $usuario['email'] ?? '',
+                'total' => $compra['total'],
+                'metodo_pago' => $compra['metodo_pago'] ?? '',
+                'productos' => $productos,
+                'estado' => 'Completada',
+            ];
+        }
+
+        $data = [
+            'compras' => $comprasData,
+            'currentVentasPage' => $ventasPage,
+            'totalVentasPages' => $ventasTotalPages,
+        ];
+
+        // Si es AJAX, solo la tabla
+        if ($this->request->isAJAX()) {
+            return view('content/partials/gestion-ordenes', $data);
+        } else {
+            // Si no es AJAX, redirige o muestra la vista completa
+            return redirect()->to(base_url('/admin-section'));
+        }
     }
 
     public function aplicar_descuento_juego($game_id = null)

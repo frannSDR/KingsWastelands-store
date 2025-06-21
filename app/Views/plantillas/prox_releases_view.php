@@ -15,44 +15,46 @@
 
     <div class="release-cards-container">
         <?php foreach ($proxLanzamientos as $juego): ?>
-            <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
-            <div class="release-card">
-                <div class="release-image-container">
-                    <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= $juego['title'] ?>" class="release-image">
-                    <div class="release-date-badge">
-                        <?php
-                        $dia = date('d', strtotime($juego['release_date']));
-                        $mes = strtoupper(date('M', strtotime($juego['release_date'])));
-                        ?>
-                        <span class="release-day"><?= $dia ?></span>
-                        <span class="release-month"><?= $mes ?></span>
+            <?php if ($juego['is_active'] != 0): ?>
+                <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
+                <div class="release-card">
+                    <div class="release-image-container">
+                        <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= $juego['title'] ?>" class="release-image">
+                        <div class="release-date-badge">
+                            <?php
+                            $dia = date('d', strtotime($juego['release_date']));
+                            $mes = strtoupper(date('M', strtotime($juego['release_date'])));
+                            ?>
+                            <span class="release-day"><?= $dia ?></span>
+                            <span class="release-month"><?= $mes ?></span>
+                        </div>
+                    </div>
+                    <div class="release-info">
+                        <a href="<?= base_url('juego/' . $juego['game_id']) ?>" style="text-decoration: none; color: white;">
+                            <h3 class="release-title"><?= esc($juego['title']) ?></h3>
+                        </a>
+                        <div class="release-meta">
+                            <span class="release-developer"><?= esc($juego['developer']) ?></span>
+                        </div>
+                        <div class="release-actions">
+                            <button class="proxLanzamientos-wishlist-btn" data-game-id="<?= $juego['game_id'] ?>">
+                                <?php if (in_array($juego['game_id'], $deseados_ids)): ?>
+                                    <i class="bi bi-heart-fill"></i>Deseados
+                                <?php else: ?>
+                                    <i class="bi bi-heart"></i>Deseados
+                                <?php endif; ?>
+                            </button>
+                            <button class="notify-btn" data-game-id="<?= $juego['game_id'] ?>">
+                                <?php if ($enCarrito): ?>
+                                    <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
+                                <?php else: ?>
+                                    <i class="bi bi-cart"></i><span class="cart-btn-text">Reservar</span>
+                                <?php endif; ?>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="release-info">
-                    <a href="<?= base_url('juego/' . $juego['game_id']) ?>" style="text-decoration: none; color: white;">
-                        <h3 class="release-title"><?= esc($juego['title']) ?></h3>
-                    </a>
-                    <div class="release-meta">
-                        <span class="release-developer"><?= esc($juego['developer']) ?></span>
-                    </div>
-                    <div class="release-actions">
-                        <button class="proxLanzamientos-wishlist-btn" data-game-id="<?= $juego['game_id'] ?>">
-                            <?php if (in_array($juego['game_id'], $deseados_ids)): ?>
-                                <i class="bi bi-heart-fill"></i>Deseados
-                            <?php else: ?>
-                                <i class="bi bi-heart"></i>Deseados
-                            <?php endif; ?>
-                        </button>
-                        <button class="notify-btn" data-game-id="<?= $juego['game_id'] ?>">
-                            <?php if ($enCarrito): ?>
-                                <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
-                            <?php else: ?>
-                                <i class="bi bi-cart"></i><span class="cart-btn-text">Reservar</span>
-                            <?php endif; ?>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         <?php endforeach; ?>
 
     </div>

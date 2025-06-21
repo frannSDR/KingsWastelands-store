@@ -16,13 +16,9 @@
         <div class="game-header">
             <div class="game-cover">
                 <img src="<?= $juego['cover_image_url'] ?>" alt="Portada de <?= esc($juego['title']) ?>" class="cover-image">
-                <div class="platform-tags">
-                    <span class="platform-tag">Steam</span>
-                    <span class="platform-tag">GOG</span>
-                </div>
             </div>
             <div class="game-details">
-                <div class="game-meta">
+                <div class="game-section-meta">
                     <span class="meta-item"><i class="bi bi-calendar"></i> <?= date('d M Y', strtotime($juego['release_date'])) ?></span>
                     <span class="meta-item"><i class="bi bi-people"></i> <?= esc($juego['developer']) ?></span>
                     <span class="meta-item"><i class="bi bi-tags"></i>
@@ -41,8 +37,6 @@
                 <div class="pricing-section">
                     <div class="price-container">
                         <span class="current-price">$<?= number_format($juego['price'], 2) ?></span>
-
-                        <!-- si el juego tiene descuento se aplica (deshabilitada por ahora) -->
                         <?php if (isset($juego['discount']) && $juego['discount'] > 0): ?>
                             <span class="discount-badge">-<?= $juego['discount'] ?>%</span>
                             <span class="current-price">$<?= number_format($juego['price'] * (1 - $juego['discount'] / 100), 2) ?></span>

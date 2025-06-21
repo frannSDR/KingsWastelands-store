@@ -19,7 +19,6 @@
   <link href="<?= base_url('assets/css/components/reglas-terminos.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/contacto.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/admin.css') ?>" rel="stylesheet" />
-  <link href="<?= base_url('assets/css/components/wishlist.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/user_perfil.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/mensajes.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('assets/css/components/ofertas.css') ?>" rel="stylesheet" />
@@ -49,7 +48,7 @@
           <li><a href="<?php echo base_url('register') ?>">Registrarse</a></li>
         <?php else: ?>
           <?php if (session()->get('is_admin') == 1): ?>
-            <li><a href="<?php echo base_url('perfil') ?>">Admin</a></li>
+            <li><a href="<?php echo base_url('admin-section') ?>">Admin</a></li>
           <?php endif; ?>
           <li><span style="color: #ccc; font-weight: 500; font-size: 14px;">Hola, <?= esc(session()->get('nickname')) ?></span></li>
           <li>
@@ -70,7 +69,6 @@
       <div class="home-header-action">
         <a href="<?php echo base_url('carrito') ?>" class="cart-icon desktop-only"><i class="bi bi-cart"></i></a>
         <a href="<?php echo base_url('user-profile') ?>" class="login-icon desktop-only"><i class="bi bi-person-circle"></i></a>
-        <!-- <span class="cart-item-count desktop-only"></span> -->
       </div>
 
       <!-- menu hamburguesa responsive -->

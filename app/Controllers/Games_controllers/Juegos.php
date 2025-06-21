@@ -184,7 +184,7 @@ class Juegos extends BaseController
         };
 
         $builder = $this->juegosModel
-            ->select('juegos.game_id, juegos.title, juegos.price, juegos.card_image_url, juegos.youtube_trailer_id, juegos.about, juegos.rating, juegos.release_date, juegos.developer');
+            ->select('juegos.game_id, juegos.is_active, juegos.title, juegos.price, juegos.card_image_url, juegos.youtube_trailer_id, juegos.about, juegos.rating, juegos.release_date, juegos.developer');
 
         if ($slug !== 'todos') {
             $categoria = $this->categoriaModel->where('slug', $slug)->first();
@@ -551,7 +551,6 @@ class Juegos extends BaseController
 
     public function ofertas()
     {
-
         $gamesPage = $this->request->getVar('page') ?? 1;
         $gamesPerPage = 10;
         $gameFilter = $this->request->getVar('game_filter') ?? 'title';
@@ -568,7 +567,7 @@ class Juegos extends BaseController
 
         // traemos todos los juegos en oferta
         $juegosEnOferta = $this->juegosModel
-            ->select('game_id, title, price, special_price, release_date, card_image_url, is_active, rating, about')
+            ->select('game_id, is_active, title, price, special_price, release_date, card_image_url, is_active, rating, about')
             ->where('special_price_active', 1)
             ->orderBy($gamesOrderBy, $gameDirection)
             ->paginate($gamesPerPage, 'games', $gamesPage);
@@ -634,7 +633,7 @@ class Juegos extends BaseController
 
         // traemos todos los juegos en oferta
         $proxLanzamientos = $this->juegosModel
-            ->select('game_id, title, price, developer, special_price, release_date, card_image_url, is_active, rating, about')
+            ->select('game_id, is_active, title, price, developer, special_price, release_date, card_image_url, is_active, rating, about')
             ->where('release_date >', date('Y-m-d'))
             ->orderBy($gamesOrderBy, $gameDirection)
             ->paginate($gamesPerPage, 'games', $gamesPage);

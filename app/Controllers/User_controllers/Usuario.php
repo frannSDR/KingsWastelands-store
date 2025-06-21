@@ -207,4 +207,45 @@ class Usuario extends Controller
                 . view('../Views/plantillas/footer_view');
         }
     }
+
+    public function procesar_nueva_contrasena()
+    {
+        $validation = \Config\Services::validation();
+
+        $validation->setRules([
+            'nueva_contraseña' => [
+                'label' => 'Nueva contraseña',
+                'rules' => 'required|min_length[8]|regex_match[/(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/]',
+                'errors' => [
+                    'required' => 'La nueva contraseña es obligatoria',
+                    'min_length' => 'La contraseña debe tener al menos 8 caracteres',
+                    'regex_match' => 'Debe tener una mayúscula, un número y un carácter especial'
+                ]
+            ],
+            'confirmar_contraseña' => [
+                'label' => 'Confirmar contraseña',
+                'rules' => 'required|matches[nueva_contraseña]',
+                'errors' => [
+                    'required' => 'Debe confirmar la contraseña',
+                    'matches' => 'Las contraseñas no coinciden'
+                ]
+            ]
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('error-msg', $validation->getErrors());
+        }
+
+        $userId = session('user_id');
+        if (!$userId) {
+            return redirect()->to(base_url('login'))->with('error-msg', 'No autorizado');
+        }
+
+        $nuevaPass = $this->request->getPost('nueva_contraseña');
+        $this->usuarioModel->update($userId, [
+            'password_hash' => password_hash($nuevaPass, PASSWORD_DEFAULT)
+        ]);
+
+        return redirect()->to(base_url('user-profile'))->with('exito-msg', '¡Contraseña actualizada correctamente!');
+    }
 }

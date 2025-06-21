@@ -53,7 +53,7 @@
     </div>
 <?php endforeach; ?>
 
-<!-- paginacion de re mierda -->
+<!-- paginacion -->
 <?php if ($pager && $pager->hasMore()): ?>
     <div class="paginacion-resenas">
         <?= $pager->links('reviews', 'default_full') ?>

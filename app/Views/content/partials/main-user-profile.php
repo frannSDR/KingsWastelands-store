@@ -28,7 +28,7 @@
 
     <div class="security-section">
         <h3><i class="bi bi-shield-lock"></i> Seguridad</h3>
-        <a href="<?= base_url('perfil/cambiar-password') ?>" class="security-link">
+        <a href="<?= base_url('nueva-pass') ?>" class="security-link">
             <i class="bi bi-key"></i> Cambiar contraseña
         </a>
     </div>

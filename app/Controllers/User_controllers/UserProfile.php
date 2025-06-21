@@ -22,6 +22,8 @@ class UserProfile extends BaseController
     protected $wishlistItemModel;
     protected $cartModel;
     protected $cartItemModel;
+    protected $comprasModel;
+    protected $detalleModel;
 
     public function __construct()
     {
@@ -33,6 +35,8 @@ class UserProfile extends BaseController
         $this->wishlistItemModel = new WishlistItemModel();
         $this->cartModel = new CartModel();
         $this->cartItemModel = new CartItemModel();
+        $this->comprasModel = new \App\Models\ComprasModel();
+        $this->detalleModel = new \App\Models\DetalleCompraModel();
     }
 
     public function perfil()
@@ -59,10 +63,43 @@ class UserProfile extends BaseController
             }
         }
 
+        $compras = $this->comprasModel->where('user_id', $userId)->orderBy('fecha', 'DESC')->findAll();
+
+        $comprasData = [];
+        foreach ($compras as $compra) {
+            $detalles = $this->detalleModel->where('compra_id', $compra['compra_id'])->findAll();
+            $items = [];
+            $subtotal = 0;
+
+            foreach ($detalles as $detalle) {
+                $juego = $this->juegosModel->find($detalle['game_id']);
+                if ($juego) {
+                    $items[] = [
+                        'image' => $juego['cover_image_url'] ?? '',
+                        'title' => $juego['title'],
+                        'price' => number_format($detalle['precio_unitario'], 2),
+                    ];
+                    $subtotal += floatval($detalle['precio_unitario']);
+                }
+            }
+
+            $total = $compra['total'];
+
+            $comprasData[] = [
+                'order_id' => $compra['compra_id'],
+                'purchase_date' => $compra['fecha'],
+                'status' => strtoupper($compra['estado'] ?? 'COMPLETED'),
+                'items' => $items,
+                'subtotal' => $subtotal,
+                'total' => $total,
+            ];
+        }
+
         return view('plantillas/header_view')
             . view('content/user_perfil', [
                 'usuario' => $usuario,
-                'deseados' => $deseados
+                'deseados' => $deseados,
+                'compras' => $comprasData
             ])
             . view('plantillas/footer_view');
     }
@@ -268,7 +305,7 @@ class UserProfile extends BaseController
             return $this->response->setStatusCode(422)->setJSON(['error' => 'ID de juego no proporcionado']);
         }
 
-        // Verifica si el usuario ya tiene una wishlist, si no, la crea
+        // verifica si el usuario ya tiene una wishlist, si no, la crea
         $wishlist = $this->wishlistModel->where('user_id', $userId)->first();
         if (!$wishlist) {
             $this->wishlistModel->insert([
@@ -277,19 +314,19 @@ class UserProfile extends BaseController
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
         } else {
-            // Actualiza la fecha de actualización
+            // actualiza la fecha de actualización
             $this->wishlistModel->update($wishlist['user_id'], [
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
         }
 
-        // Verifica si el juego ya está en la wishlist
+        // verifica si el juego ya está en la wishlist
         $exists = $this->wishlistItemModel
             ->where('user_id', $userId)
             ->where('game_id', $gameId)
             ->first();
 
-        // Agrega el juego a la wishlist
+        // agrega el juego a la wishlist
         $this->wishlistItemModel->insert([
             'user_id' => $userId,
             'game_id' => $gameId,
@@ -321,13 +358,13 @@ class UserProfile extends BaseController
             return $this->response->setStatusCode(422)->setJSON(['error' => 'ID de juego no proporcionado']);
         }
 
-        // Verifica si el juego está en la wishlist
+        // verificamos si el juego está en la wishlist
         $exists = $this->wishlistItemModel
             ->where('user_id', $userId)
             ->where('game_id', $gameId)
             ->first();
 
-        // Elimina el juego de la wishlist
+        // elimina el juego de la wishlist
         $this->wishlistItemModel
             ->where('user_id', $userId)
             ->where('game_id', $gameId)
@@ -335,6 +372,50 @@ class UserProfile extends BaseController
 
         return $this->response->setJSON([
             'success' => true,
+        ]);
+    }
+
+    public function historial_compras()
+    {
+        $userId = session('user_id');
+        if (!$userId) {
+            return redirect()->to(base_url('login'))->with('alerta-msg', 'Primero debes iniciar sesión.');
+        }
+
+        $compras = $this->comprasModel->where('user_id', $userId)->orderBy('fecha', 'DESC')->findAll();
+
+        $comprasData = [];
+        foreach ($compras as $compra) {
+            $detalles = $this->detalleModel->where('compra_id', $compra['compra_id'])->findAll();
+            $items = [];
+            $subtotal = 0;
+
+            foreach ($detalles as $detalle) {
+                $juego = $this->juegosModel->find($detalle['game_id']);
+                if ($juego) {
+                    $items[] = [
+                        'image' => $juego['cover_image_url'] ?? $juego['card_image_url'] ?? '',
+                        'title' => $juego['title'],
+                        'price' => number_format($detalle['precio_unitario'], 2),
+                    ];
+                    $subtotal += floatval($detalle['precio_unitario']);
+                }
+            }
+
+            $total = $compra['total'];
+
+            $comprasData[] = [
+                'order_id' => $compra['compra_id'],
+                'purchase_date' => $compra['fecha'],
+                'status' => strtoupper($compra['estado'] ?? 'COMPLETED'),
+                'items' => $items,
+                'subtotal' => $subtotal,
+                'total' => $total,
+            ];
+        }
+
+        return view('content/partials/compras-user-profile', [
+            'compras' => $comprasData
         ]);
     }
 }

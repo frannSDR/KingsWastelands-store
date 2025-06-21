@@ -71,7 +71,7 @@
             </section>
 
             <?php
-            // Calcula el subtotal sumando el special_price si existe, si no el price
+            // calculamos el subtotal sumando el special_price si existe, si no el price
             $subtotal = 0;
             foreach ($items as $item) {
                 $precio = (!empty($item['juego']['special_price']) && $item['juego']['special_price'] != 0)

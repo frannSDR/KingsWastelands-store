@@ -2,10 +2,6 @@
 <div class="section-header">
     <h2><i class="bi bi-people-fill"></i> Gestión de Usuarios</h2>
     <div class="header-actions">
-        <div class="search-box">
-            <i class="bi bi-search"></i>
-            <input type="text" id="user-search" placeholder="Buscar usuarios...">
-        </div>
     </div>
 </div>
 
@@ -25,7 +21,7 @@
     // mostrar numeros de pagina
     $start = max(1, $currentUserPage - 2);
     $end = min($totalUserPages, $currentUserPage + 2);
-    $baseUrl = base_url('/perfil/admin-usuarios');
+    $baseUrl = base_url('/admin-section/admin-usuarios');
     ?>
     <?php if ($start > 1): ?>
         <button class="user-pagination-button <?= 1 == $currentUserPage ? 'active' : '' ?>">
@@ -102,7 +98,7 @@
     // mostrar numeros de pagina
     $start = max(1, $currentUserPage - 2);
     $end = min($totalUserPages, $currentUserPage + 2);
-    $baseUrl = base_url('/perfil/admin-usuarios');
+    $baseUrl = base_url('/admin-section/admin-usuarios');
     ?>
     <?php if ($start > 1): ?>
         <button class="user-pagination-button <?= 1 == $currentUserPage ? 'active' : '' ?>">

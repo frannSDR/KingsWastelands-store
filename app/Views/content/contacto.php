@@ -16,14 +16,14 @@
                 </ul>
             </div>
             <div class="contact-form-card">
-                <!-- Mostrar mensaje de éxito si existe -->
+                <!-- mostrar mensaje de éxito si existe -->
                 <?php if (session()->has('exito-msg')): ?>
                     <div class="alert alert-success">
                         <?= session('exito-msg') ?>
                     </div>
                 <?php endif; ?>
 
-                <!-- Mostrar errores de validación -->
+                <!-- mostrar errores de validación -->
                 <?php if (isset($validation)): ?>
                     <div class="alert alert-danger">
                         <ul>

@@ -120,13 +120,16 @@
 }
 
 .all-game-title a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.all-game-title a {
-    cursor: pointer;
+.all-game-title a:hover {
+  transform: translateX(5px);
+  color: var(--hover-color);
 }
 
 .all-games-list-container {
@@ -641,7 +644,6 @@
 
 /*! --------------- PAGINACION -------------------*/
 
-/* Paginación Moderna */
 .modern-pagination {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -654,7 +656,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--color-secundario);
     border-radius: 50px;
     padding: 0.5rem 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

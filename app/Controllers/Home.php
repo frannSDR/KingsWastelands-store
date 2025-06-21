@@ -122,30 +122,6 @@ class Home extends BaseController
         return view('../Views/plantillas/header_view.php', $data) . view('../Views/content/terminos.php') . view('../Views/plantillas/footer_view.php');
     }
 
-    public function juegos(): string
-    {
-        $data['titulo'] = "Juegos";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/games') . view('../Views/plantillas/footer_view');
-    }
-
-    public function cart(): string
-    {
-        $data['titulo'] = "Carrito de Compras";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/cart') . view('../Views/plantillas/footer_view');
-    }
-
-    public function pago(): string
-    {
-        $data['titulo'] = "Pago";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/pago') . view('../Views/plantillas/footer_view');
-    }
-
-    public function confirmacion(): string
-    {
-        $data['titulo'] = "Confirmación";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/confirmacion') . view('../Views/plantillas/footer_view');
-    }
-
     public function login(): string
     {
         $data['titulo'] = "Iniciar Sesion";
@@ -158,27 +134,9 @@ class Home extends BaseController
         return view('../Views/plantillas/header_view', $data) . view('../Views/content/register') . view('../Views/plantillas/footer_view');
     }
 
-    public function recuperar(): string
-    {
-        $data['titulo'] = "Registrarse";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/recuperar') . view('../Views/plantillas/footer_view');
-    }
-
     public function new_pass(): string
     {
         $data['titulo'] = "Registrarse";
         return view('../Views/plantillas/header_view', $data) . view('../Views/content/nueva-pass') . view('../Views/plantillas/footer_view');
-    }
-
-    public function perfil(): string
-    {
-        $data['titulo'] = "Admin Perfil";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/perfil') . view('../Views/plantillas/footer_view');
-    }
-
-    public function perfil_user(): string
-    {
-        $data['titulo'] = "User Perfil";
-        return view('../Views/plantillas/header_view', $data) . view('../Views/content/user_perfil') . view('../Views/plantillas/footer_view');
     }
 }

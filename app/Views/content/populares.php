@@ -4,31 +4,34 @@
     </div>
     <div class="games-container">
         <?php foreach ($juegos as $juego): ?>
-            <div class="game-card">
-                <div class="media-container">
-                    <img src="<?= $juego['card_image_url'] ?>" alt="<?= esc($juego['title']) ?>" class="game-image">
-                    <?php if (!empty($juego['youtube_trailer_id'])): ?>
-                        <div class="game-trailer">
-                            <iframe
-                                src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    <?php endif; ?>
+            <?php if ($juego['is_active'] != 0): ?>
+                <div class="game-card">
+                    <div class="media-container">
+                        <img src="<?= $juego['card_image_url'] ?>" alt="<?= esc($juego['title']) ?>" class="game-image">
+                        <?php if (!empty($juego['youtube_trailer_id'])): ?>
+                            <div class="game-trailer">
+                                <iframe
+                                    src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1"
+                                    title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title"><?= esc($juego['title']) ?></div>
+                        <div class="game-price">$<?= number_format($juego['price'], 2) ?></div>
+                    </div>
+                    <a href="<?= base_url('juego/' . $juego['game_id']) ?>" class="stretched-link"></a>
                 </div>
-                <div class="game-info">
-                    <div class="game-title"><?= esc($juego['title']) ?></div>
-                    <div class="game-price">$<?= number_format($juego['price'], 2) ?></div>
-                </div>
-                <a href="<?= base_url('juego/' . $juego['game_id']) ?>" class="stretched-link"></a>
-            </div>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
-    <!-- Paginación funcional -->
+
+    <!-- paginacion -->
     <div class="pagination">
         <?php if ($currentPage > 1): ?>
             <a href="?page=<?= $currentPage - 1 ?>" style="text-decoration: none;" class="pagination-button">
@@ -37,7 +40,7 @@
         <?php endif; ?>
 
         <?php
-        // Mostrar números de página
+        // nros de pagina
         $start = max(1, $currentPage - 2);
         $end = min($totalPages, $currentPage + 2);
 

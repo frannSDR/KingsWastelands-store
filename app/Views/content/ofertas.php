@@ -12,52 +12,54 @@
 
     <div class="horizontal-games-container">
         <?php foreach ($juegosEnOferta as $juego): ?>
-            <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
-            <div class="horizontal-game-card">
-                <div class="game-content">
-                    <div class="game-image-container">
-                        <img src="<?= $juego['card_image_url'] ?>" alt="Portada de <?= $juego['title'] ?>" class="game-image">
-                        <div class="discount-banner"><?= round(100 - ($juego['special_price'] / $juego['price']) * 100) ?>%</div>
-                    </div>
-                    <div class="game-details">
-                        <div class="game-info">
-                            <a style="text-decoration: none;" href="<?= base_url('juego/' . $juego['game_id']) ?>">
-                                <h3 class="game-title"><?= esc($juego['title']) ?></h3>
-                            </a>
-                            <div class="game-meta">
-                                <span class="platform-badge pc">PC</span>
-                                <div class="game-rating">
-                                    <span class="stars"><?= renderStars($juego['rating']) ?></span>
-                                    <span class="score"><?= $juego['rating'] ?></span>
+            <?php if ($juego['is_active'] != 0): ?>
+                <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
+                <div class="horizontal-game-card">
+                    <div class="game-content">
+                        <div class="game-image-container">
+                            <img src="<?= $juego['card_image_url'] ?>" alt="Portada de <?= $juego['title'] ?>" class="game-image">
+                            <div class="discount-banner"><?= round(100 - ($juego['special_price'] / $juego['price']) * 100) ?>%</div>
+                        </div>
+                        <div class="game-details">
+                            <div class="game-info">
+                                <a style="text-decoration: none;" href="<?= base_url('juego/' . $juego['game_id']) ?>">
+                                    <h3 class="game-title"><?= esc($juego['title']) ?></h3>
+                                </a>
+                                <div class="game-meta">
+                                    <span class="platform-badge pc">PC</span>
+                                    <div class="game-rating">
+                                        <span class="stars"><?= renderStars($juego['rating']) ?></span>
+                                        <span class="score"><?= $juego['rating'] ?></span>
+                                    </div>
                                 </div>
+                                <p class="game-description"><?= esc($juego['about']) ?></p>
                             </div>
-                            <p class="game-description"><?= esc($juego['about']) ?></p>
-                        </div>
-                        <div class="pricing-container">
-                            <div class="price-wrapper">
-                                <span class="original-price">$<?= $juego['price'] ?></span>
-                                <span class="current-price">$<?= $juego['special_price'] ?></span>
+                            <div class="pricing-container">
+                                <div class="price-wrapper">
+                                    <span class="original-price">$<?= $juego['price'] ?></span>
+                                    <span class="current-price">$<?= $juego['special_price'] ?></span>
+                                </div>
+                                <button class="buy-now-btn" data-game-id="<?= $juego['game_id'] ?>">
+                                    <?php if ($enCarrito): ?>
+                                        <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
+                                    <?php else: ?>
+                                        <i class="bi bi-cart"></i><span class="cart-btn-text">Añadir al carrito</span>
+                                    <?php endif; ?>
+                                </button>
                             </div>
-                            <button class="buy-now-btn" data-game-id="<?= $juego['game_id'] ?>">
-                                <?php if ($enCarrito): ?>
-                                    <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
-                                <?php else: ?>
-                                    <i class="bi bi-cart"></i><span class="cart-btn-text">Añadir al carrito</span>
-                                <?php endif; ?>
-                            </button>
                         </div>
                     </div>
+                    <div class="game-badge best-offer">MEJOR OFERTA</div>
                 </div>
-                <div class="game-badge best-offer">MEJOR OFERTA</div>
-            </div>
+            <?php endif; ?>
         <?php endforeach; ?>
 </section>
 
-<!-- Paginación alternativa -->
+<!-- paginacion -->
 <?php if (isset($currentPage) && isset($totalPages) && $totalPages > 1): ?>
     <div class="modern-pagination">
         <div class="pagination-container">
-            <!-- Botón Anterior -->
+            <!-- boton anterior -->
             <a href="<?= $currentPage > 1 ? "?page=" . ($currentPage - 1) : '#' ?>"
                 class="pagination-button <?= $currentPage == 1 ? 'disabled' : '' ?>">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +67,7 @@
                 </svg>
             </a>
 
-            <!-- Números de página -->
+            <!-- nros de pagina -->
             <div class="pagination-numbers">
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                     <a href="?page=<?= $i ?>"
@@ -75,7 +77,7 @@
                 <?php endfor; ?>
             </div>
 
-            <!-- Botón Siguiente -->
+            <!-- boton siguiente -->
             <a href="<?= $currentPage < $totalPages ? "?page=" . ($currentPage + 1) : '#' ?>"
                 class="pagination-button <?= $currentPage == $totalPages ? 'disabled' : '' ?>">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

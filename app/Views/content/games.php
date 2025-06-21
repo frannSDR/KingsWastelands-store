@@ -128,97 +128,98 @@
         <!-- card de cada juego -->
         <div class="all-games-list-container" id="gamesContainer">
             <?php foreach ($juegos as $juego): ?>
-                <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
-                <div class="all-game-card">
-                    <div class="all-game-image">
-                        <div class="game-trailer">
-                            <?php if (!empty($juego['youtube_trailer_id'])): ?>
-                                <iframe
-                                    src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1"
-                                    title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allowfullscreen>
-                                </iframe>
-                            <?php endif; ?>
+                <?php if ($juego['is_active'] != 0): ?>
+                    <?php $enCarrito = in_array($juego['game_id'], $enCarritoIds ?? []); ?>
+                    <div class="all-game-card">
+                        <div class="all-game-image">
+                            <div class="game-trailer">
+                                <?php if (!empty($juego['youtube_trailer_id'])): ?>
+                                    <iframe
+                                        src="https://www.youtube.com/embed/<?= $juego['youtube_trailer_id'] ?>&amp;start=10&amp;controls=0&amp;autoplay=0&amp;mute=1&amp;enablejsapi=1"
+                                        title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin"
+                                        allowfullscreen>
+                                    </iframe>
+                                <?php endif; ?>
+                            </div>
+                            <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= esc($juego['title']) ?>">
                         </div>
-                        <img src="<?= $juego['card_image_url'] ?>" alt="Foto de <?= esc($juego['title']) ?>">
-                    </div>
-                    <div class="all-game-info">
-                        <h3 class="all-game-title"><a href="<?= base_url('juego/' . $juego['game_id']) ?>"><?= esc($juego['title']) ?></a></h3>
-                        <div class="all-game-meta">
-                            <span><i class="bi bi-star-fill" style="color: #FFD700;"></i> <?= $juego['rating'] ?></span>
-                            <span><i class="bi bi-calendar3" style="color:rgb(75, 153, 255);"></i> <?= date('d M Y', strtotime($juego['release_date'])) ?></span>
-                        </div>
-                        <div class="all-game-tags">
-                            <?php if (!empty($juego['categorias'])): ?>
-                                <?php foreach ($juego['categorias'] as $index => $categoria): ?>
-                                    <span class="all-game-tag" href="/<?= esc($categoria['slug']) ?>">
-                                        <?= esc($categoria['name_cat']) ?><?= $index < count($juego['categorias']) - 1 ? ' ' : '' ?>
-                                    </span>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                        <p class="all-game-description"><?= esc($juego['about']) ?></p>
-                        <div class="all-game-footer">
-                            <div class="all-game-price">$ <?= $juego['price'] ?></div>
-                            <div class="all-game-buttons">
-                                <button class="btn2 btn-primary2 games-add-wishlist" data-game-id="<?= $juego['game_id'] ?>"><?php if (in_array($juego['game_id'], $deseados_ids)): ?>
-                                        <i class="bi bi-bookmark-check-fill"></i>
-                                    <?php else: ?>
-                                        <i class="bi bi-bookmark"></i>
-                                    <?php endif; ?>
-                                </button>
-                                <?php if (strtotime($juego['release_date']) <= time()): ?>
-                                    <button class="btn2 btn-primary2" data-game-id="<?= $juego['game_id'] ?>">
-                                        <?php if ($enCarrito): ?>
-                                            <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
+                        <div class="all-game-info">
+                            <h3 class="all-game-title"><a href="<?= base_url('juego/' . $juego['game_id']) ?>"><?= esc($juego['title']) ?></a></h3>
+                            <div class="all-game-meta">
+                                <span><i class="bi bi-star-fill" style="color: #FFD700;"></i> <?= $juego['rating'] ?></span>
+                                <span><i class="bi bi-calendar3" style="color:rgb(75, 153, 255);"></i> <?= date('d M Y', strtotime($juego['release_date'])) ?></span>
+                            </div>
+                            <div class="all-game-tags">
+                                <?php if (!empty($juego['categorias'])): ?>
+                                    <?php foreach ($juego['categorias'] as $index => $categoria): ?>
+                                        <span class="all-game-tag" href="/<?= esc($categoria['slug']) ?>">
+                                            <?= esc($categoria['name_cat']) ?><?= $index < count($juego['categorias']) - 1 ? ' ' : '' ?>
+                                        </span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <p class="all-game-description"><?= esc($juego['about']) ?></p>
+                            <div class="all-game-footer">
+                                <div class="all-game-price">$ <?= $juego['price'] ?></div>
+                                <div class="all-game-buttons">
+                                    <button class="btn2 btn-primary2 games-add-wishlist" data-game-id="<?= $juego['game_id'] ?>"><?php if (in_array($juego['game_id'], $deseados_ids)): ?>
+                                            <i class="bi bi-bookmark-check-fill"></i>
                                         <?php else: ?>
-                                            <i class="bi bi-cart"></i><span class="cart-btn-text">Añadir al carrito</span>
+                                            <i class="bi bi-bookmark"></i>
                                         <?php endif; ?>
                                     </button>
-                                <?php else: ?>
-                                    <button class="btn2 btn-primary2"> Proximamente...</button>
-                                <?php endif; ?>
+                                    <?php if (strtotime($juego['release_date']) <= time()): ?>
+                                        <button class="btn2 btn-primary2" data-game-id="<?= $juego['game_id'] ?>">
+                                            <?php if ($enCarrito): ?>
+                                                <i class="bi bi-cart-fill"></i><span class="cart-btn-text">En el carrito</span>
+                                            <?php else: ?>
+                                                <i class="bi bi-cart"></i><span class="cart-btn-text">Añadir al carrito</span>
+                                            <?php endif; ?>
+                                        </button>
+                                    <?php else: ?>
+                                        <button class="btn2 btn-primary2"> Proximamente...</button>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
+        <!-- paginacion -->
+        <?php if (isset($currentPage) && isset($totalPages) && $totalPages > 1): ?>
+            <div class="modern-pagination">
+                <div class="pagination-container">
+                    <!-- boton anterior -->
+                    <a href="<?= $currentPage > 1 ? "?page=" . ($currentPage - 1) : '#' ?>"
+                        class="pagination-button <?= $currentPage == 1 ? 'disabled' : '' ?>">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                        </svg>
+                    </a>
+
+                    <!-- nros de pagina -->
+                    <div class="pagination-numbers">
+                        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                            <a href="?page=<?= $i ?>"
+                                class="pagination-number <?= $i == $currentPage ? 'active' : '' ?>">
+                                <?= $i ?>
+                            </a>
+                        <?php endfor; ?>
+                    </div>
+
+                    <!-- boton siguiente -->
+                    <a href="<?= $currentPage < $totalPages ? "?page=" . ($currentPage + 1) : '#' ?>"
+                        class="pagination-button <?= $currentPage == $totalPages ? 'disabled' : '' ?>">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        <?php endif; ?>
     </main>
 </div>
-
-<!-- Paginación alternativa -->
-<?php if (isset($currentPage) && isset($totalPages) && $totalPages > 1): ?>
-    <div class="modern-pagination">
-        <div class="pagination-container">
-            <!-- Botón Anterior -->
-            <a href="<?= $currentPage > 1 ? "?page=" . ($currentPage - 1) : '#' ?>"
-                class="pagination-button <?= $currentPage == 1 ? 'disabled' : '' ?>">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-                </svg>
-            </a>
-
-            <!-- Números de página -->
-            <div class="pagination-numbers">
-                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                    <a href="?page=<?= $i ?>"
-                        class="pagination-number <?= $i == $currentPage ? 'active' : '' ?>">
-                        <?= $i ?>
-                    </a>
-                <?php endfor; ?>
-            </div>
-
-            <!-- Botón Siguiente -->
-            <a href="<?= $currentPage < $totalPages ? "?page=" . ($currentPage + 1) : '#' ?>"
-                class="pagination-button <?= $currentPage == $totalPages ? 'disabled' : '' ?>">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                </svg>
-            </a>
-        </div>
-    </div>
-<?php endif; ?>
