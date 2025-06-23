@@ -34,7 +34,7 @@ class Cart extends BaseController
     {
         $userId = session('user_id');
         if (!$userId) {
-            return redirect()->to('/login');
+            return redirect()->to('/login')->with('alerta-msg', 'Inicia sesion para acceder a tu carrito!');
         }
 
         $cart = $this->cartModel->where('user_id', $userId)->first();

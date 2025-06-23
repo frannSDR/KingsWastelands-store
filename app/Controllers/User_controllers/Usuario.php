@@ -138,7 +138,7 @@ class Usuario extends Controller
             'last_login' => date('Y-m-d H:i:s')
         ]);
 
-        return redirect()->to(base_url($usuario['is_admin'] ? 'perfil' : '/'));
+        return redirect()->to(base_url($usuario['is_admin'] ? 'admin-section' : '/'));
     }
 
 

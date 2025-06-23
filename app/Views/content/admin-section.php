@@ -1,4 +1,15 @@
+<script>
+    document.body.classList.add('admin-page');
+</script>
+
 <section class="admin-panel" style="margin-top: 50px;">
+
+    <!-- Botón hamburguesa para abrir el menú lateral -->
+    <button class="admin-sidebar-toggle" aria-label="Abrir menú">
+        <i class="bi bi-list"></i>
+    </button>
+    <!-- Overlay para cerrar el menú al hacer click fuera -->
+    <div class="admin-sidebar-overlay"></div>
 
     <aside class="admin-sidebar">
         <div class="admin-profile">

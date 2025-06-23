@@ -1,5 +1,6 @@
 // JavaScript para gestion 
 document.addEventListener('DOMContentLoaded', function() {
+    menuLateral();
     subirFotoPerfil();
     logicaPaginacion();
     editarJuego();
@@ -14,6 +15,50 @@ document.addEventListener('DOMContentLoaded', function() {
     asociarModalDescuento();
     logicaModalDetalleVenta();
 });
+
+function menuLateral() {
+    const sidebar = document.querySelector('.admin-sidebar');
+    const toggleBtn = document.querySelector('.admin-sidebar-toggle');
+    const overlay = document.querySelector('.admin-sidebar-overlay');
+    const menuItems = document.querySelectorAll('.admin-menu .menu-item');
+
+    if (toggleBtn && sidebar && overlay) {
+        // Toggle del sidebar
+        toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Cerrar sidebar al hacer click en overlay
+        overlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Cerrar el menú al hacer click en cualquier sección del menú (solo en móvil)
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Prevenir que el header hamburger interfiera
+        document.addEventListener('click', function(e) {
+            if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                if (sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            }
+        });
+    }
+}
 
 function modalDescuento(gameId, actionUrl) {
   const modal = document.getElementById('specialModal');
@@ -67,15 +112,31 @@ function subirFotoPerfil() {
 
 // Cambiar entre secciones
 function cambiarEntreSecciones() {
-    const menuItems = document.querySelectorAll('.menu-item');
+    const menuItems = document.querySelectorAll('.admin-menu .menu-item');
+    const contentSections = document.querySelectorAll('.content-section');
+
     menuItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Remover clase active de todos los items y secciones
             menuItems.forEach(i => i.classList.remove('active'));
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            contentSections.forEach(s => s.classList.remove('active'));
+
+            // Agregar clase active al item clickeado
             this.classList.add('active');
+
+            // Mostrar la sección correspondiente
             const sectionId = this.getAttribute('data-section') + '-section';
             const section = document.getElementById(sectionId);
-            if (section) section.classList.add('active');
+            
+            if (section) {
+                section.classList.add('active');
+                console.log('Sección activada:', sectionId); // Para debug
+            } else {
+                console.error('Sección no encontrada:', sectionId); // Para debug
+            }
         });
     });
 }
@@ -466,6 +527,5 @@ function mostrarDetalleVenta(compra) {
     estado.className = 'detail-value status-badge ' + (compra.estado ? compra.estado.toLowerCase() : '');
     modal.querySelector('#modal-fecha').textContent = compra.fecha ? (new Date(compra.fecha)).toLocaleString('es-AR') : '';
 
-    // Mostrar modal (usa flex si tu CSS lo requiere)
     modal.style.display = 'flex';
 }

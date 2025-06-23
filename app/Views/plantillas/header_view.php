@@ -60,7 +60,8 @@
         <?php endif; ?>
 
         <!-- opciones que solo aparecen en el menu hamburguesa(responsive) -->
-        <li class="mobile-only"><a href="#" class="mobile-cart">Carrito de compras <i class="bi bi-cart"></i></li>
+        <li class="mobile-only mobile-cart"><a href="<?php echo base_url('carrito') ?>">Mi Carrito <i class="bi bi-cart"></i></li>
+        <li class="mobile-only mobile-cart"><a href="<?php echo base_url('user-profile') ?>">Perfil <i class="bi bi-person-circle"></i></li>
       </ul>
     </nav>
 
@@ -77,3 +78,4 @@
       </div>
     </div>
   </header>
+  <div class="nav-overlay"></div>
