@@ -3,21 +3,21 @@
     <aside class="user-sidebar">
         <div class="user-profile">
             <!-- Foto de perfil del usuario -->
-            <img src="<?php echo base_url('assets/uploads/profile_imgs/' . session('user_img')) ?>" alt="User Avatar" class="user-avatar" id="currentProfileImage" height="120" width="120">
+            <img src="<?php echo base_url('assets/uploads/profile_imgs/' . session('user_img')) ?>" alt="User Avatar" class="user-avatar" id="userCurrentProfileImage" height="120" width="120">
             <h3 class="user-username"><?= session('nickname') ?></h3>
             <span class="user-role">
                 Miembro desde: <?= date('M Y', strtotime($usuario['created_at'])) ?>
             </span>
 
             <!-- boton para cambiar imagen -->
-            <a class="change-profile-link" id="changeProfileBtn" style="text-decoration: none; margin-right: 5px;">
+            <a class="change-profile-link" id="userChangeProfileBtn" style="text-decoration: none; margin-right: 5px;">
                 <i class="bi bi-camera-fill"></i> Cambiar imagen
             </a>
 
             <!-- formulario oculto para subir imagen -->
-            <form id="profileImageForm" action="<?= base_url('perfil/subir-foto') ?>" method="post" enctype="multipart/form-data" style="display: none;">
+            <form id="userProfileImageForm" action="<?= base_url('user-profile/subir-foto') ?>" method="post" enctype="multipart/form-data" style="display: none;">
                 <?= csrf_field() ?>
-                <input type="file" name="profile_image" id="profileImageInput" accept="image/jpeg,image/png">
+                <input type="file" name="profile_image" id="userProfileImageInput" accept="image/jpeg,image/png">
             </form>
         </div>
 

@@ -142,6 +142,13 @@ class UserProfile extends BaseController
                 'max_size[profile_image,2048]', // 2MB máximo
             ]
         ])) {
+            if ($this->request->isAJAX()) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'error' => 'Error de validación',
+                    'errors' => $this->validator->getErrors()
+                ]);
+            }
             return redirect()->back()->with('error-msg', $this->validator->getErrors());
         }
 
@@ -149,6 +156,12 @@ class UserProfile extends BaseController
 
         // verificar si el archivo es válido y no se movió por error
         if (!$file->isValid()) {
+            if ($this->request->isAJAX()) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'error' => $file->getErrorString()
+                ]);
+            }
             return redirect()->back()->with('error-msg', $file->getErrorString());
         }
 
@@ -173,24 +186,32 @@ class UserProfile extends BaseController
         $userModel->update($userId, ['user_img' => $newName]);
         session()->set('user_img', $newName);
 
-        return redirect()->to(base_url('/user-perfil'))->with('exito-msg', 'Foto de perfil actualizada');
+        // Responder según el tipo de petición
+        if ($this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Foto de perfil actualizada correctamente',
+                'new_image_url' => base_url('assets/uploads/profile_imgs/' . $newName)
+            ]);
+        }
+
+        return redirect()->to(base_url('/user-profile'))->with('exito-msg', 'Foto de perfil actualizada');
     }
 
     public function actualizar_datos()
     {
-        if (!$this->request->isAJAX()) {
-            return $this->response->setStatusCode(400)->setJSON(['error' => 'Petición inválida']);
-        }
-
         $userId = session('user_id');
         if (!$userId) {
-            return $this->response->setStatusCode(401)->setJSON(['error' => 'No autenticado']);
+            if ($this->request->isAJAX()) {
+                return $this->response->setStatusCode(401)->setJSON(['error' => 'No autenticado']);
+            }
+            return redirect()->to(base_url('login'))->with('alerta-msg', 'Primero debes estar logueado!');
         }
 
         $validation = \Config\Services::validation();
         $validation->setRules([
-            'nickname' => 'required|min_length[3]|max_length[30]|is_unique[usuarios.nickname]',
-            'email'    => 'required|valid_email|is_unique[usuarios.email]'
+            'nickname' => 'required|min_length[3]|max_length[30]|is_unique[usuarios.nickname,user_id,' . $userId . ']',
+            'email'    => 'required|valid_email|is_unique[usuarios.email,user_id,' . $userId . ']'
         ], [
             'nickname' => [
                 'is_unique' => 'El nombre de usuario ya existe',
@@ -206,10 +227,13 @@ class UserProfile extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
-            return $this->response->setStatusCode(422)->setJSON([
-                'success' => false,
-                'errors' => $validation->getErrors()
-            ]);
+            if ($this->request->isAJAX()) {
+                return $this->response->setStatusCode(422)->setJSON([
+                    'success' => false,
+                    'errors' => $validation->getErrors()
+                ]);
+            }
+            return redirect()->back()->withInput()->with('error-msg', $validation->getErrors());
         }
 
         $nickname = $this->request->getPost('nickname');
@@ -223,12 +247,16 @@ class UserProfile extends BaseController
         session()->set('nickname', $nickname);
         session()->set('email', $email);
 
-        return $this->response->setJSON([
-            'success' => true,
-            'message' => 'Datos actualizados correctamente.',
-            'nickname' => $nickname,
-            'email' => $email
-        ]);
+        if ($this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Datos actualizados correctamente.',
+                'nickname' => $nickname,
+                'email' => $email
+            ]);
+        }
+
+        return redirect()->back()->with('exito-msg', 'Datos actualizados correctamente.');
     }
 
     public function show_wishlist()

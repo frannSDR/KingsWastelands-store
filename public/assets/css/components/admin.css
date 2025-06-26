@@ -561,6 +561,248 @@
     align-items: center;
 }
 
+/*! ------------------ MODAL DETALLES DE VENTA ------------------ */
+
+.sale-detail-section {
+    margin-bottom: 2rem;
+    background: #1f1f1f;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #374151;
+}
+
+.sale-detail-section h4 {
+    color: #8b5cf6;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sale-detail-section h4 i {
+    color: #fbbf24;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.detail-item {
+    background: #2d2d2d;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid #8b5cf6;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.detail-value {
+    display: block;
+    color: #e5e7eb;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.products-detail-list {
+    background: #2d2d2d;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #374151;
+}
+
+.product-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+    border-radius: 8px;
+    border: 1px solid #404040;
+    transition: all 0.3s ease;
+}
+
+.product-detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
+}
+
+.product-detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.product-name {
+    color: #e5e7eb;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.product-platform {
+    color: #8b5cf6;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: rgba(139, 92, 246, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.product-sku {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+.product-pricing {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.product-quantity-price {
+    color: #fbbf24;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1));
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.sale-totals {
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #8b5cf6;
+    margin-top: 1rem;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #374151;
+    color: #e5e7eb;
+}
+
+.total-row:last-child {
+    border-bottom: none;
+}
+
+.grand-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fbbf24;
+    border-top: 2px solid #8b5cf6;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.completada {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid #22c55e;
+}
+
+.status-badge.pendiente {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    border: 1px solid #fbbf24;
+}
+
+.status-badge.cancelada {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid #ef4444;
+}
+
+.modal-header {
+    border-bottom: 2px solid #8b5cf6;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.modal-header h3 {
+    color: #e5e7eb;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal-header h3 span {
+    color: #fbbf24;
+    font-weight: 700;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Responsive para modal de detalles */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1rem;
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+    }
+    
+    .product-detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .product-pricing {
+        justify-content: flex-start;
+        width: 100%;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /*! ------------------ FORMULARIO PARA SUBIR JUEGOS ------------------ */
 
 .upload-game-section {
@@ -1562,4 +1804,68 @@
 .admin-panel nav {
     position: static !important;
     background: transparent !important;
+}
+
+/* ========== ESTILOS PARA VALIDACIÓN DE FORMULARIOS ========== */
+
+.form-error {
+    color: #ff4757;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: none;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #ff4757;
+    box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.1);
+}
+
+.form-group.has-error label {
+    color: #ff4757;
+}
+
+.form-group.has-success input,
+.form-group.has-success textarea {
+    border-color: #2ed573;
+    box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.1);
+}
+
+.categories-grid.has-error {
+    border: 2px solid #ff4757;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 71, 87, 0.05);
+}
+
+.categories-error {
+    color: #ff4757;
+    font-size: 0.875rem;
+    margin-top: 10px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Animación para mostrar errores */
+.form-error.show {
+    display: block;
+    animation: slideInError 0.3s ease-out;
+}
+
+.categories-error.show {
+    display: block;
+    animation: slideInError 0.3s ease-out;
+}
+
+@keyframes slideInError {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

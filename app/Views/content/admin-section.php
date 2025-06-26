@@ -24,7 +24,7 @@
             </a>
 
             <!-- formulario oculto para subir imagen -->
-            <form id="profileImageForm" action="<?= base_url('perfil/subir-foto') ?>" method="post" enctype="multipart/form-data" style="display: none;">
+            <form id="profileImageForm" action="<?= base_url('/admin-section/subir-foto') ?>" method="post" enctype="multipart/form-data" style="display: none;">
                 <?= csrf_field() ?>
                 <input type="file" name="profile_image" id="profileImageInput" accept="image/jpeg,image/png">
             </form>

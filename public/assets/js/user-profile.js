@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ====================
-    // FUNCIONALIDAD PARA CAMBIAR IMAGEN DE PERFIL
+    // FUNCIONALIDAD PARA CAMBIAR IMAGEN DE PERFIL DEL USUARIO
     // ====================
-    const changeProfileBtn = document.getElementById('changeProfileBtn');
-    const profileImageInput = document.getElementById('profileImageInput');
-    const profileImageForm = document.getElementById('profileImageForm');
-    const currentProfileImage = document.getElementById('currentProfileImage');
+    const changeProfileBtn = document.getElementById('userChangeProfileBtn');
+    const profileImageInput = document.getElementById('userProfileImageInput');
+    const profileImageForm = document.getElementById('userProfileImageForm');
+    const currentProfileImage = document.getElementById('userCurrentProfileImage');
 
     if (changeProfileBtn && profileImageInput) {
         changeProfileBtn.addEventListener('click', function(e) {
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     .then(data => {
                         if (data.success) {
                             console.log('Imagen actualizada correctamente');
+                            // Opcional: mostrar mensaje de éxito
                         } else if (data.error) {
                             alert(data.error);
                             location.reload();
@@ -90,50 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.profile-info-container form');
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Limpiar mensajes previos
-            document.querySelectorAll('.alert').forEach(el => el.remove());
-
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    // Mensaje de éxito
-                    const success = document.createElement('div');
-                    success.className = 'alert alert-success';
-                    success.textContent = data.message;
-                    form.prepend(success);
-                } else if (data.errors) {
-                    // Mostrar errores de validación
-                    for (const campo in data.errors) {
-                        const error = document.createElement('div');
-                        error.className = 'alert alert-danger';
-                        error.textContent = data.errors[campo];
-                        form.prepend(error);
-                    }
-                } else if (data.error) {
-                    // Otro error
-                    const error = document.createElement('div');
-                    error.className = 'alert alert-danger';
-                    error.textContent = data.error;
-                    form.prepend(error);
-                }
-            })
-            .catch(() => {
-                const error = document.createElement('div');
-                error.className = 'alert alert-danger';
-                error.textContent = 'Error de conexión.';
-                form.prepend(error);
-            });
+            // Permitir envío normal del formulario (sin AJAX) 
+            // para que se recargue la página y se actualice el header de bienvenida
+            console.log('Enviando formulario de perfil con recarga de página');
+            return true; // Permitir envío normal del formulario
         });
     }
 
@@ -342,91 +303,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
-
-// Funcionalidad para cambiar entre secciones del perfil
-document.addEventListener('DOMContentLoaded', function() {
-    const menuItems = document.querySelectorAll('.menu-item');
-    const contentSections = document.querySelectorAll('.content-section');
-
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const sectionName = this.getAttribute('data-section');
-            
-            // Remover clase active de todos los elementos del menú
-            menuItems.forEach(menuItem => {
-                menuItem.classList.remove('active');
-            });
-            
-            // Agregar clase active al elemento clickeado
-            this.classList.add('active');
-            
-            // Ocultar todas las secciones
-            contentSections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Mostrar la sección correspondiente
-            const targetSection = document.getElementById(sectionName + '-section');
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-        });
-    });
-});
-
-// Funcionalidad para cambiar imagen de perfil
-document.addEventListener('DOMContentLoaded', function() {
-    const changeProfileBtn = document.getElementById('changeProfileBtn');
-    const profileImageInput = document.getElementById('profileImageInput');
-    const profileImageForm = document.getElementById('profileImageForm');
-    const currentProfileImage = document.getElementById('currentProfileImage');
-
-    if (changeProfileBtn && profileImageInput) {
-        changeProfileBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            profileImageInput.click();
-        });
-
-        profileImageInput.addEventListener('change', function() {
-            if (this.files && this.files[0]) {
-                // Previsualizar la imagen antes de subirla
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    if (currentProfileImage) {
-                        currentProfileImage.src = e.target.result;
-                    }
-                };
-                reader.readAsDataURL(this.files[0]);
-
-                // Subir la imagen automáticamente
-                if (profileImageForm) {
-                    const formData = new FormData(profileImageForm);
-                    
-                    fetch(profileImageForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest'
-                        }
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Opcional: mostrar mensaje de éxito
-                            console.log('Imagen actualizada correctamente');
-                        } else if (data.error) {
-                            alert(data.error);
-                            // Restaurar imagen anterior si hay error
-                            location.reload();
-                        }
-                    })
-                    .catch(() => {
-                        alert('Error al subir la imagen');
-                        location.reload();
-                    });
-                }
-            }
-        });
-    }
 });

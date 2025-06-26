@@ -153,6 +153,7 @@
 <!-- modal de detalles de las ventas -->
 <div id="sale-detail-modal" class="modal-overlay" style="display:none;">
     <div class="modal-content">
+        <button class="close-modal" title="Cerrar"></button>
         <div class="modal-header">
             <h3>Detalles de Venta <span id="sale-id"></span></h3>
         </div>
@@ -214,7 +215,7 @@
                         <span class="detail-value" id="modal-metodo"></span>
                     </div>
                     <div class="detail-item">
-                        <span class="detail-label">ID de Transacción: </span>
+                        <span class="detail-label">ID de Compra: </span>
                         <span class="detail-value" id="modal-transaccion"></span>
                     </div>
                     <div class="detail-item">

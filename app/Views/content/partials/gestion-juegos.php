@@ -153,6 +153,7 @@
                         <div class="form-group">
                             <label for="game-name">Nombre del Juego*</label>
                             <input type="text" id="game-name" name="title" required placeholder="Ej: Cyberpunk 2077">
+                            <span class="form-error" id="game-name-error"></span>
                         </div>
 
                         <div class="form-group">
@@ -161,16 +162,19 @@
                                 <span>$</span>
                                 <input type="number" id="game-price" name="price" min="0" step="0.01" required placeholder="59.99">
                             </div>
+                            <span class="form-error" id="game-price-error"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="release-date">Fecha de Lanzamiento*</label>
                             <input type="date" id="release-date" name="release_date" required>
+                            <span class="form-error" id="release-date-error"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="developer">Desarrolladora*</label>
                             <input type="text" id="developer" name="developer" required placeholder="Ej: CD Projekt Red">
+                            <span class="form-error" id="developer-error"></span>
                         </div>
                     </div>
 
@@ -178,23 +182,26 @@
                         <label for="about">Acerca del Juego (Breve descripción)*</label>
                         <input type="text" id="about" name="about" maxlength="150" required
                             placeholder="Ej: Un RPG de mundo abierto en la ciudad futurista de Night City">
+                        <span class="form-error" id="about-error"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="synopsis">Sinopsis*</label>
                         <textarea id="synopsis" name="synopsis" rows="4" required
                             placeholder="Describe la trama, características principales..."></textarea>
+                        <span class="form-error" id="synopsis-error"></span>
                     </div>
 
                     <div class="form-group">
                         <label>Categorías*</label>
-                        <div class="categories-grid">
+                        <div class="categories-grid" id="categories-container">
                             <?php foreach ($categorias as $categoria): ?>
                                 <label class="category-checkbox">
                                     <input type="checkbox" name="categories[]" value="<?= $categoria['category_id'] ?>"> <?= esc($categoria['name_cat']) ?>
                                 </label>
                             <?php endforeach; ?>
                         </div>
+                        <span class="categories-error" id="categories-error"></span>
                     </div>
 
                     <div class="form-group">
@@ -203,6 +210,7 @@
                             <span><i class="bi bi-star"></i></span>
                             <input type="number" id="game-rating" name="game_rating" min="1" step="0.1" placeholder="8,5">
                         </div>
+                        <span class="form-error" id="game-rating-error"></span>
                     </div>
                 </fieldset>
 
@@ -211,38 +219,47 @@
 
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="cover-url">URL Trailer*</label>
+                            <label for="trailer-url">URL Trailer*</label>
                             <input type="text" id="trailer-url" name="trailer" required placeholder="Ej: dQw4w9WgXcQ">
+                            <span class="form-error" id="trailer-url-error"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="cover-url">URL Cover*</label>
-                            <input type="url" name="cover_url" required placeholder="https://ejemplo.com/cover.jpg">
+                            <input type="url" id="cover-url" name="cover_url" required placeholder="https://ejemplo.com/cover.jpg">
+                            <span class="form-error" id="cover-url-error"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="card-url">URL Card*</label>
-                            <input type="url" name="card_url" required placeholder="https://ejemplo.com/card.jpg">
+                            <input type="url" id="card-url" name="card_url" required placeholder="https://ejemplo.com/card.jpg">
+                            <span class="form-error" id="card-url-error"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="banner-url">URL Banner*</label>
-                            <input type="url" name="banner_url" required placeholder="https://ejemplo.com/banner.jpg">
+                            <input type="url" id="banner-url" name="banner_url" required placeholder="https://ejemplo.com/banner.jpg">
+                            <span class="form-error" id="banner-url-error"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="logo-url">URL Logo*</label>
-                            <input type="url" name="logo_url" required placeholder="https://ejemplo.com/logo.png">
+                            <input type="url" id="logo-url" name="logo_url" required placeholder="https://ejemplo.com/logo.png">
+                            <span class="form-error" id="logo-url-error"></span>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Imágenes Adicionales (4 URLs)*</label>
                         <div id="additional-images">
-                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot1.jpg">
-                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot2.jpg">
-                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot3.jpg">
-                            <input type="url" class="image-url" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot4.jpg">
+                            <input type="url" class="image-url" id="additional-image-1" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot1.jpg">
+                            <span class="form-error" id="additional-image-1-error"></span>
+                            <input type="url" class="image-url" id="additional-image-2" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot2.jpg">
+                            <span class="form-error" id="additional-image-2-error"></span>
+                            <input type="url" class="image-url" id="additional-image-3" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot3.jpg">
+                            <span class="form-error" id="additional-image-3-error"></span>
+                            <input type="url" class="image-url" id="additional-image-4" name="additional_images[]" required placeholder="https://ejemplo.com/screenshot4.jpg">
+                            <span class="form-error" id="additional-image-4-error"></span>
                         </div>
                     </div>
                 </fieldset>
@@ -256,18 +273,22 @@
                             <div class="form-group">
                                 <label for="min-cpu">CPU*</label>
                                 <input type="text" id="min-cpu" name="min_cpu" required placeholder="Ej: Intel Core i7-4790K">
+                                <span class="form-error" id="min-cpu-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="min-ram">RAM*</label>
                                 <input type="text" id="min-ram" name="min_ram" required placeholder="Ej: 8 GB">
+                                <span class="form-error" id="min-ram-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="min-gpu">GPU*</label>
                                 <input type="text" id="min-gpu" name="min_gpu" required placeholder="Ej: NVIDIA GTX 1650">
+                                <span class="form-error" id="min-gpu-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="min-storage">Almacenamiento*</label>
                                 <input type="text" id="min-storage" name="min_storage" required placeholder="Ej: 70 GB SDD">
+                                <span class="form-error" id="min-storage-error"></span>
                             </div>
                         </div>
                     </div>
@@ -278,18 +299,22 @@
                             <div class="form-group">
                                 <label for="rec-cpu">CPU*</label>
                                 <input type="text" id="rec-cpu" name="rec_cpu" required placeholder="Ej: Intel Core i7-4790K">
+                                <span class="form-error" id="rec-cpu-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="rec-ram">RAM*</label>
                                 <input type="text" id="rec-ram" name="rec_ram" required placeholder="Ej: 8 GB">
+                                <span class="form-error" id="rec-ram-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="rec-gpu">GPU*</label>
                                 <input type="text" id="rec-gpu" name="rec_gpu" required placeholder="Ej: NVIDIA GTX 1650">
+                                <span class="form-error" id="rec-gpu-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="rec-storage">Almacenamiento*</label>
                                 <input type="text" id="rec-storage" name="rec_storage" required placeholder="Ej: 70 GB SDD">
+                                <span class="form-error" id="rec-storage-error"></span>
                             </div>
                         </div>
                     </div>
@@ -300,18 +325,22 @@
                             <div class="form-group">
                                 <label for="ultra-cpu">CPU*</label>
                                 <input type="text" id="ultra-cpu" name="ultra_cpu" required placeholder="Ej: Intel Core i7-4790K">
+                                <span class="form-error" id="ultra-cpu-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="ultra-ram">RAM*</label>
                                 <input type="text" id="ultra-ram" name="ultra_ram" required placeholder="Ej: 8 GB">
+                                <span class="form-error" id="ultra-ram-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="ultra-gpu">GPU*</label>
                                 <input type="text" id="ultra-gpu" name="ultra_gpu" required placeholder="Ej: NVIDIA GTX 1650">
+                                <span class="form-error" id="ultra-gpu-error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="ultra-storage">Almacenamiento*</label>
                                 <input type="text" id="ultra-storage" name="ultra_storage" required placeholder="Ej: 70 GB SDD">
+                                <span class="form-error" id="ultra-storage-error"></span>
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
     <?php elseif (session('exito-msg')): ?>
         <div class="alert alert-success"><?= session('exito-msg') ?></div>
     <?php endif; ?>
-    <form action="<?= base_url('perfil/actualizar-datos') ?>" method="post">
+    <form action="<?= base_url('user-profile/actualizar-datos') ?>" method="post">
         <?= csrf_field() ?>
 
         <div class="form-group">

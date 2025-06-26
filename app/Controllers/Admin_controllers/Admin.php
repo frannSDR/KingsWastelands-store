@@ -284,7 +284,106 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             return view('content/partials/gestion-usuarios', $dataUsers);
         } else {
-            return redirect()->to(base_url('/admin-section'));
+            // Si no es AJAX, mostrar la vista completa del admin enfocada en usuarios
+            // Cargar datos básicos de las otras secciones
+            $gamesPage = 1;
+            $gamesPerPage = 20;
+            $juegos = $this->juegosModel
+                ->select('game_id, title, price, special_price, special_price_active, release_date, card_image_url, logo_url, is_active')
+                ->orderBy('title', 'ASC')
+                ->paginate($gamesPerPage, 'games', $gamesPage);
+            $gamesTotal = $this->juegosModel->countAll();
+            $gamesTotalPages = ceil($gamesTotal / $gamesPerPage);
+
+            $categorias = $this->categoriaModel->findAll();
+
+            $catPage = 1;
+            $catPerPage = 20;
+            $categoriasForCat = $this->categoriaModel
+                ->select('categorias.category_id, categorias.name_cat, categorias.slug, COUNT(juego_categorias.game_id) as juegos_count')
+                ->join('juego_categorias', 'juego_categorias.category_id = categorias.category_id', 'left')
+                ->groupBy('categorias.category_id')
+                ->orderBy('category_id', 'ASC')
+                ->paginate($catPerPage, 'categories', $catPage);
+            $catTotal = $this->categoriaModel->countAll();
+            $catTotalPages = ceil($catTotal / $catPerPage);
+
+            $ventasPage = 1;
+            $ventasPerPage = 10;
+            $compras = $this->comprasModel
+                ->orderBy('compra_id', 'DESC')
+                ->paginate($ventasPerPage, 'ventas', $ventasPage);
+            $ventasTotal = $this->comprasModel->countAll();
+            $ventasTotalPages = ceil($ventasTotal / $ventasPerPage);
+
+            $comprasData = [];
+            foreach ($compras as $compra) {
+                $usuario = $this->usuariosModel->find($compra['user_id']);
+                $detalles = $this->detalleModel->where('compra_id', $compra['compra_id'])->findAll();
+                $productos = [];
+                foreach ($detalles as $detalle) {
+                    $juego = $this->juegosModel->find($detalle['game_id']);
+                    if ($juego) {
+                        $productos[] = [
+                            'nombre' => $juego['title'],
+                            'precio_unitario' => $detalle['precio_unitario'],
+                            'imagen' => $juego['cover_image_url'] ?? '',
+                            'platform' => $juego['platform'] ?? '',
+                            'sku' => $juego['sku'] ?? '',
+                            'cantidad' => 1
+                        ];
+                    }
+                }
+                $comprasData[] = [
+                    'compra_id' => $compra['compra_id'],
+                    'fecha' => $compra['fecha'],
+                    'nombre_completo' => $compra['nombre_completo'],
+                    'email' => $compra['email'],
+                    'telefono' => $compra['telefono'],
+                    'user_id' => $compra['user_id'],
+                    'user_nickname' => $usuario['nickname'] ?? '',
+                    'user_email' => $usuario['email'] ?? '',
+                    'total' => $compra['total'],
+                    'metodo_pago' => $compra['metodo_pago'] ?? '',
+                    'productos' => $productos,
+                    'estado' => 'Completada',
+                ];
+            }
+
+            $completeData = [
+                // Juegos
+                'juegos' => $juegos,
+                'currentGamesPage' => $gamesPage,
+                'totalGamesPages' => $gamesTotalPages,
+                'currentGameFilter' => 'title',
+                'currentDirection' => 'asc',
+                'gamesPager' => $this->juegosModel->pager,
+                'categorias' => $categorias,
+                // Usuarios (datos completos)
+                'usuarios' => $dataUsers['usuarios'],
+                'currentUserPage' => $dataUsers['currentUserPage'],
+                'totalUserPages' => $dataUsers['totalUserPages'],
+                'userPager' => $dataUsers['userPager'],
+                'currentUserFilter' => $dataUsers['currentUserFilter'],
+                'currentUserDirection' => $dataUsers['currentUserDirection'],
+                // Categorias
+                'currentCatPage' => $catPage,
+                'totalCatPages' => $catTotalPages,
+                'catPager' => $this->categoriaModel->pager,
+                'currentCatFilter' => 'category_id',
+                'currentCatDirection' => 'asc',
+                // Ventas
+                'compras' => $comprasData,
+                'currentVentasPage' => $ventasPage,
+                'totalVentasPages' => $ventasTotalPages,
+            ];
+
+            // Sobrescribir categorias con la data específica para categorías después
+            $completeData['categorias'] = $categoriasForCat;
+
+            return view('../Views/plantillas/header_view')
+                . view('../Views/content/admin-section', $completeData)
+                . view('../Views/plantillas/footer_view');
         }
     }
 
@@ -351,7 +450,104 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             return view('content/partials/gestion-juegos', $dataGames);
         } else {
-            return redirect()->to(base_url('/admin-section'));
+            // Si no es AJAX, mostrar la vista completa del admin enfocada en juegos
+            // Cargar datos básicos de las otras secciones
+            $userPage = 1;
+            $userPerPage = 10;
+            $usuarios = $this->usuariosModel
+                ->select('user_id, user_img, email, nickname, created_at, last_login, is_active')
+                ->orderBy('user_id', 'ASC')
+                ->paginate($userPerPage, 'users', $userPage);
+            $userTotal = $this->usuariosModel->countAll();
+            $userTotalPages = ceil($userTotal / $userPerPage);
+
+            $catPage = 1;
+            $catPerPage = 20;
+            $categoriasForCat = $this->categoriaModel
+                ->select('categorias.category_id, categorias.name_cat, categorias.slug, COUNT(juego_categorias.game_id) as juegos_count')
+                ->join('juego_categorias', 'juego_categorias.category_id = categorias.category_id', 'left')
+                ->groupBy('categorias.category_id')
+                ->orderBy('category_id', 'ASC')
+                ->paginate($catPerPage, 'categories', $catPage);
+            $catTotal = $this->categoriaModel->countAll();
+            $catTotalPages = ceil($catTotal / $catPerPage);
+
+            $ventasPage = 1;
+            $ventasPerPage = 10;
+            $compras = $this->comprasModel
+                ->orderBy('compra_id', 'DESC')
+                ->paginate($ventasPerPage, 'ventas', $ventasPage);
+            $ventasTotal = $this->comprasModel->countAll();
+            $ventasTotalPages = ceil($ventasTotal / $ventasPerPage);
+
+            $comprasData = [];
+            foreach ($compras as $compra) {
+                $usuario = $this->usuariosModel->find($compra['user_id']);
+                $detalles = $this->detalleModel->where('compra_id', $compra['compra_id'])->findAll();
+                $productos = [];
+                foreach ($detalles as $detalle) {
+                    $juego = $this->juegosModel->find($detalle['game_id']);
+                    if ($juego) {
+                        $productos[] = [
+                            'nombre' => $juego['title'],
+                            'precio_unitario' => $detalle['precio_unitario'],
+                            'imagen' => $juego['cover_image_url'] ?? '',
+                            'platform' => $juego['platform'] ?? '',
+                            'sku' => $juego['sku'] ?? '',
+                            'cantidad' => 1
+                        ];
+                    }
+                }
+                $comprasData[] = [
+                    'compra_id' => $compra['compra_id'],
+                    'fecha' => $compra['fecha'],
+                    'nombre_completo' => $compra['nombre_completo'],
+                    'email' => $compra['email'],
+                    'telefono' => $compra['telefono'],
+                    'user_id' => $compra['user_id'],
+                    'user_nickname' => $usuario['nickname'] ?? '',
+                    'user_email' => $usuario['email'] ?? '',
+                    'total' => $compra['total'],
+                    'metodo_pago' => $compra['metodo_pago'] ?? '',
+                    'productos' => $productos,
+                    'estado' => 'Completada',
+                ];
+            }
+
+            $completeData = [
+                // Juegos (datos completos)
+                'juegos' => $dataGames['juegos'],
+                'currentGamesPage' => $dataGames['currentGamesPage'],
+                'totalGamesPages' => $dataGames['totalGamesPages'],
+                'currentGameFilter' => $dataGames['currentGameFilter'],
+                'currentDirection' => $dataGames['currentDirection'],
+                'gamesPager' => $dataGames['gamesPager'],
+                'categorias' => $dataGames['categorias'],
+                // Usuarios
+                'usuarios' => $usuarios,
+                'currentUserPage' => $userPage,
+                'totalUserPages' => $userTotalPages,
+                'userPager' => $this->usuariosModel->pager,
+                'currentUserFilter' => 'user_id',
+                'currentUserDirection' => 'asc',
+                // Categorias
+                'currentCatPage' => $catPage,
+                'totalCatPages' => $catTotalPages,
+                'catPager' => $this->categoriaModel->pager,
+                'currentCatFilter' => 'category_id',
+                'currentCatDirection' => 'asc',
+                // Ventas
+                'compras' => $comprasData,
+                'currentVentasPage' => $ventasPage,
+                'totalVentasPages' => $ventasTotalPages,
+            ];
+
+            // Sobrescribir categorias con la data específica para categorías después
+            $completeData['categorias'] = $categoriasForCat;
+
+            return view('../Views/plantillas/header_view')
+                . view('../Views/content/admin-section', $completeData)
+                . view('../Views/plantillas/footer_view');
         }
     }
 
@@ -700,7 +896,104 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             return view('content/partials/gestion-categorias', $dataCat);
         } else {
-            return redirect()->to(base_url('/admin-section'));
+            // Si no es AJAX, mostrar la vista completa del admin enfocada en categorías
+            // Cargar datos básicos de las otras secciones
+            $gamesPage = 1;
+            $gamesPerPage = 20;
+            $juegos = $this->juegosModel
+                ->select('game_id, title, price, special_price, special_price_active, release_date, card_image_url, logo_url, is_active')
+                ->orderBy('title', 'ASC')
+                ->paginate($gamesPerPage, 'games', $gamesPage);
+            $gamesTotal = $this->juegosModel->countAll();
+            $gamesTotalPages = ceil($gamesTotal / $gamesPerPage);
+
+            $categoriasForGames = $this->categoriaModel->findAll();
+
+            $userPage = 1;
+            $userPerPage = 10;
+            $usuarios = $this->usuariosModel
+                ->select('user_id, user_img, email, nickname, created_at, last_login, is_active')
+                ->orderBy('user_id', 'ASC')
+                ->paginate($userPerPage, 'users', $userPage);
+            $userTotal = $this->usuariosModel->countAll();
+            $userTotalPages = ceil($userTotal / $userPerPage);
+
+            $ventasPage = 1;
+            $ventasPerPage = 10;
+            $compras = $this->comprasModel
+                ->orderBy('compra_id', 'DESC')
+                ->paginate($ventasPerPage, 'ventas', $ventasPage);
+            $ventasTotal = $this->comprasModel->countAll();
+            $ventasTotalPages = ceil($ventasTotal / $ventasPerPage);
+
+            $comprasData = [];
+            foreach ($compras as $compra) {
+                $usuario = $this->usuariosModel->find($compra['user_id']);
+                $detalles = $this->detalleModel->where('compra_id', $compra['compra_id'])->findAll();
+                $productos = [];
+                foreach ($detalles as $detalle) {
+                    $juego = $this->juegosModel->find($detalle['game_id']);
+                    if ($juego) {
+                        $productos[] = [
+                            'nombre' => $juego['title'],
+                            'precio_unitario' => $detalle['precio_unitario'],
+                            'imagen' => $juego['cover_image_url'] ?? '',
+                            'platform' => $juego['platform'] ?? '',
+                            'sku' => $juego['sku'] ?? '',
+                            'cantidad' => 1
+                        ];
+                    }
+                }
+                $comprasData[] = [
+                    'compra_id' => $compra['compra_id'],
+                    'fecha' => $compra['fecha'],
+                    'nombre_completo' => $compra['nombre_completo'],
+                    'email' => $compra['email'],
+                    'telefono' => $compra['telefono'],
+                    'user_id' => $compra['user_id'],
+                    'user_nickname' => $usuario['nickname'] ?? '',
+                    'user_email' => $usuario['email'] ?? '',
+                    'total' => $compra['total'],
+                    'metodo_pago' => $compra['metodo_pago'] ?? '',
+                    'productos' => $productos,
+                    'estado' => 'Completada',
+                ];
+            }
+
+            $completeData = [
+                // Juegos
+                'juegos' => $juegos,
+                'currentGamesPage' => $gamesPage,
+                'totalGamesPages' => $gamesTotalPages,
+                'currentGameFilter' => 'title',
+                'currentDirection' => 'asc',
+                'gamesPager' => $this->juegosModel->pager,
+                'categorias' => $categoriasForGames,
+                // Usuarios
+                'usuarios' => $usuarios,
+                'currentUserPage' => $userPage,
+                'totalUserPages' => $userTotalPages,
+                'userPager' => $this->usuariosModel->pager,
+                'currentUserFilter' => 'user_id',
+                'currentUserDirection' => 'asc',
+                // Categorias (datos completos)
+                'currentCatPage' => $dataCat['currentCatPage'],
+                'totalCatPages' => $dataCat['totalCatPages'],
+                'catPager' => $dataCat['catPager'],
+                'currentCatFilter' => $dataCat['currentCatFilter'],
+                'currentCatDirection' => $dataCat['currentCatDirection'],
+                // Ventas
+                'compras' => $comprasData,
+                'currentVentasPage' => $ventasPage,
+                'totalVentasPages' => $ventasTotalPages,
+            ];
+
+            // Agregar las categorías específicas después para evitar conflictos
+            $completeData['categorias'] = $dataCat['categorias'];
+
+            return view('../Views/plantillas/header_view')
+                . view('../Views/content/admin-section', $completeData)
+                . view('../Views/plantillas/footer_view');
         }
     }
 
@@ -803,8 +1096,68 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             return view('content/partials/gestion-ordenes', $data);
         } else {
-            // Si no es AJAX, redirige o muestra la vista completa
-            return redirect()->to(base_url('/admin-section'));
+            // Si no es AJAX, mostrar la vista completa del admin con datos de ventas
+            // Necesitamos cargar los datos de las otras secciones también
+            $gamesPage = 1;
+            $gamesPerPage = 20;
+            $juegos = $this->juegosModel
+                ->select('game_id, title, price, special_price, special_price_active, release_date, card_image_url, logo_url, is_active')
+                ->orderBy('title', 'ASC')
+                ->paginate($gamesPerPage, 'games', $gamesPage);
+            $gamesTotal = $this->juegosModel->countAll();
+            $gamesTotalPages = ceil($gamesTotal / $gamesPerPage);
+
+            $userPage = 1;
+            $userPerPage = 10;
+            $usuarios = $this->usuariosModel
+                ->select('user_id, user_img, email, nickname, created_at, last_login, is_active')
+                ->orderBy('user_id', 'ASC')
+                ->paginate($userPerPage, 'users', $userPage);
+            $userTotal = $this->usuariosModel->countAll();
+            $userTotalPages = ceil($userTotal / $userPerPage);
+
+            $catPage = 1;
+            $catPerPage = 20;
+            $categorias = $this->categoriaModel
+                ->select('categorias.category_id, categorias.name_cat, categorias.slug, COUNT(juego_categorias.game_id) as juegos_count')
+                ->join('juego_categorias', 'juego_categorias.category_id = categorias.category_id', 'left')
+                ->groupBy('categorias.category_id')
+                ->orderBy('category_id', 'ASC')
+                ->paginate($catPerPage, 'categories', $catPage);
+            $catTotal = $this->categoriaModel->countAll();
+            $catTotalPages = ceil($catTotal / $catPerPage);
+
+            $completeData = [
+                // Juegos
+                'juegos' => $juegos,
+                'currentGamesPage' => $gamesPage,
+                'totalGamesPages' => $gamesTotalPages,
+                'currentGameFilter' => 'title',
+                'currentDirection' => 'asc',
+                'gamesPager' => $this->juegosModel->pager,
+                // Usuarios
+                'usuarios' => $usuarios,
+                'currentUserPage' => $userPage,
+                'totalUserPages' => $userTotalPages,
+                'userPager' => $this->usuariosModel->pager,
+                'currentUserFilter' => 'user_id',
+                'currentUserDirection' => 'asc',
+                // Categorias
+                'categorias' => $categorias,
+                'currentCatPage' => $catPage,
+                'totalCatPages' => $catTotalPages,
+                'catPager' => $this->categoriaModel->pager,
+                'currentCatFilter' => 'category_id',
+                'currentCatDirection' => 'asc',
+                // Ventas
+                'compras' => $data['compras'],
+                'currentVentasPage' => $data['currentVentasPage'],
+                'totalVentasPages' => $data['totalVentasPages'],
+            ];
+
+            return view('../Views/plantillas/header_view')
+                . view('../Views/content/admin-section', $completeData)
+                . view('../Views/plantillas/footer_view');
         }
     }
 

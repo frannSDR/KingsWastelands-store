@@ -21,9 +21,7 @@ $routes->get('/comercializacion', 'Home::comercializacion');
 
 $routes->get('/contacto', 'Home::contacto');
 
-$routes->post('/consulta', 'Usuario::add_consulta');
-
-$routes->get('/error_contacto', 'Home::error_contacto');
+$routes->post('/consulta', 'User_controllers\Usuario::add_consulta');
 
 $routes->get('/terminos', 'Home::terminos');
 
@@ -60,6 +58,8 @@ $routes->get('/datos_usuario', 'User_controllers\UserProfile::datos_usuario');
 $routes->post('user-profile/actualizar-datos', 'User_controllers\UserProfile::actualizar_datos');
 
 $routes->post('usuario/procesar_nueva_contrasena', 'User_controllers\Usuario::procesar_nueva_contrasena');
+
+$routes->post('user-profile/subir-foto', 'User_controllers\UserProfile::user_subir_foto');
 
 $routes->post('/add-to-wishlist', 'User_controllers\UserProfile::add_to_wishlist');
 
